@@ -8,6 +8,8 @@
 
 #import "WalletVC.h"
 
+#import "LoginVC.h"
+
 @interface WalletVC ()<UINavigationControllerDelegate>
 
 @end
@@ -19,8 +21,20 @@
     // Do any additional setup after loading the view.
     self.navigationController.delegate = self;
     
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(100, 100, 50, 50);
+    btn.backgroundColor = [UIColor redColor];
+    [self.view addSubview:btn];
+    [btn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
     
     
+    
+}
+- (void)login {
+    [LoginVC OpenLogin:self callback:^(BOOL compliont) {
+        
+    }];
+
 }
 
 

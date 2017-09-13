@@ -28,5 +28,7 @@
 #import "JXTAlertManagerHeader.h"
 #import "ReactiveObjC.h"
 #import "UIImage+TintColor.h"
+#import "BXExtensions.h"
+#import "NSString+category.h"
 
 #endif /* PrefixHeader_pch */

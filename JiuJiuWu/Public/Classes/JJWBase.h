@@ -72,6 +72,7 @@ alpha:alphaValue]
 #define APP_INVITE_CODE [NSString stringWithFormat:@"http://yinzhifu.yongqingjt.com/index/member/register.html?invitationCodea=%@",[JJWLogin sharedMethod].loginData.member.invitation_codea]
 
 #define Segment_height 30
+#define STTR_ater_on @"请稍后..."
 
 typedef void (^ALertCompletion)(BOOL compliont);
 

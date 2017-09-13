@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _emptyView = self.emptyView;
-    //    self.view.backgroundColor = CommonBackgroudColor;
+    self.view.backgroundColor = [UIColor whiteColor];
     //兼容第三方键盘
     [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 0;
     self.navigationController.navigationBar.translucent = NO;
@@ -69,7 +69,7 @@
                             @"version":APP_VERSION,
                             @"token":STRISEMPTY(token) ? @"" : token,
                             @"udid":[JJWGlobal sharedMethod].uuid};
-    [JJWNetworkingTool PostWithUrl:Initialzation params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+    [JJWNetworkingTool PostWithUrl:@"123" params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [self hudclose];
         Version_App * data = [Version_App yy_modelWithDictionary:responseObject];
         [JJWGlobal sharedMethod].apipath = data.apipath;

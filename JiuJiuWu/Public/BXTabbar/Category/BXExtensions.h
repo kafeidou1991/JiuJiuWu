@@ -11,7 +11,6 @@
 
 #import "UIDevice+DeviceType.h"
 
-#import "UIView+IBExtension.h"
 #import "UIView+Runtime.h"
 #import "UIView+Extension.h"
 
