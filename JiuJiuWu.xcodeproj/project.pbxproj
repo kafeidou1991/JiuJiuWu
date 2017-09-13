@@ -94,9 +94,9 @@
 		B71306AF1F681FB200735673 /* JJWBaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306AE1F681FB200735673 /* JJWBaseTableVC.m */; };
 		B71306B61F68211200735673 /* JJWNetworkingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306B41F68211200735673 /* JJWNetworkingTool.m */; };
 		B71306B91F68213200735673 /* JJWCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306B81F68213200735673 /* JJWCache.m */; };
-		B71306D21F68259C00735673 /* ShareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306D11F68259C00735673 /* ShareVC.m */; };
-		B71306D51F6825B200735673 /* WalletVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306D41F6825B200735673 /* WalletVC.m */; };
-		B71306D81F6825C300735673 /* MeCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306D71F6825C300735673 /* MeCenterVC.m */; };
+		B984961C1F690C7A00C5A9C3 /* MeCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B98496131F690C7A00C5A9C3 /* MeCenterVC.m */; };
+		B984961D1F690C7A00C5A9C3 /* ShareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B98496171F690C7A00C5A9C3 /* ShareVC.m */; };
+		B984961E1F690C7A00C5A9C3 /* WalletVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B984961B1F690C7A00C5A9C3 /* WalletVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -286,12 +286,12 @@
 		B71306B41F68211200735673 /* JJWNetworkingTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJWNetworkingTool.m; sourceTree = "<group>"; };
 		B71306B71F68213200735673 /* JJWCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJWCache.h; sourceTree = "<group>"; };
 		B71306B81F68213200735673 /* JJWCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJWCache.m; sourceTree = "<group>"; };
-		B71306D01F68259C00735673 /* ShareVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareVC.h; sourceTree = "<group>"; };
-		B71306D11F68259C00735673 /* ShareVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareVC.m; sourceTree = "<group>"; };
-		B71306D31F6825B200735673 /* WalletVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletVC.h; sourceTree = "<group>"; };
-		B71306D41F6825B200735673 /* WalletVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletVC.m; sourceTree = "<group>"; };
-		B71306D61F6825C300735673 /* MeCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeCenterVC.h; sourceTree = "<group>"; };
-		B71306D71F6825C300735673 /* MeCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeCenterVC.m; sourceTree = "<group>"; };
+		B98496121F690C7A00C5A9C3 /* MeCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeCenterVC.h; sourceTree = "<group>"; };
+		B98496131F690C7A00C5A9C3 /* MeCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeCenterVC.m; sourceTree = "<group>"; };
+		B98496161F690C7A00C5A9C3 /* ShareVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareVC.h; sourceTree = "<group>"; };
+		B98496171F690C7A00C5A9C3 /* ShareVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareVC.m; sourceTree = "<group>"; };
+		B984961A1F690C7A00C5A9C3 /* WalletVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletVC.h; sourceTree = "<group>"; };
+		B984961B1F690C7A00C5A9C3 /* WalletVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletVC.m; sourceTree = "<group>"; };
 		E8214FDB1905BCC93FA83F14 /* Pods-JiuJiuWu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JiuJiuWu.release.xcconfig"; path = "Pods/Target Support Files/Pods-JiuJiuWu/Pods-JiuJiuWu.release.xcconfig"; sourceTree = "<group>"; };
 		F51654E51E1361EF404B237D /* libPods-JiuJiuWu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JiuJiuWu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -760,108 +760,106 @@
 		B71306BD1F68250300735673 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				B71306C11F68257700735673 /* MeCenter */,
+				B98496181F690C7A00C5A9C3 /* Wallet */,
+				B98496141F690C7A00C5A9C3 /* Share */,
+				B98496101F690C7A00C5A9C3 /* MeCenter */,
 			);
 			path = Main;
 			sourceTree = "<group>";
 		};
-		B71306C11F68257700735673 /* MeCenter */ = {
+		B98496101F690C7A00C5A9C3 /* MeCenter */ = {
 			isa = PBXGroup;
 			children = (
-				B71306C91F68257700735673 /* Wallet */,
-				B71306C51F68257700735673 /* Share */,
-				B71306C21F68257700735673 /* Controller */,
-				B71306C31F68257700735673 /* Model */,
-				B71306C41F68257700735673 /* View */,
+				B98496111F690C7A00C5A9C3 /* Controller */,
+				B98496241F69179000C5A9C3 /* View */,
+				B98496231F69179000C5A9C3 /* Model */,
 			);
 			path = MeCenter;
 			sourceTree = "<group>";
 		};
-		B71306C21F68257700735673 /* Controller */ = {
+		B98496111F690C7A00C5A9C3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B71306D61F6825C300735673 /* MeCenterVC.h */,
-				B71306D71F6825C300735673 /* MeCenterVC.m */,
+				B98496121F690C7A00C5A9C3 /* MeCenterVC.h */,
+				B98496131F690C7A00C5A9C3 /* MeCenterVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		B71306C31F68257700735673 /* Model */ = {
+		B98496141F690C7A00C5A9C3 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				B98496151F690C7A00C5A9C3 /* Controller */,
+				B98496221F69178A00C5A9C3 /* View */,
+				B98496211F69178A00C5A9C3 /* Model */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
+		B98496151F690C7A00C5A9C3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B98496161F690C7A00C5A9C3 /* ShareVC.h */,
+				B98496171F690C7A00C5A9C3 /* ShareVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B98496181F690C7A00C5A9C3 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				B98496191F690C7A00C5A9C3 /* Controller */,
+				B98496201F69178200C5A9C3 /* View */,
+				B984961F1F69178200C5A9C3 /* Model */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		B98496191F690C7A00C5A9C3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B984961A1F690C7A00C5A9C3 /* WalletVC.h */,
+				B984961B1F690C7A00C5A9C3 /* WalletVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B984961F1F69178200C5A9C3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B71306C41F68257700735673 /* View */ = {
+		B98496201F69178200C5A9C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		B71306C51F68257700735673 /* Share */ = {
-			isa = PBXGroup;
-			children = (
-				B71306C61F68257700735673 /* Controller */,
-				B71306C71F68257700735673 /* Model */,
-				B71306C81F68257700735673 /* View */,
-			);
-			name = Share;
-			path = ../Share;
-			sourceTree = "<group>";
-		};
-		B71306C61F68257700735673 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				B71306D01F68259C00735673 /* ShareVC.h */,
-				B71306D11F68259C00735673 /* ShareVC.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		B71306C71F68257700735673 /* Model */ = {
+		B98496211F69178A00C5A9C3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B71306C81F68257700735673 /* View */ = {
+		B98496221F69178A00C5A9C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		B71306C91F68257700735673 /* Wallet */ = {
-			isa = PBXGroup;
-			children = (
-				B71306CA1F68257700735673 /* Controller */,
-				B71306CB1F68257700735673 /* Model */,
-				B71306CC1F68257700735673 /* View */,
-			);
-			name = Wallet;
-			path = ../Wallet;
-			sourceTree = "<group>";
-		};
-		B71306CA1F68257700735673 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				B71306D31F6825B200735673 /* WalletVC.h */,
-				B71306D41F6825B200735673 /* WalletVC.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		B71306CB1F68257700735673 /* Model */ = {
+		B98496231F69179000C5A9C3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B71306CC1F68257700735673 /* View */ = {
+		B98496241F69179000C5A9C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -1063,7 +1061,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B71306631F68199400735673 /* UIApplication+Extensions.m in Sources */,
-				B71306D81F6825C300735673 /* MeCenterVC.m in Sources */,
 				B71306611F68199400735673 /* NSDictionary+Extension.m in Sources */,
 				B71305C71F6818EC00735673 /* NSString+AppendSubBaseurl.m in Sources */,
 				B71305C81F6818EC00735673 /* NSString+category.m in Sources */,
@@ -1085,7 +1082,6 @@
 				B713066A1F68199500735673 /* UILabel+Extension.m in Sources */,
 				B71305D31F6818EC00735673 /* UIView+cate.m in Sources */,
 				B713067E1F68199500735673 /* JXTAlertController.m in Sources */,
-				B71306D51F6825B200735673 /* WalletVC.m in Sources */,
 				B71305D61F6818EC00735673 /* UIView+SizeAndRectAdditions.m in Sources */,
 				B71305D01F6818EC00735673 /* UIImage+load.m in Sources */,
 				B71306671F68199500735673 /* UIFont+Extension.m in Sources */,
@@ -1100,7 +1096,6 @@
 				B71306891F68199500735673 /* SUMessageTextView.m in Sources */,
 				B71305D51F6818EC00735673 /* UIView+RectCorner.m in Sources */,
 				B713056E1F6814E000735673 /* AppDelegate.m in Sources */,
-				B71306D21F68259C00735673 /* ShareVC.m in Sources */,
 				B71306A21F681A5700735673 /* JJWBase.m in Sources */,
 				B71306801F68199500735673 /* OpationButton.m in Sources */,
 				B71306751F68199500735673 /* BXTabBarBigButton.m in Sources */,
@@ -1117,12 +1112,14 @@
 				B71306831F68199500735673 /* SGQRCodeTool.m in Sources */,
 				B71305CD1F6818EC00735673 /* UIImage+ImageByScalingAndCorpping.m in Sources */,
 				B713056B1F6814E000735673 /* main.m in Sources */,
+				B984961D1F690C7A00C5A9C3 /* ShareVC.m in Sources */,
 				B71305CE1F6818EC00735673 /* UIImage+JKR_MessageImage.m in Sources */,
 				B71306761F68199500735673 /* BXTabBarButton.m in Sources */,
 				B71306A91F681B9E00735673 /* DateCenter.m in Sources */,
 				B71306961F68199500735673 /* XYAlertViewManager.m in Sources */,
 				B71305D21F6818EC00735673 /* UIView+CaptureSaveImage.m in Sources */,
 				B713068C1F68199500735673 /* WSDatePickerView.m in Sources */,
+				B984961C1F690C7A00C5A9C3 /* MeCenterVC.m in Sources */,
 				B71306861F68199500735673 /* SRInfiniteCarouselView.m in Sources */,
 				B71306601F68199400735673 /* NSDate+Extension.m in Sources */,
 				B71306971F68199500735673 /* XYLoadingView.m in Sources */,
@@ -1132,6 +1129,7 @@
 				B713067F1F68199500735673 /* JXTAlertView.m in Sources */,
 				B71306781F68199500735673 /* HZAreaPickerView.m in Sources */,
 				B71306811F68199500735673 /* MJPopupBackgroundView.m in Sources */,
+				B984961E1F690C7A00C5A9C3 /* WalletVC.m in Sources */,
 				B713065F1F68199400735673 /* Foundation+Log.m in Sources */,
 				B71306711F68199500735673 /* BXTabBarController.m in Sources */,
 				B71306881F68199500735673 /* SUEmptyView.m in Sources */,
