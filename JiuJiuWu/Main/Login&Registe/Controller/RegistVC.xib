@@ -106,7 +106,7 @@
                         <action selector="nextAction:" destination="-1" eventType="touchUpInside" id="eqA-NW-AlW"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u9-cR-ull">
+                <button opaque="NO" contentMode="center" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6u9-cR-ull">
                     <rect key="frame" x="76.5" y="611" width="21" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="21" id="9ky-mI-Le2"/>

@@ -24,8 +24,57 @@
                          @{@"title":@"交易密码:",@"placeholder":@"交易密码由6位数组组成"},
                          @{@"title":@"推荐手机:",@"placeholder":@"请输入推荐人的手机号码"}].mutableCopy;
     [self createTableView];
-    self.tableView.tableFooterView = [self _createFootView:@"注册" Block:^(UIButton * btn) {
+    WeakSelf
+    self.tableView.tableFooterView = [self _createFootView:@"注 册" Block:^(UIButton * btn) {
+        [weakSelf registAction];
+    }];
+}
+//注册
+- (void)registAction {
+    CustomTableViewCell * cell = (CustomTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    NSString * name = [cell.inputTextField.text trimmWhiteSpace];
+    if (STRISEMPTY(name)) {
+        [JJWBase alertMessage:@"请输入您的真实姓名！" cb:nil];
+        return;
+    }
+    cell = (CustomTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    NSString * password = [cell.inputTextField.text trimmWhiteSpace];
+    if (STRISEMPTY(password) || password.length < 6 || ![password checkPassword]) {
+        [JJWBase alertMessage:@"请输入正确的6-15位密码！" cb:nil];
+        return;
+    }
+
+    cell = (CustomTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    NSString * payPassword = [cell.inputTextField.text trimmWhiteSpace];
+    if (STRISEMPTY(payPassword) || payPassword.length != 6 || ![payPassword isPureInt]) {
+        [JJWBase alertMessage:@"请输入正确的交易密码！" cb:nil];
+        return;
+    }
+    cell = (CustomTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    NSString * inviteMobile = [cell.inputTextField.text trimmWhiteSpace];
+    if (STRISEMPTY(inviteMobile) || ![inviteMobile checkPhoneNumInput]) {
+        [JJWBase alertMessage:@"请输入正确的推荐人手机号！" cb:nil];
+        return;
+    }
+    if (STRISEMPTY(_mobile) || ![_mobile checkPhoneNumInput]) {
+        [JJWBase alertMessage:@"手机号错误，请退出重新注册！" cb:nil];
+        return;
+    }
+    
+    [self hudShow:self.view msg:STTR_ater_on];
+    NSDictionary * dict = @{@"username":name,@"mobile":_mobile,@"password":password,@"paypwd":payPassword,@"invite":inviteMobile};
+    WeakSelf
+    
+    [JJWNetworkingTool PostWithUrl:RegistUser params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+        [weakSelf hudclose];
+        [JJWBase alertMessage:@"注册成功！" cb:nil];
+        DloginData * data = [DloginData yy_modelWithDictionary:responseObject];
+        [[JJWLogin sharedMethod]saveLoginData:data];
+        [self.navigationController popToRootViewControllerAnimated:YES];
         
+    } failed:^(NSError *error, id chaceResponseObject) {
+        [weakSelf hudclose];
+        [JJWBase alertMessage:error.domain cb:nil];
     }];
 }
 
@@ -40,6 +89,7 @@
         cell = [[NSBundle mainBundle]loadNibNamed:@"CustomTableViewCell" owner:self options:nil].firstObject;
     }
     cell.inputTextField.keyboardType = (indexPath.row == 0) ? UIKeyboardTypeDefault : UIKeyboardTypePhonePad;
+    cell.inputTextField.tag = indexPath.row + 100;
     [cell updateRegistCell:self.dataSources[indexPath.row]];
     return cell;
 }
@@ -81,7 +131,20 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSString * beString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    NSLog(@"%@",beString);
+    if (textField.tag == 101) {
+        if (beString.length > 15) {
+            return NO;
+        }
+    }else if (textField.tag == 102) {
+        if (beString.length > 6) {
+            return NO;
+        }
+    }
+    else if (textField.tag == 103) {
+        if (beString.length > 11) {
+            return NO;
+        }
+    }
     return YES;
 }
 

@@ -40,6 +40,17 @@
     NSPredicate *mobileTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", Regex];
     return [mobileTest evaluateWithObject:self];
 }
+//判断密码是否包含非法字符
+- (BOOL)checkPassword {
+    NSRegularExpression *tNumRegularExpression = [NSRegularExpression regularExpressionWithPattern:@"[0-9]" options:NSRegularExpressionCaseInsensitive error:nil];
+    //符合数字条件的有几个字节
+    NSUInteger tNumMatchCount = [tNumRegularExpression numberOfMatchesInString:self options:NSMatchingReportProgress range:NSMakeRange(0, self.length)];
+    //英文字条件
+    NSRegularExpression *tLetterRegularExpression = [NSRegularExpression regularExpressionWithPattern:@"[A-Za-z]" options:NSRegularExpressionCaseInsensitive error:nil];
+    //符合英文字条件的有几个字节
+    NSUInteger tLetterMatchCount = [tLetterRegularExpression numberOfMatchesInString:self options:NSMatchingReportProgress range:NSMakeRange(0, self.length)];
+    return (tNumMatchCount + tLetterMatchCount) == self.length;
+}
 
 //判断输入的邮箱是否合法
 -(BOOL)validateEmail{

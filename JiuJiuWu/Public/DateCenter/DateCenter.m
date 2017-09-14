@@ -20,20 +20,6 @@
 
 @implementation DloginData
 
--(NSString *)description{
-    return [NSString stringWithFormat:@"%@-%@-%@",self.member.mobile,self.token,self.member.status];
-}
-
-@end
-
-@implementation UserData
-+ (NSDictionary *)modelCustomPropertyMapper {
-    return @{@"cmid" : @"id"};
-}
-
-@end
-
-@implementation ShopData
 @end
 
 @implementation Version_App

@@ -51,14 +51,16 @@
         return;
     }
     [self hudShow:self.view msg:STTR_ater_on];
-    NSDictionary * dict = @{@"mobile":@"123",@"smsType":@"1"};
+    NSDictionary * dict = @{@"mobile":account,@"password":seccort,@"push_id":@"123",@"unique_id":@"123"};
     WeakSelf
-    [JJWNetworkingTool PostWithUrl:RegistGetCode params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+    [JJWNetworkingTool PostWithUrl:UserLogin params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [weakSelf hudclose];
     } failed:^(NSError *error, id chaceResponseObject) {
         [weakSelf hudclose];
         [JJWBase alertMessage:error.domain cb:nil];
     }];
+    
+    
     
     
     
@@ -107,7 +109,7 @@
         }
     }
     if (textField.tag == 101) {
-        if (beString.length > 32) {
+        if (beString.length > 15) {
             return NO;
         }
     }

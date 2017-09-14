@@ -25,8 +25,15 @@ static NSString * const baseUrl = @"http://apisystem.cn/jiujiuwu/";
 #endif
 
 #pragma mark ---------------------- 参数字段、功能 ----------------------------
-//注册获取短信验证卡
+//注册获取短信验证卡check_mobile_validate_code
 #define RegistGetCode [baseUrl appendBaseUrl:@"user/send_mobile_validate_code"]
+//验证验证码
+#define CheckRegistCode [baseUrl appendBaseUrl:@"user/check_mobile_validate_code"]
+//注册账户
+#define RegistUser [baseUrl appendBaseUrl:@"user/reg"]
+//用户登录
+#define UserLogin [baseUrl appendBaseUrl:@"user/login"]
+
 
 
 

@@ -52,7 +52,7 @@
         return;
     }
     [self hudShow:self.view msg:STTR_ater_on];
-    NSDictionary * dict = @{@"mobile":@"1556520988"};//account
+    NSDictionary * dict = @{@"mobile":account};
     WeakSelf
     [JJWNetworkingTool PostWithUrl:RegistGetCode params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [weakSelf hudclose];
@@ -66,10 +66,10 @@
 }
 #pragma mark -下一步
 - (IBAction)nextAction:(UIButton *)sender {
-    RegistExtendVC * VC = [[RegistExtendVC alloc]init];
-    [self.navigationController pushViewController:VC animated:YES];
-    return;
-    
+    if (!self.protocolBtn.selected) {
+        [JJWBase alertMessage:@"请先选择同意协议！" cb:nil];
+        return;
+    }
     [self.view endEditing:YES];
     NSString * account = [self.mobileTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString * code = [self.codeTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -81,6 +81,21 @@
         [JJWBase alertMessage:@"请输入验证码！" cb:nil];
         return;
     }
+    //验证验证码
+    [self hudShow:self.view msg:STTR_ater_on];
+    NSDictionary * dict = @{@"mobile":account,@"code":code};
+    WeakSelf
+    [JJWNetworkingTool PostWithUrl:CheckRegistCode params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+        [weakSelf hudclose];
+        
+        RegistExtendVC * VC = [[RegistExtendVC alloc]init];
+        VC.mobile = account;
+        [self.navigationController pushViewController:VC animated:YES];
+        
+    } failed:^(NSError *error, id chaceResponseObject) {
+        [weakSelf hudclose];
+        [JJWBase alertMessage:error.domain cb:nil];
+    }];
 }
 #pragma mark -点击协议
 - (IBAction)protocolAction:(UIButton *)sender {

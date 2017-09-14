@@ -12,6 +12,7 @@
 - (BOOL)isPureInt;
 -(BOOL)checkPhoneNumInput;
 -(BOOL)validateEmail;
+- (BOOL)checkPassword;
 @end
 
 

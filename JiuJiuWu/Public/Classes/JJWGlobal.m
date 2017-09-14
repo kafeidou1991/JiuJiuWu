@@ -73,20 +73,17 @@
 }
 - (void) _setEmptyLoginData{
     _loginData = [[DloginData alloc]init];
-    _loginData.member = [[UserData alloc]init];
-    _loginData.token = @"";
-    _loginData.merchant = [[ShopData alloc]init];
 }
 
 - (void)removeLoingData{
     _isLogin = NO;
-    NSString * tempStr = self.loginData.member.mobile;
+    NSString * tempStr = self.loginData.mobile;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults removeObjectForKey:LOGIN_DATA_KEY];
     [userDefaults synchronize];
     [self _setEmptyLoginData];
     //重新登录用
-    self.loginData.member.mobile = tempStr;
+    self.loginData.mobile = tempStr;
 }
 
 

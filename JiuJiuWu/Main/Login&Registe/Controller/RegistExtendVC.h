@@ -9,5 +9,5 @@
 #import "JJWBaseTableVC.h"
 
 @interface RegistExtendVC : JJWBaseTableVC
-
+@property (nonatomic, copy) NSString * mobile; //注册手机号
 @end

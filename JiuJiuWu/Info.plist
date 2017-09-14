@@ -22,16 +22,6 @@
 	<string>1.0.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleLightContent</string>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -47,6 +37,16 @@
 	<string>请点击 “好” 以允许访问。</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>需要使用您的相册，为您提供更个性化的服务</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

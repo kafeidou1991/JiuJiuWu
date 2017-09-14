@@ -182,7 +182,7 @@
     }
     //失败
     if (status.integerValue != 1) {
-        NSString * error = [dic objectForKey:@"error"];
+        NSString * error = [dic objectForKey:@"msg"];
         if (error == nil) {
             return [NSError errorWithDomain:@"暂无错误数据" code:0 userInfo:dic];
         }
