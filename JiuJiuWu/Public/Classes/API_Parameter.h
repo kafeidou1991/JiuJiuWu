@@ -15,9 +15,9 @@
 #define environment 1
 
 #if environment
-static NSString * const baseUrl = @"http://apisystem.cn/jiujiuwu/";
+static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #else
-static NSString * const baseUrl = @"http://apisystem.cn/jiujiuwu/"; //101.201.117.15:8080
+static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #endif
 
 #else //发布环境
@@ -26,7 +26,7 @@ static NSString * const baseUrl = @"http://apisystem.cn/jiujiuwu/";
 
 #pragma mark ---------------------- 参数字段、功能 ----------------------------
 //注册获取短信验证卡
-#define RegistGetCode [baseUrl appendBaseUrl:@"users/send_mobile_validate_code"]
+#define RegistGetCode [baseUrl appendBaseUrl:@"user/send_mobile_validate_code"]
 
 
 

@@ -116,21 +116,18 @@
 + (void)PostWithUrl:(NSString *)url params:(NSDictionary *)params isReadCache:(BOOL)isReadCache success:(responseSuccess)success failed:(ResponseFailed)failed{
     NSMutableDictionary * tempDict = params.mutableCopy;
     //增加Appid
-    
-    [tempDict setObject:APP_ID forKey:@"appid"];
-    if ([[tempDict allKeys]containsObject:@"token"]) {
-        //签名：md5串（uuid+token）
-        [tempDict setObject:[NSString md5Digest:[NSString stringWithFormat:@"%@%@",[JJWGlobal sharedMethod].uuid,[JJWLogin sharedMethod].loginData.token]] forKey:@"sign"];
-    }
-    
+//    [tempDict setObject:APP_ID forKey:@"appid"];
+//    if ([[tempDict allKeys]containsObject:@"token"]) {
+//        //签名：md5串（uuid+token）
+//        [tempDict setObject:[NSString md5Digest:[NSString stringWithFormat:@"%@%@",[JJWGlobal sharedMethod].uuid,[JJWLogin sharedMethod].loginData.token]] forKey:@"sign"];
+//    }
     [[JJWNetworkingTool sharedManager] POST:url parameters:tempDict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //        DLog(@"POST------%@\n参数%@\njson----------%@",url,params,[[YZFNetworkingTool sharedManager]DataTOjsonString:responseObject]);
         DLog(@"POST------%@\n参数%@\njson----------%@",url,tempDict,[[JJWNetworkingTool sharedManager]DataTOjsonString:responseObject]);
         NSError * error = [[JJWNetworkingTool sharedManager]checkIsSuccess:responseObject Url:url];
         if (error == nil) {
             if (success) {
                 //成功的话 返回data里面的内容
-                success(task,[responseObject objectForKey:@"data"] ? [responseObject objectForKey:@"data"] : nil);
+                success(task,[responseObject objectForKey:@"result"] ? [responseObject objectForKey:@"result"] : nil);
             }
             //请求成功,保存数据
             [JJWCache saveDataCache:responseObject forKey:url];
@@ -171,29 +168,6 @@
     }
     return jsonString;
 }
-//+ (void)postWithUrl:(NSString *)url params:(NSDictionary *)params isReadCache: (BOOL)isReadCache success:(responseSuccess)success failed:(responseFailed)failed {
-//    [[YZFNetworkingTool sharedManager] POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//
-//        if (success) {
-//            success(task,responseObject);
-//        }
-//        //请求成功,保存数据
-//        [YZFCache saveDataCache:responseObject forKey:url];
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        id cacheData= nil;
-//        //是否读取缓存
-//        if (isReadCache) {
-//            cacheData = [YZFCache readCache:url];
-//        }else {
-//            cacheData = nil;
-//        }
-//
-//        if (failed) {
-//            failed(task,error,cacheData);
-//        }
-//    }];
-//}
-
 //检查是否有是正确链接
 -(id) checkIsSuccess:(NSDictionary *)dic Url:(NSString *)url
 {
@@ -201,19 +175,19 @@
         NSString *str = [NSString stringWithFormat:@"%@ 返回数据为空！", url];
         return [NSError errorWithDomain:str code:0 userInfo:dic];
     }
-    NSNumber *success = [dic objectForKey:@"success"];
-    if (success == nil) {
+    NSNumber *status = [dic objectForKey:@"status"];
+    if (status == nil) {
         NSString *str = [NSString stringWithFormat:@"%@ 没有返回正常标识！", url];
         return [NSError errorWithDomain:str code:0 userInfo:dic];
     }
     //失败
-    if (success.integerValue == 0) {
-        NSDictionary * error = [dic objectForKey:@"error"];
+    if (status.integerValue != 1) {
+        NSString * error = [dic objectForKey:@"error"];
         if (error == nil) {
             return [NSError errorWithDomain:@"暂无错误数据" code:0 userInfo:dic];
         }
-        NSString *code = [[dic objectForKey:@"error"]objectForKey:@"code"];
-        NSString *str = [NSString stringWithFormat:@"%@", [error objectForKey:@"message"]];
+        NSString *code = [dic objectForKey:@"status"];
+        NSString *str = [NSString stringWithFormat:@"%@", [dic objectForKey:@"msg"]];
         return [NSError errorWithDomain:str code:code.integerValue userInfo:dic];
     }
     return nil;

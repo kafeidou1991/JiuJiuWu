@@ -52,7 +52,7 @@
         return;
     }
     [self hudShow:self.view msg:STTR_ater_on];
-    NSDictionary * dict = @{@"mobile":account};
+    NSDictionary * dict = @{@"mobile":@"1556520988"};//account
     WeakSelf
     [JJWNetworkingTool PostWithUrl:RegistGetCode params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [weakSelf hudclose];
