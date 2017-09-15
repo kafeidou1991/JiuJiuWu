@@ -21,14 +21,14 @@ static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #endif
 
 #else //发布环境
-static NSString * const baseUrl = @"http://apisystem.cn/jiujiuwu/";
+static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #endif
 
 #pragma mark ---------------------- 参数字段、功能 ----------------------------
-//注册获取短信验证卡check_mobile_validate_code
-#define RegistGetCode [baseUrl appendBaseUrl:@"user/send_mobile_validate_code"]
+//注册获取短信验证卡
+#define RegistGetCode [baseUrl appendBaseUrl:@"user/sendMobileValidateCode"]
 //验证验证码
-#define CheckRegistCode [baseUrl appendBaseUrl:@"user/check_mobile_validate_code"]
+#define CheckRegistCode [baseUrl appendBaseUrl:@"user/checkMobileValidateCode"]
 //注册账户
 #define RegistUser [baseUrl appendBaseUrl:@"user/reg"]
 //用户登录

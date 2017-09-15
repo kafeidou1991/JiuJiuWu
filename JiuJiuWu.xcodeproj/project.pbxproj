@@ -103,6 +103,11 @@
 		B98496381F694ACB00C5A9C3 /* RegistExtendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B98496371F694ACB00C5A9C3 /* RegistExtendVC.m */; };
 		B984963D1F694E2400C5A9C3 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B984963B1F694E2400C5A9C3 /* CustomTableViewCell.m */; };
 		B984963E1F694E2400C5A9C3 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B984963C1F694E2400C5A9C3 /* CustomTableViewCell.xib */; };
+		B9C0E1101F6BA61200F4D296 /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0E10F1F6BA61200F4D296 /* HomeHeaderView.m */; };
+		B9C0E1121F6BA61D00F4D296 /* HomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0E1111F6BA61D00F4D296 /* HomeHeaderView.xib */; };
+		B9C0E1151F6BB8B000F4D296 /* FeatureListView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0E1141F6BB8B000F4D296 /* FeatureListView.m */; };
+		B9C0E1191F6BBDC600F4D296 /* FeatureListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0E1171F6BBDC600F4D296 /* FeatureListCell.m */; };
+		B9C0E11A1F6BBDC600F4D296 /* FeatureListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0E1181F6BBDC600F4D296 /* FeatureListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -307,6 +312,14 @@
 		B984963A1F694E2400C5A9C3 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		B984963B1F694E2400C5A9C3 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		B984963C1F694E2400C5A9C3 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		B9C0E10E1F6BA61200F4D296 /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
+		B9C0E10F1F6BA61200F4D296 /* HomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
+		B9C0E1111F6BA61D00F4D296 /* HomeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeHeaderView.xib; sourceTree = "<group>"; };
+		B9C0E1131F6BB8B000F4D296 /* FeatureListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureListView.h; sourceTree = "<group>"; };
+		B9C0E1141F6BB8B000F4D296 /* FeatureListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureListView.m; sourceTree = "<group>"; };
+		B9C0E1161F6BBDC600F4D296 /* FeatureListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureListCell.h; sourceTree = "<group>"; };
+		B9C0E1171F6BBDC600F4D296 /* FeatureListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureListCell.m; sourceTree = "<group>"; };
+		B9C0E1181F6BBDC600F4D296 /* FeatureListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeatureListCell.xib; sourceTree = "<group>"; };
 		E8214FDB1905BCC93FA83F14 /* Pods-JiuJiuWu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JiuJiuWu.release.xcconfig"; path = "Pods/Target Support Files/Pods-JiuJiuWu/Pods-JiuJiuWu.release.xcconfig"; sourceTree = "<group>"; };
 		F51654E51E1361EF404B237D /* libPods-JiuJiuWu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JiuJiuWu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -849,6 +862,14 @@
 		B98496201F69178200C5A9C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B9C0E10E1F6BA61200F4D296 /* HomeHeaderView.h */,
+				B9C0E10F1F6BA61200F4D296 /* HomeHeaderView.m */,
+				B9C0E1111F6BA61D00F4D296 /* HomeHeaderView.xib */,
+				B9C0E1131F6BB8B000F4D296 /* FeatureListView.h */,
+				B9C0E1141F6BB8B000F4D296 /* FeatureListView.m */,
+				B9C0E1161F6BBDC600F4D296 /* FeatureListCell.h */,
+				B9C0E1171F6BBDC600F4D296 /* FeatureListCell.m */,
+				B9C0E1181F6BBDC600F4D296 /* FeatureListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1045,6 +1066,7 @@
 				B984963E1F694E2400C5A9C3 /* CustomTableViewCell.xib in Resources */,
 				B71306901F68199500735673 /* alertView_button_gray@2x.png in Resources */,
 				B98496301F69191A00C5A9C3 /* LoginVC.xib in Resources */,
+				B9C0E11A1F6BBDC600F4D296 /* FeatureListCell.xib in Resources */,
 				B713068F1F68199500735673 /* alertView_bg@2x.png in Resources */,
 				B71306791F68199500735673 /* HZAreaPickerView.xib in Resources */,
 				B98496351F69362800C5A9C3 /* RegistVC.xib in Resources */,
@@ -1052,6 +1074,7 @@
 				B71305761F6814E000735673 /* Assets.xcassets in Resources */,
 				B71306931F68199500735673 /* alertView_button_green_pressed@2x.png in Resources */,
 				B71306921F68199500735673 /* alertView_button_green@2x.png in Resources */,
+				B9C0E1121F6BA61D00F4D296 /* HomeHeaderView.xib in Resources */,
 				B71306911F68199500735673 /* alertView_button_gray_pressed@2x.png in Resources */,
 				B71306941F68199500735673 /* alertView_loading@2x.png in Resources */,
 				B713068D1F68199500735673 /* WSDatePickerView.xib in Resources */,
@@ -1142,6 +1165,7 @@
 				B71306701F68199500735673 /* BXNavigationController.m in Sources */,
 				B71306641F68199400735673 /* UIBarButtonItem+Extension.m in Sources */,
 				B984962F1F69191A00C5A9C3 /* LoginVC.m in Sources */,
+				B9C0E1151F6BB8B000F4D296 /* FeatureListView.m in Sources */,
 				B71306691F68199500735673 /* UIImage+ScreenShot.m in Sources */,
 				B71306651F68199400735673 /* UIButton+Extension.m in Sources */,
 				B71306A51F681AAE00735673 /* JJWGlobal.m in Sources */,
@@ -1159,6 +1183,7 @@
 				B71306871F68199500735673 /* SUAlarmMessage.m in Sources */,
 				B713066B1F68199500735673 /* UIScreen+Extension.m in Sources */,
 				B713067B1F68199500735673 /* CenterLabel.m in Sources */,
+				B9C0E1101F6BA61200F4D296 /* HomeHeaderView.m in Sources */,
 				B71306661F68199500735673 /* UIDevice+DeviceType.m in Sources */,
 				B71306891F68199500735673 /* SUMessageTextView.m in Sources */,
 				B98496341F69362800C5A9C3 /* RegistVC.m in Sources */,
@@ -1200,6 +1225,7 @@
 				B71306811F68199500735673 /* MJPopupBackgroundView.m in Sources */,
 				B984961E1F690C7A00C5A9C3 /* WalletVC.m in Sources */,
 				B713065F1F68199400735673 /* Foundation+Log.m in Sources */,
+				B9C0E1191F6BBDC600F4D296 /* FeatureListCell.m in Sources */,
 				B71306711F68199500735673 /* BXTabBarController.m in Sources */,
 				B71306881F68199500735673 /* SUEmptyView.m in Sources */,
 				B71306AF1F681FB200735673 /* JJWBaseTableVC.m in Sources */,

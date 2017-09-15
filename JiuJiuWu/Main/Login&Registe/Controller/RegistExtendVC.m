@@ -8,6 +8,7 @@
 
 #import "RegistExtendVC.h"
 #import "CustomTableViewCell.h"
+#import "LoginVC.h"
 
 @interface RegistExtendVC ()<UITextFieldDelegate>
 
@@ -43,7 +44,7 @@
         [JJWBase alertMessage:@"请输入正确的6-15位密码！" cb:nil];
         return;
     }
-
+    
     cell = (CustomTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
     NSString * payPassword = [cell.inputTextField.text trimmWhiteSpace];
     if (STRISEMPTY(payPassword) || payPassword.length != 6 || ![payPassword isPureInt]) {
@@ -70,8 +71,13 @@
         [JJWBase alertMessage:@"注册成功！" cb:nil];
         DloginData * data = [DloginData yy_modelWithDictionary:responseObject];
         [[JJWLogin sharedMethod]saveLoginData:data];
+        //注册成功之后跳转登录页面
         [self.navigationController popToRootViewControllerAnimated:YES];
-        
+        //        for (UIViewController * popVC in self.navigationController.viewControllers) {
+        //            if ([popVC isKindOfClass:[LoginVC class]]) {
+        //                [popVC dismissViewControllerAnimated:YES completion:nil];
+        //            }
+        //        }
     } failed:^(NSError *error, id chaceResponseObject) {
         [weakSelf hudclose];
         [JJWBase alertMessage:error.domain cb:nil];
@@ -91,6 +97,11 @@
     cell.inputTextField.keyboardType = (indexPath.row == 0) ? UIKeyboardTypeDefault : UIKeyboardTypePhonePad;
     cell.inputTextField.tag = indexPath.row + 100;
     [cell updateRegistCell:self.dataSources[indexPath.row]];
+    if (indexPath.row == 1 || indexPath.row == 2) {
+        cell.inputTextField.secureTextEntry =YES;
+    }else {
+        cell.inputTextField.secureTextEntry =NO;
+    }
     return cell;
 }
 

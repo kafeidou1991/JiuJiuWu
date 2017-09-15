@@ -24,7 +24,6 @@
 @end
 
 @implementation LoginVC
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.delegate = self;
@@ -32,6 +31,12 @@
     self.registBtn.layer.borderWidth = 1.f;
     self.topSpace.constant = IS_IPHONE5 ? 32.f : 64.f;
     
+}
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (!STRISEMPTY([JJWLogin sharedMethod].loginData.mobile)) {
+        self.mobileTextField.text = [JJWLogin sharedMethod].loginData.mobile;
+    }
 }
 #pragma mark - 登录
 - (IBAction)loginAction:(UIButton *)sender {
@@ -51,21 +56,21 @@
         return;
     }
     [self hudShow:self.view msg:STTR_ater_on];
-    NSDictionary * dict = @{@"mobile":account,@"password":seccort,@"push_id":@"123",@"unique_id":@"123"};
+    NSDictionary * dict = @{@"username":account,@"password":[NSString md5Digest:[NSString stringWithFormat:@"TPSHOP%@",seccort]].lowercaseString,@"push_id":@"",@"unique_id":[JJWGlobal sharedMethod].uuid};
     WeakSelf
     [JJWNetworkingTool PostWithUrl:UserLogin params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [weakSelf hudclose];
+        //登录成功
+        DloginData * data = [DloginData yy_modelWithDictionary:responseObject];
+        [[JJWLogin sharedMethod]saveLoginData:data];
+        [self backAction:nil];
+        if (self.loginCompletion) {
+            self.loginCompletion(YES);
+        }
     } failed:^(NSError *error, id chaceResponseObject) {
         [weakSelf hudclose];
         [JJWBase alertMessage:error.domain cb:nil];
     }];
-    
-    
-    
-    
-    
-    
-    
 }
 #pragma mark - 注册
 - (IBAction)registAction:(UIButton *)sender {

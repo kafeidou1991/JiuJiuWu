@@ -18,6 +18,7 @@
     self = [super init];
     if (self) {
         self.uuid = [OpenUDID value];
+        self.uuid = STRISEMPTY(self.uuid) ? @"" : self.uuid;
     }
     return self;
 }
