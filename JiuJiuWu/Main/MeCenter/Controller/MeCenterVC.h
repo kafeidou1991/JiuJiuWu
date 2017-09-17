@@ -6,8 +6,8 @@
 //  Copyright © 2017年 张竟巍. All rights reserved.
 //
 
-#import "JJWBaseTableVC.h"
+#import "JJWBaseVC.h"
 
-@interface MeCenterVC : JJWBaseTableVC
+@interface MeCenterVC : JJWBaseVC
 
 @end

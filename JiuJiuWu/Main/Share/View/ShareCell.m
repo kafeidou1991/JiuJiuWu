@@ -12,6 +12,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *centerImageV;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageHeight;
 
 @end
 
@@ -19,7 +21,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.layer.cornerRadius = 6.f;
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
@@ -31,7 +32,19 @@
 }
 
 -(void)updateCell:(NSDictionary *)dict {
-    self.centerImageV.image = [UIImage imageNamed:[dict objectForKey:@"image"]];
+    UIImage * image = [UIImage imageNamed:[dict objectForKey:@"image"]];
+    self.imageWidth.constant = image.size.width;
+    self.imageHeight.constant = image.size.height;
+    self.centerImageV.image = image;
+    self.titleLabel.text = [dict objectForKey:@"title"];
+}
+
+- (void)updateMeCenterCell:(NSDictionary *)dict {
+    self.centerImageV.contentMode = UIViewContentModeCenter;
+    UIImage * image = [UIImage imageNamed:[dict objectForKey:@"image"]];
+    self.imageWidth.constant = 50;
+    self.imageHeight.constant = 50;
+    self.centerImageV.image = image;
     self.titleLabel.text = [dict objectForKey:@"title"];
 }
 

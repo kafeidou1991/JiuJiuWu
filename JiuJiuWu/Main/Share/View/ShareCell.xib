@@ -22,8 +22,8 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="55L-Wj-RBi">
                         <rect key="frame" x="18" y="15" width="50" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="I3u-nl-PH2"/>
                             <constraint firstAttribute="width" constant="50" id="Qat-h9-NqP"/>
+                            <constraint firstAttribute="height" constant="50" id="m1J-hI-e9F"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享图片二维码链接" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dip-Kn-3X8">
@@ -49,6 +49,8 @@
             </constraints>
             <connections>
                 <outlet property="centerImageV" destination="55L-Wj-RBi" id="zV5-1Q-nIN"/>
+                <outlet property="imageHeight" destination="m1J-hI-e9F" id="BkT-7U-QLV"/>
+                <outlet property="imageWidth" destination="Qat-h9-NqP" id="k2w-U9-qGg"/>
                 <outlet property="titleLabel" destination="Dip-Kn-3X8" id="Mmz-xA-sQQ"/>
             </connections>
             <point key="canvasLocation" x="-241" y="-142"/>

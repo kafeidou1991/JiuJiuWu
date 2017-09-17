@@ -11,11 +11,15 @@
 #import "MeCenterHeadView.h"
 #import "ShareCell.h"
 
-static CGFloat const headerHeight = 220; //顶部视图高度
-static CGFloat const space =11.f;
+static CGFloat const headerHeight = 200.f; //顶部视图高度
+static CGFloat const space = 11.f;
+static CGFloat const rowHeight = 50.f;
 
-@interface MeCenterVC ()<UINavigationControllerDelegate>
-
+@interface MeCenterVC ()<UINavigationControllerDelegate,UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic, strong) UIScrollView * backView;
+@property (nonatomic, strong) UITableView * firstTableView;
+@property (nonatomic, strong) UITableView * secondTableView;
+@property (nonatomic, strong) NSArray * dataSources;
 @property (nonatomic, strong) MeCenterHeadView * headerView;
 
 @end
@@ -26,33 +30,40 @@ static CGFloat const space =11.f;
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationController.delegate = self;
-    
-    
     self.view.backgroundColor = CommonBackgroudColor;
-
-    self.dataSources = @[@{@"image":@"share_0",@"title":@"分享二维码图片链接"},
-                         @{@"image":@"share_1",@"title":@"朋友圈中央文案库"},
-                         @{@"image":@"share_2",@"title":@"分享注册邀请链接"},
-                         @{@"image":@"share_3",@"title":@"分享注册邀请链接"},
-                         @{@"image":@"share_4",@"title":@"面对面开通账户"},
-                         @{@"image":@"share_5",@"title":@"视频教程"}].mutableCopy;
-    [self createTableView];
-    self.tableView.frame = CGRectMake(0, 0, SCreenWidth, SCreenHegiht - NAVIGATION_BAR_HEIGHT - kTabBarHeight);
-    [self.tableView setContentInset:UIEdgeInsetsMake(headerHeight, 0, 0, 0)];
-    self.tableView.backgroundColor = [UIColor clearColor];
-    [self.tableView addSubview:self.headerView];
-    self.tableView.clipsToBounds = YES;
+    self.dataSources = @[@[@{@"image":@"center_icon_0",@"title":@"密码管理"},
+                           @{@"image":@"center_icon_1",@"title":@"更换手机号"},
+                           @{@"image":@"center_icon_2",@"title":@"结算卡管理"},
+                           @{@"image":@"center_icon_3",@"title":@"用户协议"},
+                           @{@"image":@"center_icon_4",@"title":@"费率信息"}],
+                         
+                         @[@{@"image":@"center_icon_5",@"title":@"操作手册"},
+                           @{@"image":@"center_icon_6",@"title":@"版本号"},
+                           @{@"image":@"center_icon_7",@"title":@"关于我们"},
+                           @{@"image":@"center_icon_8",@"title":@"客服热线"}]];
     
+    [self addSubViews];
+    
+}
+- (void)addSubViews {
+    //最下面是scrollerView  上面加上 2个tableview（禁止滚动） 跟 headerView 是为了解决 显示头部背景突出的部分
+    [self.view addSubview:self.backView];
+    [self.backView setContentInset:UIEdgeInsetsMake(headerHeight, 0, 0, 0)];
+    [self.backView addSubview:self.headerView];
+    [self.backView addSubview:self.firstTableView];
+    [self.backView addSubview:self.secondTableView];
+    [self.backView setContentSize:CGSizeMake(SCreenWidth, self.secondTableView.bottom + 10)];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataSources.count;
+    return ((NSArray *)self.dataSources[tableView.tag - 100]).count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50.f;
+    return rowHeight;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0.f;
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DLog(@"%ld",tableView.tag);
+    NSLog(@"123");
 }
 
 
@@ -62,7 +73,7 @@ static CGFloat const space =11.f;
     if (!cell) {
         cell = [[NSBundle mainBundle]loadNibNamed:@"ShareCell" owner:self options:nil].firstObject;
     }
-    [cell updateCell:self.dataSources[indexPath.row]];
+    [cell updateMeCenterCell:((NSArray *)self.dataSources[tableView.tag - 100])[indexPath.row]];
     return cell;
 }
 #pragma mark - scrollerDelegate
@@ -76,6 +87,60 @@ static CGFloat const space =11.f;
     }
 }
 #pragma mark - initUI
+-(UIScrollView *)backView {
+    if (!_backView) {
+        UIScrollView * backScrollerView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,0, SCreenWidth, SCreenHegiht - kTabBarHeight)];
+        backScrollerView.delegate = self;
+        backScrollerView.showsVerticalScrollIndicator = NO;
+        backScrollerView.showsHorizontalScrollIndicator = NO;
+        backScrollerView.backgroundColor = CommonBackgroudColor;
+        _backView = backScrollerView;
+    }
+    return _backView;
+}
+-(UITableView *)firstTableView {
+    if (!_firstTableView) {
+        _firstTableView = [[UITableView alloc]initWithFrame:CGRectMake(space, _headerView.bottom - 40, SCreenWidth - 2 * space, rowHeight * ((NSArray *)self.dataSources[0]).count) style:UITableViewStylePlain];
+        _firstTableView.tag = 100;
+        _firstTableView.delegate = self;
+        _firstTableView.dataSource = self;
+        _firstTableView.separatorColor = CellLine_Color;
+        _firstTableView.backgroundColor = [UIColor clearColor];
+        _firstTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _firstTableView.tableFooterView = [UIView new];
+        _firstTableView.layer.cornerRadius = 5.f;
+        _firstTableView.scrollEnabled = NO;
+        if ([_firstTableView respondsToSelector:@selector(setSeparatorInset:)]) {
+            [_firstTableView setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+        }
+        if ([_firstTableView respondsToSelector:@selector(setLayoutMargins:)]) {
+            [_firstTableView setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 10)];
+        }
+    }
+    return _firstTableView;
+}
+-(UITableView *)secondTableView {
+    if (!_secondTableView) {
+        _secondTableView = [[UITableView alloc]initWithFrame:CGRectMake(space, _firstTableView.bottom + space, SCreenWidth - 2 * space, rowHeight * ((NSArray *)self.dataSources[1]).count) style:UITableViewStylePlain];
+        _secondTableView.tag = 101;
+        _secondTableView.delegate = self;
+        _secondTableView.dataSource = self;
+        _secondTableView.separatorColor = CellLine_Color;
+        _secondTableView.backgroundColor = [UIColor clearColor];
+        _secondTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _secondTableView.tableFooterView = [UIView new];
+        _secondTableView.layer.cornerRadius = 5.f;
+        _secondTableView.scrollEnabled = NO;
+        if ([_secondTableView respondsToSelector:@selector(setSeparatorInset:)]) {
+            [_secondTableView setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+        }
+        if ([_secondTableView respondsToSelector:@selector(setLayoutMargins:)]) {
+            [_secondTableView setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 10)];
+        }
+    }
+    return _secondTableView;
+}
+
 -(MeCenterHeadView *)headerView {
     if (!_headerView) {
         _headerView = [[NSBundle mainBundle]loadNibNamed:@"MeCenterHeadView" owner:self options:nil].firstObject;
@@ -91,23 +156,6 @@ static CGFloat const space =11.f;
     [navigationController setNavigationBarHidden:isHome animated:YES];
 };
 
-
-
-
-
-
-
-//    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    btn.frame = CGRectMake(100, 100, 50, 50);
-//    btn.backgroundColor = [UIColor redColor];
-//    [self.view addSubview:btn];
-//    [btn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
-//- (void)login {
-//    [LoginVC OpenLogin:self callback:^(BOOL compliont) {
-//
-//    }];
-//
-//}
 
 
 

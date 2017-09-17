@@ -12,4 +12,6 @@
 
 - (void)updateCell:(NSDictionary *)dict;
 
+- (void)updateMeCenterCell:(NSDictionary *)dict;
+
 @end

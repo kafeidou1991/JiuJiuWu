@@ -58,6 +58,7 @@ static CGFloat const space =10.f;
     ShareCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (!cell) {
         cell = [[NSBundle mainBundle]loadNibNamed:@"ShareCell" owner:self options:nil].firstObject;
+        cell.layer.cornerRadius = 6.f;
     }
     [cell updateCell:self.dataSources[indexPath.section]];
     return cell;
