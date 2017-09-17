@@ -129,6 +129,7 @@
 - (void)addOneChildVC:(UIViewController *)childVc title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName {
     // 设置标题
     childVc.tabBarItem.title = title;
+    childVc.title = title;
     
     // 设置图标
     childVc.tabBarItem.image = [UIImage imageNamed:imageName];

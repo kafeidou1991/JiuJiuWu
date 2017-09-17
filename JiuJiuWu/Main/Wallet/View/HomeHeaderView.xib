@@ -57,13 +57,13 @@
                 <constraint firstItem="jUa-oA-P7D" firstAttribute="height" secondItem="JeH-fc-Mtw" secondAttribute="height" id="7Ea-t4-16k"/>
                 <constraint firstAttribute="trailing" secondItem="jUa-oA-P7D" secondAttribute="trailing" constant="40" id="EZu-Np-yPj"/>
                 <constraint firstItem="N3a-n8-NUr" firstAttribute="width" secondItem="JeH-fc-Mtw" secondAttribute="width" id="FN9-Tb-As7"/>
-                <constraint firstItem="Nvn-5N-fEW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="Iut-zq-bFg"/>
                 <constraint firstItem="JeH-fc-Mtw" firstAttribute="top" secondItem="Nvn-5N-fEW" secondAttribute="bottom" id="LTE-Ou-Be9"/>
                 <constraint firstItem="JeH-fc-Mtw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MDf-Kh-wqU"/>
                 <constraint firstItem="N3a-n8-NUr" firstAttribute="top" secondItem="JeH-fc-Mtw" secondAttribute="top" id="X0p-Jr-UTj"/>
                 <constraint firstItem="N3a-n8-NUr" firstAttribute="height" secondItem="JeH-fc-Mtw" secondAttribute="height" id="Za5-Pa-Mkm"/>
                 <constraint firstItem="jUa-oA-P7D" firstAttribute="width" secondItem="JeH-fc-Mtw" secondAttribute="width" id="dVu-vL-u2v"/>
                 <constraint firstItem="N3a-n8-NUr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="ptb-K6-hjw"/>
+                <constraint firstAttribute="bottom" secondItem="Nvn-5N-fEW" secondAttribute="bottom" constant="156" id="rZO-H6-UKl"/>
                 <constraint firstItem="jUa-oA-P7D" firstAttribute="top" secondItem="JeH-fc-Mtw" secondAttribute="top" id="zdh-Jl-bWa"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

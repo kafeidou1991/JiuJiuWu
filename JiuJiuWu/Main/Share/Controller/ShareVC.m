@@ -7,6 +7,9 @@
 //
 
 #import "ShareVC.h"
+#import "ShareCell.h"
+
+static CGFloat const space =10.f;
 
 @interface ShareVC ()
 
@@ -16,22 +19,52 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.rightBarButtonItem = [JJWBase createCustomBarButtonItem:self action:@selector(list) title:@"转账记录"];
+    self.view.backgroundColor = CommonBackgroudColor;
+    self.dataSources = @[@{@"image":@"share_0",@"title":@"分享二维码图片链接"},
+                        @{@"image":@"share_1",@"title":@"朋友圈中央文案库"},
+                        @{@"image":@"share_2",@"title":@"分享注册邀请链接"},
+                        @{@"image":@"share_3",@"title":@"分享注册邀请链接"},
+                        @{@"image":@"share_4",@"title":@"面对面开通账户"},
+                        @{@"image":@"share_5",@"title":@"视频教程"}].mutableCopy;
+    [self createGroupTableView];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.frame = CGRectMake(space, 0, SCreenWidth - 2 * space, SCreenHegiht - NAVIGATION_BAR_HEIGHT - kTabBarHeight);
+    self.tableView.backgroundColor = [UIColor clearColor];
+}
+- (void)list {
+    
+}
+#pragma mark - tableiView
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.dataSources.count;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80.f;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10.f;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.000001;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(ShareCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString * cellId = @"cellId";
+    ShareCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!cell) {
+        cell = [[NSBundle mainBundle]loadNibNamed:@"ShareCell" owner:self options:nil].firstObject;
+    }
+    [cell updateCell:self.dataSources[indexPath.section]];
+    return cell;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
+
 
 @end

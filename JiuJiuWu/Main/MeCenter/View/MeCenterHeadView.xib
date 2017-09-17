@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeCenterHeadView"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="2cu-ki-HLz">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="久久吾" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKv-a7-BjK">
+                    <rect key="frame" x="137.5" y="20" width="100" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="WmW-3Z-zXU"/>
+                        <constraint firstAttribute="height" constant="44" id="uAy-fh-6pT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbq-gJ-8KS">
+                    <rect key="frame" x="40" y="64" width="70" height="93"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-65" minY="70" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="5" minY="-25" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="当面付" image="wallet_face_to_face"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLH-Wu-3gw">
+                    <rect key="frame" x="152.5" y="64" width="70" height="93"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="QNE-0K-JcO"/>
+                        <constraint firstAttribute="height" constant="93" id="RnG-H7-YNY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-60" minY="70" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="5" minY="-25" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="快捷支付" image="wallet_quick_pay"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zkc-bD-Seo">
+                    <rect key="frame" x="265" y="64" width="70" height="93"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-65" minY="70" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="5" minY="-25" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="扫码付" image="wallet_scan_pay"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.16862745100000001" green="0.73725490199999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="VKv-a7-BjK" firstAttribute="centerX" secondItem="2cu-ki-HLz" secondAttribute="centerX" id="47t-MU-a4C"/>
+                <constraint firstItem="Zkc-bD-Seo" firstAttribute="height" secondItem="dLH-Wu-3gw" secondAttribute="height" id="4Bw-Hb-g5c"/>
+                <constraint firstItem="dLH-Wu-3gw" firstAttribute="centerX" secondItem="2cu-ki-HLz" secondAttribute="centerX" id="7s1-qm-Z5K"/>
+                <constraint firstAttribute="trailing" secondItem="Zkc-bD-Seo" secondAttribute="trailing" constant="40" id="LGt-EO-cwH"/>
+                <constraint firstItem="Zkc-bD-Seo" firstAttribute="top" secondItem="dLH-Wu-3gw" secondAttribute="top" id="MWb-5S-5iC"/>
+                <constraint firstAttribute="bottom" secondItem="VKv-a7-BjK" secondAttribute="bottom" constant="156" id="PJ5-8Q-WeM"/>
+                <constraint firstItem="gbq-gJ-8KS" firstAttribute="top" secondItem="dLH-Wu-3gw" secondAttribute="top" id="T24-hM-2xS"/>
+                <constraint firstItem="Zkc-bD-Seo" firstAttribute="width" secondItem="dLH-Wu-3gw" secondAttribute="width" id="USy-bG-0vQ"/>
+                <constraint firstItem="gbq-gJ-8KS" firstAttribute="leading" secondItem="2cu-ki-HLz" secondAttribute="leading" constant="40" id="YRn-Wg-IgY"/>
+                <constraint firstItem="gbq-gJ-8KS" firstAttribute="width" secondItem="dLH-Wu-3gw" secondAttribute="width" id="lDC-DD-6Uv"/>
+                <constraint firstItem="dLH-Wu-3gw" firstAttribute="top" secondItem="VKv-a7-BjK" secondAttribute="bottom" id="nVU-ew-ufB"/>
+                <constraint firstItem="gbq-gJ-8KS" firstAttribute="height" secondItem="dLH-Wu-3gw" secondAttribute="height" id="uSc-MF-5Fc"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-537" y="-436"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="wallet_face_to_face" width="60" height="60"/>
+        <image name="wallet_quick_pay" width="60" height="60"/>
+        <image name="wallet_scan_pay" width="60" height="60"/>
+    </resources>
+</document>

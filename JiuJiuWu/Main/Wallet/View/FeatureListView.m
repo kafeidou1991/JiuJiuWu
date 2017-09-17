@@ -30,10 +30,32 @@ static NSString * cellId = @"cellId";
         self.dataSource = dataArray;
         self.backgroundColor = [UIColor clearColor];
         [self addSubview:self.collectionView];
+        [self addSepLions];
     }
     return self;
 }
-
+//增加分割线
+- (void)addSepLions {
+    if (self.dataSource.count <= 3) {
+        return;
+    }
+    CGFloat marge = 15.f;
+    //横线
+    for (NSInteger i = 1; i < 3 ; i++) {
+        UIView * view = [UIView new];
+        view.frame = CGRectMake(marge, itemHeight * i + 0.5 * (i - 1) , self.collectionView.width -  2 * marge, .5f);
+        view.backgroundColor = CellLine_Color;
+        [self.collectionView addSubview:view];
+    }
+    //竖线
+    for (NSInteger i = 1; i < 3 ; i++) {
+        UIView * view = [UIView new];
+        view.frame = CGRectMake((self.frame.size.width - 2 * leftSpace)/3 * i + 0.5 * (i -1), marge , .5f, (self.collectionView.height - 2 * leftSpace));
+        view.backgroundColor = CellLine_Color;
+        [self.collectionView addSubview:view];
+    }
+    
+}
 #pragma mark - collectionDelegate
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -59,7 +81,7 @@ static NSString * cellId = @"cellId";
         UICollectionViewFlowLayout * cfl = [[UICollectionViewFlowLayout alloc]init];
         cfl.minimumLineSpacing = 0;
         cfl.minimumInteritemSpacing = 0;
-        cfl.itemSize = CGSizeMake((self.frame.size.width - 2 * leftSpace)/3, self.frame.size.height / ((self.dataSource.count % 3 == 0)?self.dataSource.count/3 : self.dataSource.count/3 + 1));
+        cfl.itemSize = CGSizeMake((self.frame.size.width - 2 * leftSpace)/3, itemHeight);
         _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(leftSpace, 0, self.frame.size.width - 2 * leftSpace, self.frame.size.height) collectionViewLayout:cfl];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;

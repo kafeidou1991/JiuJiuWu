@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "信用卡还款-icon.png",
+      "filename" : "我的费率-icon.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "信用卡还款-icon@2x.png",
+      "filename" : "我的费率-icon@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "信用卡还款-icon@3x.png",
+      "filename" : "我的费率-icon@3x.png",
       "scale" : "3x"
     }
   ],

@@ -93,6 +93,10 @@
 		B71306AF1F681FB200735673 /* JJWBaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306AE1F681FB200735673 /* JJWBaseTableVC.m */; };
 		B71306B61F68211200735673 /* JJWNetworkingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306B41F68211200735673 /* JJWNetworkingTool.m */; };
 		B71306B91F68213200735673 /* JJWCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306B81F68213200735673 /* JJWCache.m */; };
+		B790F8AA1F6E989D0078BD7F /* ShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B790F8A81F6E989D0078BD7F /* ShareCell.m */; };
+		B790F8AB1F6E989D0078BD7F /* ShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B790F8A91F6E989D0078BD7F /* ShareCell.xib */; };
+		B790F8B11F6EA8A50078BD7F /* MeCenterHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B790F8B01F6EA8A50078BD7F /* MeCenterHeadView.m */; };
+		B790F8B31F6EA8B90078BD7F /* MeCenterHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B790F8B21F6EA8B90078BD7F /* MeCenterHeadView.xib */; };
 		B984961C1F690C7A00C5A9C3 /* MeCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B98496131F690C7A00C5A9C3 /* MeCenterVC.m */; };
 		B984961D1F690C7A00C5A9C3 /* ShareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B98496171F690C7A00C5A9C3 /* ShareVC.m */; };
 		B984961E1F690C7A00C5A9C3 /* WalletVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B984961B1F690C7A00C5A9C3 /* WalletVC.m */; };
@@ -295,6 +299,12 @@
 		B71306B41F68211200735673 /* JJWNetworkingTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJWNetworkingTool.m; sourceTree = "<group>"; };
 		B71306B71F68213200735673 /* JJWCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJWCache.h; sourceTree = "<group>"; };
 		B71306B81F68213200735673 /* JJWCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJWCache.m; sourceTree = "<group>"; };
+		B790F8A71F6E989D0078BD7F /* ShareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareCell.h; sourceTree = "<group>"; };
+		B790F8A81F6E989D0078BD7F /* ShareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareCell.m; sourceTree = "<group>"; };
+		B790F8A91F6E989D0078BD7F /* ShareCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareCell.xib; sourceTree = "<group>"; };
+		B790F8AF1F6EA8A50078BD7F /* MeCenterHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeCenterHeadView.h; sourceTree = "<group>"; };
+		B790F8B01F6EA8A50078BD7F /* MeCenterHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeCenterHeadView.m; sourceTree = "<group>"; };
+		B790F8B21F6EA8B90078BD7F /* MeCenterHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeCenterHeadView.xib; sourceTree = "<group>"; };
 		B98496121F690C7A00C5A9C3 /* MeCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeCenterVC.h; sourceTree = "<group>"; };
 		B98496131F690C7A00C5A9C3 /* MeCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeCenterVC.m; sourceTree = "<group>"; };
 		B98496161F690C7A00C5A9C3 /* ShareVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareVC.h; sourceTree = "<group>"; };
@@ -884,6 +894,9 @@
 		B98496221F69178A00C5A9C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B790F8A71F6E989D0078BD7F /* ShareCell.h */,
+				B790F8A81F6E989D0078BD7F /* ShareCell.m */,
+				B790F8A91F6E989D0078BD7F /* ShareCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -898,6 +911,9 @@
 		B98496241F69179000C5A9C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B790F8AF1F6EA8A50078BD7F /* MeCenterHeadView.h */,
+				B790F8B01F6EA8A50078BD7F /* MeCenterHeadView.m */,
+				B790F8B21F6EA8B90078BD7F /* MeCenterHeadView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1064,6 +1080,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B984963E1F694E2400C5A9C3 /* CustomTableViewCell.xib in Resources */,
+				B790F8AB1F6E989D0078BD7F /* ShareCell.xib in Resources */,
 				B71306901F68199500735673 /* alertView_button_gray@2x.png in Resources */,
 				B98496301F69191A00C5A9C3 /* LoginVC.xib in Resources */,
 				B9C0E11A1F6BBDC600F4D296 /* FeatureListCell.xib in Resources */,
@@ -1072,6 +1089,7 @@
 				B98496351F69362800C5A9C3 /* RegistVC.xib in Resources */,
 				B71306771F68199500735673 /* city.plist in Resources */,
 				B71305761F6814E000735673 /* Assets.xcassets in Resources */,
+				B790F8B31F6EA8B90078BD7F /* MeCenterHeadView.xib in Resources */,
 				B71306931F68199500735673 /* alertView_button_green_pressed@2x.png in Resources */,
 				B71306921F68199500735673 /* alertView_button_green@2x.png in Resources */,
 				B9C0E1121F6BA61D00F4D296 /* HomeHeaderView.xib in Resources */,
@@ -1167,6 +1185,7 @@
 				B984962F1F69191A00C5A9C3 /* LoginVC.m in Sources */,
 				B9C0E1151F6BB8B000F4D296 /* FeatureListView.m in Sources */,
 				B71306691F68199500735673 /* UIImage+ScreenShot.m in Sources */,
+				B790F8B11F6EA8A50078BD7F /* MeCenterHeadView.m in Sources */,
 				B71306651F68199400735673 /* UIButton+Extension.m in Sources */,
 				B71306A51F681AAE00735673 /* JJWGlobal.m in Sources */,
 				B71306851F68199500735673 /* SRImageManager.m in Sources */,
@@ -1211,6 +1230,7 @@
 				B71306A91F681B9E00735673 /* DateCenter.m in Sources */,
 				B71306961F68199500735673 /* XYAlertViewManager.m in Sources */,
 				B71305D21F6818EC00735673 /* UIView+CaptureSaveImage.m in Sources */,
+				B790F8AA1F6E989D0078BD7F /* ShareCell.m in Sources */,
 				B713068C1F68199500735673 /* WSDatePickerView.m in Sources */,
 				B984961C1F690C7A00C5A9C3 /* MeCenterVC.m in Sources */,
 				B98496381F694ACB00C5A9C3 /* RegistExtendVC.m in Sources */,
