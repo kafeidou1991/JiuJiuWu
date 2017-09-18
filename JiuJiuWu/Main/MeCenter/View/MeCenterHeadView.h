@@ -10,4 +10,8 @@
 
 @interface MeCenterHeadView : UIView
 
+- (void)updateHeadInfo;
+
+@property (nonatomic, copy) dispatch_block_t clickHeadIconBlock;
+
 @end

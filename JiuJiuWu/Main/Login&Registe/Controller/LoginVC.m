@@ -67,6 +67,7 @@
         if (self.loginCompletion) {
             self.loginCompletion(YES);
         }
+        [[NSNotificationCenter defaultCenter]postNotificationName:kLoginSuccess object:nil];
     } failed:^(NSError *error, id chaceResponseObject) {
         [weakSelf hudclose];
         [JJWBase alertMessage:error.domain cb:nil];

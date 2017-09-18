@@ -19,6 +19,7 @@
 #import "JJWBase.h"
 #import "JJWGlobal.h"
 #import "API_Parameter.h"
+#import "DefineString.h"
 #import "UIView+RectCorner.h"
 #import "UIImageView+WebCache.h"
 #import "JJWNetworkingTool.h"

@@ -12,7 +12,7 @@
 
 static CGFloat const headerHeight = 220; //顶部视图高度
 
-@interface WalletVC ()<UINavigationControllerDelegate,UIScrollViewDelegate>
+@interface WalletVC ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView * backView;
 @property (nonatomic, strong) HomeHeaderView * headerView;
@@ -26,7 +26,7 @@ static CGFloat const headerHeight = 220; //顶部视图高度
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationController.delegate = self;
+//    self.navigationController.delegate = self;
     self.navigationItem.leftBarButtonItem = nil;
     [self addSubViews];
     
@@ -98,22 +98,6 @@ static CGFloat const headerHeight = 220; //顶部视图高度
     }
     return _bannerImageView;
 }
-
-
-
-
-
-//设置导航栏隐藏
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    BOOL isHome = [viewController isKindOfClass:[self class]];
-    [navigationController setNavigationBarHidden:isHome animated:YES];
-};
-
-
-
-
-
-
 
 
 

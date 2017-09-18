@@ -112,6 +112,9 @@
 		B9C0E1151F6BB8B000F4D296 /* FeatureListView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0E1141F6BB8B000F4D296 /* FeatureListView.m */; };
 		B9C0E1191F6BBDC600F4D296 /* FeatureListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0E1171F6BBDC600F4D296 /* FeatureListCell.m */; };
 		B9C0E11A1F6BBDC600F4D296 /* FeatureListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0E1181F6BBDC600F4D296 /* FeatureListCell.xib */; };
+		B9E83A231F6FA92C003BD7E2 /* ManageCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E83A221F6FA92C003BD7E2 /* ManageCardVC.m */; };
+		B9E83A2C1F6FB8E1003BD7E2 /* ManageCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E83A2A1F6FB8E1003BD7E2 /* ManageCardCell.m */; };
+		B9E83A2D1F6FB8E1003BD7E2 /* ManageCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E83A2B1F6FB8E1003BD7E2 /* ManageCardCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -322,6 +325,7 @@
 		B984963A1F694E2400C5A9C3 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		B984963B1F694E2400C5A9C3 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		B984963C1F694E2400C5A9C3 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		B9A443D31F6F79F40050A08C /* DefineString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineString.h; sourceTree = "<group>"; };
 		B9C0E10E1F6BA61200F4D296 /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
 		B9C0E10F1F6BA61200F4D296 /* HomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
 		B9C0E1111F6BA61D00F4D296 /* HomeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeHeaderView.xib; sourceTree = "<group>"; };
@@ -330,6 +334,11 @@
 		B9C0E1161F6BBDC600F4D296 /* FeatureListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureListCell.h; sourceTree = "<group>"; };
 		B9C0E1171F6BBDC600F4D296 /* FeatureListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureListCell.m; sourceTree = "<group>"; };
 		B9C0E1181F6BBDC600F4D296 /* FeatureListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeatureListCell.xib; sourceTree = "<group>"; };
+		B9E83A211F6FA92C003BD7E2 /* ManageCardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageCardVC.h; sourceTree = "<group>"; };
+		B9E83A221F6FA92C003BD7E2 /* ManageCardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageCardVC.m; sourceTree = "<group>"; };
+		B9E83A291F6FB8E1003BD7E2 /* ManageCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageCardCell.h; sourceTree = "<group>"; };
+		B9E83A2A1F6FB8E1003BD7E2 /* ManageCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageCardCell.m; sourceTree = "<group>"; };
+		B9E83A2B1F6FB8E1003BD7E2 /* ManageCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageCardCell.xib; sourceTree = "<group>"; };
 		E8214FDB1905BCC93FA83F14 /* Pods-JiuJiuWu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JiuJiuWu.release.xcconfig"; path = "Pods/Target Support Files/Pods-JiuJiuWu/Pods-JiuJiuWu.release.xcconfig"; sourceTree = "<group>"; };
 		F51654E51E1361EF404B237D /* libPods-JiuJiuWu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JiuJiuWu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -611,6 +620,7 @@
 			isa = PBXGroup;
 			children = (
 				B71306101F68199400735673 /* API_Parameter.h */,
+				B9A443D31F6F79F40050A08C /* DefineString.h */,
 				B71306A01F681A5700735673 /* JJWBase.h */,
 				B71306A11F681A5700735673 /* JJWBase.m */,
 				B71306A31F681AAE00735673 /* JJWGlobal.h */,
@@ -820,6 +830,8 @@
 			children = (
 				B98496121F690C7A00C5A9C3 /* MeCenterVC.h */,
 				B98496131F690C7A00C5A9C3 /* MeCenterVC.m */,
+				B9E83A211F6FA92C003BD7E2 /* ManageCardVC.h */,
+				B9E83A221F6FA92C003BD7E2 /* ManageCardVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -914,6 +926,9 @@
 				B790F8AF1F6EA8A50078BD7F /* MeCenterHeadView.h */,
 				B790F8B01F6EA8A50078BD7F /* MeCenterHeadView.m */,
 				B790F8B21F6EA8B90078BD7F /* MeCenterHeadView.xib */,
+				B9E83A291F6FB8E1003BD7E2 /* ManageCardCell.h */,
+				B9E83A2A1F6FB8E1003BD7E2 /* ManageCardCell.m */,
+				B9E83A2B1F6FB8E1003BD7E2 /* ManageCardCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1081,6 +1096,7 @@
 			files = (
 				B984963E1F694E2400C5A9C3 /* CustomTableViewCell.xib in Resources */,
 				B790F8AB1F6E989D0078BD7F /* ShareCell.xib in Resources */,
+				B9E83A2D1F6FB8E1003BD7E2 /* ManageCardCell.xib in Resources */,
 				B71306901F68199500735673 /* alertView_button_gray@2x.png in Resources */,
 				B98496301F69191A00C5A9C3 /* LoginVC.xib in Resources */,
 				B9C0E11A1F6BBDC600F4D296 /* FeatureListCell.xib in Resources */,
@@ -1173,6 +1189,7 @@
 				B71305C71F6818EC00735673 /* NSString+AppendSubBaseurl.m in Sources */,
 				B71305C81F6818EC00735673 /* NSString+category.m in Sources */,
 				B71305D41F6818EC00735673 /* UIView+DashesLion.m in Sources */,
+				B9E83A231F6FA92C003BD7E2 /* ManageCardVC.m in Sources */,
 				B71306AC1F681DC400735673 /* JJWBaseVC.m in Sources */,
 				B71305C61F6818EC00735673 /* NSDate+Category.m in Sources */,
 				B71306621F68199400735673 /* NSString+BXExtension.m in Sources */,
@@ -1238,6 +1255,7 @@
 				B71306601F68199400735673 /* NSDate+Extension.m in Sources */,
 				B71306971F68199500735673 /* XYLoadingView.m in Sources */,
 				B71306821F68199500735673 /* UIViewController+MJPopupViewController.m in Sources */,
+				B9E83A2C1F6FB8E1003BD7E2 /* ManageCardCell.m in Sources */,
 				B713068A1F68199500735673 /* NSDate+Extension.m in Sources */,
 				B71306721F68199500735673 /* MXNavigationBarManager.m in Sources */,
 				B713067F1F68199500735673 /* JXTAlertView.m in Sources */,

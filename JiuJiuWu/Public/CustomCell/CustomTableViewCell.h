@@ -11,8 +11,12 @@
 @interface CustomTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightSpace;
 
 //注册第二步cell
 - (void)updateRegistCell:(NSDictionary *)dict;
+
+//绑定银行卡
+- (void)updateBindCardCell:(NSDictionary *)dict;
 
 @end

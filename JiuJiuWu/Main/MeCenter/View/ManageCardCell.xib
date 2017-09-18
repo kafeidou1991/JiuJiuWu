@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="300" id="KGk-i7-Jjw" customClass="ManageCardCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="299.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请拍摄如下照片用于认证" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qge-gS-CpV">
+                        <rect key="frame" x="11" y="0.0" width="298" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="LD1-jf-ArV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbf-2J-XBv">
+                        <rect key="frame" x="11" y="40" width="92.5" height="67.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Pbf-2J-XBv" secondAttribute="height" multiplier="115:84" id="gqJ-yv-NPD"/>
+                        </constraints>
+                        <state key="normal" image="manageBank_0"/>
+                        <state key="selected" image="manageBank_0"/>
+                        <state key="highlighted" image="manageBank_0"/>
+                        <connections>
+                            <action selector="cameraAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bKD-86-UC6"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtW-f5-Bix">
+                        <rect key="frame" x="216" y="40" width="93" height="67.5"/>
+                        <state key="normal" image="manageBank_2"/>
+                        <state key="selected" image="manageBank_2"/>
+                        <state key="highlighted" image="manageBank_2"/>
+                        <connections>
+                            <action selector="cameraAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wzn-n0-qCc"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMe-l3-DQ7">
+                        <rect key="frame" x="11" y="107.5" width="93" height="67.5"/>
+                        <string key="text">身份证+银行卡
+（正面）</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uof-mt-njh">
+                        <rect key="frame" x="114" y="107.5" width="92.5" height="68"/>
+                        <string key="text">身份证+银行卡
+（反面）</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhF-NX-cWa">
+                        <rect key="frame" x="215.5" y="107.5" width="93.5" height="67.5"/>
+                        <string key="text">手持身份证+银行卡
+（正面）</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXE-Ls-ktQ">
+                        <rect key="frame" x="11" y="175" width="298" height="125"/>
+                        <string key="text">1.必须上传身份证和银行卡的正反面
+
+2.手持证件照片需拍摄到持有人的五官
+
+3.不能佩戴眼镜拍照，拍照时请勿遮挡脸部</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inu-GI-Ci5">
+                        <rect key="frame" x="113.5" y="40" width="92.5" height="68"/>
+                        <state key="normal" image="manageBank_1"/>
+                        <state key="selected" image="manageBank_1"/>
+                        <state key="highlighted" image="manageBank_1"/>
+                        <connections>
+                            <action selector="cameraAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4iu-Y9-38q"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="uof-mt-njh" firstAttribute="width" secondItem="inu-GI-Ci5" secondAttribute="width" id="3FV-4l-gg6"/>
+                    <constraint firstItem="qXE-Ls-ktQ" firstAttribute="trailing" secondItem="DhF-NX-cWa" secondAttribute="trailing" id="3NV-Na-3vJ"/>
+                    <constraint firstItem="SMe-l3-DQ7" firstAttribute="width" secondItem="Pbf-2J-XBv" secondAttribute="width" id="56M-jS-ePB"/>
+                    <constraint firstItem="uof-mt-njh" firstAttribute="height" secondItem="inu-GI-Ci5" secondAttribute="height" id="5Nb-sl-LTq"/>
+                    <constraint firstItem="inu-GI-Ci5" firstAttribute="width" secondItem="inu-GI-Ci5" secondAttribute="height" multiplier="115:84" id="9SR-5i-vR9"/>
+                    <constraint firstItem="DhF-NX-cWa" firstAttribute="height" secondItem="jtW-f5-Bix" secondAttribute="height" id="9X3-Vn-ODh"/>
+                    <constraint firstItem="jtW-f5-Bix" firstAttribute="width" secondItem="jtW-f5-Bix" secondAttribute="height" multiplier="115:84" id="Aa9-9G-BC2"/>
+                    <constraint firstItem="SMe-l3-DQ7" firstAttribute="top" secondItem="Pbf-2J-XBv" secondAttribute="bottom" id="Ae2-ff-uv0"/>
+                    <constraint firstItem="SMe-l3-DQ7" firstAttribute="height" secondItem="Pbf-2J-XBv" secondAttribute="height" id="Dfz-hG-IMc"/>
+                    <constraint firstItem="Pbf-2J-XBv" firstAttribute="width" secondItem="inu-GI-Ci5" secondAttribute="width" id="FVV-W2-mtZ"/>
+                    <constraint firstItem="DhF-NX-cWa" firstAttribute="top" secondItem="uof-mt-njh" secondAttribute="top" id="G9H-El-Ru9"/>
+                    <constraint firstItem="inu-GI-Ci5" firstAttribute="width" secondItem="jtW-f5-Bix" secondAttribute="width" id="JZE-gZ-d59"/>
+                    <constraint firstItem="uof-mt-njh" firstAttribute="leading" secondItem="inu-GI-Ci5" secondAttribute="leading" id="U3G-L2-dAM"/>
+                    <constraint firstItem="inu-GI-Ci5" firstAttribute="top" secondItem="Pbf-2J-XBv" secondAttribute="top" id="Z5A-Ka-KU5"/>
+                    <constraint firstItem="jtW-f5-Bix" firstAttribute="trailing" secondItem="qge-gS-CpV" secondAttribute="trailing" id="b08-Kv-qFc"/>
+                    <constraint firstItem="jtW-f5-Bix" firstAttribute="top" secondItem="inu-GI-Ci5" secondAttribute="top" id="baW-Dx-egH"/>
+                    <constraint firstItem="qXE-Ls-ktQ" firstAttribute="leading" secondItem="SMe-l3-DQ7" secondAttribute="leading" id="ero-wP-3Al"/>
+                    <constraint firstItem="SMe-l3-DQ7" firstAttribute="leading" secondItem="Pbf-2J-XBv" secondAttribute="leading" id="eyZ-qv-fjx"/>
+                    <constraint firstItem="inu-GI-Ci5" firstAttribute="leading" secondItem="Pbf-2J-XBv" secondAttribute="trailing" constant="10" id="g9m-fg-8xS"/>
+                    <constraint firstItem="Pbf-2J-XBv" firstAttribute="top" secondItem="qge-gS-CpV" secondAttribute="bottom" id="itE-JD-YjV"/>
+                    <constraint firstItem="DhF-NX-cWa" firstAttribute="width" secondItem="jtW-f5-Bix" secondAttribute="width" id="jkE-kH-Rki"/>
+                    <constraint firstItem="jtW-f5-Bix" firstAttribute="leading" secondItem="inu-GI-Ci5" secondAttribute="trailing" constant="10" id="mXh-NL-vAE"/>
+                    <constraint firstItem="qXE-Ls-ktQ" firstAttribute="top" secondItem="SMe-l3-DQ7" secondAttribute="bottom" id="nXt-Pf-F3R"/>
+                    <constraint firstItem="DhF-NX-cWa" firstAttribute="trailing" secondItem="jtW-f5-Bix" secondAttribute="trailing" id="oDg-eM-HCB"/>
+                    <constraint firstItem="Pbf-2J-XBv" firstAttribute="leading" secondItem="qge-gS-CpV" secondAttribute="leading" id="q86-h3-dxj"/>
+                    <constraint firstItem="uof-mt-njh" firstAttribute="top" secondItem="SMe-l3-DQ7" secondAttribute="top" id="qMh-yx-PKt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="qXE-Ls-ktQ" secondAttribute="bottom" id="qjr-zC-Y5s"/>
+                <constraint firstItem="qge-gS-CpV" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" id="uWP-2a-3zV"/>
+                <constraint firstAttribute="trailing" secondItem="qge-gS-CpV" secondAttribute="trailing" constant="11" id="w3I-mi-kVn"/>
+                <constraint firstItem="qge-gS-CpV" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="11" id="wWC-zd-rLy"/>
+            </constraints>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="manageBank_0" width="115" height="84"/>
+        <image name="manageBank_1" width="115" height="84"/>
+        <image name="manageBank_2" width="115" height="84"/>
+    </resources>
+</document>

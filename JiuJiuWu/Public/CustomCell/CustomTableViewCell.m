@@ -25,6 +25,17 @@
     self.inputTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:dict[@"placeholder"] attributes:@{NSForegroundColorAttributeName :UIColorRGB(82, 82, 82),NSFontAttributeName :[UIFont systemFontOfSize:14]}];
 }
 
+- (void)updateBindCardCell:(NSDictionary *)dict {
+    self.inputTextField.textAlignment = NSTextAlignmentRight;
+    if (self.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
+        self.rightSpace.constant = 30.f;
+    }else {
+        self.rightSpace.constant = 15.f;
+    }
+    self.titleLabel.text = dict[@"title"];
+    self.inputTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:dict[@"placeholder"] attributes:@{NSForegroundColorAttributeName :UIColorRGB(51, 51, 51),NSFontAttributeName :[UIFont systemFontOfSize:14]}];
+}
+
 
 
 

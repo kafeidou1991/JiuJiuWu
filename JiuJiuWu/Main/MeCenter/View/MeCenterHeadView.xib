@@ -9,9 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeCenterHeadView"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clipsSubviews="YES" contentMode="scaleToFill" id="2cu-ki-HLz">
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="2cu-ki-HLz" customClass="MeCenterHeadView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -59,29 +59,61 @@
                         <constraint firstAttribute="width" constant="50" id="jpv-LJ-Imc"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mo-t2-phr">
+                    <rect key="frame" x="325" y="79" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="5RR-NL-TuC"/>
+                        <constraint firstAttribute="height" constant="50" id="LZF-R1-dnG"/>
+                    </constraints>
+                    <state key="normal" image="center_right_arrow"/>
+                    <state key="selected" image="center_right_arrow"/>
+                    <state key="highlighted" image="center_right_arrow"/>
+                    <connections>
+                        <action selector="userInfoAction:" destination="2cu-ki-HLz" eventType="touchUpInside" id="XeP-fG-MER"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gki-Vm-dOq">
+                    <rect key="frame" x="11" y="79" width="50" height="50"/>
+                    <connections>
+                        <action selector="headIconAction:" destination="2cu-ki-HLz" eventType="touchUpInside" id="GdR-2U-Vs1"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.16862745100000001" green="0.73725490199999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="7mo-t2-phr" firstAttribute="centerY" secondItem="0E3-CV-DAu" secondAttribute="centerY" id="21a-tU-JAR"/>
                 <constraint firstItem="Qai-LN-leZ" firstAttribute="top" secondItem="0E3-CV-DAu" secondAttribute="top" id="45s-KL-swg"/>
                 <constraint firstItem="VKv-a7-BjK" firstAttribute="centerX" secondItem="2cu-ki-HLz" secondAttribute="centerX" id="47t-MU-a4C"/>
                 <constraint firstItem="Gvu-Oj-43r" firstAttribute="leading" secondItem="0E3-CV-DAu" secondAttribute="trailing" constant="11" id="7E4-i8-7JX"/>
+                <constraint firstItem="gki-Vm-dOq" firstAttribute="width" secondItem="0E3-CV-DAu" secondAttribute="width" id="GOX-vI-nTQ"/>
                 <constraint firstItem="Gvu-Oj-43r" firstAttribute="bottom" secondItem="0E3-CV-DAu" secondAttribute="bottom" id="Ix0-if-2Pt"/>
                 <constraint firstItem="7Qs-7B-9dP" firstAttribute="centerY" secondItem="Gvu-Oj-43r" secondAttribute="centerY" id="LHh-MA-iuy"/>
                 <constraint firstAttribute="trailing" secondItem="Qai-LN-leZ" secondAttribute="trailing" constant="10" id="QaH-fQ-i2m"/>
+                <constraint firstAttribute="trailing" secondItem="7mo-t2-phr" secondAttribute="trailing" id="Sgv-g4-NSB"/>
+                <constraint firstItem="gki-Vm-dOq" firstAttribute="centerY" secondItem="0E3-CV-DAu" secondAttribute="centerY" id="X2W-8I-htA"/>
                 <constraint firstItem="Qai-LN-leZ" firstAttribute="leading" secondItem="0E3-CV-DAu" secondAttribute="trailing" constant="11" id="Ykj-mP-Y8z"/>
                 <constraint firstItem="0E3-CV-DAu" firstAttribute="top" secondItem="VKv-a7-BjK" secondAttribute="bottom" constant="15" id="b06-qd-V9h"/>
                 <constraint firstAttribute="bottom" secondItem="VKv-a7-BjK" secondAttribute="bottom" constant="136" id="ncJ-PR-cvP"/>
+                <constraint firstItem="gki-Vm-dOq" firstAttribute="centerX" secondItem="0E3-CV-DAu" secondAttribute="centerX" id="nd9-p9-rkz"/>
                 <constraint firstItem="0E3-CV-DAu" firstAttribute="leading" secondItem="2cu-ki-HLz" secondAttribute="leading" constant="11" id="oga-ss-xcH"/>
                 <constraint firstItem="7Qs-7B-9dP" firstAttribute="leading" secondItem="Gvu-Oj-43r" secondAttribute="trailing" constant="5" id="rZw-ne-fpt"/>
+                <constraint firstItem="gki-Vm-dOq" firstAttribute="height" secondItem="0E3-CV-DAu" secondAttribute="height" id="v7S-SH-Pfb"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-537.5" y="-436"/>
+            <connections>
+                <outlet property="iconImageView" destination="0E3-CV-DAu" id="wdU-qq-dBf"/>
+                <outlet property="mobileLabel" destination="Qai-LN-leZ" id="Cwo-dV-xc3"/>
+                <outlet property="nameLabel" destination="Gvu-Oj-43r" id="vqc-ff-h2Q"/>
+                <outlet property="roleImageV" destination="7Qs-7B-9dP" id="X0I-Ch-bEX"/>
+            </connections>
+            <point key="canvasLocation" x="-625.5" y="-740"/>
         </view>
     </objects>
     <resources>
+        <image name="center_right_arrow" width="8" height="14"/>
         <image name="userIcon_default" width="50" height="50"/>
         <image name="user_roler" width="50" height="16"/>
     </resources>

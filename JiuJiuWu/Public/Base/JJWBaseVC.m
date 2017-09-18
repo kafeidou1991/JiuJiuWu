@@ -9,6 +9,8 @@
 #import "JJWBaseVC.h"
 #import "UIImage+Extension.h"
 #import "MBProgressHUD.h"
+#import "BXNavigationController.h"
+
 //#import "LoginViewController.h"
 
 @interface JJWBaseVC () {
@@ -42,7 +44,6 @@
     [self performSelector:@selector(afterProFun) withObject:nil afterDelay:0.3];
     
 }
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

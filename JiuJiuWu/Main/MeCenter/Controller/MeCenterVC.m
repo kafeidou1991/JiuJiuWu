@@ -10,12 +10,13 @@
 #import "LoginVC.h"
 #import "MeCenterHeadView.h"
 #import "ShareCell.h"
+#import "ManageCardVC.h"
 
 static CGFloat const headerHeight = 200.f; //顶部视图高度
 static CGFloat const space = 11.f;
 static CGFloat const rowHeight = 50.f;
 
-@interface MeCenterVC ()<UINavigationControllerDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface MeCenterVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UIScrollView * backView;
 @property (nonatomic, strong) UITableView * firstTableView;
 @property (nonatomic, strong) UITableView * secondTableView;
@@ -29,7 +30,7 @@ static CGFloat const rowHeight = 50.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = nil;
-    self.navigationController.delegate = self;
+//    self.navigationController.delegate = self;
     self.view.backgroundColor = CommonBackgroudColor;
     self.dataSources = @[@[@{@"image":@"center_icon_0",@"title":@"密码管理"},
                            @{@"image":@"center_icon_1",@"title":@"更换手机号"},
@@ -43,7 +44,12 @@ static CGFloat const rowHeight = 50.f;
                            @{@"image":@"center_icon_8",@"title":@"客服热线"}]];
     
     [self addSubViews];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kLoginSuccess object:nil];
     
+}
+//登录成功
+- (void)loginSuccess {
+    [self.headerView updateHeadInfo];
 }
 - (void)addSubViews {
     //最下面是scrollerView  上面加上 2个tableview（禁止滚动） 跟 headerView 是为了解决 显示头部背景突出的部分
@@ -53,6 +59,15 @@ static CGFloat const rowHeight = 50.f;
     [self.backView addSubview:self.firstTableView];
     [self.backView addSubview:self.secondTableView];
     [self.backView setContentSize:CGSizeMake(SCreenWidth, self.secondTableView.bottom + 10)];
+    
+    //刷新登录数据
+    [self.headerView updateHeadInfo];
+    WeakSelf
+    self.headerView.clickHeadIconBlock = ^{
+        if (![JJWLogin sharedMethod].isLogin) {
+            [LoginVC OpenLogin:weakSelf callback:nil];
+        }
+    };
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -62,8 +77,20 @@ static CGFloat const rowHeight = 50.f;
     return rowHeight;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DLog(@"%ld",tableView.tag);
-    NSLog(@"123");
+    if (tableView.tag == 100) {
+        if (indexPath.row == 0) {
+            
+        }else if (indexPath.row == 1){
+            
+        }else if (indexPath.row == 2){
+            ManageCardVC * VC = [[ManageCardVC alloc]init];
+            [self.navigationController pushViewController:VC animated:YES];
+        }else if (indexPath.row == 3){
+            
+        }
+    }else {
+        
+    }
 }
 
 
@@ -143,18 +170,15 @@ static CGFloat const rowHeight = 50.f;
 
 -(MeCenterHeadView *)headerView {
     if (!_headerView) {
-        _headerView = [[NSBundle mainBundle]loadNibNamed:@"MeCenterHeadView" owner:self options:nil].firstObject;
+        _headerView = [[NSBundle mainBundle]loadNibNamed:@"MeCenterHeadView" owner:nil options:nil].firstObject;
         _headerView.frame = CGRectMake(0,-headerHeight, SCreenWidth, headerHeight);
     }
     return _headerView;
 }
 
-
-//设置导航栏隐藏
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    BOOL isHome = [viewController isKindOfClass:[self class]];
-    [navigationController setNavigationBarHidden:isHome animated:YES];
-};
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 
 
 
