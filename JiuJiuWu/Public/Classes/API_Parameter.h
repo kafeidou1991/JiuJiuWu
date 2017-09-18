@@ -33,6 +33,8 @@ static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #define RegistUser [baseUrl appendBaseUrl:@"user/reg"]
 //用户登录
 #define UserLogin [baseUrl appendBaseUrl:@"user/login"]
+//用户登录
+#define UpdateBankInfo [baseUrl appendBaseUrl:@"user/updateUserBankInfo"]
 
 
 

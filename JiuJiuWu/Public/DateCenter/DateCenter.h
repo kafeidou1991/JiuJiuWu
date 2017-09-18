@@ -91,7 +91,12 @@
 @property (nonatomic, copy)NSString * accountType;//对私"3" 对公 @"2",
 @end
 
+@interface BankItem : DateCenter
 
+@property (nonatomic, copy) NSString * code;
+@property (nonatomic, copy) NSString * name;
+
+@end
 
 
 

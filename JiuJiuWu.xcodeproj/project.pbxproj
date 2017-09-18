@@ -93,6 +93,8 @@
 		B71306AF1F681FB200735673 /* JJWBaseTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306AE1F681FB200735673 /* JJWBaseTableVC.m */; };
 		B71306B61F68211200735673 /* JJWNetworkingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306B41F68211200735673 /* JJWNetworkingTool.m */; };
 		B71306B91F68213200735673 /* JJWCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306B81F68213200735673 /* JJWCache.m */; };
+		B7534EC41F7005CB007DD232 /* SelectBandVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B7534EC31F7005CB007DD232 /* SelectBandVC.m */; };
+		B7534EC71F7008DF007DD232 /* ManagePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B7534EC61F7008DF007DD232 /* ManagePasswordVC.m */; };
 		B790F8AA1F6E989D0078BD7F /* ShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B790F8A81F6E989D0078BD7F /* ShareCell.m */; };
 		B790F8AB1F6E989D0078BD7F /* ShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B790F8A91F6E989D0078BD7F /* ShareCell.xib */; };
 		B790F8B11F6EA8A50078BD7F /* MeCenterHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B790F8B01F6EA8A50078BD7F /* MeCenterHeadView.m */; };
@@ -302,6 +304,10 @@
 		B71306B41F68211200735673 /* JJWNetworkingTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJWNetworkingTool.m; sourceTree = "<group>"; };
 		B71306B71F68213200735673 /* JJWCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJWCache.h; sourceTree = "<group>"; };
 		B71306B81F68213200735673 /* JJWCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJWCache.m; sourceTree = "<group>"; };
+		B7534EC21F7005CB007DD232 /* SelectBandVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBandVC.h; sourceTree = "<group>"; };
+		B7534EC31F7005CB007DD232 /* SelectBandVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBandVC.m; sourceTree = "<group>"; };
+		B7534EC51F7008DF007DD232 /* ManagePasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagePasswordVC.h; sourceTree = "<group>"; };
+		B7534EC61F7008DF007DD232 /* ManagePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagePasswordVC.m; sourceTree = "<group>"; };
 		B790F8A71F6E989D0078BD7F /* ShareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareCell.h; sourceTree = "<group>"; };
 		B790F8A81F6E989D0078BD7F /* ShareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareCell.m; sourceTree = "<group>"; };
 		B790F8A91F6E989D0078BD7F /* ShareCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareCell.xib; sourceTree = "<group>"; };
@@ -832,6 +838,10 @@
 				B98496131F690C7A00C5A9C3 /* MeCenterVC.m */,
 				B9E83A211F6FA92C003BD7E2 /* ManageCardVC.h */,
 				B9E83A221F6FA92C003BD7E2 /* ManageCardVC.m */,
+				B7534EC21F7005CB007DD232 /* SelectBandVC.h */,
+				B7534EC31F7005CB007DD232 /* SelectBandVC.m */,
+				B7534EC51F7008DF007DD232 /* ManagePasswordVC.h */,
+				B7534EC61F7008DF007DD232 /* ManagePasswordVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1208,6 +1218,7 @@
 				B71306851F68199500735673 /* SRImageManager.m in Sources */,
 				B713068B1F68199500735673 /* UIView+Extension.m in Sources */,
 				B713066A1F68199500735673 /* UILabel+Extension.m in Sources */,
+				B7534EC71F7008DF007DD232 /* ManagePasswordVC.m in Sources */,
 				B71305D31F6818EC00735673 /* UIView+cate.m in Sources */,
 				B713067E1F68199500735673 /* JXTAlertController.m in Sources */,
 				B71305D61F6818EC00735673 /* UIView+SizeAndRectAdditions.m in Sources */,
@@ -1249,6 +1260,7 @@
 				B71305D21F6818EC00735673 /* UIView+CaptureSaveImage.m in Sources */,
 				B790F8AA1F6E989D0078BD7F /* ShareCell.m in Sources */,
 				B713068C1F68199500735673 /* WSDatePickerView.m in Sources */,
+				B7534EC41F7005CB007DD232 /* SelectBandVC.m in Sources */,
 				B984961C1F690C7A00C5A9C3 /* MeCenterVC.m in Sources */,
 				B98496381F694ACB00C5A9C3 /* RegistExtendVC.m in Sources */,
 				B71306861F68199500735673 /* SRInfiniteCarouselView.m in Sources */,

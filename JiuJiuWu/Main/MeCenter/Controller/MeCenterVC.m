@@ -11,6 +11,7 @@
 #import "MeCenterHeadView.h"
 #import "ShareCell.h"
 #import "ManageCardVC.h"
+#import "ManagePasswordVC.h"
 
 static CGFloat const headerHeight = 200.f; //顶部视图高度
 static CGFloat const space = 11.f;
@@ -30,7 +31,7 @@ static CGFloat const rowHeight = 50.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = nil;
-//    self.navigationController.delegate = self;
+    //    self.navigationController.delegate = self;
     self.view.backgroundColor = CommonBackgroudColor;
     self.dataSources = @[@[@{@"image":@"center_icon_0",@"title":@"密码管理"},
                            @{@"image":@"center_icon_1",@"title":@"更换手机号"},
@@ -79,7 +80,8 @@ static CGFloat const rowHeight = 50.f;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView.tag == 100) {
         if (indexPath.row == 0) {
-            
+            ManagePasswordVC * VC = [[ManagePasswordVC alloc]init];
+            [self.navigationController pushViewController:VC animated:YES];
         }else if (indexPath.row == 1){
             
         }else if (indexPath.row == 2){

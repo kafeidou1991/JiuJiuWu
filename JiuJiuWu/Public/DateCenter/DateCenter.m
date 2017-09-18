@@ -30,6 +30,10 @@
 @end
 @implementation BandCardInfo
 @end
+@implementation BankItem
+
+@end
+
 
 
 
