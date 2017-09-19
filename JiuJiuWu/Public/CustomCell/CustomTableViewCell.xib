@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入您的真实姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qgr-jP-SOg">
-                        <rect key="frame" x="75" y="0.0" width="230" height="44"/>
+                        <rect key="frame" x="85" y="0.0" width="220" height="44"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -28,7 +28,7 @@
                         </connections>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="真实姓名：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kC-1x-cn8">
-                        <rect key="frame" x="0.0" y="0.0" width="75" height="44"/>
+                        <rect key="frame" x="5" y="0.0" width="75" height="44"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="PMf-ld-7D3"/>
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="dtM-jO-19h"/>
@@ -39,7 +39,7 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Qgr-jP-SOg" firstAttribute="leading" secondItem="1kC-1x-cn8" secondAttribute="trailing" id="rFu-1E-eM6"/>
+                    <constraint firstItem="Qgr-jP-SOg" firstAttribute="leading" secondItem="1kC-1x-cn8" secondAttribute="trailing" constant="5" id="rFu-1E-eM6"/>
                 </constraints>
             </tableViewCellContentView>
             <constraints>
@@ -47,7 +47,7 @@
                 <constraint firstAttribute="trailing" secondItem="Qgr-jP-SOg" secondAttribute="trailing" constant="15" id="FlY-Ha-ygy"/>
                 <constraint firstItem="1kC-1x-cn8" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" id="Ll7-iC-mIx"/>
                 <constraint firstItem="Qgr-jP-SOg" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" id="O7n-Eu-BTH"/>
-                <constraint firstItem="1kC-1x-cn8" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="dxX-Sb-9Cu"/>
+                <constraint firstItem="1kC-1x-cn8" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="5" id="dxX-Sb-9Cu"/>
                 <constraint firstAttribute="bottom" secondItem="1kC-1x-cn8" secondAttribute="bottom" id="m2D-Yw-sxZ"/>
             </constraints>
             <connections>

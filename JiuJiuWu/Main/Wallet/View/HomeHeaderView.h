@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^ClickBlock)(NSInteger index);
+
 @interface HomeHeaderView : UIView
+
+@property (nonatomic, copy) ClickBlock block;
 
 @end

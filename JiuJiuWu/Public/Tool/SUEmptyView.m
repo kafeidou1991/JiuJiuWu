@@ -103,7 +103,7 @@
             _netWorkView.backgroundColor = [UIColor colorWithRed:248.f/255.f green:241.f/255.f blue:212.f/255.f alpha:1.f];
             NSString *netTile = @"当前网络不可用，请检查您的网络设置！";
             CGSize labelSize = [netTile sizeWithAttributes: @{NSFontAttributeName:[UIFont systemFontOfSize:13.f]}];
-            UILabel *txtl = [JJWBase createLabel:CGRectMake((self.frame.size.width-labelSize.width)/2.f,(_netWorkView.frame.size.height-25.f)/2, labelSize.width, 25.f) font:[UIFont systemFontOfSize:13.f] text:netTile defaultSizeTxt:nil color:ColorFromRGB(58.f, 58.f, 57) backgroundColor:[UIColor clearColor]];
+            UILabel *txtl = [JJWBase createLabel:CGRectMake((self.frame.size.width-labelSize.width)/2.f,(_netWorkView.frame.size.height-25.f)/2, labelSize.width, 25.f) font:[UIFont systemFontOfSize:13.f] text:netTile defaultSizeTxt:nil color:ColorFromRGB(58.f, 58.f, 57) backgroundColor:[UIColor clearColor]alignment:NSTextAlignmentLeft];
             UIImageView *im = [[UIImageView alloc] initWithFrame:CGRectMake(txtl.frame.origin.x - 26 - 5.f, (_netWorkView.frame.size.height-26)/2.f, 26, 26)];
             im.image = noNetImage;
             [_netWorkView addSubview:txtl];

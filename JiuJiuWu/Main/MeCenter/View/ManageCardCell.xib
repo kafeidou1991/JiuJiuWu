@@ -46,7 +46,7 @@
                         <state key="selected" image="manageBank_2"/>
                         <state key="highlighted" image="manageBank_2"/>
                         <connections>
-                            <action selector="cameraAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wzn-n0-qCc"/>
+                            <action selector="cameraAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eXR-vC-CCV"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMe-l3-DQ7">
@@ -129,6 +129,11 @@
                 <constraint firstAttribute="trailing" secondItem="qge-gS-CpV" secondAttribute="trailing" constant="11" id="w3I-mi-kVn"/>
                 <constraint firstItem="qge-gS-CpV" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="11" id="wWC-zd-rLy"/>
             </constraints>
+            <connections>
+                <outlet property="oneBtn" destination="Pbf-2J-XBv" id="a4C-R4-X0a"/>
+                <outlet property="threeBtn" destination="jtW-f5-Bix" id="qRz-Z7-1ZA"/>
+                <outlet property="twoBtn" destination="inu-GI-Ci5" id="eCu-TY-UkF"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

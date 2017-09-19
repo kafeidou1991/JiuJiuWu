@@ -8,6 +8,15 @@
 
 #import "JJWBaseVC.h"
 
+typedef NS_ENUM(NSInteger, ActionType) {
+    RegistAccountType = 0,
+    ForgetPayType,
+    ChangeMobileType,
+};
+
 @interface RegistVC : JJWBaseVC
+
+@property (nonatomic, assign) ActionType type;
+
 
 @end

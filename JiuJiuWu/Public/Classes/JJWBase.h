@@ -29,6 +29,10 @@ green:((float)((rgbValue & 0x00FF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0x0000FF))/255.0 \
 alpha:alphaValue]
 
+//字体颜色
+#define MainTextColor UIColorRGB(52,52,52)  //黑色
+#define DesTextColor UIColorRGB(102,102,102) //浅灰色
+
 #define IMAGE_SIZE(imageName) [UIImage imageNamed:imageName].size
 
 #define STR_FONT_SIZE(str,maxWidth,font) [str boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT) options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingTruncatesLastVisibleLine attributes:@{NSFontAttributeName:font} context:nil].size
@@ -79,15 +83,14 @@ typedef void (^ALertCompletion)(BOOL compliont);
 @interface JJWBase : NSObject
 
 + (UIBarButtonItem *) backButton:(id) taget action:(SEL)action;
-+(UIBarButtonItem *)createCustomBarButtonItem:(id)target action:(SEL)action title:(NSString *)title;
-+(UIBarButtonItem *)createCustomBarButtonItem:(id)target action:(SEL)action image:(NSString *)imagestr;
-+(UIButton *) createButton:(CGRect) frame type:(UIButtonType)buttonType title:(NSString *)title;
-+(UILabel *)  createLabel:(CGRect) frame font:(UIFont *)font text:(NSString *)text defaultSizeTxt:(NSString *)sizeDefault color:(UIColor *)txtColor backgroundColor:(UIColor *)backgroundColor;
++ (UIBarButtonItem *)createCustomBarButtonItem:(id)target action:(SEL)action title:(NSString *)title;
++ (UIBarButtonItem *)createCustomBarButtonItem:(id)target action:(SEL)action image:(NSString *)imagestr;
++ (UIButton *) createButton:(CGRect) frame type:(UIButtonType)buttonType title:(NSString *)title;
 
 //提醒
-+(void) alertMessage:(NSString*)msg cb:(ALertCompletion) completion;
++ (void) alertMessage:(NSString*)msg cb:(ALertCompletion) completion;
 
 //构造器
-+(UILabel *)  createLabel:(CGRect) frame font:(UIFont *)font text:(NSString *)text defaultSizeTxt:(NSString *)sizeDefault color:(UIColor *)txtColor backgroundColor:(UIColor *)backgroundColor alignment:(NSTextAlignment)align;
++ (UILabel *)  createLabel:(CGRect) frame font:(UIFont *)font text:(NSString *)text defaultSizeTxt:(NSString *)sizeDefault color:(UIColor *)txtColor backgroundColor:(UIColor *)backgroundColor alignment:(NSTextAlignment)align;
 
 @end

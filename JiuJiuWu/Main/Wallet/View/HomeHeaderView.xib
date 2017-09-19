@@ -31,8 +31,11 @@
                     <inset key="titleEdgeInsets" minX="-65" minY="70" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="5" minY="-25" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="当面付" image="wallet_face_to_face"/>
+                    <connections>
+                        <action selector="clickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="nhF-qL-ihJ"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeH-fc-Mtw">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeH-fc-Mtw">
                     <rect key="frame" x="152.5" y="64" width="70" height="93"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="uam-dk-Flh"/>
@@ -42,13 +45,19 @@
                     <inset key="titleEdgeInsets" minX="-60" minY="70" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="5" minY="-25" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="快捷支付" image="wallet_quick_pay"/>
+                    <connections>
+                        <action selector="clickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="6ex-ZR-ElQ"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUa-oA-P7D">
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUa-oA-P7D">
                     <rect key="frame" x="265" y="64" width="70" height="93"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <inset key="titleEdgeInsets" minX="-65" minY="70" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="5" minY="-25" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="扫码付" image="wallet_scan_pay"/>
+                    <connections>
+                        <action selector="clickAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="TdE-5S-tKR"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.16862745098039217" green="0.73725490196078436" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>

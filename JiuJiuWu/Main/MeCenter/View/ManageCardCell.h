@@ -7,12 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class BankCardItem;
 typedef void(^CameraActionBlock)(UIButton * sender);
 
 @interface ManageCardCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIButton *oneBtn;
+@property (weak, nonatomic) IBOutlet UIButton *twoBtn;
+@property (weak, nonatomic) IBOutlet UIButton *threeBtn;
+
 @property (nonatomic, copy) CameraActionBlock block;
 - (IBAction)cameraAction:(UIButton *)sender;
+
+- (void)updateCell:(BankCardItem *)item;
 
 @end

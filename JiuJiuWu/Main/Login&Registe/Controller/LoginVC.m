@@ -76,6 +76,7 @@
 #pragma mark - 注册
 - (IBAction)registAction:(UIButton *)sender {
     RegistVC * regist = [[RegistVC alloc]init];
+    regist.type = RegistAccountType;
     [self.navigationController pushViewController:regist animated:YES];
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

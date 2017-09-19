@@ -99,6 +99,11 @@
 		B790F8AB1F6E989D0078BD7F /* ShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B790F8A91F6E989D0078BD7F /* ShareCell.xib */; };
 		B790F8B11F6EA8A50078BD7F /* MeCenterHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B790F8B01F6EA8A50078BD7F /* MeCenterHeadView.m */; };
 		B790F8B31F6EA8B90078BD7F /* MeCenterHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B790F8B21F6EA8B90078BD7F /* MeCenterHeadView.xib */; };
+		B92DA4371F70BB0500A5B7BE /* ChangePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA4361F70BB0500A5B7BE /* ChangePasswordVC.m */; };
+		B92DA43A1F70EBAA00A5B7BE /* BankCardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA4391F70EBAA00A5B7BE /* BankCardItem.m */; };
+		B92DA43D1F71009100A5B7BE /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA43C1F71009100A5B7BE /* SettingVC.m */; };
+		B92DA4401F711A7400A5B7BE /* KeyBoradView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA43F1F711A7400A5B7BE /* KeyBoradView.m */; };
+		B92DA4461F711B5D00A5B7BE /* CashKeyBoradVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA4451F711B5D00A5B7BE /* CashKeyBoradVC.m */; };
 		B984961C1F690C7A00C5A9C3 /* MeCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B98496131F690C7A00C5A9C3 /* MeCenterVC.m */; };
 		B984961D1F690C7A00C5A9C3 /* ShareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B98496171F690C7A00C5A9C3 /* ShareVC.m */; };
 		B984961E1F690C7A00C5A9C3 /* WalletVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B984961B1F690C7A00C5A9C3 /* WalletVC.m */; };
@@ -314,6 +319,16 @@
 		B790F8AF1F6EA8A50078BD7F /* MeCenterHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeCenterHeadView.h; sourceTree = "<group>"; };
 		B790F8B01F6EA8A50078BD7F /* MeCenterHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeCenterHeadView.m; sourceTree = "<group>"; };
 		B790F8B21F6EA8B90078BD7F /* MeCenterHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeCenterHeadView.xib; sourceTree = "<group>"; };
+		B92DA4351F70BB0500A5B7BE /* ChangePasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordVC.h; sourceTree = "<group>"; };
+		B92DA4361F70BB0500A5B7BE /* ChangePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordVC.m; sourceTree = "<group>"; };
+		B92DA4381F70EBAA00A5B7BE /* BankCardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardItem.h; sourceTree = "<group>"; };
+		B92DA4391F70EBAA00A5B7BE /* BankCardItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankCardItem.m; sourceTree = "<group>"; };
+		B92DA43B1F71009100A5B7BE /* SettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
+		B92DA43C1F71009100A5B7BE /* SettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
+		B92DA43E1F711A7400A5B7BE /* KeyBoradView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyBoradView.h; sourceTree = "<group>"; };
+		B92DA43F1F711A7400A5B7BE /* KeyBoradView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyBoradView.m; sourceTree = "<group>"; };
+		B92DA4441F711B5D00A5B7BE /* CashKeyBoradVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashKeyBoradVC.h; sourceTree = "<group>"; };
+		B92DA4451F711B5D00A5B7BE /* CashKeyBoradVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashKeyBoradVC.m; sourceTree = "<group>"; };
 		B98496121F690C7A00C5A9C3 /* MeCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeCenterVC.h; sourceTree = "<group>"; };
 		B98496131F690C7A00C5A9C3 /* MeCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeCenterVC.m; sourceTree = "<group>"; };
 		B98496161F690C7A00C5A9C3 /* ShareVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareVC.h; sourceTree = "<group>"; };
@@ -836,12 +851,16 @@
 			children = (
 				B98496121F690C7A00C5A9C3 /* MeCenterVC.h */,
 				B98496131F690C7A00C5A9C3 /* MeCenterVC.m */,
+				B92DA43B1F71009100A5B7BE /* SettingVC.h */,
+				B92DA43C1F71009100A5B7BE /* SettingVC.m */,
 				B9E83A211F6FA92C003BD7E2 /* ManageCardVC.h */,
 				B9E83A221F6FA92C003BD7E2 /* ManageCardVC.m */,
 				B7534EC21F7005CB007DD232 /* SelectBandVC.h */,
 				B7534EC31F7005CB007DD232 /* SelectBandVC.m */,
 				B7534EC51F7008DF007DD232 /* ManagePasswordVC.h */,
 				B7534EC61F7008DF007DD232 /* ManagePasswordVC.m */,
+				B92DA4351F70BB0500A5B7BE /* ChangePasswordVC.h */,
+				B92DA4361F70BB0500A5B7BE /* ChangePasswordVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -880,6 +899,8 @@
 			children = (
 				B984961A1F690C7A00C5A9C3 /* WalletVC.h */,
 				B984961B1F690C7A00C5A9C3 /* WalletVC.m */,
+				B92DA4441F711B5D00A5B7BE /* CashKeyBoradVC.h */,
+				B92DA4451F711B5D00A5B7BE /* CashKeyBoradVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -894,6 +915,8 @@
 		B98496201F69178200C5A9C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B92DA43E1F711A7400A5B7BE /* KeyBoradView.h */,
+				B92DA43F1F711A7400A5B7BE /* KeyBoradView.m */,
 				B9C0E10E1F6BA61200F4D296 /* HomeHeaderView.h */,
 				B9C0E10F1F6BA61200F4D296 /* HomeHeaderView.m */,
 				B9C0E1111F6BA61D00F4D296 /* HomeHeaderView.xib */,
@@ -926,6 +949,8 @@
 		B98496231F69179000C5A9C3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B92DA4381F70EBAA00A5B7BE /* BankCardItem.h */,
+				B92DA4391F70EBAA00A5B7BE /* BankCardItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1232,6 +1257,7 @@
 				B713067B1F68199500735673 /* CenterLabel.m in Sources */,
 				B9C0E1101F6BA61200F4D296 /* HomeHeaderView.m in Sources */,
 				B71306661F68199500735673 /* UIDevice+DeviceType.m in Sources */,
+				B92DA4461F711B5D00A5B7BE /* CashKeyBoradVC.m in Sources */,
 				B71306891F68199500735673 /* SUMessageTextView.m in Sources */,
 				B98496341F69362800C5A9C3 /* RegistVC.m in Sources */,
 				B71305D51F6818EC00735673 /* UIView+RectCorner.m in Sources */,
@@ -1256,7 +1282,9 @@
 				B71305CE1F6818EC00735673 /* UIImage+JKR_MessageImage.m in Sources */,
 				B71306761F68199500735673 /* BXTabBarButton.m in Sources */,
 				B71306A91F681B9E00735673 /* DateCenter.m in Sources */,
+				B92DA43A1F70EBAA00A5B7BE /* BankCardItem.m in Sources */,
 				B71306961F68199500735673 /* XYAlertViewManager.m in Sources */,
+				B92DA4371F70BB0500A5B7BE /* ChangePasswordVC.m in Sources */,
 				B71305D21F6818EC00735673 /* UIView+CaptureSaveImage.m in Sources */,
 				B790F8AA1F6E989D0078BD7F /* ShareCell.m in Sources */,
 				B713068C1F68199500735673 /* WSDatePickerView.m in Sources */,
@@ -1270,7 +1298,9 @@
 				B9E83A2C1F6FB8E1003BD7E2 /* ManageCardCell.m in Sources */,
 				B713068A1F68199500735673 /* NSDate+Extension.m in Sources */,
 				B71306721F68199500735673 /* MXNavigationBarManager.m in Sources */,
+				B92DA4401F711A7400A5B7BE /* KeyBoradView.m in Sources */,
 				B713067F1F68199500735673 /* JXTAlertView.m in Sources */,
+				B92DA43D1F71009100A5B7BE /* SettingVC.m in Sources */,
 				B71306781F68199500735673 /* HZAreaPickerView.m in Sources */,
 				B71306811F68199500735673 /* MJPopupBackgroundView.m in Sources */,
 				B984961E1F690C7A00C5A9C3 /* WalletVC.m in Sources */,

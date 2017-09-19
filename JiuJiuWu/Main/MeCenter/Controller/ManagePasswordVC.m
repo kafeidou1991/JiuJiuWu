@@ -7,6 +7,8 @@
 //
 
 #import "ManagePasswordVC.h"
+#import "ChangePasswordVC.h"
+#import "RegistVC.h"
 
 @interface ManagePasswordVC ()
 
@@ -22,7 +24,19 @@
     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (indexPath.row == 0) {
+        ChangePasswordVC * VC = [[ChangePasswordVC alloc]init];
+        VC.type = ChangeLoginPasswordType;
+        [self.navigationController pushViewController:VC animated:YES];
+    }else if (indexPath.row == 1) {
+        ChangePasswordVC * VC = [[ChangePasswordVC alloc]init];
+        VC.type = ChangePayPasswordType;
+        [self.navigationController pushViewController:VC animated:YES];
+    }else if(indexPath.row == 2) {
+        RegistVC * VC = [[RegistVC alloc]init];
+        VC.type = ForgetPayType;
+        [self.navigationController pushViewController:VC animated:YES];
+    }
 }
 
 

@@ -12,6 +12,7 @@
 #import "ShareCell.h"
 #import "ManageCardVC.h"
 #import "ManagePasswordVC.h"
+#import "SettingVC.h"
 
 static CGFloat const headerHeight = 200.f; //顶部视图高度
 static CGFloat const space = 11.f;
@@ -42,7 +43,8 @@ static CGFloat const rowHeight = 50.f;
                          @[@{@"image":@"center_icon_5",@"title":@"操作手册"},
                            @{@"image":@"center_icon_6",@"title":@"版本号"},
                            @{@"image":@"center_icon_7",@"title":@"关于我们"},
-                           @{@"image":@"center_icon_8",@"title":@"客服热线"}]];
+                           @{@"image":@"center_icon_8",@"title":@"客服热线"},
+                           @{@"image":@"center_icon_8",@"title":@"设置"}]];
     
     [self addSubViews];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kLoginSuccess object:nil];
@@ -91,7 +93,13 @@ static CGFloat const rowHeight = 50.f;
             
         }
     }else {
-        
+        if (indexPath.row == 4) {
+            SettingVC * VC = [[SettingVC alloc]init];
+            VC.exitBlock = ^{
+                [_headerView updateHeadInfo];
+            };
+            [self.navigationController pushViewController:VC animated:YES];
+        }
     }
 }
 

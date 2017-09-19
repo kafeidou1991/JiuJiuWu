@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *roleImageV;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mobileTop;
 - (IBAction)userInfoAction:(UIButton *)sender;
 - (IBAction)headIconAction:(id)sender;
 @end
@@ -25,12 +26,14 @@
     DloginData * loginData = [JJWLogin sharedMethod].loginData;
     BOOL isLogin = [JJWLogin sharedMethod].isLogin;
     if (isLogin) {
+        self.mobileTop.constant = 0;
         self.mobileLabel.text = loginData.mobile;
         self.nameLabel.text = loginData.nickname;
-//        self.roleLabel
+        self.roleImageV.hidden = NO;
     }else {
-        self.mobileLabel.text = @"***********";
-        self.nameLabel.text = @"未登录";
+        self.mobileTop.constant = 15.f;
+        self.mobileLabel.text = @"未登录";
+        self.nameLabel.text = @"";
         self.roleImageV.hidden = YES;
     }
     

@@ -31,7 +31,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title =@"账号注册";
+    switch (_type) {
+        case RegistAccountType:
+            self.title =@"账号注册";
+            break;
+        case ForgetPayType:
+            self.title =@"忘记交易密码";
+            break;
+            
+        default:
+            break;
+    }
     //改变协议按钮的渲染颜色
     [self changeProtocolImage];
     
@@ -81,21 +91,27 @@
         [JJWBase alertMessage:@"请输入验证码！" cb:nil];
         return;
     }
-    //验证验证码
-    [self hudShow:self.view msg:STTR_ater_on];
-    NSDictionary * dict = @{@"mobile":account,@"code":code};
-    WeakSelf
-    [JJWNetworkingTool PostWithUrl:CheckRegistCode params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
-        [weakSelf hudclose];
+    if (_type == RegistAccountType) {
+        //验证验证码 注册
+        [self hudShow:self.view msg:STTR_ater_on];
+        NSDictionary * dict = @{@"mobile":account,@"code":code};
+        WeakSelf
+        [JJWNetworkingTool PostWithUrl:CheckRegistCode params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+            [weakSelf hudclose];
+            
+            RegistExtendVC * VC = [[RegistExtendVC alloc]init];
+            VC.mobile = account;
+            [self.navigationController pushViewController:VC animated:YES];
+            
+        } failed:^(NSError *error, id chaceResponseObject) {
+            [weakSelf hudclose];
+            [JJWBase alertMessage:error.domain cb:nil];
+        }];
+    }else if (_type == ForgetPayType) {
+        //忘记交易密码
         
-        RegistExtendVC * VC = [[RegistExtendVC alloc]init];
-        VC.mobile = account;
-        [self.navigationController pushViewController:VC animated:YES];
         
-    } failed:^(NSError *error, id chaceResponseObject) {
-        [weakSelf hudclose];
-        [JJWBase alertMessage:error.domain cb:nil];
-    }];
+    }
 }
 #pragma mark -点击协议
 - (IBAction)protocolAction:(UIButton *)sender {

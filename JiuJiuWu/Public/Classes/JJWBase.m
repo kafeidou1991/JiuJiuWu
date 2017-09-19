@@ -66,22 +66,6 @@
     button.frame = frame;
     return button;
 }
-+(UILabel *)  createLabel:(CGRect) frame font:(UIFont *)font text:(NSString *)text defaultSizeTxt:(NSString *)sizeDefault color:(UIColor *)txtColor backgroundColor:(UIColor *)backgroundColor{
-    CGRect lr = frame;
-    CGSize fsize = CGSizeMake(0, 0);
-    fsize = [sizeDefault sizeWithAttributes: @{NSFontAttributeName:font}];
-    CGSize labelSize = (STRISEMPTY(sizeDefault))?frame.size:fsize;
-    lr.size = labelSize;
-    UILabel *label = [[UILabel alloc] initWithFrame:lr];
-    label.font = font;
-    label.textColor = txtColor;
-    label.backgroundColor = backgroundColor;
-    //  label.textAlignment = 0;
-    [label setTextAlignment:NSTextAlignmentLeft];
-    label.text = (STRISEMPTY(text))?@"":text;
-    return label;
-}
-
 
 +(void) alertMessage:(NSString*)msg cb:(ALertCompletion) completion
 {

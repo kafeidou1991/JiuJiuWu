@@ -35,8 +35,10 @@ static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #define UserLogin [baseUrl appendBaseUrl:@"user/login"]
 //用户登录
 #define UpdateBankInfo [baseUrl appendBaseUrl:@"user/updateUserBankInfo"]
-
-
+//修改登录密码
+#define ChangePassword [baseUrl appendBaseUrl:@"user/password"]
+#define 登出
+#define Logout [baseUrl appendBaseUrl:@"user/logout"]
 
 
 

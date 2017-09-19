@@ -8,6 +8,12 @@
 
 #import "HomeHeaderView.h"
 
+@interface HomeHeaderView ()
+
+- (IBAction)clickAction:(UIButton *)sender;
+
+@end
+
 @implementation HomeHeaderView
 
 -(void)awakeFromNib {
@@ -15,4 +21,9 @@
     
 }
 
+- (IBAction)clickAction:(UIButton *)sender {
+    if (_block) {
+        _block(sender.tag);
+    }
+}
 @end

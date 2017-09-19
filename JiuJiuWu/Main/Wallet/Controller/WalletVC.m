@@ -9,6 +9,7 @@
 #import "WalletVC.h"
 #import "HomeHeaderView.h"
 #import "FeatureListView.h"
+#import "CashKeyBoradVC.h"
 
 static CGFloat const headerHeight = 220; //顶部视图高度
 
@@ -72,6 +73,11 @@ static CGFloat const headerHeight = 220; //顶部视图高度
     if (!_headerView) {
         _headerView = [[NSBundle mainBundle]loadNibNamed:@"HomeHeaderView" owner:self options:nil].firstObject;
         _headerView.frame = CGRectMake(0,-headerHeight, SCreenWidth, headerHeight);
+        WeakSelf
+        _headerView.block = ^(NSInteger index) {
+            CashKeyBoradVC * VC = [[CashKeyBoradVC alloc]init];
+            [weakSelf.navigationController pushViewController:VC animated:YES];
+        };
     }
     return _headerView;
 }
