@@ -17,6 +17,6 @@
 - (void)updateRegistCell:(NSDictionary *)dict;
 
 //绑定银行卡
-- (void)updateBindCardCell:(NSDictionary *)dict;
+- (void)updateBindCardCell:(NSDictionary *)dict textAlignment:(NSTextAlignment)align;
 
 @end

@@ -16,7 +16,7 @@
 #import "BankCardItem.h"
 #import "HZAreaPickerView.h"
 
-static CGFloat secondHeight = 300.f;
+static CGFloat thirdHeight = 300.f;
 
 @interface ManageCardVC ()<UITextFieldDelegate,HZAreaPickerDelegate>{
     SelectBandVC * selectBandVC;
@@ -29,7 +29,7 @@ static CGFloat secondHeight = 300.f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"绑定收款银行卡";
+    self.title = (_type == BindRegisterCardType) ? @"绑定收款银行卡" : @"实名认证信息";
     [self initData];
     [self createGroupTableView];
     self.tableView.backgroundColor = [UIColor whiteColor];
@@ -43,11 +43,16 @@ static CGFloat secondHeight = 300.f;
     self.dataSources = @[@[@{@"title":@"结算银行:",@"placeholder":@"选择结算银行"},
                            @{@"title":@"结算户主:",@"placeholder":@"请输入户主姓名"},
                            @{@"title":@"结算卡号:",@"placeholder":@"请输入结算卡号"},
-                           @{@"title":@"预留手机号:",@"placeholder":@"请输入银行预留手机号"},
                            @{@"title":@"身份证号:",@"placeholder":@"请输入身份证号"},
-                           @{@"title":@"开户地址:",@"placeholder":@"选择开户地址"}],
+                           @{@"title":@"预留手机号:",@"placeholder":@"请输入银行预留手机号"}],
+                         
+                         @[@{@"title":@"省:",@"placeholder":@"选择商户所在省"},
+                           @{@"title":@"市:",@"placeholder":@"选择商户所在市"},
+                           @{@"title":@"区/县:",@"placeholder":@"选择商户所在区/县"},
+                           @{@"title":@"详细地址:",@"placeholder":@"请输入商户详细地址"}],
                          
                          @[@{@"title":@"占位符",@"placeholder":@"占位符"}]].mutableCopy;
+    
     [self.currCardItem setEmptyItem];
 }
 #pragma mark - 上传银行卡信息
@@ -76,7 +81,10 @@ static CGFloat secondHeight = 300.f;
         [JJWBase alertMessage:@"请选择银行卡开户地!" cb:nil];
         return;
     }
-    
+    if (STRISEMPTY(_currCardItem.detailAddress)) {
+        [JJWBase alertMessage:@"请输入商户详细地址!" cb:nil];
+        return;
+    }
     if (_currCardItem.idcard_img_one.size.width == 0 || _currCardItem.idcard_img_two.size.width == 0 || _currCardItem.idcard_img_three.size.width == 0) {
         [JJWBase alertMessage:@"请完善图片认证信息!" cb:nil];
         return;
@@ -112,6 +120,7 @@ static CGFloat secondHeight = 300.f;
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * cellId = @"cellId";
     static NSString * secondCellId = @"secondCellId";
+    static NSString * thirdCellId = @"thirdCellId";
     if (indexPath.section == 0) {
         CustomTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         if (!cell) {
@@ -123,11 +132,24 @@ static CGFloat secondHeight = 300.f;
         cell.inputTextField.enabled = !(indexPath.row == 0 || indexPath.row == 5);
         cell.inputTextField.tag = indexPath.row + 100;
         cell.inputTextField.delegate = self;
-        [cell updateBindCardCell:((NSArray *)self.dataSources[indexPath.section])[indexPath.row]];
-        [self inputContent:cell Row:indexPath.row];
+        [cell updateBindCardCell:((NSArray *)self.dataSources[indexPath.section])[indexPath.row]textAlignment:NSTextAlignmentRight];
+        [self inputContent:cell Row:indexPath];
+        return cell;
+    }else if (indexPath.section == 1) {
+        CustomTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:secondCellId];
+        if (!cell) {
+            cell = [[NSBundle mainBundle]loadNibNamed:@"CustomTableViewCell" owner:self options:nil].firstObject;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        cell.accessoryType = (indexPath.row == 3) ? UITableViewCellAccessoryNone: UITableViewCellAccessoryDisclosureIndicator;
+        cell.inputTextField.enabled = (indexPath.row == 3);
+        cell.inputTextField.tag = indexPath.row + 200;
+        cell.inputTextField.delegate = self;
+        [cell updateBindCardCell:((NSArray *)self.dataSources[indexPath.section])[indexPath.row]textAlignment:(indexPath.row == 3) ? NSTextAlignmentRight : NSTextAlignmentCenter];
+        [self inputContent:cell Row:indexPath];
         return cell;
     }else {
-        ManageCardCell * cell = [tableView dequeueReusableCellWithIdentifier:secondCellId];
+        ManageCardCell * cell = [tableView dequeueReusableCellWithIdentifier:thirdCellId];
         if (!cell) {
             cell = [[NSBundle mainBundle]loadNibNamed:@"ManageCardCell" owner:self options:nil].firstObject;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -142,28 +164,44 @@ static CGFloat secondHeight = 300.f;
         return cell;
     }
 }
-- (void)inputContent:(CustomTableViewCell *)cell Row:(NSInteger)row {
-    switch (row) {
-        case 0:
-            cell.inputTextField.text = _currCardItem.bank_name;
-            break;
-        case 1:
-            cell.inputTextField.text = _currCardItem.account;
-            break;
-        case 2:
-            cell.inputTextField.text = _currCardItem.banck_code;
-            break;
-        case 3:
-            cell.inputTextField.text = _currCardItem.cell_phone;
-            break;
-        case 4:
-            cell.inputTextField.text = _currCardItem.idcard_number;
-            break;
-        case 5:
-            cell.inputTextField.text = [NSString stringWithFormat:@"%@ %@ %@",_currCardItem.province,_currCardItem.city,_currCardItem.district];
-            break;
-        default:
-            break;
+- (void)inputContent:(CustomTableViewCell *)cell Row:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+                cell.inputTextField.text = _currCardItem.bank_name;
+                break;
+            case 1:
+                cell.inputTextField.text = _currCardItem.account;
+                break;
+            case 2:
+                cell.inputTextField.text = _currCardItem.banck_code;
+                break;
+            case 3:
+                cell.inputTextField.text = _currCardItem.idcard_number;
+                break;
+            case 4:
+                cell.inputTextField.text = _currCardItem.cell_phone;
+                break;
+            default:
+                break;
+        }
+    }else if (indexPath.section == 1) {
+        switch (indexPath.row) {
+            case 0:
+                cell.inputTextField.text = [NSString stringWithFormat:@"%@",_currCardItem.province];
+                break;
+            case 1:
+                cell.inputTextField.text = [NSString stringWithFormat:@"%@",_currCardItem.city];
+                break;
+            case 2:
+                cell.inputTextField.text = [NSString stringWithFormat:@"%@",_currCardItem.district];
+                break;
+            case 3:
+                cell.inputTextField.text = [NSString stringWithFormat:@"%@",_currCardItem.detailAddress];
+                break;
+            default:
+                break;
+        }
     }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -184,7 +222,7 @@ static CGFloat secondHeight = 300.f;
             [weakSelf dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
         };
         [self presentPopupViewController:selectBandVC animationType:MJPopupViewAnimationFade];
-    }else if (indexPath.section == 0 && indexPath.row == 5) {
+    }else if (indexPath.section == 1 && indexPath.row != 3) {
         //选择省市县
         [self _openPickView];
     }
@@ -199,9 +237,17 @@ static CGFloat secondHeight = 300.f;
     _currCardItem.province = picker.locate.state;
     _currCardItem.city = picker.locate.city;
     _currCardItem.district = picker.locate.district;
-    CustomTableViewCell * cell = (CustomTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:5 inSection:0]];
+    CustomTableViewCell * cell = (CustomTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
     if (cell) {
-        cell.inputTextField.text = [NSString stringWithFormat:@"%@ %@ %@",picker.locate.state,picker.locate.city,picker.locate.district];
+        cell.inputTextField.text = [NSString stringWithFormat:@"%@",picker.locate.state];
+    }
+    cell = (CustomTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
+    if (cell) {
+        cell.inputTextField.text = [NSString stringWithFormat:@"%@",picker.locate.city];
+    }
+    cell = (CustomTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:1]];
+    if (cell) {
+        cell.inputTextField.text = [NSString stringWithFormat:@"%@",picker.locate.district];
     }
 }
 #pragma mark - 照片选择
@@ -252,32 +298,23 @@ static CGFloat secondHeight = 300.f;
     return ((NSArray *)self.dataSources[section]).count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return (indexPath.section == 0) ? 46.f : secondHeight;
+    return (indexPath.section == 0 || indexPath.section == 1) ? 46.f : thirdHeight;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 15.f;
+    return 25.f;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return (section == 0) ? 0.00001 : 15.f;
+    return 0.00001;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView * view = [UIView new];
     view.backgroundColor = CommonBackgroudColor;
-    view.frame = CGRectMake(0, 0, SCreenWidth, 15);
+    view.frame = CGRectMake(0, 0, SCreenWidth, 25);
+    UILabel * label = [JJWBase createLabel:CGRectMake(5, 0, SCreenWidth- 10, 25) font:[UIFont systemFontOfSize:14] text:(section == 1) ? @"商户信息" :@"" defaultSizeTxt:@"" color:MainTextColor backgroundColor:[UIColor clearColor] alignment:NSTextAlignmentLeft];
+    [view addSubview:label];
     return view;
 }
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    UIView * view = [UIView new];
-    if (section == 0) {
-        return view;
-    }
-    view.backgroundColor = CommonBackgroudColor;
-    view.frame = CGRectMake(0, 0, SCreenWidth, 15);
-    return view;
-}
-
-
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
@@ -301,15 +338,17 @@ static CGFloat secondHeight = 300.f;
     }else if (textField.tag == 102) {
         _currCardItem.banck_code = beString;
     }else if (textField.tag == 103) {
-        if (beString.length > 11) {
-            return NO;
-        }
-        _currCardItem.cell_phone = beString;
-    }else if (textField.tag == 104) {
         if (beString.length > 18) {
             return NO;
         }
         _currCardItem.idcard_number = beString;
+    }else if (textField.tag == 104) {
+        if (beString.length > 11) {
+            return NO;
+        }
+        _currCardItem.cell_phone = beString;
+    }else if (textField.tag == 203) {
+        _currCardItem.detailAddress = beString;
     }
     return YES;
 }

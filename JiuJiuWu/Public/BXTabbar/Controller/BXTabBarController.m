@@ -8,12 +8,11 @@
 
 #import "BXTabBarController.h"
 #import "BXNavigationController.h"
+#import "BXTabBar.h"
 
 #import "WalletVC.h"
 #import "ShareVC.h"
 #import "MeCenterVC.h"
-
-#import "BXTabBar.h"
 
 
 @interface BXTabBarController ()<UITabBarControllerDelegate, UINavigationControllerDelegate, BXTabBarDelegate>
@@ -187,8 +186,9 @@
         // 添加dock到根控制器界面
         [root.view addSubview:self.mytabbar];
     }
-    //隐藏钱包 我的 导航栏
-    if ([viewController isKindOfClass:[WalletVC class]] || [viewController isKindOfClass:[MeCenterVC class]]) {
+    //隐藏导航栏再次出操作
+    if ([viewController isKindOfClass:[WalletVC class]] ||
+        [viewController isKindOfClass:[MeCenterVC class]]) {
         [navigationController setNavigationBarHidden:YES animated:YES];
     }else {
         [navigationController setNavigationBarHidden:NO animated:YES];

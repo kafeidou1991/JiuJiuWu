@@ -13,6 +13,7 @@
 #import "ManageCardVC.h"
 #import "ManagePasswordVC.h"
 #import "SettingVC.h"
+#import "CompanyInfoVC.h"
 
 static CGFloat const headerHeight = 200.f; //顶部视图高度
 static CGFloat const space = 11.f;
@@ -37,6 +38,7 @@ static CGFloat const rowHeight = 50.f;
     self.dataSources = @[@[@{@"image":@"center_icon_0",@"title":@"密码管理"},
                            @{@"image":@"center_icon_1",@"title":@"更换手机号"},
                            @{@"image":@"center_icon_2",@"title":@"结算卡管理"},
+                           @{@"image":@"center_icon_2",@"title":@"企业商户信息"},
                            @{@"image":@"center_icon_3",@"title":@"用户协议"},
                            @{@"image":@"center_icon_4",@"title":@"费率信息"}],
                          
@@ -88,9 +90,11 @@ static CGFloat const rowHeight = 50.f;
             
         }else if (indexPath.row == 2){
             ManageCardVC * VC = [[ManageCardVC alloc]init];
+            VC.type = BindChangeCardType;
             [self.navigationController pushViewController:VC animated:YES];
         }else if (indexPath.row == 3){
-            
+            CompanyInfoVC * VC = [[CompanyInfoVC alloc]init];
+            [self.navigationController pushViewController:VC animated:YES];
         }
     }else {
         if (indexPath.row == 4) {

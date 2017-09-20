@@ -70,7 +70,8 @@ static CGFloat const timer_animation_Duration = 0.05;
     
     // 扫描动画添加
     self.animation_line = [[UIImageView alloc] init];
-    _animation_line.image = [UIImage imageNamed:@"scanCodeLine"];//QRCodeLine
+    _animation_line.image = [[UIImage imageNamed:@"scanCodeLine"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];//QRCodeLine
+    _animation_line.tintColor = themeColor;
     [_animation_line.image imageWithTintColor:UIColorFromRGB(0x0df1ff)];
     _animation_line.frame = CGRectMake(scanContent_X * 0.5, scanContentViewY, self.frame.size.width - scanContent_X , animation_line_H);
     [self.basedLayer addSublayer:_animation_line.layer];
@@ -142,7 +143,7 @@ static CGFloat const timer_animation_Duration = 0.05;
     recognitionLab.textAlignment = NSTextAlignmentCenter;
     [recognitionLab setCornerSize:20];
     recognitionLab.text =@"      正在识别······";
-    recognitionLab.textColor = UIColorFromRGB(0x0df1ff);
+    recognitionLab.textColor = themeColor;//UIColorFromRGB(0x0df1ff);
     recognitionLab.font = [UIFont boldSystemFontOfSize:13.0];
     [bottom_View addSubview:recognitionLab];
     
@@ -153,7 +154,7 @@ static CGFloat const timer_animation_Duration = 0.05;
     // 左上侧的image
     CGFloat margin = 7;
     
-    UIImage *left_image = [UIImage imageNamed:@"scanCodeTopLeft"];
+    UIImage *left_image = [[UIImage imageNamed:@"scanCodeTopLeft"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIImageView *left_imageView = [[UIImageView alloc] init];
     CGFloat left_imageViewX = CGRectGetMinX(scanContentView.frame) - left_image.size.width * 0.5 + margin;
     CGFloat left_imageViewY = CGRectGetMinY(scanContentView.frame) - left_image.size.width * 0.5 + margin;
@@ -161,10 +162,11 @@ static CGFloat const timer_animation_Duration = 0.05;
     CGFloat left_imageViewH = left_image.size.height;
     left_imageView.frame = CGRectMake(left_imageViewX, left_imageViewY, left_imageViewW, left_imageViewH);
     left_imageView.image = left_image;
+    left_imageView.tintColor = themeColor;
     [self.basedLayer addSublayer:left_imageView.layer];
     
     // 右上侧的image
-    UIImage *right_image = [UIImage imageNamed:@"scanCodeTopLeft"];
+    UIImage *right_image = [[UIImage imageNamed:@"scanCodeTopLeft"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIImageView *right_imageView = [[UIImageView alloc] init];
     CGFloat right_imageViewX = CGRectGetMaxX(scanContentView.frame) - right_image.size.width * 0.5 - margin;
     CGFloat right_imageViewY = left_imageView.frame.origin.y;
@@ -173,9 +175,10 @@ static CGFloat const timer_animation_Duration = 0.05;
     right_imageView.frame = CGRectMake(right_imageViewX, right_imageViewY, right_imageViewW, right_imageViewH);
     right_imageView.image = right_image;
     right_imageView.transform = CGAffineTransformMakeRotation(90 * M_PI/180.0);
+    right_imageView.tintColor = themeColor;
     [self.basedLayer addSublayer:right_imageView.layer];
     // 左下侧的image
-    UIImage *left_image_down = [UIImage imageNamed:@"scanCodeTopLeft"];
+    UIImage *left_image_down = [[UIImage imageNamed:@"scanCodeTopLeft"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIImageView *left_imageView_down = [[UIImageView alloc] init];
     CGFloat left_imageView_downX = left_imageView.frame.origin.x;
     CGFloat left_imageView_downY = CGRectGetMaxY(scanContentView.frame) - left_image_down.size.width * 0.5 - margin;
@@ -184,10 +187,11 @@ static CGFloat const timer_animation_Duration = 0.05;
     left_imageView_down.frame = CGRectMake(left_imageView_downX, left_imageView_downY, left_imageView_downW, left_imageView_downH);
     left_imageView_down.image = left_image_down;
     left_imageView_down.transform = CGAffineTransformMakeRotation(-90 * M_PI/180.0);
+    left_imageView_down.tintColor = themeColor;
     [self.basedLayer addSublayer:left_imageView_down.layer];
     
     // 右下侧的image
-    UIImage *right_image_down = [UIImage imageNamed:@"scanCodeTopLeft"];
+    UIImage *right_image_down = [[UIImage imageNamed:@"scanCodeTopLeft"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIImageView *right_imageView_down = [[UIImageView alloc] init];
     CGFloat right_imageView_downX = right_imageView.frame.origin.x;
     CGFloat right_imageView_downY = left_imageView_down.frame.origin.y;
@@ -196,6 +200,7 @@ static CGFloat const timer_animation_Duration = 0.05;
     right_imageView_down.frame = CGRectMake(right_imageView_downX, right_imageView_downY, right_imageView_downW, right_imageView_downH);
     right_imageView_down.image = right_image_down;
     right_imageView_down.transform = CGAffineTransformMakeRotation(180 * M_PI/180.0);
+    right_imageView_down.tintColor = themeColor;
     [self.basedLayer addSublayer:right_imageView_down.layer];
 
 }

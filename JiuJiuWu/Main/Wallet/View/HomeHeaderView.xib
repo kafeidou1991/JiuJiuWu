@@ -60,7 +60,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.16862745098039217" green="0.73725490196078436" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.1761145294" green="0.73607224230000001" blue="0.38244575260000002" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
                 <constraint firstItem="Nvn-5N-fEW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1hC-5a-oDv"/>
                 <constraint firstItem="jUa-oA-P7D" firstAttribute="height" secondItem="JeH-fc-Mtw" secondAttribute="height" id="7Ea-t4-16k"/>

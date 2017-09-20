@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+
+
 //键盘显示金额回调
 typedef void(^ShowValueBlock)(NSString *);
 
 @interface KeyBoradView : UIView
 
 /** 键盘 */
-@property (nonatomic, copy) ShowValueBlock valueBlock;
+@property (nonatomic, copy) ShowValueBlock valueBlock; //收款回调
 
 @end

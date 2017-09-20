@@ -27,7 +27,7 @@
                             <outlet property="delegate" destination="-1" id="d2d-ca-sUj"/>
                         </connections>
                     </textField>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="真实姓名：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kC-1x-cn8">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="真实姓名：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kC-1x-cn8">
                         <rect key="frame" x="5" y="0.0" width="75" height="44"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="PMf-ld-7D3"/>

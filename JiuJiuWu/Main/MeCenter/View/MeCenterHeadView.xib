@@ -79,7 +79,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.16862745100000001" green="0.73725490199999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.1761145294" green="0.73607224230000001" blue="0.38244575260000002" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
                 <constraint firstItem="7mo-t2-phr" firstAttribute="centerY" secondItem="0E3-CV-DAu" secondAttribute="centerY" id="21a-tU-JAR"/>
                 <constraint firstItem="Qai-LN-leZ" firstAttribute="top" secondItem="0E3-CV-DAu" secondAttribute="top" id="45s-KL-swg"/>

@@ -23,6 +23,7 @@
     _district = @"";
     _cell_phone = @"";
     _bank_number = @"";
+    _detailAddress =@"";
 }
 
 

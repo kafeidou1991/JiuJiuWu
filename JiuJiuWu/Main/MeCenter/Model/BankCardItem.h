@@ -22,6 +22,7 @@
 @property (nonatomic, copy) NSString * district;
 @property (nonatomic, copy) NSString * cell_phone;
 @property (nonatomic, copy) NSString * bank_number;
+@property (nonatomic, copy) NSString * detailAddress;
 
 - (void)setEmptyItem;
 

@@ -25,8 +25,8 @@
     self.inputTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:dict[@"placeholder"] attributes:@{NSForegroundColorAttributeName :UIColorRGB(82, 82, 82),NSFontAttributeName :[UIFont systemFontOfSize:14]}];
 }
 
-- (void)updateBindCardCell:(NSDictionary *)dict {
-    self.inputTextField.textAlignment = NSTextAlignmentRight;
+- (void)updateBindCardCell:(NSDictionary *)dict textAlignment:(NSTextAlignment)align{
+    self.inputTextField.textAlignment = align;
     if (self.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
         self.rightSpace.constant = 30.f;
     }else {

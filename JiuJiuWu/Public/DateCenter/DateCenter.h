@@ -58,6 +58,7 @@
 @property (nonatomic, copy) NSString * customer_id;
 @property (nonatomic, copy) NSString * open_branch;
 @property (nonatomic, copy) NSString * biz_org;
+@property (nonatomic, copy) NSString * status;
 
 @end
 

@@ -27,4 +27,5 @@
 - (void)hudShow:(UIView *)inView msg:(NSString *)msgText;
 - (void)hudclose;
 
+
 @end
