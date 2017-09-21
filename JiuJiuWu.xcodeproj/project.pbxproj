@@ -113,6 +113,8 @@
 		B98496381F694ACB00C5A9C3 /* RegistExtendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B98496371F694ACB00C5A9C3 /* RegistExtendVC.m */; };
 		B984963D1F694E2400C5A9C3 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B984963B1F694E2400C5A9C3 /* CustomTableViewCell.m */; };
 		B984963E1F694E2400C5A9C3 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B984963C1F694E2400C5A9C3 /* CustomTableViewCell.xib */; };
+		B99398CE1F73ACF0006470C1 /* CompanyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B99398CC1F73ACEF006470C1 /* CompanyInfoCell.m */; };
+		B99398CF1F73ACF0006470C1 /* CompanyInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99398CD1F73ACF0006470C1 /* CompanyInfoCell.xib */; };
 		B9A762C71F72117B00F7D1A3 /* CashKeyBoradVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A762C51F72117B00F7D1A3 /* CashKeyBoradVC.m */; };
 		B9A762C81F72117B00F7D1A3 /* CashKeyBoradVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A762C61F72117B00F7D1A3 /* CashKeyBoradVC.xib */; };
 		B9A762CE1F72660E00F7D1A3 /* QRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A762CD1F72660E00F7D1A3 /* QRCodeVC.m */; };
@@ -349,6 +351,9 @@
 		B984963A1F694E2400C5A9C3 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		B984963B1F694E2400C5A9C3 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		B984963C1F694E2400C5A9C3 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		B99398CB1F73ACEF006470C1 /* CompanyInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompanyInfoCell.h; sourceTree = "<group>"; };
+		B99398CC1F73ACEF006470C1 /* CompanyInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanyInfoCell.m; sourceTree = "<group>"; };
+		B99398CD1F73ACF0006470C1 /* CompanyInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyInfoCell.xib; sourceTree = "<group>"; };
 		B9A443D31F6F79F40050A08C /* DefineString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineString.h; sourceTree = "<group>"; };
 		B9A762C41F72117B00F7D1A3 /* CashKeyBoradVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashKeyBoradVC.h; sourceTree = "<group>"; };
 		B9A762C51F72117B00F7D1A3 /* CashKeyBoradVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashKeyBoradVC.m; sourceTree = "<group>"; };
@@ -982,6 +987,9 @@
 				B9E83A291F6FB8E1003BD7E2 /* ManageCardCell.h */,
 				B9E83A2A1F6FB8E1003BD7E2 /* ManageCardCell.m */,
 				B9E83A2B1F6FB8E1003BD7E2 /* ManageCardCell.xib */,
+				B99398CB1F73ACEF006470C1 /* CompanyInfoCell.h */,
+				B99398CC1F73ACEF006470C1 /* CompanyInfoCell.m */,
+				B99398CD1F73ACF0006470C1 /* CompanyInfoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1153,6 +1161,7 @@
 				B984963E1F694E2400C5A9C3 /* CustomTableViewCell.xib in Resources */,
 				B790F8AB1F6E989D0078BD7F /* ShareCell.xib in Resources */,
 				B9E83A2D1F6FB8E1003BD7E2 /* ManageCardCell.xib in Resources */,
+				B99398CF1F73ACF0006470C1 /* CompanyInfoCell.xib in Resources */,
 				B71306901F68199500735673 /* alertView_button_gray@2x.png in Resources */,
 				B98496301F69191A00C5A9C3 /* LoginVC.xib in Resources */,
 				B9C0E11A1F6BBDC600F4D296 /* FeatureListCell.xib in Resources */,
@@ -1319,6 +1328,7 @@
 				B98496381F694ACB00C5A9C3 /* RegistExtendVC.m in Sources */,
 				B71306861F68199500735673 /* SRInfiniteCarouselView.m in Sources */,
 				B71306601F68199400735673 /* NSDate+Extension.m in Sources */,
+				B99398CE1F73ACF0006470C1 /* CompanyInfoCell.m in Sources */,
 				B71306971F68199500735673 /* XYLoadingView.m in Sources */,
 				B71306821F68199500735673 /* UIViewController+MJPopupViewController.m in Sources */,
 				B9E83A2C1F6FB8E1003BD7E2 /* ManageCardCell.m in Sources */,

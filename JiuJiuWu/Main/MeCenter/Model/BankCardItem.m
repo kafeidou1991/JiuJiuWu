@@ -24,6 +24,14 @@
     _cell_phone = @"";
     _bank_number = @"";
     _detailAddress =@"";
+    
+    _merchant_name = @"";
+    _gszc_name = @"";
+    _biz_org = @"";
+    _biz_tax =@"";
+    _biz_license = @"";
+    _license_img = [UIImage new];
+    _shop_head_img = [UIImage new];
 }
 
 

@@ -10,36 +10,31 @@
 
 @interface BankCardItem : DateCenter
 //绑定银行卡是用
-@property (nonatomic, copy) NSString * idcard_number;
-@property (nonatomic, copy) NSString * banck_code;
-@property (nonatomic, copy) NSString * bank_name;
-@property (nonatomic, copy) NSString * account;
-@property (nonatomic, strong) UIImage * idcard_img_one;
-@property (nonatomic, strong) UIImage * idcard_img_two;
-@property (nonatomic, strong) UIImage * idcard_img_three;
-@property (nonatomic, copy) NSString * province;
-@property (nonatomic, copy) NSString * city;
-@property (nonatomic, copy) NSString * district;
-@property (nonatomic, copy) NSString * cell_phone;
-@property (nonatomic, copy) NSString * bank_number;
-@property (nonatomic, copy) NSString * detailAddress;
+@property (nonatomic, copy) NSString * idcard_number;//身份证号
+@property (nonatomic, copy) NSString * banck_code;//银行卡号
+@property (nonatomic, copy) NSString * bank_name;//银行名称
+@property (nonatomic, copy) NSString * account;//户主
+@property (nonatomic, strong) UIImage * idcard_img_one;//身份证照片正面
+@property (nonatomic, strong) UIImage * idcard_img_two;//身份证照片反面
+@property (nonatomic, strong) UIImage * idcard_img_three;//手持身份证
+@property (nonatomic, copy) NSString * province;//省
+@property (nonatomic, copy) NSString * city;//市
+@property (nonatomic, copy) NSString * district;//县
+@property (nonatomic, copy) NSString * cell_phone;//预留手机号
+@property (nonatomic, copy) NSString * bank_number;//银行code
+@property (nonatomic, copy) NSString * detailAddress;//详细地址
+
+//商户信息用
+@property (nonatomic, copy) NSString * merchant_name; //商户名称
+@property (nonatomic, copy) NSString * gszc_name;//工商注册名称
+@property (nonatomic, copy) NSString * biz_license;//营业执照
+@property (nonatomic, copy) NSString * biz_org;//组织机构代码
+@property (nonatomic, copy) NSString * biz_tax;//纳税人识别号
+@property (nonatomic, strong) UIImage * license_img;//营业执照照片
+@property (nonatomic, strong) UIImage * shop_head_img;//店铺门面照片
 
 - (void)setEmptyItem;
 
+
 @end
 
-
-//user_id	string	是	用户ID
-//idcard_number	string	是	身份证号
-//banck_code	string	是	银行卡号
-//bank_name	string	是	银行名称
-//account	string	是	户主
-//idcard_img_one	string	是	身份证照片正面
-//idcard_img_two	string	是	身份证照片反面
-//idcard_img_three	string	是	手持身份证
-//province	int	是	省
-//city	int	是	市
-//district	int	是	县
-//token	string	是
-//cell_phone	int	是	预留手机号
-//bank_number	string	是	银行编号

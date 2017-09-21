@@ -35,7 +35,18 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 40.f;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.f;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.f;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return [UIView new];
+}
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [UIView new];
+}
 - (void)createTableView{
     if (_emptyView && [self.view.subviews containsObject:_emptyView]) {
         [_emptyView removeFromSuperview]; _emptyView = nil;
@@ -53,6 +64,10 @@
         }
         if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
             [_tableView setLayoutMargins:UIEdgeInsetsZero];
+        }
+        //声明tableView的位置 添加下面代码
+        if (@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
     }
     if (![self.view.subviews containsObject:_tableView]) {
@@ -78,6 +93,10 @@
         }
         if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
             [_tableView setLayoutMargins:UIEdgeInsetsZero];
+        }
+        //声明tableView的位置 添加下面代码
+        if (@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
     }
     if (![self.view.subviews containsObject:_tableView]) {
