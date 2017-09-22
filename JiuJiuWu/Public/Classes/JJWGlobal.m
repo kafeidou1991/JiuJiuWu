@@ -97,54 +97,59 @@
 
 
 #pragma mark - 检查资料是否齐全
-
+- (PerfectInfoType)checkInfo {
+    //逻辑是先判断是否有企业信息 //在判断是否是个人用户  都不是弹框补充信息
+    if (_loginData.merchant_checked.integerValue != 0) {
+        if (_loginData.merchant_checked.integerValue == 1) {
+            return PerfectCheckingInfoType;
+        }else if (_loginData.merchant_checked.integerValue == 2) {
+            return PerfectCheckSuccessInfoType;
+        }else if (_loginData.merchant_checked.integerValue == 3) {
+            return PerfectCheckFailedInfoType;
+        }
+    }else {
+        if (_loginData.realname_checked.integerValue == 0) {
+            return PerfectNoCheckInfoType;
+        }else if (_loginData.realname_checked.integerValue == 1) {
+            return PerfectCheckingInfoType;
+        }else if (_loginData.realname_checked.integerValue == 2) {
+            return PerfectCheckSuccessInfoType;
+        }else if (_loginData.realname_checked.integerValue == 3) {
+            return PerfectCheckFailedInfoType;
+        }
+    }
+    return PerfectNoCheckInfoType;
+}
 - (BOOL)checkInfo:(JJWBaseVC *)viewController complete:(void (^)())block{
     __block __weak typeof(viewController)weakVC = viewController;
-    _loginData.status = @"2";
-    if (STRISEMPTY(_loginData.status)) {
+    if (STRISEMPTY(_loginData.token)) {
         //吊起登录页面
         [LoginVC OpenLogin:viewController callback:nil];
         return NO;
     }
     //资料齐全正常
-    if (_loginData.status.integerValue == 1) {
+    if ([self checkInfo] == PerfectCheckSuccessInfoType) {
         DLog(@"资料齐全！");
         if (block) {
             block();
         }
         return YES;
     }
-    if (_loginData.status.integerValue == 2) {
-        //需要验证
-        _activeCodeVC = [[PerfectInfoVC alloc]init];
-        _activeCodeVC.cancelBlock = ^{
-            [weakVC dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
-        };
-        //激活完成
-        _activeCodeVC.activeVlock = ^{
-            ManageCardVC * VC = [[ManageCardVC alloc]init];
-            VC.type = BindRegisterCardType;
-            [weakVC.navigationController pushViewController:VC animated:YES];
-            [weakVC dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
-        };
-        [viewController presentPopupViewController:_activeCodeVC animationType:MJPopupViewAnimationFade];
-        return NO;
-    }
-//    if (_loginData.member.status.integerValue == 3) {
-//        if (STRISEMPTY(_loginData.merchant.openType)) {
-//            PerfectInfoViewController * pushVC = [[PerfectInfoViewController alloc]init];
-//            [viewController.navigationController pushViewController:pushVC animated:YES];
-//        }else{
-//            ShopInfoViewController * vc = [[ShopInfoViewController alloc]init];
-//            [viewController.navigationController pushViewController:vc animated:YES];
-//        }
-//        return NO;
-//    }
-//    if (_loginData.member.status.integerValue == 4) {
-//        ClearingViewController * pushVC = [[ClearingViewController alloc]init];
-//        [viewController.navigationController pushViewController:pushVC animated:YES];
-//        return NO;
-//    }
+    //需要验证
+    _activeCodeVC = [[PerfectInfoVC alloc]init];
+    _activeCodeVC.cancelBlock = ^{
+        [weakVC dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
+    };
+    //激活完成
+    _activeCodeVC.activeVlock = ^{
+        ManageCardVC * VC = [[ManageCardVC alloc]init];
+        VC.type = BindRegisterCardType;
+        [weakVC.navigationController pushViewController:VC animated:YES];
+        [weakVC dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
+    };
+    _activeCodeVC.type = [self checkInfo];
+    [viewController presentPopupViewController:_activeCodeVC animationType:MJPopupViewAnimationFade];
+    return NO;
     return YES;
 }
 

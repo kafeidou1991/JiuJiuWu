@@ -8,14 +8,21 @@
 
 #import "JJWBaseVC.h"
 
-typedef void(^ScanGunPayResultBlock)(NSString * content);
+typedef NS_ENUM(NSInteger, PerfectInfoType) {
+    PerfectNoCheckInfoType = 0, //待审核需要完善信息
+    PerfectCheckingInfoType = 1, //正在审核中
+    PerfectCheckSuccessInfoType = 2,//审核成功
+    PerfectCheckFailedInfoType = 3,//审核失败
+};
 
-//激活码
+//补充信息
 @interface PerfectInfoVC : JJWBaseVC
 
 @property (nonatomic, copy) dispatch_block_t cancelBlock;
 
 @property (nonatomic, copy) dispatch_block_t activeVlock;
+
+@property (nonatomic, assign) PerfectInfoType type;
 
 
 @end

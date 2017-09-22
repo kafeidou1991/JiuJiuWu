@@ -25,8 +25,6 @@
 @property (nonatomic, copy) NSString * resultCount;
 @end
 
-
-@class UserData,ShopData;
 @interface DloginData : DateCenter
 @property (nonatomic, copy) NSString * token;
 @property (nonatomic, copy) NSString * user_id;
@@ -58,7 +56,9 @@
 @property (nonatomic, copy) NSString * customer_id;
 @property (nonatomic, copy) NSString * open_branch;
 @property (nonatomic, copy) NSString * biz_org;
-@property (nonatomic, copy) NSString * status;
+
+@property (nonatomic, copy) NSString * realname_checked; //审核状态 个人商户  0待审核 1审核中 2审核通过 3审核未通过
+@property (nonatomic, copy) NSString * merchant_checked; //企业用户   0待审核 1审核中 2审核通过 3审核未通过
 
 @end
 
