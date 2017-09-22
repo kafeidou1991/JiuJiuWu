@@ -9,21 +9,22 @@
 #import "BankCardItem.h"
 
 @implementation BankCardItem
-
 -(void)setEmptyItem {
     _idcard_number = @"";
-    _banck_code = @"";
-    _bank_name = @"";
     _account = @"";
+    _bank_name = @"";
+    _account_name = @"";
     _idcard_img_one = [UIImage new];
     _idcard_img_two = [UIImage new];
     _idcard_img_three = [UIImage new];
     _province = @"";
     _city = @"";
     _district = @"";
-    _cell_phone = @"";
-    _bank_number = @"";
-    _detailAddress =@"";
+    _account_mobile = @"";
+    _bank_code = @"";
+    _account_type = @"1";
+    _open_branch = @"";
+    _address_detail =@"";
     
     _merchant_name = @"";
     _gszc_name = @"";

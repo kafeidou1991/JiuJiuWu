@@ -42,9 +42,6 @@
         default:
             break;
     }
-    //改变协议按钮的渲染颜色
-    [self changeProtocolImage];
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -121,14 +118,6 @@
 - (IBAction)clickProtocolAction:(UIButton *)sender {
     
 }
-
-- (void)changeProtocolImage {
-    UIImage * image = [[UIImage imageNamed:@"regista_protocol_select"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [self.protocolBtn setImage:image forState:UIControlStateHighlighted];
-    [self.protocolBtn setImage:image forState:UIControlStateSelected];
-    self.protocolBtn.tintColor = themeColor;
-}
-
 
 #pragma mark -计时器
 - (void)openTimer {

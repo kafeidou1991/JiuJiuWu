@@ -99,6 +99,8 @@
 		B790F8AB1F6E989D0078BD7F /* ShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B790F8A91F6E989D0078BD7F /* ShareCell.xib */; };
 		B790F8B11F6EA8A50078BD7F /* MeCenterHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B790F8B01F6EA8A50078BD7F /* MeCenterHeadView.m */; };
 		B790F8B31F6EA8B90078BD7F /* MeCenterHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B790F8B21F6EA8B90078BD7F /* MeCenterHeadView.xib */; };
+		B90B70C01F74EF6100CD20DE /* PubilcBankCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B90B70BE1F74EF6100CD20DE /* PubilcBankCardCell.m */; };
+		B90B70C11F74EF6100CD20DE /* PubilcBankCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90B70BF1F74EF6100CD20DE /* PubilcBankCardCell.xib */; };
 		B92DA4371F70BB0500A5B7BE /* ChangePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA4361F70BB0500A5B7BE /* ChangePasswordVC.m */; };
 		B92DA43A1F70EBAA00A5B7BE /* BankCardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA4391F70EBAA00A5B7BE /* BankCardItem.m */; };
 		B92DA43D1F71009100A5B7BE /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA43C1F71009100A5B7BE /* SettingVC.m */; };
@@ -326,6 +328,9 @@
 		B790F8AF1F6EA8A50078BD7F /* MeCenterHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeCenterHeadView.h; sourceTree = "<group>"; };
 		B790F8B01F6EA8A50078BD7F /* MeCenterHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeCenterHeadView.m; sourceTree = "<group>"; };
 		B790F8B21F6EA8B90078BD7F /* MeCenterHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeCenterHeadView.xib; sourceTree = "<group>"; };
+		B90B70BD1F74EF6100CD20DE /* PubilcBankCardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PubilcBankCardCell.h; sourceTree = "<group>"; };
+		B90B70BE1F74EF6100CD20DE /* PubilcBankCardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PubilcBankCardCell.m; sourceTree = "<group>"; };
+		B90B70BF1F74EF6100CD20DE /* PubilcBankCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PubilcBankCardCell.xib; sourceTree = "<group>"; };
 		B92DA4351F70BB0500A5B7BE /* ChangePasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordVC.h; sourceTree = "<group>"; };
 		B92DA4361F70BB0500A5B7BE /* ChangePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordVC.m; sourceTree = "<group>"; };
 		B92DA4381F70EBAA00A5B7BE /* BankCardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardItem.h; sourceTree = "<group>"; };
@@ -869,12 +874,12 @@
 			children = (
 				B98496121F690C7A00C5A9C3 /* MeCenterVC.h */,
 				B98496131F690C7A00C5A9C3 /* MeCenterVC.m */,
-				B9A762D41F729A3400F7D1A3 /* CompanyInfoVC.h */,
-				B9A762D51F729A3400F7D1A3 /* CompanyInfoVC.m */,
 				B92DA43B1F71009100A5B7BE /* SettingVC.h */,
 				B92DA43C1F71009100A5B7BE /* SettingVC.m */,
 				B9E83A211F6FA92C003BD7E2 /* ManageCardVC.h */,
 				B9E83A221F6FA92C003BD7E2 /* ManageCardVC.m */,
+				B9A762D41F729A3400F7D1A3 /* CompanyInfoVC.h */,
+				B9A762D51F729A3400F7D1A3 /* CompanyInfoVC.m */,
 				B7534EC21F7005CB007DD232 /* SelectBandVC.h */,
 				B7534EC31F7005CB007DD232 /* SelectBandVC.m */,
 				B7534EC51F7008DF007DD232 /* ManagePasswordVC.h */,
@@ -987,6 +992,9 @@
 				B9E83A291F6FB8E1003BD7E2 /* ManageCardCell.h */,
 				B9E83A2A1F6FB8E1003BD7E2 /* ManageCardCell.m */,
 				B9E83A2B1F6FB8E1003BD7E2 /* ManageCardCell.xib */,
+				B90B70BD1F74EF6100CD20DE /* PubilcBankCardCell.h */,
+				B90B70BE1F74EF6100CD20DE /* PubilcBankCardCell.m */,
+				B90B70BF1F74EF6100CD20DE /* PubilcBankCardCell.xib */,
 				B99398CB1F73ACEF006470C1 /* CompanyInfoCell.h */,
 				B99398CC1F73ACEF006470C1 /* CompanyInfoCell.m */,
 				B99398CD1F73ACF0006470C1 /* CompanyInfoCell.xib */,
@@ -1178,6 +1186,7 @@
 				B9C0E1121F6BA61D00F4D296 /* HomeHeaderView.xib in Resources */,
 				B71306911F68199500735673 /* alertView_button_gray_pressed@2x.png in Resources */,
 				B71306941F68199500735673 /* alertView_loading@2x.png in Resources */,
+				B90B70C11F74EF6100CD20DE /* PubilcBankCardCell.xib in Resources */,
 				B713068D1F68199500735673 /* WSDatePickerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1300,6 +1309,7 @@
 				B71306A21F681A5700735673 /* JJWBase.m in Sources */,
 				B71306801F68199500735673 /* OpationButton.m in Sources */,
 				B71306751F68199500735673 /* BXTabBarBigButton.m in Sources */,
+				B90B70C01F74EF6100CD20DE /* PubilcBankCardCell.m in Sources */,
 				B71306731F68199500735673 /* BXBadgeView.m in Sources */,
 				B71306841F68199500735673 /* SGScanningQRCodeView.m in Sources */,
 				B71305CF1F6818EC00735673 /* UIImage+JKRImage.m in Sources */,

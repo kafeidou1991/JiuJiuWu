@@ -9,8 +9,8 @@
 #import "JJWBaseTableVC.h"
 
 typedef NS_ENUM(NSInteger, BindCardType) {
-    BindRegisterCardType = 0, //从判断状态过来
-    BindChangeCardType,  //从center进来
+    BindRegisterCardType = 0, //从补充信息判断状态过来
+    BindChangeCardType,  //从me center进来
 };
 
 @interface ManageCardVC : JJWBaseTableVC

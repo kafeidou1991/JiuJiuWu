@@ -72,12 +72,10 @@ static CGFloat const headerHeight = 220; //顶部视图高度
         _headerView.frame = CGRectMake(0,-headerHeight, SCreenWidth, headerHeight);
         WeakSelf
         _headerView.block = ^(NSInteger index) {
-            
-//            CashKeyBoradVC * VC = [[CashKeyBoradVC alloc]init];
-//            VC.payType = index;
-//            [weakSelf.navigationController pushViewController:VC animated:YES];
             [[JJWLogin sharedMethod]checkInfo:weakSelf complete:^{
-                DLog(@"通过");
+                CashKeyBoradVC * VC = [[CashKeyBoradVC alloc]init];
+                VC.payType = index;
+                [weakSelf.navigationController pushViewController:VC animated:YES];
             }];
         };
     }

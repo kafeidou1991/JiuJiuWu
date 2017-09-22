@@ -7,7 +7,10 @@
 //
 
 #import "JJWBaseTableVC.h"
+#import "ManageCardVC.h"
 
 @interface CompanyInfoVC : JJWBaseTableVC
+
+@property (nonatomic, assign) BindCardType type;
 
 @end

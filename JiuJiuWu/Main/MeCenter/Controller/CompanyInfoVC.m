@@ -23,7 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"绑定企业商户信息";
-    self.dataSources = @[@[@{@"title":@"企业名称:",@"placeholder":@"请输入企业名称"},
+    [self.currCardItem setEmptyItem];
+    self.dataSources = @[@[@{@"title":@"商户名称:",@"placeholder":@"请输入商户名称"},
+                         @{@"title":@"工商注册名称:",@"placeholder":@"请输入营业执照注册名称"},
                          @{@"title":@"法人姓名:",@"placeholder":@"请输入法人姓名"},
                          @{@"title":@"营业执照号:",@"placeholder":@"请输入营业执照号"},
                          @{@"title":@"组织结构号:",@"placeholder":@"请输入组织结构号"},
@@ -37,7 +39,15 @@
 }
 //提交
 - (void)nextAction {
-
+    //merchant_name    string    否    商户名称
+    //gszc_name    string    否    工商注册名称
+    //biz_license    string    否    营业执照
+    //biz_org    string    否    组织机构代码
+    //biz_tax    string    否    纳税人识别号
+    //user_id    string    是    用户ID
+    //license_img    string    否    营业执照照片
+    //shop_head_img    string    否    店铺门面照片
+    //token
 }
 #pragma mark - tableview delegate
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -48,14 +58,10 @@
         if (!cell) {
             cell = [[NSBundle mainBundle]loadNibNamed:@"CustomTableViewCell" owner:self options:nil].firstObject;
         }
-        cell.inputTextField.keyboardType = (indexPath.row == 0 || indexPath.row == 1) ? UIKeyboardTypeDefault : UIKeyboardTypePhonePad;
+        cell.inputTextField.keyboardType = (indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2) ? UIKeyboardTypeDefault : UIKeyboardTypePhonePad;
         cell.inputTextField.tag = indexPath.row + 100;
         [cell updateBindCardCell:((NSArray *)self.dataSources[indexPath.section])[indexPath.row] textAlignment:NSTextAlignmentRight];
-        if (indexPath.row == 1 || indexPath.row == 2) {
-            cell.inputTextField.secureTextEntry =YES;
-        }else {
-            cell.inputTextField.secureTextEntry =NO;
-        }
+        [self inputContent:cell Row:indexPath];
         return cell;
     }else {
         CompanyInfoCell * cell = [tableView dequeueReusableCellWithIdentifier:secondCellId];
@@ -69,7 +75,30 @@
         [cell updateCell:_currCardItem];
         return cell;
     }
-    
+}
+- (void)inputContent:(CustomTableViewCell *)cell Row:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0:
+            cell.inputTextField.text = _currCardItem.merchant_name;
+            break;
+        case 1:
+            cell.inputTextField.text = _currCardItem.gszc_name;
+            break;
+        case 2:
+        cell.inputTextField.text = _currCardItem.legal_person;
+        break;
+        case 3:
+            cell.inputTextField.text = _currCardItem.biz_license;
+            break;
+        case 4:
+            cell.inputTextField.text = _currCardItem.biz_org;
+            break;
+        case 5:
+            cell.inputTextField.text = _currCardItem.biz_tax;
+            break;
+        default:
+            break;
+    }
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.dataSources.count;
@@ -122,6 +151,7 @@
 }
 #pragma mark - 照片选择
 - (void)openPhotoCameraAction:(UIButton *)sender {
+    [self.view endEditing:YES];
     ZLPhotoActionSheet * actionSheet = [[ZLPhotoActionSheet alloc] init];
     //设置照片最大选择数
     actionSheet.maxSelectCount = 1;
@@ -152,24 +182,29 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSString * beString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    if (textField.tag == 101) {
-        if (beString.length > 15) {
-            return NO;
-        }
+    if (textField.tag == 100) {
+        _currCardItem.merchant_name = beString;
+    }else if (textField.tag == 101) {
+        _currCardItem.gszc_name = beString;
     }else if (textField.tag == 102) {
-        if (beString.length > 6) {
-            return NO;
-        }
-    }
-    else if (textField.tag == 103) {
-        if (beString.length > 11) {
-            return NO;
-        }
+        _currCardItem.legal_person = beString;
+    }else if (textField.tag == 103) {
+        _currCardItem.biz_license = beString;
+    }else if (textField.tag == 104) {
+        _currCardItem.biz_org = beString;
+    }else if (textField.tag == 105) {
+        _currCardItem.biz_tax = beString;
     }
     return YES;
 }
 
 
+-(BankCardItem *)currCardItem {
+    if (!_currCardItem) {
+        _currCardItem = [[BankCardItem alloc]init];
+    }
+    return _currCardItem;
+}
 
 
 

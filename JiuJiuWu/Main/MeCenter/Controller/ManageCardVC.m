@@ -15,6 +15,8 @@
 #import "UIViewController+MJPopupViewController.h"
 #import "BankCardItem.h"
 #import "HZAreaPickerView.h"
+#import "PubilcBankCardCell.h"
+#import "CompanyInfoVC.h"
 
 static CGFloat thirdHeight = 300.f;
 
@@ -40,16 +42,17 @@ static CGFloat thirdHeight = 300.f;
     
 }
 - (void)initData {
-    self.dataSources = @[@[@{@"title":@"结算银行:",@"placeholder":@"选择结算银行"},
-                           @{@"title":@"结算户主:",@"placeholder":@"请输入户主姓名"},
-                           @{@"title":@"结算卡号:",@"placeholder":@"请输入结算卡号"},
-                           @{@"title":@"身份证号:",@"placeholder":@"请输入身份证号"},
-                           @{@"title":@"预留手机号:",@"placeholder":@"请输入银行预留手机号"}],
+    self.dataSources = @[@[@{@"title":@"结算银行",@"placeholder":@"选择结算银行"},
+                           @{@"title":@"结算户主",@"placeholder":@"请输入户主姓名"},
+                           @{@"title":@"对公账号",@"placeholder":@"请输入对公银行行号"},
+                           @{@"title":@"结算卡号",@"placeholder":@"请输入结算卡号"},
+                           @{@"title":@"身份证号",@"placeholder":@"请输入身份证号"},
+                           @{@"title":@"预留手机号",@"placeholder":@"请输入银行预留手机号"}],
                          
-                         @[@{@"title":@"省:",@"placeholder":@"选择商户所在省"},
-                           @{@"title":@"市:",@"placeholder":@"选择商户所在市"},
-                           @{@"title":@"区/县:",@"placeholder":@"选择商户所在区/县"},
-                           @{@"title":@"详细地址:",@"placeholder":@"请输入商户详细地址"}],
+                         @[@{@"title":@"省",@"placeholder":@"选择商户所在省"},
+                           @{@"title":@"市",@"placeholder":@"选择商户所在市"},
+                           @{@"title":@"区/县",@"placeholder":@"选择商户所在区/县"},
+                           @{@"title":@"详细地址",@"placeholder":@"请输入商户详细地址"}],
                          
                          @[@{@"title":@"占位符",@"placeholder":@"占位符"}]].mutableCopy;
     
@@ -61,15 +64,19 @@ static CGFloat thirdHeight = 300.f;
         [JJWBase alertMessage:@"请选择结算银行!" cb:nil];
         return;
     }
-    if (STRISEMPTY(_currCardItem.account)) {
+    if (STRISEMPTY(_currCardItem.account_name)) {
         [JJWBase alertMessage:@"输入户主姓名!" cb:nil];
         return;
     }
-    if (STRISEMPTY(_currCardItem.banck_code)) {
+    if (_currCardItem.account_type.integerValue == 2 && STRISEMPTY(_currCardItem.open_branch)) {
+        [JJWBase alertMessage:@"请输入对公银行行号!" cb:nil];
+        return;
+    }
+    if (STRISEMPTY(_currCardItem.account)) {
         [JJWBase alertMessage:@"请输入结算卡号!" cb:nil];
         return;
     }
-    if (STRISEMPTY(_currCardItem.cell_phone)) {
+    if (STRISEMPTY(_currCardItem.account_mobile)) {
         [JJWBase alertMessage:@"请输入银行预留手机号!" cb:nil];
         return;
     }
@@ -81,7 +88,7 @@ static CGFloat thirdHeight = 300.f;
         [JJWBase alertMessage:@"请选择银行卡开户地!" cb:nil];
         return;
     }
-    if (STRISEMPTY(_currCardItem.detailAddress)) {
+    if (STRISEMPTY(_currCardItem.address_detail)) {
         [JJWBase alertMessage:@"请输入商户详细地址!" cb:nil];
         return;
     }
@@ -91,23 +98,34 @@ static CGFloat thirdHeight = 300.f;
     }
     WeakSelf
     [self hudShow:self.view msg:STTR_ater_on];
-    NSDictionary * dict = @{@"user_id":[JJWLogin sharedMethod].loginData.user_id,
+    NSMutableDictionary * dict = @{@"user_id":[JJWLogin sharedMethod].loginData.user_id,
+                            @"token":[JJWLogin sharedMethod].loginData.token,
                             @"idcard_number":_currCardItem.idcard_number,
-                            @"banck_code":_currCardItem.banck_code,
-                            @"bank_name":_currCardItem.bank_name,
                             @"account":_currCardItem.account,
+                            @"account_name":_currCardItem.account_name,
                             @"idcard_img_one":[self base64Str:_currCardItem.idcard_img_one],
                             @"idcard_img_two":[self base64Str:_currCardItem.idcard_img_two],
                             @"idcard_img_three":[self base64Str:_currCardItem.idcard_img_three],
                             @"province":_currCardItem.province,
                             @"city":_currCardItem.city,
                             @"district":_currCardItem.district,
-                            @"token":[JJWLogin sharedMethod].loginData.token,
-                            @"cell_phone":_currCardItem.cell_phone,
-                            @"bank_number":_currCardItem.bank_number};
-    [JJWNetworkingTool PostWithUrl:UpdateBankInfo params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+                            @"account_mobile":_currCardItem.account_mobile,
+                            @"bank_code":_currCardItem.bank_code,
+                            @"address_detail":_currCardItem.address_detail,
+                            @"account_type":_currCardItem.account_type}.mutableCopy;
+    if (_currCardItem.account_type.integerValue == 2) {
+        [dict setObject:_currCardItem.open_branch forKey:@"open_branch"];
+    }
+    [JJWNetworkingTool PostWithUrl:UpdateBankInfo params:dict.copy isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [weakSelf hudclose];
-        [JJWBase alertMessage:@"成功!" cb:nil];
+        [JJWBase alertMessage:@"绑定成功!" cb:nil];
+        if (_type == BindChangeCardType) {
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        }else {
+            CompanyInfoVC * VC = [[CompanyInfoVC alloc]init];
+            VC.type = _type;
+            [weakSelf.navigationController pushViewController:VC animated:YES];
+        }
     } failed:^(NSError *error, id chaceResponseObject) {
         [weakSelf hudclose];
         [JJWBase alertMessage:error.domain cb:nil];
@@ -119,22 +137,46 @@ static CGFloat thirdHeight = 300.f;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * cellId = @"cellId";
+    static NSString * firstCellId = @"firstCellId";
     static NSString * secondCellId = @"secondCellId";
     static NSString * thirdCellId = @"thirdCellId";
     if (indexPath.section == 0) {
-        CustomTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-        if (!cell) {
-            cell = [[NSBundle mainBundle]loadNibNamed:@"CustomTableViewCell" owner:self options:nil].firstObject;
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if (indexPath.row != 2) {
+            CustomTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+            if (!cell) {
+                cell = [[NSBundle mainBundle]loadNibNamed:@"CustomTableViewCell" owner:self options:nil].firstObject;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            cell.accessoryType = (indexPath.row == 0) ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+            cell.inputTextField.keyboardType = (indexPath.row == 0 || indexPath.row == 1) ? UIKeyboardTypeDefault : UIKeyboardTypePhonePad;
+            cell.inputTextField.enabled = !(indexPath.row == 0);
+            cell.inputTextField.tag = indexPath.row + 100;
+            cell.inputTextField.delegate = self;
+            [cell updateBindCardCell:((NSArray *)self.dataSources[indexPath.section])[indexPath.row]textAlignment:NSTextAlignmentRight];
+            [self inputContent:cell Row:indexPath];
+            return cell;
+        }else {
+            PubilcBankCardCell * cell = [tableView dequeueReusableCellWithIdentifier:firstCellId];
+            if (!cell) {
+                cell = [[NSBundle mainBundle]loadNibNamed:@"PubilcBankCardCell" owner:self options:nil].firstObject;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.inputTextField.tag = indexPath.row + 1000;
+            cell.inputTextField.delegate = self;
+            [cell updateBindCardCell:((NSArray *)self.dataSources[indexPath.section])[indexPath.row]textAlignment:NSTextAlignmentRight];
+            cell.inputTextField.text = _currCardItem.open_branch;
+            cell.selectBtn.selected = cell.inputTextField.enabled =  (_currCardItem.account_type.integerValue == 2);
+            __block BankCardItem * weakItem = _currCardItem;
+            cell.block = ^(UIButton *sender) {
+                if (sender.selected) {
+                    weakItem.account_type = @"2";
+                }else {
+                    weakItem.account_type = @"1";
+                }
+            };
+            return cell;
         }
-        cell.accessoryType = (indexPath.row == 0 || indexPath.row == 5) ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
-        cell.inputTextField.keyboardType = (indexPath.row == 0 || indexPath.row == 1) ? UIKeyboardTypeDefault : UIKeyboardTypePhonePad;
-        cell.inputTextField.enabled = !(indexPath.row == 0 || indexPath.row == 5);
-        cell.inputTextField.tag = indexPath.row + 100;
-        cell.inputTextField.delegate = self;
-        [cell updateBindCardCell:((NSArray *)self.dataSources[indexPath.section])[indexPath.row]textAlignment:NSTextAlignmentRight];
-        [self inputContent:cell Row:indexPath];
-        return cell;
     }else if (indexPath.section == 1) {
         CustomTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:secondCellId];
         if (!cell) {
@@ -171,16 +213,19 @@ static CGFloat thirdHeight = 300.f;
                 cell.inputTextField.text = _currCardItem.bank_name;
                 break;
             case 1:
+                cell.inputTextField.text = _currCardItem.account_name;
+                break;
+//            case 2:
+//                cell.inputTextField.text = _currCardItem.account;
+//                break;
+            case 3:
                 cell.inputTextField.text = _currCardItem.account;
                 break;
-            case 2:
-                cell.inputTextField.text = _currCardItem.banck_code;
-                break;
-            case 3:
+            case 4:
                 cell.inputTextField.text = _currCardItem.idcard_number;
                 break;
-            case 4:
-                cell.inputTextField.text = _currCardItem.cell_phone;
+            case 5:
+                cell.inputTextField.text = _currCardItem.account_mobile;
                 break;
             default:
                 break;
@@ -197,7 +242,7 @@ static CGFloat thirdHeight = 300.f;
                 cell.inputTextField.text = [NSString stringWithFormat:@"%@",_currCardItem.district];
                 break;
             case 3:
-                cell.inputTextField.text = [NSString stringWithFormat:@"%@",_currCardItem.detailAddress];
+                cell.inputTextField.text = [NSString stringWithFormat:@"%@",_currCardItem.address_detail];
                 break;
             default:
                 break;
@@ -217,7 +262,7 @@ static CGFloat thirdHeight = 300.f;
         selectBandVC.selectBlock = ^(NSInteger row) {
             DLog(@"code = %@-----band = %@",codeArray[row],bandsArray[row]);
             weakItem.bank_name = bandsArray[row];
-            weakItem.bank_number = codeArray[row];
+            weakItem.bank_code = codeArray[row];
             [weakSelf.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
             [weakSelf dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
         };
@@ -234,9 +279,12 @@ static CGFloat thirdHeight = 300.f;
     [self.view addSubview:pickView];
 }
 -(void)pickerDidChaneStatus:(HZAreaPickerView *)picker{
-    _currCardItem.province = picker.locate.state;
-    _currCardItem.city = picker.locate.city;
-    _currCardItem.district = picker.locate.district;
+    _currCardItem.province = picker.locate.stateId;
+    _currCardItem.provinceName = picker.locate.state;
+    _currCardItem.city = picker.locate.cityId;
+    _currCardItem.cityName = picker.locate.city;
+    _currCardItem.district = picker.locate.districtId;
+    _currCardItem.districtName = picker.locate.district;
     CustomTableViewCell * cell = (CustomTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
     if (cell) {
         cell.inputTextField.text = [NSString stringWithFormat:@"%@",picker.locate.state];
@@ -334,21 +382,24 @@ static CGFloat thirdHeight = 300.f;
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSString * beString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     if (textField.tag == 101) {
-        _currCardItem.account = beString;
-    }else if (textField.tag == 102) {
-        _currCardItem.banck_code = beString;
+        _currCardItem.account_name = beString;
     }else if (textField.tag == 103) {
+        _currCardItem.account = beString;
+    }else if (textField.tag == 104) {
         if (beString.length > 18) {
             return NO;
         }
         _currCardItem.idcard_number = beString;
-    }else if (textField.tag == 104) {
+    }else if (textField.tag == 105) {
         if (beString.length > 11) {
             return NO;
         }
-        _currCardItem.cell_phone = beString;
+        _currCardItem.account_mobile = beString;
     }else if (textField.tag == 203) {
-        _currCardItem.detailAddress = beString;
+        _currCardItem.address_detail = beString;
+    }
+    else if (textField.tag == 1002) {
+        _currCardItem.open_branch = beString;
     }
     return YES;
 }
