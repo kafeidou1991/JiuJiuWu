@@ -20,7 +20,7 @@
 //可以在此处添加一进入界面的请求
 - (void)afterProFun;
 //检查版本更新
-- (void)checkVersion:(BOOL)isShow;
+- (void)checkVersion;
 
 - (void)backAction:(id)sender;
 - (void)willBack;

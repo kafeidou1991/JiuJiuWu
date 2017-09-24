@@ -28,7 +28,7 @@
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dom-Yt-NZB">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dom-Yt-NZB">
                         <rect key="frame" x="0.0" y="40" width="160" height="94"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="dom-Yt-NZB" secondAttribute="height" multiplier="17:10" id="kRY-En-y76"/>

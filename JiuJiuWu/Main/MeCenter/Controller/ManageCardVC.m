@@ -122,9 +122,16 @@ static CGFloat thirdHeight = 300.f;
         if (_type == BindChangeCardType) {
             [weakSelf.navigationController popViewControllerAnimated:YES];
         }else {
-            CompanyInfoVC * VC = [[CompanyInfoVC alloc]init];
-            VC.type = _type;
-            [weakSelf.navigationController pushViewController:VC animated:YES];
+            [self jxt_showAlertWithTitle:@"温馨提示" message:@"企业用户请完善企业信息!" appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
+                alertMaker.addActionCancelTitle(@"取消");
+                alertMaker.addActionDefaultTitle(@"前往");
+            } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
+                if (buttonIndex == 0) {
+                    CompanyInfoVC * VC = [[CompanyInfoVC alloc]init];
+                    VC.type = _type;
+                    [weakSelf.navigationController pushViewController:VC animated:YES];
+                }
+            }];
         }
     } failed:^(NSError *error, id chaceResponseObject) {
         [weakSelf hudclose];

@@ -30,6 +30,8 @@ static CGFloat const headerHeight = 220; //顶部视图高度
 //    self.navigationController.delegate = self;
     self.navigationItem.leftBarButtonItem = nil;
     [self addSubViews];
+    //检查更新
+    [self checkVersion];
 }
 
 - (void)addSubViews {

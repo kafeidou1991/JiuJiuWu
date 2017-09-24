@@ -25,6 +25,8 @@ static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #endif
 
 #pragma mark ---------------------- 参数字段、功能 ----------------------------
+// 检查更新
+#define CheckUpdate [baseUrl appendBaseUrl:@"app/getNewApp"]
 //注册获取短信验证卡
 #define RegistGetCode [baseUrl appendBaseUrl:@"user/sendMobileValidateCode"]
 //验证验证码
@@ -33,13 +35,18 @@ static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #define RegistUser [baseUrl appendBaseUrl:@"user/reg"]
 //用户登录
 #define UserLogin [baseUrl appendBaseUrl:@"user/login"]
-//用户登录
-#define UpdateBankInfo [baseUrl appendBaseUrl:@"user/updateUserBankInfo"]
 //修改登录密码
 #define ChangePassword [baseUrl appendBaseUrl:@"user/password"]
-#define 登出
+// 登出
 #define Logout [baseUrl appendBaseUrl:@"user/logout"]
 
+//绑定银行卡信息
+#define UpdateBankInfo [baseUrl appendBaseUrl:@"user/updateUserBankInfo"]
+//绑定商户信息
+#define UpdateMerchantInfo [baseUrl appendBaseUrl:@"user/bindUserMerchant"]
+
+//扫码付款
+#define UnScanCodePay [baseUrl appendBaseUrl:@"cash/scanCodePay"]
 
 
 

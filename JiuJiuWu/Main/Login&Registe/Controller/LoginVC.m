@@ -14,12 +14,15 @@
 @property (weak, nonatomic) IBOutlet UITextField *mobileTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *registBtn;
+@property (weak, nonatomic) IBOutlet UIButton *closeBtn;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpace;
 
 - (IBAction)loginAction:(UIButton *)sender;
 
 - (IBAction)registAction:(UIButton *)sender;
+
+- (IBAction)closeAction:(UIButton *)sender;
 
 @end
 
@@ -30,6 +33,10 @@
     self.registBtn.layer.borderColor = themeColor.CGColor;
     self.registBtn.layer.borderWidth = 1.f;
     self.topSpace.constant = IS_IPHONE5 ? 32.f : 64.f;
+    
+    [self.closeBtn setImage:[[UIImage imageNamed:@"closePage"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self.closeBtn setImage:[[UIImage imageNamed:@"closePage"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateSelected];
+    [self.closeBtn setImage:[[UIImage imageNamed:@"closePage"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateHighlighted];
     
 }
 -(void)viewWillAppear:(BOOL)animated {
@@ -56,7 +63,8 @@
         return;
     }
     [self hudShow:self.view msg:STTR_ater_on];
-    NSDictionary * dict = @{@"username":account,@"password":[NSString md5Digest:[NSString stringWithFormat:@"TPSHOP%@",seccort]].lowercaseString,@"push_id":@"",@"unique_id":[JJWGlobal sharedMethod].uuid};
+//    TPSHOP
+    NSDictionary * dict = @{@"username":account,@"password":[NSString md5Digest:[NSString stringWithFormat:@"%@",seccort]].lowercaseString,@"push_id":@"",@"unique_id":[JJWGlobal sharedMethod].uuid};
     WeakSelf
     [JJWNetworkingTool PostWithUrl:UserLogin params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [weakSelf hudclose];
@@ -78,6 +86,10 @@
     RegistVC * regist = [[RegistVC alloc]init];
     regist.type = RegistAccountType;
     [self.navigationController pushViewController:regist animated:YES];
+}
+
+- (IBAction)closeAction:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];

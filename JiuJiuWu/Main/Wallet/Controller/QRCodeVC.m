@@ -193,22 +193,27 @@
 }
 #pragma mark - 扫描结果上传服务器
 - (void)_loadResult:(AVMetadataMachineReadableCodeObject *)obj{
-//    WeakSelf
-    
-//    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-//    [dict setObject:[YZFLogin sharedMethod].loginData.token forKey:@"token"];
-//    [dict setObject:obj.stringValue forKey:@"auth_code"];
-//    //以分 计算 传入 都得是整形
+    WeakSelf
+//    token    string    是    token
+//    auth_code    string    是    支付码
+//    amount    string    是    金额
+//    chanel_type    string    是    支付渠道
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    [dict setObject:[JJWLogin sharedMethod].loginData.token forKey:@"token"];
+    [dict setObject:obj.stringValue forKey:@"auth_code"];
+    [dict setObject:@(0.01) forKey:@"amount"];
+    [dict setObject:@"weixin" forKey:@"chanel_type"];
+    //以分 计算 传入 都得是整形
 //    [dict setObject:STRISEMPTY(_amount) ? @(0):@([NSString stringWithFormat:@"%.2f",_amount.floatValue * 100].integerValue) forKey:@"amount"];
-//    [YZFNetworkingTool PostWithUrl:UnScanCodePay params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
-//        [YZFBase alertMessage:@"付款成功!" cb:nil];
+    [JJWNetworkingTool PostWithUrl:UnScanCodePay params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+        [JJWBase alertMessage:@"付款成功!" cb:nil];
 //        PaySuccessItem * item = [PaySuccessItem yy_modelWithDictionary:responseObject];
 //        [weakSelf _pushIncomeVC:item];
-//    } failed:^(NSError *error, id chaceResponseObject) {
-//        [YZFBase alertMessage:error.domain cb:^(BOOL compliont) {
-//            [weakSelf setupScanningQRCode];
-//        }];
-//    }];
+    } failed:^(NSError *error, id chaceResponseObject) {
+        [JJWBase alertMessage:error.domain cb:^(BOOL compliont) {
+            [weakSelf setupScanningQRCode];
+        }];
+    }];
 }
 //- (void) _pushIncomeVC:(PaySuccessItem *)item{
 //    WeakSelf

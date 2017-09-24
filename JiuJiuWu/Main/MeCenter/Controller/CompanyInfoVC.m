@@ -24,12 +24,12 @@
     [super viewDidLoad];
     self.title = @"绑定企业商户信息";
     [self.currCardItem setEmptyItem];
-    self.dataSources = @[@[@{@"title":@"商户名称:",@"placeholder":@"请输入商户名称"},
-                         @{@"title":@"工商注册名称:",@"placeholder":@"请输入营业执照注册名称"},
-                         @{@"title":@"法人姓名:",@"placeholder":@"请输入法人姓名"},
-                         @{@"title":@"营业执照号:",@"placeholder":@"请输入营业执照号"},
-                         @{@"title":@"组织结构号:",@"placeholder":@"请输入组织结构号"},
-                         @{@"title":@"税务登记证号:",@"placeholder":@"请输入税务登记证号"}],
+    self.dataSources = @[@[@{@"title":@"商户名称",@"placeholder":@"请输入商户名称"},
+                         @{@"title":@"工商注册名称",@"placeholder":@"请输入营业执照注册名称"},
+                         @{@"title":@"法人姓名",@"placeholder":@"请输入法人姓名"},
+                         @{@"title":@"营业执照号",@"placeholder":@"请输入营业执照号"},
+                         @{@"title":@"组织结构号",@"placeholder":@"请输入组织结构号"},
+                         @{@"title":@"税务登记证号",@"placeholder":@"请输入税务登记证号"}],
                          @[@{@"title":@"占位符",@"placeholder":@"占位符"}]].mutableCopy;
     [self createTableView];
     WeakSelf
@@ -39,15 +39,63 @@
 }
 //提交
 - (void)nextAction {
-    //merchant_name    string    否    商户名称
-    //gszc_name    string    否    工商注册名称
-    //biz_license    string    否    营业执照
-    //biz_org    string    否    组织机构代码
-    //biz_tax    string    否    纳税人识别号
-    //user_id    string    是    用户ID
-    //license_img    string    否    营业执照照片
-    //shop_head_img    string    否    店铺门面照片
-    //token
+    if (STRISEMPTY(_currCardItem.merchant_name)) {
+        [JJWBase alertMessage:@"请输入商户名称!" cb:nil];
+        return;
+    }
+    if (STRISEMPTY(_currCardItem.gszc_name)) {
+        [JJWBase alertMessage:@"请输入工商注册名称!" cb:nil];
+        return;
+    }
+    if (STRISEMPTY(_currCardItem.legal_person)) {
+        [JJWBase alertMessage:@"请输入法人名称!" cb:nil];
+        return;
+    }
+    if (STRISEMPTY(_currCardItem.biz_license)) {
+        [JJWBase alertMessage:@"请输入营业执照号!" cb:nil];
+        return;
+    }
+    if (STRISEMPTY(_currCardItem.biz_org)) {
+        [JJWBase alertMessage:@"请输入组织结构号!" cb:nil];
+        return;
+    }
+    if (STRISEMPTY(_currCardItem.biz_tax)) {
+        [JJWBase alertMessage:@"请输入税务登记号!" cb:nil];
+        return;
+    }
+    if (_currCardItem.license_img.size.width == 0 || _currCardItem.shop_head_img.size.width == 0) {
+        [JJWBase alertMessage:@"请完善图片认证信息!" cb:nil];
+        return;
+    }
+    WeakSelf
+    [self hudShow:self.view msg:STTR_ater_on];
+    NSMutableDictionary * dict = @{@"user_id":[JJWLogin sharedMethod].loginData.user_id,
+                                   @"token":[JJWLogin sharedMethod].loginData.token,
+                                   @"merchant_name":_currCardItem.merchant_name,
+                                   @"gszc_name":_currCardItem.gszc_name,
+                                   @"biz_license":_currCardItem.biz_license,
+                                   @"biz_org":_currCardItem.biz_org,
+                                   @"biz_tax":_currCardItem.biz_tax,
+                                   @"legal_person":_currCardItem.legal_person,
+                                   @"license_img":[self base64Str:_currCardItem.license_img],
+                                   @"shop_head_img":[self base64Str:_currCardItem.shop_head_img]}.mutableCopy;
+    [JJWNetworkingTool PostWithUrl:UpdateMerchantInfo params:dict.copy isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+        [weakSelf hudclose];
+        [JJWBase alertMessage:@"绑定成功!" cb:nil];
+        if (_type == BindChangeCardType) {
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        }else {
+            //从补充信息界面过来
+            [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+        }
+    } failed:^(NSError *error, id chaceResponseObject) {
+        [weakSelf hudclose];
+        [JJWBase alertMessage:error.domain cb:nil];
+    }];
+}
+- (NSString *) base64Str:(UIImage *)image {
+    NSData * data = UIImageJPEGRepresentation(image, 0.0);
+    return [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 }
 #pragma mark - tableview delegate
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -57,6 +105,7 @@
         CustomTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         if (!cell) {
             cell = [[NSBundle mainBundle]loadNibNamed:@"CustomTableViewCell" owner:self options:nil].firstObject;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         cell.inputTextField.keyboardType = (indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2) ? UIKeyboardTypeDefault : UIKeyboardTypePhonePad;
         cell.inputTextField.tag = indexPath.row + 100;
@@ -67,6 +116,7 @@
         CompanyInfoCell * cell = [tableView dequeueReusableCellWithIdentifier:secondCellId];
         if (!cell) {
             cell = [[NSBundle mainBundle]loadNibNamed:@"CompanyInfoCell" owner:self options:nil].firstObject;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         WeakSelf
         cell.block = ^(UIButton *sender) {

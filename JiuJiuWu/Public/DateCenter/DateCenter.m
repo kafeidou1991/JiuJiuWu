@@ -24,12 +24,6 @@
 
 @implementation Version_App
 @end
-@implementation AppVersion
-@end
-@implementation PersionModel
-@end
-@implementation BandCardInfo
-@end
 @implementation BankItem
 
 @end

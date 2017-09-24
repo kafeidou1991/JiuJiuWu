@@ -27,76 +27,57 @@
 
 @interface DloginData : DateCenter
 @property (nonatomic, copy) NSString * token;
-@property (nonatomic, copy) NSString * user_id;
-@property (nonatomic, copy) NSString * nickname;
-@property (nonatomic, copy) NSString * level;
-@property (nonatomic, copy) NSString * password;
-@property (nonatomic, copy) NSString * paypwd;
-@property (nonatomic, copy) NSString * sex;
-@property (nonatomic, copy) NSString * birthday;
-@property (nonatomic, copy) NSString * mobile;
-@property (nonatomic, copy) NSString * mobile_validated;
-@property (nonatomic, copy) NSString * province;
+@property (nonatomic, copy) NSString * user_id;//用户id
+@property (nonatomic, copy) NSString * mobile;//用户注册手机号
+//银行卡相关
+@property (nonatomic, copy) NSString * realname_checked; //审核状态 个人商户  0待审核 1审核中 2审核通过 3审核未通过
+@property (nonatomic, copy) NSString * account; //银行卡账号
+@property (nonatomic, copy) NSString * banck_code;//银行卡code
+@property (nonatomic, copy) NSString * idcard_number;//身份证号
+@property (nonatomic, copy) NSString * idcard_img_one;//身份证银行卡正面
+@property (nonatomic, copy) NSString * idcard_img_two;//身份证银行卡反面
+@property (nonatomic, copy) NSString * idcard_img_three;//手持身份证银行卡正面
+@property (nonatomic, copy) NSString * province;// 省市县 编号
 @property (nonatomic, copy) NSString * city;
 @property (nonatomic, copy) NSString * district;
-@property (nonatomic, copy) NSString * email;
-@property (nonatomic, copy) NSString * email_validated;
-@property (nonatomic, copy) NSString * is_distribut;
-@property (nonatomic, copy) NSString * first_leader;
-@property (nonatomic, copy) NSString * second_leader;
-@property (nonatomic, copy) NSString * third_leader;
-@property (nonatomic, copy) NSString * total_amount;
-@property (nonatomic, copy) NSString * idcard_number;
-@property (nonatomic, copy) NSString * idcard_address;
-@property (nonatomic, copy) NSString * idcard_expired_time;
-@property (nonatomic, copy) NSString * merchant_name;
-@property (nonatomic, copy) NSString * merchant_short_name;
-@property (nonatomic, copy) NSString * bank_name;
-@property (nonatomic, copy) NSString * banck_code;
-@property (nonatomic, copy) NSString * customer_id;
-@property (nonatomic, copy) NSString * open_branch;
-@property (nonatomic, copy) NSString * biz_org;
+@property (nonatomic, copy) NSString * address_detail; //详细地址
+@property (nonatomic, copy) NSString * account_type;//银行卡 1.对私 2.对公 账号
+@property (nonatomic, copy) NSString * open_branch;//银行行号
+@property (nonatomic, copy) NSString * account_mobile;//预留手机号
+@property (nonatomic, copy) NSString * nickname;//姓名
+@property (nonatomic, copy) NSString * account_name;//银行卡账号名称
+@property (nonatomic, copy) NSString * bank_name;//银行名称
 
-@property (nonatomic, copy) NSString * realname_checked; //审核状态 个人商户  0待审核 1审核中 2审核通过 3审核未通过
+//商户相关
 @property (nonatomic, copy) NSString * merchant_checked; //企业用户   0待审核 1审核中 2审核通过 3审核未通过
+@property (nonatomic, copy) NSString * merchant_name;//商户名称
+@property (nonatomic, copy) NSString * biz_org;//组织机构代码
+@property (nonatomic, copy) NSString * gszc_name;//工商注册名称
+@property (nonatomic, copy) NSString * biz_tax;//纳税人识别号
+@property (nonatomic, copy) NSString * shop_head_img;//店铺门面照片
+@property (nonatomic, copy) NSString * license_img;//营业执照照片
+@property (nonatomic, copy) NSString * biz_license;//营业执照号
+@property (nonatomic, copy) NSString * legal_person;//法人名称
+//暂定
+@property (nonatomic, copy) NSString * sex;//性别
+@property (nonatomic, copy) NSString * password;// 密码
+@property (nonatomic, copy) NSString * paypwd;//交易密码
+@property (nonatomic, copy) NSString * user_money;//
 
 @end
 
-@class AppVersion;
 @interface Version_App : DateCenter
-@property (nonatomic, strong)AppVersion * appVersion;
-@property (nonatomic, copy) NSString * notice; //公告
-@property (nonatomic, copy) NSString * apipath; //请求的地址
-@end
-
-@interface AppVersion : DateCenter
-@property (nonatomic, copy) NSString * version_code;
-@property (nonatomic, copy) NSString * is_force;
-@property (nonatomic, copy) NSString * content;
-@end
-
-@interface PersionModel : DateCenter
-@property (nonatomic, copy)NSString * name;
-@property (nonatomic, copy)NSString * cardNumber;
-@property (nonatomic, copy)NSString * address;
-@property (nonatomic, copy)NSString * organ;
-@property (nonatomic, copy)NSString * dateTo;
-@end
-
-@interface BandCardInfo : DateCenter
-@property (nonatomic, copy)NSString * account;//卡号
-@property (nonatomic, copy)NSString * accountName;//账户名
-@property (nonatomic, copy)NSString * openBranch;//对公的时候开户网点
-@property (nonatomic, copy)NSString * accountMobile;//银行预留的银行卡号
-@property (nonatomic, copy)NSString * bandName;//银行名称
-@property (nonatomic, copy)NSString * accountType;//对私"3" 对公 @"2",
+@property (nonatomic, copy) NSString * version_id; //公告
+@property (nonatomic, copy) NSString * version_code; //公告
+@property (nonatomic, copy) NSString * version_name; //公告
+@property (nonatomic, copy) NSString * is_force; //公告
+@property (nonatomic, copy) NSString * content; //公告
+@property (nonatomic, copy) NSString * dl_url; //请求的地址
 @end
 
 @interface BankItem : DateCenter
-
 @property (nonatomic, copy) NSString * code;
 @property (nonatomic, copy) NSString * name;
-
 @end
 
 

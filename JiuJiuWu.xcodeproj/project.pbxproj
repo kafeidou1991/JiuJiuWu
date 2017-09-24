@@ -59,7 +59,6 @@
 		B713067A1F68199500735673 /* HZLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306181F68199400735673 /* HZLocation.m */; };
 		B713067B1F68199500735673 /* CenterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B713061A1F68199400735673 /* CenterLabel.m */; };
 		B713067C1F68199500735673 /* FRDLivelyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B713061D1F68199400735673 /* FRDLivelyButton.m */; };
-		B713067D1F68199500735673 /* IdCardApiHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B713061F1F68199400735673 /* IdCardApiHelper.m */; };
 		B713067E1F68199500735673 /* JXTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306231F68199400735673 /* JXTAlertController.m */; };
 		B713067F1F68199500735673 /* JXTAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306261F68199400735673 /* JXTAlertView.m */; };
 		B71306801F68199500735673 /* OpationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306291F68199400735673 /* OpationButton.m */; };
@@ -255,8 +254,6 @@
 		B713061A1F68199400735673 /* CenterLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterLabel.m; sourceTree = "<group>"; };
 		B713061C1F68199400735673 /* FRDLivelyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRDLivelyButton.h; sourceTree = "<group>"; };
 		B713061D1F68199400735673 /* FRDLivelyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRDLivelyButton.m; sourceTree = "<group>"; };
-		B713061E1F68199400735673 /* IdCardApiHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdCardApiHelper.h; sourceTree = "<group>"; };
-		B713061F1F68199400735673 /* IdCardApiHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdCardApiHelper.m; sourceTree = "<group>"; };
 		B71306221F68199400735673 /* JXTAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXTAlertController.h; sourceTree = "<group>"; };
 		B71306231F68199400735673 /* JXTAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXTAlertController.m; sourceTree = "<group>"; };
 		B71306251F68199400735673 /* JXTAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXTAlertView.h; sourceTree = "<group>"; };
@@ -679,12 +676,10 @@
 				B71306121F68199400735673 /* AddressPick */,
 				B71306191F68199400735673 /* CenterLabel.h */,
 				B713061A1F68199400735673 /* CenterLabel.m */,
-				B713061B1F68199400735673 /* FRDLivelyButton */,
-				B713061E1F68199400735673 /* IdCardApiHelper.h */,
-				B713061F1F68199400735673 /* IdCardApiHelper.m */,
-				B71306201F68199400735673 /* JXTAlertManager */,
 				B71306281F68199400735673 /* OpationButton.h */,
 				B71306291F68199400735673 /* OpationButton.m */,
+				B713061B1F68199400735673 /* FRDLivelyButton */,
+				B71306201F68199400735673 /* JXTAlertManager */,
 				B713062A1F68199400735673 /* PopupView */,
 				B713062F1F68199400735673 /* QRScan */,
 				B71306341F68199400735673 /* SRInfiniteCarouselView */,
@@ -1358,7 +1353,6 @@
 				B713066F1F68199500735673 /* UIView+Runtime.m in Sources */,
 				B71305D11F6818EC00735673 /* UIImage+TintColor.m in Sources */,
 				B984963D1F694E2400C5A9C3 /* CustomTableViewCell.m in Sources */,
-				B713067D1F68199500735673 /* IdCardApiHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -63,64 +63,37 @@
 }
 
 #pragma mark - 版本控制
-- (void)checkVersion:(BOOL)isShow{
-    NSString * token = [JJWLogin sharedMethod].loginData.token;
-    NSDictionary * dict = @{@"os":@"2",
-                            @"appid":APP_ID,
-                            @"version":APP_VERSION,
-                            @"token":STRISEMPTY(token) ? @"" : token,
-                            @"udid":[JJWGlobal sharedMethod].uuid};
-    [JJWNetworkingTool PostWithUrl:@"123" params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+- (void)checkVersion{
+    NSDictionary * dict = @{@"OS":@"2"};
+    [JJWNetworkingTool PostWithUrl:CheckUpdate params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [self hudclose];
-        Version_App * data = [Version_App yy_modelWithDictionary:responseObject];
-        [JJWGlobal sharedMethod].apipath = data.apipath;
-        //先判断是否需要升级，在进项展示公告
-        BOOL flag = [self compareVersion:data Show:isShow];
-        if (!flag && !STRISEMPTY(data.notice) && !isShow) {
+        Version_App * version = [Version_App yy_modelWithDictionary:responseObject];
+        if (STRISEMPTY(version.version_code)) {
+            return;
+        }
+        BOOL flag = [self needUpdateVersion:version.version_code];
+        if (flag) {
             if (!_alarmMessage) {
                 _alarmMessage = [[SUAlarmMessage alloc] init];
             }
-            [_alarmMessage showAlarm:@"公告" msg:data.notice cancelButtonTitle:nil otherButtonTitle:@"关闭" callBack:^(int buttonIndex) {
+            WeakSelf
+            [_alarmMessage showAlarm:@"更新提示" msg:STRISEMPTY(version.content)?@"发现新版本":version.content cancelButtonTitle:@"取消" otherButtonTitle:@"更新" callBack:^(int buttonIndex) {
+                if (buttonIndex == 1) {
+                    [weakSelf toAppstore];
+                    if ([version.is_force isEqualToString:@"1"]) {
+                        exit(0);
+                    }
+                }else{
+                    if ([version.is_force isEqualToString:@"1"]) {
+                        exit(0);
+                    }
+                }
             }];
         }
-        
     } failed:^(NSError *error, id chaceResponseObject) {
         [self hudclose];
         [JJWBase alertMessage:error.domain cb:nil];
     }];
-}
-
-- (BOOL)compareVersion:(Version_App *)version Show:(BOOL)isShow{
-    
-    if (STRISEMPTY(version.appVersion.version_code)) {
-        return NO;
-    }
-    BOOL flag = [self needUpdateVersion:version.appVersion.version_code];
-    if (flag) {
-        if (!_alarmMessage) {
-            _alarmMessage = [[SUAlarmMessage alloc] init];
-        }
-        WeakSelf
-        [_alarmMessage showAlarm:@"更新提示" msg:STRISEMPTY(version.appVersion.content)?@"发现新版本":version.appVersion.content cancelButtonTitle:@"取消" otherButtonTitle:@"更新" callBack:^(int buttonIndex) {
-            if (buttonIndex == 1) {
-                [weakSelf toAppstore];
-                if ([version.appVersion.is_force isEqualToString:@"1"]) {
-                    exit(0);
-                }
-            }else{
-                if ([version.appVersion.is_force isEqualToString:@"1"]) {
-                    exit(0);
-                }else{
-                    
-                }
-            }
-        }];
-    }else{
-        if (isShow) {
-            [JJWBase alertMessage:@"已经是最新版本！" cb:nil];
-        }
-    }
-    return flag;
 }
 - (void)toAppstore{
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_Address]];
@@ -197,7 +170,6 @@
         _mbProgressHud = nil;
     }
 }
-
 
 
 - (void)dealloc{

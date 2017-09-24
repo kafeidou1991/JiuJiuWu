@@ -66,9 +66,10 @@
     if (_type == ChangeLoginPasswordType) {
         [self hudShow:self.view msg:STTR_ater_on];
         NSDictionary * dict = @{@"user_id":[JJWLogin sharedMethod].loginData.user_id,
-                                @"old_password":[NSString md5Digest:[NSString stringWithFormat:@"TPSHOP%@",old_password]].lowercaseString,
-                                @"new_password":[NSString md5Digest:[NSString stringWithFormat:@"TPSHOP%@",new_password]].lowercaseString,
-                                @"confirm_password":[NSString md5Digest:[NSString stringWithFormat:@"TPSHOP%@",confirm_password]].lowercaseString,
+//                                TPSHOP
+                                @"old_password":[NSString md5Digest:[NSString stringWithFormat:@"%@",old_password]].lowercaseString,
+                                @"new_password":[NSString md5Digest:[NSString stringWithFormat:@"%@",new_password]].lowercaseString,
+                                @"confirm_password":[NSString md5Digest:[NSString stringWithFormat:@"%@",confirm_password]].lowercaseString,
                                 @"token":[JJWLogin sharedMethod].loginData.token};
         WeakSelf
         [JJWNetworkingTool PostWithUrl:ChangePassword params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {

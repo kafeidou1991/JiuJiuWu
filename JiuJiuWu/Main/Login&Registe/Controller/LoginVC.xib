@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC">
             <connections>
+                <outlet property="closeBtn" destination="plP-o3-yay" id="hSa-fP-D5V"/>
                 <outlet property="mobileTextField" destination="LML-XX-05o" id="eI4-PX-c1r"/>
                 <outlet property="passwordTextField" destination="0Sc-G8-Phz" id="iny-R8-zD0"/>
                 <outlet property="registBtn" destination="hHa-yH-m1T" id="yP6-EL-kBD"/>
@@ -116,11 +117,24 @@
                         <action selector="registAction:" destination="-1" eventType="touchUpInside" id="JNs-iq-3O6"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plP-o3-yay">
+                    <rect key="frame" x="315" y="10" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Oyh-mN-cat"/>
+                        <constraint firstAttribute="height" constant="50" id="mzy-X0-Bib"/>
+                    </constraints>
+                    <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" image="closePage"/>
+                    <connections>
+                        <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="mCH-r9-XXm"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="LML-XX-05o" firstAttribute="leading" secondItem="8de-Ve-3mk" secondAttribute="trailing" constant="11" id="3GZ-jI-gZJ"/>
                 <constraint firstItem="4bC-cl-avn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="11" id="9zc-4Y-rzN"/>
+                <constraint firstItem="plP-o3-yay" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="Aql-Ub-ShV"/>
                 <constraint firstItem="hHa-yH-m1T" firstAttribute="top" secondItem="4bC-cl-avn" secondAttribute="bottom" constant="20" id="Fgr-PA-rpT"/>
                 <constraint firstItem="8de-Ve-3mk" firstAttribute="top" secondItem="vqM-XF-aNZ" secondAttribute="bottom" constant="40" id="Ip5-0F-ShY"/>
                 <constraint firstAttribute="trailing" secondItem="4bC-cl-avn" secondAttribute="trailing" constant="11" id="Kpz-E4-wwm"/>
@@ -129,6 +143,7 @@
                 <constraint firstItem="esI-UX-3iy" firstAttribute="leading" secondItem="8de-Ve-3mk" secondAttribute="leading" id="YoP-VO-PmE"/>
                 <constraint firstItem="hHa-yH-m1T" firstAttribute="width" secondItem="4bC-cl-avn" secondAttribute="width" id="cWk-S9-NBj"/>
                 <constraint firstItem="vqM-XF-aNZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eBa-p9-c05"/>
+                <constraint firstAttribute="trailing" secondItem="plP-o3-yay" secondAttribute="trailing" constant="10" id="eJx-ux-omQ"/>
                 <constraint firstItem="8de-Ve-3mk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="11" id="ftk-BI-wNe"/>
                 <constraint firstItem="4bC-cl-avn" firstAttribute="top" secondItem="bji-3f-G2q" secondAttribute="bottom" constant="40" id="gpz-bn-StP"/>
                 <constraint firstItem="vqM-XF-aNZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="jId-WD-ax8"/>
@@ -149,6 +164,7 @@
         </view>
     </objects>
     <resources>
+        <image name="closePage" width="23" height="23"/>
         <image name="left_account" width="18" height="22"/>
         <image name="left_password" width="19" height="21"/>
         <image name="loginLogo" width="160" height="160"/>
