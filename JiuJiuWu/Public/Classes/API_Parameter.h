@@ -12,12 +12,12 @@
 #pragma mark ---------------------- 域名 ---------------------------
 #ifdef DEBUG //开发环境
 //0 测试环境  1 正式环境
-#define environment 1
+#define environment 0
 
 #if environment
 static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #else
-static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
+static NSString * const baseUrl = @"http://test.jiujiuwu.cn/api/";
 #endif
 
 #else //发布环境
