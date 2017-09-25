@@ -47,6 +47,7 @@
     
 }
 - (void)relogin {
+    [self hudclose];
     [LoginVC OpenLogin:self callback:^(BOOL compliont) {
         
     }];

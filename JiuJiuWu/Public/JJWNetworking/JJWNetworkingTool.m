@@ -90,9 +90,8 @@
             [JJWCache saveDataCache:responseObject forKey:url];
         }else{
             //用户需要重新登录
-            if (error.code == 10002) {
-                //                [[NSNotificationCenter defaultCenter] postNotificationName:ReplaceLogin object:nil];
-                
+            if (error.code == -1) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:ReplaceLogin object:nil];
             }else{
                 if (failed) {
                     failed(error,nil);

@@ -11,6 +11,7 @@
 #import "LevelUpCell.h"
 #import "UIViewController+MJPopupViewController.h"
 #import "PayTypeVC.h"
+#import "ConfirmPayVC.h"
 
 @interface LevelUpVC (){
     PayTypeVC * payTypeVC;
@@ -27,12 +28,6 @@
 }
 //提交支付
 - (void)commitePay {
-    if (!payTypeVC) {
-        payTypeVC = [[PayTypeVC alloc]init];
-    }
-    [self presentPopupViewController:payTypeVC animationType:MJPopupViewAnimationSlideBottomBottom];
-    return;
-    
     if (!_lastIndexPath) {
         [JJWBase alertMessage:@"请选择你要升级的会员~" cb:nil];
         return;
@@ -42,8 +37,17 @@
         [JJWBase alertMessage:@"您已经属于该等级的会员了~" cb:nil];
         return;
     }
-    
-    DLog(@"123");
+    WeakSelf
+    if (!payTypeVC) {
+        payTypeVC = [[PayTypeVC alloc]init];
+    }
+    payTypeVC.block = ^(PayType type) {
+        [weakSelf dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideBottomBottom];
+        ConfirmPayVC * VC = [[ConfirmPayVC alloc]init];
+        VC.item = item;
+        [weakSelf.navigationController pushViewController:VC animated:YES];
+    };
+    [self presentPopupViewController:payTypeVC animationType:MJPopupViewAnimationSlideBottomBottom];
 }
 -(void)afterProFun {
     [self hudShow:self.view msg:STTR_ater_on];
@@ -55,7 +59,7 @@
         weakSelf.dataSources = [NSArray yy_modelArrayWithClass:[LevelItem class] json:responseObject].mutableCopy;
         if (weakSelf.dataSources.count > 0) {
             [weakSelf createTableView];
-            weakSelf.tableView.tableFooterView = [weakSelf _createFootView:@"提   交" Block:^(UIButton * btn) {
+            weakSelf.tableView.tableFooterView = [weakSelf _createFootView:@"升   级" Block:^(UIButton * btn) {
                 [weakSelf commitePay];
             }];
         }else {

@@ -30,7 +30,7 @@
 }
 -(void)updateCell:(LevelItem *)item {
     self.levelLabel.text = item.level_name;
-    self.rateLabel.text = [NSString stringWithFormat:@"%g‰",item.scale.floatValue];
+    self.rateLabel.text = [NSString stringWithFormat:@"费率：%g‰",item.scale.floatValue];
     self.priceLabel.text = [NSString stringWithFormat:@"￥%ld",item.price.integerValue];
 }
 - (IBAction)selectAction:(UIButton *)sender {

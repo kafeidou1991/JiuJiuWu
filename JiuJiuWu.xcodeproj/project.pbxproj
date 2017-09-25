@@ -94,6 +94,8 @@
 		B71306B91F68213200735673 /* JJWCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B71306B81F68213200735673 /* JJWCache.m */; };
 		B7534EC41F7005CB007DD232 /* SelectBandVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B7534EC31F7005CB007DD232 /* SelectBandVC.m */; };
 		B7534EC71F7008DF007DD232 /* ManagePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B7534EC61F7008DF007DD232 /* ManagePasswordVC.m */; };
+		B789BD641F79436C00B39A55 /* ConfirmPayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B789BD621F79436C00B39A55 /* ConfirmPayVC.m */; };
+		B789BD651F79436C00B39A55 /* ConfirmPayVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B789BD631F79436C00B39A55 /* ConfirmPayVC.xib */; };
 		B790F8AA1F6E989D0078BD7F /* ShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B790F8A81F6E989D0078BD7F /* ShareCell.m */; };
 		B790F8AB1F6E989D0078BD7F /* ShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B790F8A91F6E989D0078BD7F /* ShareCell.xib */; };
 		B790F8B11F6EA8A50078BD7F /* MeCenterHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B790F8B01F6EA8A50078BD7F /* MeCenterHeadView.m */; };
@@ -324,6 +326,9 @@
 		B7534EC31F7005CB007DD232 /* SelectBandVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBandVC.m; sourceTree = "<group>"; };
 		B7534EC51F7008DF007DD232 /* ManagePasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagePasswordVC.h; sourceTree = "<group>"; };
 		B7534EC61F7008DF007DD232 /* ManagePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagePasswordVC.m; sourceTree = "<group>"; };
+		B789BD611F79436C00B39A55 /* ConfirmPayVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmPayVC.h; sourceTree = "<group>"; };
+		B789BD621F79436C00B39A55 /* ConfirmPayVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmPayVC.m; sourceTree = "<group>"; };
+		B789BD631F79436C00B39A55 /* ConfirmPayVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmPayVC.xib; sourceTree = "<group>"; };
 		B790F8A71F6E989D0078BD7F /* ShareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareCell.h; sourceTree = "<group>"; };
 		B790F8A81F6E989D0078BD7F /* ShareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareCell.m; sourceTree = "<group>"; };
 		B790F8A91F6E989D0078BD7F /* ShareCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareCell.xib; sourceTree = "<group>"; };
@@ -942,6 +947,9 @@
 				B97260BD1F78E1E000429C5E /* LevelUpVC.m */,
 				B97260C71F79021F00429C5E /* PayTypeVC.h */,
 				B97260CA1F79029100429C5E /* PayTypeVC.m */,
+				B789BD611F79436C00B39A55 /* ConfirmPayVC.h */,
+				B789BD621F79436C00B39A55 /* ConfirmPayVC.m */,
+				B789BD631F79436C00B39A55 /* ConfirmPayVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1194,6 +1202,7 @@
 				B713068F1F68199500735673 /* alertView_bg@2x.png in Resources */,
 				B71306791F68199500735673 /* HZAreaPickerView.xib in Resources */,
 				B98496351F69362800C5A9C3 /* RegistVC.xib in Resources */,
+				B789BD651F79436C00B39A55 /* ConfirmPayVC.xib in Resources */,
 				B71306771F68199500735673 /* city.plist in Resources */,
 				B9A762C81F72117B00F7D1A3 /* CashKeyBoradVC.xib in Resources */,
 				B71305761F6814E000735673 /* Assets.xcassets in Resources */,
@@ -1344,6 +1353,7 @@
 				B713067A1F68199500735673 /* HZLocation.m in Sources */,
 				B97260BE1F78E1E000429C5E /* LevelUpVC.m in Sources */,
 				B71306831F68199500735673 /* SGQRCodeTool.m in Sources */,
+				B789BD641F79436C00B39A55 /* ConfirmPayVC.m in Sources */,
 				B71305CD1F6818EC00735673 /* UIImage+ImageByScalingAndCorpping.m in Sources */,
 				B713056B1F6814E000735673 /* main.m in Sources */,
 				B984961D1F690C7A00C5A9C3 /* ShareVC.m in Sources */,

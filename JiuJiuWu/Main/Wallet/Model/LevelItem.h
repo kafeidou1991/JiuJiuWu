@@ -17,6 +17,5 @@
 @property (nonatomic, copy) NSString * level_name;
 @property (nonatomic, copy) NSString * describe;
 @property (nonatomic, copy) NSString * scale;
-@property (nonatomic, assign) BOOL select;
 
 @end

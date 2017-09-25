@@ -22,9 +22,19 @@
     [self createTableView];
     self.tableView.frame = self.view.bounds;
     self.tableView.layer.cornerRadius = 5.f;
+    WeakSelf
     self.tableView.tableFooterView = [self _createFootView:@"提   交" Block:^(UIButton * btn) {
-        
+        [weakSelf commite];
     }];
+}
+- (void)commite {
+    if (!_lastBtn) {
+        [JJWBase alertMessage:@"请选择支付方式" cb:nil];
+        return;
+    }
+    if (_block) {
+        _block(_lastBtn.tag);
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70.f;
@@ -38,6 +48,7 @@
         cell.textLabel.font = [UIFont systemFontOfSize:14];
         cell.detailTextLabel.textColor = DesTextColor;
         cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     [self updateCell:cell IndexPath:indexPath];
     cell.accessoryView = [self _createAccessoryView:indexPath];
@@ -69,7 +80,6 @@
 }
 - (void)btnClick:(UIButton *)sender {
     sender.selected = !sender.selected;
-    NSLog(@"%ld",sender.tag);
     if (self.lastBtn) {
         self.lastBtn.selected = !self.lastBtn.selected;
     }
