@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "check @.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "regista_protocol_select@2x.png",
+      "filename" : "check @2.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "check @3.png",
       "scale" : "3x"
     }
   ],

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="LevelUpCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高级VIP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oL0-ON-YFr">
+                        <rect key="frame" x="8" y="13.5" width="70" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="ssL-nv-Zyu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.2‰" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1GA-lY-JtO">
+                        <rect key="frame" x="130.5" y="12.5" width="60" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="Z7g-iT-eSk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAo-Mm-cdm">
+                        <rect key="frame" x="280" y="0.0" width="40" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="bRE-8H-PNW"/>
+                        </constraints>
+                        <state key="normal" image="regista_protocol"/>
+                        <state key="selected" image="regista_protocol_select"/>
+                        <state key="highlighted" image="regista_protocol_select"/>
+                        <connections>
+                            <action selector="selectAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="18P-21-AJM"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥500" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YwA-Fc-uRY">
+                        <rect key="frame" x="210" y="12.5" width="70" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="u94-Al-bdJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oL0-ON-YFr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1Gd-dW-tpx"/>
+                    <constraint firstItem="1GA-lY-JtO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ed2-eh-QgW"/>
+                    <constraint firstItem="oL0-ON-YFr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="O4p-CG-SsU"/>
+                    <constraint firstItem="1GA-lY-JtO" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Rgr-wo-6eK"/>
+                    <constraint firstItem="PAo-Mm-cdm" firstAttribute="leading" secondItem="YwA-Fc-uRY" secondAttribute="trailing" id="Rrw-Sf-M0u"/>
+                    <constraint firstItem="PAo-Mm-cdm" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="b5u-I2-GAF"/>
+                    <constraint firstItem="PAo-Mm-cdm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="m6A-aP-yt4"/>
+                    <constraint firstAttribute="trailing" secondItem="PAo-Mm-cdm" secondAttribute="trailing" id="vtq-9A-1fr"/>
+                    <constraint firstItem="YwA-Fc-uRY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zq0-GA-eaV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="levelLabel" destination="oL0-ON-YFr" id="cc6-ef-FEa"/>
+                <outlet property="priceLabel" destination="YwA-Fc-uRY" id="LPU-96-JCn"/>
+                <outlet property="rateLabel" destination="1GA-lY-JtO" id="Sy5-1C-hpK"/>
+                <outlet property="selectBtn" destination="PAo-Mm-cdm" id="WgJ-KI-OH1"/>
+            </connections>
+            <point key="canvasLocation" x="-114" y="-45"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="regista_protocol" width="20" height="20"/>
+        <image name="regista_protocol_select" width="20" height="20"/>
+    </resources>
+</document>

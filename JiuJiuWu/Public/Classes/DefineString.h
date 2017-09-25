@@ -12,6 +12,7 @@
 #pragma mark ---------------------- 通知字符 ----------------------------
 
 static NSString * const kLoginSuccess = @"LoginSuccess";
+static NSString * const ReplaceLogin = @"ReplaceLogin"; //重新登录
 
 
 

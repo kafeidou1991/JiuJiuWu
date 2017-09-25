@@ -12,7 +12,7 @@
 #pragma mark ---------------------- 域名 ---------------------------
 #ifdef DEBUG //开发环境
 //0 测试环境  1 正式环境
-#define environment 0
+#define environment 1
 
 #if environment
 static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
@@ -44,9 +44,10 @@ static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #define UpdateBankInfo [baseUrl appendBaseUrl:@"user/updateUserBankInfo"]
 //绑定商户信息
 #define UpdateMerchantInfo [baseUrl appendBaseUrl:@"user/bindUserMerchant"]
-
 //扫码付款
-#define UnScanCodePay [baseUrl appendBaseUrl:@"cash/scanCodePay"]
+#define UnScanCodePay [baseUrl appendBaseUrl:@"minshengpay/unScanCodePay"]
+//获取升级列表
+#define GetLevelList [baseUrl appendBaseUrl:@"user/getLevelList"]
 
 
 

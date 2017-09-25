@@ -128,7 +128,6 @@
         return NO;
     }
     //资料齐全正常
-//    _loginData.merchant_checked =@"2";
     if ([self checkInfo] == PerfectCheckSuccessInfoType) {
         DLog(@"资料齐全！");
         if (block) {

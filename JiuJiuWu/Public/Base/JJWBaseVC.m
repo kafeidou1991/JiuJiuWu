@@ -10,6 +10,7 @@
 #import "UIImage+Extension.h"
 #import "MBProgressHUD.h"
 #import "BXNavigationController.h"
+#import "LoginVC.h"
 
 //#import "LoginViewController.h"
 
@@ -42,7 +43,13 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.leftBarButtonItem = BLACKBAR_BUTTON;
     [self performSelector:@selector(afterProFun) withObject:nil afterDelay:0.3];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(relogin) name:ReplaceLogin object:nil];
     
+}
+- (void)relogin {
+    [LoginVC OpenLogin:self callback:^(BOOL compliont) {
+        
+    }];
 }
 - (void)viewWillAppear:(BOOL)animated
 {

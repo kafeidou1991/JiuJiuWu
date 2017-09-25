@@ -78,28 +78,28 @@
 #pragma mark - get请求
 + (void)GetWithUrl: (NSString *)url params: (NSDictionary *)params isReadCache: (BOOL)isReadCache success: (responseSuccess)success failed: (ResponseFailed)failed{
     NSMutableDictionary * tempDict = params.mutableCopy;
-    //增加Appid
-    [tempDict setObject:APP_ID forKey:@"appid"];
-    if ([[tempDict allKeys]containsObject:@"token"]) {
-        //签名：md5串（uuid+token）
-        [tempDict setObject:[NSString md5Digest:[NSString stringWithFormat:@"%@%@",[JJWGlobal sharedMethod].uuid,[JJWLogin sharedMethod].loginData.token]] forKey:@"sign"];
-    }
     [[JJWNetworkingTool sharedManager] GET:url parameters:tempDict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         DLog(@"GET------%@\n参数%@\njson----------%@",url,tempDict,[[JJWNetworkingTool sharedManager]DataTOjsonString:responseObject]);
         NSError * error = [[JJWNetworkingTool sharedManager]checkIsSuccess:responseObject Url:url];
         if (error == nil) {
             if (success) {
-                success(task,responseObject);
+                //成功的话 返回data里面的内容
+                success(task,[responseObject objectForKey:@"result"] ? [responseObject objectForKey:@"result"] : nil);
             }
             //请求成功,保存数据
             [JJWCache saveDataCache:responseObject forKey:url];
         }else{
-            if (failed) {
-                failed(error,nil);
+            //用户需要重新登录
+            if (error.code == 10002) {
+                //                [[NSNotificationCenter defaultCenter] postNotificationName:ReplaceLogin object:nil];
+                
+            }else{
+                if (failed) {
+                    failed(error,nil);
+                }
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        //请求失败的回调
         id cacheData= nil;
         //是否读取缓存
         if (isReadCache) {
@@ -115,12 +115,6 @@
 #pragma mark - post请求
 + (void)PostWithUrl:(NSString *)url params:(NSDictionary *)params isReadCache:(BOOL)isReadCache success:(responseSuccess)success failed:(ResponseFailed)failed{
     NSMutableDictionary * tempDict = params.mutableCopy;
-    //增加Appid
-//    [tempDict setObject:APP_ID forKey:@"appid"];
-//    if ([[tempDict allKeys]containsObject:@"token"]) {
-//        //签名：md5串（uuid+token）
-//        [tempDict setObject:[NSString md5Digest:[NSString stringWithFormat:@"%@%@",[JJWGlobal sharedMethod].uuid,[JJWLogin sharedMethod].loginData.token]] forKey:@"sign"];
-//    }
     [[JJWNetworkingTool sharedManager] POST:url parameters:tempDict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         DLog(@"POST------%@\n参数%@\njson----------%@",url,tempDict,[[JJWNetworkingTool sharedManager]DataTOjsonString:responseObject]);
         NSError * error = [[JJWNetworkingTool sharedManager]checkIsSuccess:responseObject Url:url];
@@ -133,9 +127,8 @@
             [JJWCache saveDataCache:responseObject forKey:url];
         }else{
             //用户需要重新登录
-            if (error.code == 10002) {
-//                [[NSNotificationCenter defaultCenter] postNotificationName:ReplaceLogin object:nil];
-                
+            if (error.code == -1) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:ReplaceLogin object:nil];
             }else{
                 if (failed) {
                     failed(error,nil);

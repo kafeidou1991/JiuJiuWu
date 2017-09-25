@@ -70,7 +70,9 @@ static NSString * cellId = @"cellId";
     return cell;
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"123");
+    if (_typeBlock) {
+        _typeBlock(indexPath.row);
+    }
 }
 
 

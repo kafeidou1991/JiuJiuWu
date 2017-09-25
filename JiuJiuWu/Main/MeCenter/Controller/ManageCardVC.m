@@ -119,6 +119,15 @@ static CGFloat thirdHeight = 300.f;
     [JJWNetworkingTool PostWithUrl:UpdateBankInfo params:dict.copy isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [weakSelf hudclose];
         [JJWBase alertMessage:@"绑定成功!" cb:nil];
+        DloginData * login = [JJWLogin sharedMethod].loginData;
+        if (_currCardItem.account.integerValue == 2) {
+            //进入审核状态
+            login.merchant_checked = @"1";
+        }else {
+            login.realname_checked = @"1";
+        }
+        [[JJWLogin sharedMethod]saveLoginData:login];
+        
         if (_type == BindChangeCardType) {
             [weakSelf.navigationController popViewControllerAnimated:YES];
         }else {
@@ -126,10 +135,12 @@ static CGFloat thirdHeight = 300.f;
                 alertMaker.addActionCancelTitle(@"取消");
                 alertMaker.addActionDefaultTitle(@"前往");
             } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
-                if (buttonIndex == 0) {
+                if (buttonIndex == 1) {
                     CompanyInfoVC * VC = [[CompanyInfoVC alloc]init];
                     VC.type = _type;
                     [weakSelf.navigationController pushViewController:VC animated:YES];
+                }else {
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
                 }
             }];
         }

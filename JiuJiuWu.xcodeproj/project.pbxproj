@@ -104,6 +104,11 @@
 		B92DA43A1F70EBAA00A5B7BE /* BankCardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA4391F70EBAA00A5B7BE /* BankCardItem.m */; };
 		B92DA43D1F71009100A5B7BE /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA43C1F71009100A5B7BE /* SettingVC.m */; };
 		B92DA4401F711A7400A5B7BE /* KeyBoradView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA43F1F711A7400A5B7BE /* KeyBoradView.m */; };
+		B97260BE1F78E1E000429C5E /* LevelUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B97260BD1F78E1E000429C5E /* LevelUpVC.m */; };
+		B97260C11F78EA9000429C5E /* LevelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B97260C01F78EA9000429C5E /* LevelItem.m */; };
+		B97260C51F78EC7100429C5E /* LevelUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B97260C31F78EC7100429C5E /* LevelUpCell.m */; };
+		B97260C61F78EC7100429C5E /* LevelUpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B97260C41F78EC7100429C5E /* LevelUpCell.xib */; };
+		B97260CB1F79029100429C5E /* PayTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B97260CA1F79029100429C5E /* PayTypeVC.m */; };
 		B984961C1F690C7A00C5A9C3 /* MeCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B98496131F690C7A00C5A9C3 /* MeCenterVC.m */; };
 		B984961D1F690C7A00C5A9C3 /* ShareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B98496171F690C7A00C5A9C3 /* ShareVC.m */; };
 		B984961E1F690C7A00C5A9C3 /* WalletVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B984961B1F690C7A00C5A9C3 /* WalletVC.m */; };
@@ -336,6 +341,15 @@
 		B92DA43C1F71009100A5B7BE /* SettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
 		B92DA43E1F711A7400A5B7BE /* KeyBoradView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyBoradView.h; sourceTree = "<group>"; };
 		B92DA43F1F711A7400A5B7BE /* KeyBoradView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyBoradView.m; sourceTree = "<group>"; };
+		B97260BC1F78E1E000429C5E /* LevelUpVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelUpVC.h; sourceTree = "<group>"; };
+		B97260BD1F78E1E000429C5E /* LevelUpVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelUpVC.m; sourceTree = "<group>"; };
+		B97260BF1F78EA9000429C5E /* LevelItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelItem.h; sourceTree = "<group>"; };
+		B97260C01F78EA9000429C5E /* LevelItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelItem.m; sourceTree = "<group>"; };
+		B97260C21F78EC7100429C5E /* LevelUpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelUpCell.h; sourceTree = "<group>"; };
+		B97260C31F78EC7100429C5E /* LevelUpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelUpCell.m; sourceTree = "<group>"; };
+		B97260C41F78EC7100429C5E /* LevelUpCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelUpCell.xib; sourceTree = "<group>"; };
+		B97260C71F79021F00429C5E /* PayTypeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayTypeVC.h; sourceTree = "<group>"; };
+		B97260CA1F79029100429C5E /* PayTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayTypeVC.m; sourceTree = "<group>"; };
 		B98496121F690C7A00C5A9C3 /* MeCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeCenterVC.h; sourceTree = "<group>"; };
 		B98496131F690C7A00C5A9C3 /* MeCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeCenterVC.m; sourceTree = "<group>"; };
 		B98496161F690C7A00C5A9C3 /* ShareVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareVC.h; sourceTree = "<group>"; };
@@ -924,6 +938,10 @@
 				B9A762C61F72117B00F7D1A3 /* CashKeyBoradVC.xib */,
 				B9A762CC1F72660E00F7D1A3 /* QRCodeVC.h */,
 				B9A762CD1F72660E00F7D1A3 /* QRCodeVC.m */,
+				B97260BC1F78E1E000429C5E /* LevelUpVC.h */,
+				B97260BD1F78E1E000429C5E /* LevelUpVC.m */,
+				B97260C71F79021F00429C5E /* PayTypeVC.h */,
+				B97260CA1F79029100429C5E /* PayTypeVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -931,6 +949,8 @@
 		B984961F1F69178200C5A9C3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B97260BF1F78EA9000429C5E /* LevelItem.h */,
+				B97260C01F78EA9000429C5E /* LevelItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -948,6 +968,9 @@
 				B9C0E1161F6BBDC600F4D296 /* FeatureListCell.h */,
 				B9C0E1171F6BBDC600F4D296 /* FeatureListCell.m */,
 				B9C0E1181F6BBDC600F4D296 /* FeatureListCell.xib */,
+				B97260C21F78EC7100429C5E /* LevelUpCell.h */,
+				B97260C31F78EC7100429C5E /* LevelUpCell.m */,
+				B97260C41F78EC7100429C5E /* LevelUpCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1179,6 +1202,7 @@
 				B71306921F68199500735673 /* alertView_button_green@2x.png in Resources */,
 				B9A762D31F728C0D00F7D1A3 /* PerfectInfoVC.xib in Resources */,
 				B9C0E1121F6BA61D00F4D296 /* HomeHeaderView.xib in Resources */,
+				B97260C61F78EC7100429C5E /* LevelUpCell.xib in Resources */,
 				B71306911F68199500735673 /* alertView_button_gray_pressed@2x.png in Resources */,
 				B71306941F68199500735673 /* alertView_loading@2x.png in Resources */,
 				B90B70C11F74EF6100CD20DE /* PubilcBankCardCell.xib in Resources */,
@@ -1280,6 +1304,7 @@
 				B71306851F68199500735673 /* SRImageManager.m in Sources */,
 				B713068B1F68199500735673 /* UIView+Extension.m in Sources */,
 				B713066A1F68199500735673 /* UILabel+Extension.m in Sources */,
+				B97260C11F78EA9000429C5E /* LevelItem.m in Sources */,
 				B7534EC71F7008DF007DD232 /* ManagePasswordVC.m in Sources */,
 				B71305D31F6818EC00735673 /* UIView+cate.m in Sources */,
 				B713067E1F68199500735673 /* JXTAlertController.m in Sources */,
@@ -1302,11 +1327,13 @@
 				B9A762D21F728C0D00F7D1A3 /* PerfectInfoVC.m in Sources */,
 				B713056E1F6814E000735673 /* AppDelegate.m in Sources */,
 				B71306A21F681A5700735673 /* JJWBase.m in Sources */,
+				B97260CB1F79029100429C5E /* PayTypeVC.m in Sources */,
 				B71306801F68199500735673 /* OpationButton.m in Sources */,
 				B71306751F68199500735673 /* BXTabBarBigButton.m in Sources */,
 				B90B70C01F74EF6100CD20DE /* PubilcBankCardCell.m in Sources */,
 				B71306731F68199500735673 /* BXBadgeView.m in Sources */,
 				B71306841F68199500735673 /* SGScanningQRCodeView.m in Sources */,
+				B97260C51F78EC7100429C5E /* LevelUpCell.m in Sources */,
 				B71305CF1F6818EC00735673 /* UIImage+JKRImage.m in Sources */,
 				B71306951F68199500735673 /* XYAlertView.m in Sources */,
 				B71306B91F68213200735673 /* JJWCache.m in Sources */,
@@ -1315,6 +1342,7 @@
 				B71306741F68199500735673 /* BXTabBar.m in Sources */,
 				B71306681F68199500735673 /* UIImage+Extension.m in Sources */,
 				B713067A1F68199500735673 /* HZLocation.m in Sources */,
+				B97260BE1F78E1E000429C5E /* LevelUpVC.m in Sources */,
 				B71306831F68199500735673 /* SGQRCodeTool.m in Sources */,
 				B71305CD1F6818EC00735673 /* UIImage+ImageByScalingAndCorpping.m in Sources */,
 				B713056B1F6814E000735673 /* main.m in Sources */,

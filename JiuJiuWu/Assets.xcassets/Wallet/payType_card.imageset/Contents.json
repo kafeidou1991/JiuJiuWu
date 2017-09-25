@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "check1@.png",
+      "filename" : "银联.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "check1@2.png",
+      "filename" : "银联@2.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "check1@3.png",
+      "filename" : "银联@3.png",
       "scale" : "3x"
     }
   ],

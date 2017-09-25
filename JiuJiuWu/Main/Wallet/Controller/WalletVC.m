@@ -10,6 +10,7 @@
 #import "HomeHeaderView.h"
 #import "FeatureListView.h"
 #import "CashKeyBoradVC.h"
+#import "LevelUpVC.h"
 
 static CGFloat const headerHeight = 220; //顶部视图高度
 
@@ -41,7 +42,30 @@ static CGFloat const headerHeight = 220; //顶部视图高度
     [self.backView addSubview:self.centerView];
     [self.backView addSubview:self.bannerImageView];
     [self.backView setContentSize:CGSizeMake(SCreenWidth, _bannerImageView.bottom + 10)];
-    
+}
+- (void)_gotoVC:(SelectType)type {
+    [[JJWLogin sharedMethod]checkInfo:self complete:^{
+        if (type == SelectType_MyAccount) {
+            
+        }else if (type == SelectType_MyProfit){
+            
+        }else if (type == SelectType_PayList){
+            
+        }else if (type == SelectType_MyShop){
+            
+        }else if (type == SelectType_MyRate){
+            
+        }else if (type == SelectType_LeveUp){
+            LevelUpVC * VC = [[LevelUpVC alloc]init];
+            [self.navigationController pushViewController:VC animated:YES];
+        }else if (type == SelectType_Loan){
+            
+        }else if (type == SelectType_Money){
+            
+        }else if (type == SelectType_More){
+            
+        }
+    }];
 }
 
 
@@ -96,6 +120,10 @@ static CGFloat const headerHeight = 220; //顶部视图高度
                             @{@"image":@"featurelist_7",@"title":@"理财"},
                             @{@"image":@"featurelist_8",@"title":@"更多"}];
         _centerView = [[FeatureListView alloc]initWithFrame:CGRectMake(0, _headerView.bottom - 40, SCreenWidth, 0) DataSourse:array];
+        WeakSelf
+        _centerView.typeBlock = ^(SelectType type) {
+            [weakSelf _gotoVC:type];
+        };
     }
     return _centerView;
 }
