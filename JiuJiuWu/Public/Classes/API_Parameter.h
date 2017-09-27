@@ -45,7 +45,7 @@ static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 //绑定商户信息
 #define UpdateMerchantInfo [baseUrl appendBaseUrl:@"user/bindUserMerchant"]
 //扫码付款
-#define UnScanCodePay [baseUrl appendBaseUrl:@"minshengpay/unScanCodePay"]
+#define UnScanCodePay [@"https://api.jiujiuwu.cn/jiujiuwuapi/" appendBaseUrl:@"minshengpay/unScanCodePay"]
 //获取升级列表
 #define GetLevelList [baseUrl appendBaseUrl:@"user/getLevelList"]
 

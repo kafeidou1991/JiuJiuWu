@@ -43,23 +43,26 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.leftBarButtonItem = BLACKBAR_BUTTON;
     [self performSelector:@selector(afterProFun) withObject:nil afterDelay:0.3];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(relogin) name:ReplaceLogin object:nil];
     
 }
 - (void)relogin {
     [self hudclose];
     [LoginVC OpenLogin:self callback:^(BOOL compliont) {
-        
+        if (compliont) {
+            [self afterProFun];
+        }
     }];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(relogin) name:ReplaceLogin object:nil];
     
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:ReplaceLogin object:nil];
     
     
 }
@@ -67,7 +70,6 @@
 
 
 - (void)afterProFun{
-    
 }
 
 #pragma mark - 版本控制
