@@ -18,7 +18,7 @@
 #import "PubilcBankCardCell.h"
 #import "CompanyInfoVC.h"
 
-static CGFloat thirdHeight = 300.f;
+static CGFloat thirdHeight = 450.f;
 
 @interface ManageCardVC ()<UITextFieldDelegate,HZAreaPickerDelegate>{
     SelectBandVC * selectBandVC;
@@ -92,7 +92,7 @@ static CGFloat thirdHeight = 300.f;
         [JJWBase alertMessage:@"请输入商户详细地址!" cb:nil];
         return;
     }
-    if (_currCardItem.idcard_img_one.size.width == 0 || _currCardItem.idcard_img_two.size.width == 0 || _currCardItem.idcard_img_three.size.width == 0) {
+    if (_currCardItem.idcard_img_one.size.width == 0 || _currCardItem.idcard_img_two.size.width == 0 || _currCardItem.idcard_img_three.size.width == 0 ||_currCardItem.shop_head_img.size.width == 0) {
         [JJWBase alertMessage:@"请完善图片认证信息!" cb:nil];
         return;
     }
@@ -106,6 +106,7 @@ static CGFloat thirdHeight = 300.f;
                             @"idcard_img_one":[self base64Str:_currCardItem.idcard_img_one],
                             @"idcard_img_two":[self base64Str:_currCardItem.idcard_img_two],
                             @"idcard_img_three":[self base64Str:_currCardItem.idcard_img_three],
+                            @"shop_head_img":[self base64Str:_currCardItem.shop_head_img],
                             @"province":_currCardItem.province,
                             @"city":_currCardItem.city,
                             @"district":_currCardItem.district,
@@ -214,7 +215,6 @@ static CGFloat thirdHeight = 300.f;
             cell = [[NSBundle mainBundle]loadNibNamed:@"ManageCardCell" owner:self options:nil].firstObject;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        
         WeakSelf
         cell.block = ^(UIButton *sender) {
             [weakSelf.view endEditing:YES];
@@ -337,8 +337,10 @@ static CGFloat thirdHeight = 300.f;
             _currCardItem.idcard_img_one = image;
         }else if (sender.tag == 1){
             _currCardItem.idcard_img_two = image;
-        }else {
+        }else if (sender.tag == 2){
             _currCardItem.idcard_img_three = image;
+        }else {
+            _currCardItem.shop_head_img = image;
         }
     };
 }
