@@ -72,7 +72,7 @@
         DloginData * data = [DloginData yy_modelWithDictionary:responseObject];
         
 //        data.merchant_checked =@"0";
-        data.realname_checked =@"2";
+//        data.realname_checked =@"2";
         
         [[JJWLogin sharedMethod]saveLoginData:data];
         [self backAction:nil];

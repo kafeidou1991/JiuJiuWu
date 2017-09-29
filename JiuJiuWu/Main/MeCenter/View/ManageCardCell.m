@@ -43,6 +43,12 @@
         [self.threeBtn setImage:item.idcard_img_three forState:UIControlStateHighlighted];
         [self.threeBtn setImage:item.idcard_img_three forState:UIControlStateSelected];
     }
+    if (item.shop_head_img.size.width != 0) {
+        [self.fourBtn setImage:item.shop_head_img forState:UIControlStateNormal];
+        [self.fourBtn setImage:item.shop_head_img forState:UIControlStateHighlighted];
+        [self.fourBtn setImage:item.shop_head_img forState:UIControlStateSelected];
+    }
+    
 }
 
 @end

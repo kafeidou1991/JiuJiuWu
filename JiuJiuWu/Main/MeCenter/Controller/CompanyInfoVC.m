@@ -63,7 +63,7 @@
         [JJWBase alertMessage:@"请输入税务登记号!" cb:nil];
         return;
     }
-    if (_currCardItem.license_img.size.width == 0 || _currCardItem.shop_head_img.size.width == 0) {
+    if (_currCardItem.license_img.size.width == 0) {
         [JJWBase alertMessage:@"请完善图片认证信息!" cb:nil];
         return;
     }
@@ -77,8 +77,7 @@
                                    @"biz_org":_currCardItem.biz_org,
                                    @"biz_tax":_currCardItem.biz_tax,
                                    @"legal_person":_currCardItem.legal_person,
-                                   @"license_img":[self base64Str:_currCardItem.license_img],
-                                   @"shop_head_img":[self base64Str:_currCardItem.shop_head_img]}.mutableCopy;
+                                   @"license_img":[self base64Str:_currCardItem.license_img]}.mutableCopy;
     [JJWNetworkingTool PostWithUrl:UpdateMerchantInfo params:dict.copy isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [weakSelf hudclose];
         [JJWBase alertMessage:@"绑定成功!" cb:nil];
@@ -157,7 +156,7 @@
     return ((NSArray *)self.dataSources[section]).count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.section == 0 ? 50.f : 300;
+    return indexPath.section == 0 ? 50.f : 250.f;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 25.f;
@@ -217,11 +216,7 @@
         [sender setImage:image forState:UIControlStateNormal];
         [sender setImage:image forState:UIControlStateHighlighted];
         [sender setImage:image forState:UIControlStateSelected];
-        if (sender.tag == 0) {
-            _currCardItem.license_img = image;
-        }else if (sender.tag == 1){
-            _currCardItem.shop_head_img = image;
-        }
+        _currCardItem.license_img = image;
     };
 }
 #pragma mark - textField delegate
