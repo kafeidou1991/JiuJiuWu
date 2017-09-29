@@ -147,19 +147,6 @@
         }
     }];
 }
--(NSString*)DataTOjsonString:(id)object{
-    NSString *jsonString = nil;
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:&error];
-    if (! jsonData) {
-        NSLog(@"Got an error: %@", error);
-    } else {
-        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    }
-    return jsonString;
-}
 //检查是否有是正确链接
 -(id) checkIsSuccess:(NSDictionary *)dic Url:(NSString *)url
 {
@@ -184,9 +171,82 @@
     }
     return nil;
 }
-
+//银支付原来的请求
++ (void)PostOriginalWithUrl:(NSString *)url params:(NSDictionary *)params isReadCache:(BOOL)isReadCache success:(responseSuccess)success failed:(ResponseFailed)failed{
+    NSMutableDictionary * tempDict = params.mutableCopy;
+    [[JJWNetworkingTool sharedManager] POST:url parameters:tempDict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //        DLog(@"POST------%@\n参数%@\njson----------%@",url,params,[[YZFNetworkingTool sharedManager]DataTOjsonString:responseObject]);
+        DLog(@"POST------%@\n参数%@\njson----------%@",url,tempDict,[[JJWNetworkingTool sharedManager]DataTOjsonString:responseObject]);
+        NSError * error = [[JJWNetworkingTool sharedManager]checkOrigialIsSuccess:responseObject Url:url];
+        if (error == nil) {
+            if (success) {
+                //成功的话 返回data里面的内容
+                success(task,[responseObject objectForKey:@"data"] ? [responseObject objectForKey:@"data"] : nil);
+            }
+            //请求成功,保存数据
+            [JJWCache saveDataCache:responseObject forKey:url];
+        }else{
+            //用户需要重新登录
+            if (error.code == 10002) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:ReplaceLogin object:nil];
+                
+            }else{
+                if (failed) {
+                    failed(error,nil);
+                }
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        id cacheData= nil;
+        //是否读取缓存
+        if (isReadCache) {
+            cacheData = [JJWCache readCache:url];
+        }else {
+            cacheData = nil;
+        }
+        if (failed) {
+            failed(error,cacheData);
+        }
+    }];
+}
+//检查是否有是正确链接
+-(id)checkOrigialIsSuccess:(NSDictionary *)dic Url:(NSString *)url
+{
+    if(dic==nil) {
+        NSString *str = [NSString stringWithFormat:@"%@ 返回数据为空！", url];
+        return [NSError errorWithDomain:str code:0 userInfo:dic];
+    }
+    NSNumber *success = [dic objectForKey:@"success"];
+    if (success == nil) {
+        NSString *str = [NSString stringWithFormat:@"%@ 没有返回正常标识！", url];
+        return [NSError errorWithDomain:str code:0 userInfo:dic];
+    }
+    //失败
+    if (success.integerValue == 0) {
+        NSDictionary * error = [dic objectForKey:@"error"];
+        if (error == nil) {
+            return [NSError errorWithDomain:@"暂无错误数据" code:0 userInfo:dic];
+        }
+        NSString *code = [[dic objectForKey:@"error"]objectForKey:@"code"];
+        NSString *str = [NSString stringWithFormat:@"%@", [error objectForKey:@"message"]];
+        return [NSError errorWithDomain:str code:code.integerValue userInfo:dic];
+    }
+    return nil;
+}
+-(NSString*)DataTOjsonString:(id)object{
+    NSString *jsonString = nil;
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    if (! jsonData) {
+        NSLog(@"Got an error: %@", error);
+    } else {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    return jsonString;
+}
 //文件上传
-
 + (void)uploadWithUrl: (NSString *)url params: (NSDictionary *)params fileData: (NSData *)fileData name: (NSString *)name fileName: (NSString *)fileName mimeType: (NSString *)mimeType progress: (progress)progress success: (responseSuccess)success failed: (responseFailed)failed {
     [[JJWNetworkingTool sharedManager] POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFileData:fileData name:name fileName:fileName mimeType:mimeType];

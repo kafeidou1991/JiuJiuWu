@@ -79,8 +79,17 @@ typedef void (^progress)(NSProgress *progress);
  @param success 成功回调
  @param failed 失败回调
  */
-
 + (void)PostWithUrl:(NSString *)url params:(NSDictionary *)params isReadCache: (BOOL)isReadCache success:(responseSuccess)success failed:(ResponseFailed)failed ;
+/**
+ post原来请求 （银支付）
+ 
+ @param url 请求url
+ @param params 参数
+ @param isReadCache 是否读取缓存
+ @param success 成功回调
+ @param failed 失败回调
+ */
++ (void)PostOriginalWithUrl:(NSString *)url params:(NSDictionary *)params isReadCache:(BOOL)isReadCache success:(responseSuccess)success failed:(ResponseFailed)failed;
 
 
 

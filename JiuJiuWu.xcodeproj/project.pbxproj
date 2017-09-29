@@ -102,6 +102,12 @@
 		B790F8B31F6EA8B90078BD7F /* MeCenterHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B790F8B21F6EA8B90078BD7F /* MeCenterHeadView.xib */; };
 		B90B70C01F74EF6100CD20DE /* PubilcBankCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B90B70BE1F74EF6100CD20DE /* PubilcBankCardCell.m */; };
 		B90B70C11F74EF6100CD20DE /* PubilcBankCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90B70BF1F74EF6100CD20DE /* PubilcBankCardCell.xib */; };
+		B91513F41F7DF5B80067228C /* QRPayCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B91513F21F7DF5B80067228C /* QRPayCodeVC.m */; };
+		B91513F51F7DF5B80067228C /* QRPayCodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B91513F31F7DF5B80067228C /* QRPayCodeVC.xib */; };
+		B91513F81F7E3C800067228C /* PaySuccessVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B91513F71F7E3C800067228C /* PaySuccessVC.m */; };
+		B91513FB1F7E417C0067228C /* QuickPayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B91513FA1F7E417C0067228C /* QuickPayVC.m */; };
+		B91513FE1F7E467E0067228C /* QuickPayHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B91513FD1F7E467E0067228C /* QuickPayHeadView.m */; };
+		B91514001F7E46880067228C /* QuickPayHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B91513FF1F7E46880067228C /* QuickPayHeadView.xib */; };
 		B92DA4371F70BB0500A5B7BE /* ChangePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA4361F70BB0500A5B7BE /* ChangePasswordVC.m */; };
 		B92DA43A1F70EBAA00A5B7BE /* BankCardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA4391F70EBAA00A5B7BE /* BankCardItem.m */; };
 		B92DA43D1F71009100A5B7BE /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA43C1F71009100A5B7BE /* SettingVC.m */; };
@@ -338,6 +344,16 @@
 		B90B70BD1F74EF6100CD20DE /* PubilcBankCardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PubilcBankCardCell.h; sourceTree = "<group>"; };
 		B90B70BE1F74EF6100CD20DE /* PubilcBankCardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PubilcBankCardCell.m; sourceTree = "<group>"; };
 		B90B70BF1F74EF6100CD20DE /* PubilcBankCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PubilcBankCardCell.xib; sourceTree = "<group>"; };
+		B91513F11F7DF5B80067228C /* QRPayCodeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRPayCodeVC.h; sourceTree = "<group>"; };
+		B91513F21F7DF5B80067228C /* QRPayCodeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRPayCodeVC.m; sourceTree = "<group>"; };
+		B91513F31F7DF5B80067228C /* QRPayCodeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRPayCodeVC.xib; sourceTree = "<group>"; };
+		B91513F61F7E3C800067228C /* PaySuccessVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaySuccessVC.h; sourceTree = "<group>"; };
+		B91513F71F7E3C800067228C /* PaySuccessVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaySuccessVC.m; sourceTree = "<group>"; };
+		B91513F91F7E417C0067228C /* QuickPayVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickPayVC.h; sourceTree = "<group>"; };
+		B91513FA1F7E417C0067228C /* QuickPayVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickPayVC.m; sourceTree = "<group>"; };
+		B91513FC1F7E467E0067228C /* QuickPayHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickPayHeadView.h; sourceTree = "<group>"; };
+		B91513FD1F7E467E0067228C /* QuickPayHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickPayHeadView.m; sourceTree = "<group>"; };
+		B91513FF1F7E46880067228C /* QuickPayHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuickPayHeadView.xib; sourceTree = "<group>"; };
 		B92DA4351F70BB0500A5B7BE /* ChangePasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordVC.h; sourceTree = "<group>"; };
 		B92DA4361F70BB0500A5B7BE /* ChangePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordVC.m; sourceTree = "<group>"; };
 		B92DA4381F70EBAA00A5B7BE /* BankCardItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardItem.h; sourceTree = "<group>"; };
@@ -941,8 +957,15 @@
 				B9A762C41F72117B00F7D1A3 /* CashKeyBoradVC.h */,
 				B9A762C51F72117B00F7D1A3 /* CashKeyBoradVC.m */,
 				B9A762C61F72117B00F7D1A3 /* CashKeyBoradVC.xib */,
+				B91513F91F7E417C0067228C /* QuickPayVC.h */,
+				B91513FA1F7E417C0067228C /* QuickPayVC.m */,
 				B9A762CC1F72660E00F7D1A3 /* QRCodeVC.h */,
 				B9A762CD1F72660E00F7D1A3 /* QRCodeVC.m */,
+				B91513F61F7E3C800067228C /* PaySuccessVC.h */,
+				B91513F71F7E3C800067228C /* PaySuccessVC.m */,
+				B91513F11F7DF5B80067228C /* QRPayCodeVC.h */,
+				B91513F21F7DF5B80067228C /* QRPayCodeVC.m */,
+				B91513F31F7DF5B80067228C /* QRPayCodeVC.xib */,
 				B97260BC1F78E1E000429C5E /* LevelUpVC.h */,
 				B97260BD1F78E1E000429C5E /* LevelUpVC.m */,
 				B97260C71F79021F00429C5E /* PayTypeVC.h */,
@@ -979,6 +1002,9 @@
 				B97260C21F78EC7100429C5E /* LevelUpCell.h */,
 				B97260C31F78EC7100429C5E /* LevelUpCell.m */,
 				B97260C41F78EC7100429C5E /* LevelUpCell.xib */,
+				B91513FC1F7E467E0067228C /* QuickPayHeadView.h */,
+				B91513FD1F7E467E0067228C /* QuickPayHeadView.m */,
+				B91513FF1F7E46880067228C /* QuickPayHeadView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1197,6 +1223,7 @@
 				B9E83A2D1F6FB8E1003BD7E2 /* ManageCardCell.xib in Resources */,
 				B99398CF1F73ACF0006470C1 /* CompanyInfoCell.xib in Resources */,
 				B71306901F68199500735673 /* alertView_button_gray@2x.png in Resources */,
+				B91514001F7E46880067228C /* QuickPayHeadView.xib in Resources */,
 				B98496301F69191A00C5A9C3 /* LoginVC.xib in Resources */,
 				B9C0E11A1F6BBDC600F4D296 /* FeatureListCell.xib in Resources */,
 				B713068F1F68199500735673 /* alertView_bg@2x.png in Resources */,
@@ -1207,6 +1234,7 @@
 				B9A762C81F72117B00F7D1A3 /* CashKeyBoradVC.xib in Resources */,
 				B71305761F6814E000735673 /* Assets.xcassets in Resources */,
 				B790F8B31F6EA8B90078BD7F /* MeCenterHeadView.xib in Resources */,
+				B91513F51F7DF5B80067228C /* QRPayCodeVC.xib in Resources */,
 				B71306931F68199500735673 /* alertView_button_green_pressed@2x.png in Resources */,
 				B71306921F68199500735673 /* alertView_button_green@2x.png in Resources */,
 				B9A762D31F728C0D00F7D1A3 /* PerfectInfoVC.xib in Resources */,
@@ -1297,6 +1325,7 @@
 				B71306AC1F681DC400735673 /* JJWBaseVC.m in Sources */,
 				B71305C61F6818EC00735673 /* NSDate+Category.m in Sources */,
 				B9A762D61F729A3400F7D1A3 /* CompanyInfoVC.m in Sources */,
+				B91513F41F7DF5B80067228C /* QRPayCodeVC.m in Sources */,
 				B71306621F68199400735673 /* NSString+BXExtension.m in Sources */,
 				B713068E1F68199500735673 /* CustomIOSAlertView.m in Sources */,
 				B71306B61F68211200735673 /* JJWNetworkingTool.m in Sources */,
@@ -1322,6 +1351,7 @@
 				B71306671F68199500735673 /* UIFont+Extension.m in Sources */,
 				B9A762CE1F72660E00F7D1A3 /* QRCodeVC.m in Sources */,
 				B71305CB1F6818EC00735673 /* NSString+YY.m in Sources */,
+				B91513FE1F7E467E0067228C /* QuickPayHeadView.m in Sources */,
 				B71305C91F6818EC00735673 /* NSString+JSONCategories.m in Sources */,
 				B713067C1F68199500735673 /* FRDLivelyButton.m in Sources */,
 				B71306871F68199500735673 /* SUAlarmMessage.m in Sources */,
@@ -1363,6 +1393,7 @@
 				B92DA43A1F70EBAA00A5B7BE /* BankCardItem.m in Sources */,
 				B71306961F68199500735673 /* XYAlertViewManager.m in Sources */,
 				B92DA4371F70BB0500A5B7BE /* ChangePasswordVC.m in Sources */,
+				B91513F81F7E3C800067228C /* PaySuccessVC.m in Sources */,
 				B71305D21F6818EC00735673 /* UIView+CaptureSaveImage.m in Sources */,
 				B790F8AA1F6E989D0078BD7F /* ShareCell.m in Sources */,
 				B713068C1F68199500735673 /* WSDatePickerView.m in Sources */,
@@ -1383,6 +1414,7 @@
 				B71306781F68199500735673 /* HZAreaPickerView.m in Sources */,
 				B71306811F68199500735673 /* MJPopupBackgroundView.m in Sources */,
 				B984961E1F690C7A00C5A9C3 /* WalletVC.m in Sources */,
+				B91513FB1F7E417C0067228C /* QuickPayVC.m in Sources */,
 				B713065F1F68199400735673 /* Foundation+Log.m in Sources */,
 				B9C0E1191F6BBDC600F4D296 /* FeatureListCell.m in Sources */,
 				B71306711F68199500735673 /* BXTabBarController.m in Sources */,

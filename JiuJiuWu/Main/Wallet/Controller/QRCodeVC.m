@@ -10,11 +10,7 @@
 #import "SGScanningQRCodeView.h"
 #import <Photos/Photos.h>
 #import "LoginVC.h"
-
-//#import "IncomeDetailViewController.h"
-//#import "UIViewController+MJPopupViewController.h"
-//#import "PaySuccessViewController.h"
-//#import "IncomeInfoViewController.h"
+#import "PaySuccessVC.h"
 
 
 @interface QRCodeVC ()<AVCaptureMetadataOutputObjectsDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIAlertViewDelegate>{
@@ -194,53 +190,23 @@
 #pragma mark - 扫描结果上传服务器
 - (void)_loadResult:(AVMetadataMachineReadableCodeObject *)obj{
     WeakSelf
-//    token    string    是    token
-//    auth_code    string    是    支付码
-//    amount    string    是    金额
-//    chanel_type    string    是    支付渠道
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
     [dict setObject:[JJWLogin sharedMethod].loginData.token forKey:@"token"];
     [dict setObject:obj.stringValue forKey:@"auth_code"];
-    [dict setObject:@(0.01) forKey:@"amount"];
-    [dict setObject:@"weixin" forKey:@"chanel_type"];
     //以分 计算 传入 都得是整形
-//    [dict setObject:STRISEMPTY(_amount) ? @(0):@([NSString stringWithFormat:@"%.2f",_amount.floatValue * 100].integerValue) forKey:@"amount"];
-    [JJWNetworkingTool PostWithUrl:UnScanCodePay params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+    [dict setObject:STRISEMPTY(_amount) ? @(0):@([NSString stringWithFormat:@"%.2f",_amount.floatValue * 100].integerValue) forKey:@"amount"];
+    [JJWNetworkingTool PostOriginalWithUrl:UnScanCodePay params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [JJWBase alertMessage:@"付款成功!" cb:nil];
 //        PaySuccessItem * item = [PaySuccessItem yy_modelWithDictionary:responseObject];
-//        [weakSelf _pushIncomeVC:item];
+        PaySuccessVC * VC = [[PaySuccessVC alloc]init];
+        [weakSelf.navigationController pushViewController:VC animated:YES];
     } failed:^(NSError *error, id chaceResponseObject) {
         [JJWBase alertMessage:error.domain cb:^(BOOL compliont) {
             [weakSelf setupScanningQRCode];
         }];
     }];
 }
-//- (void) _pushIncomeVC:(PaySuccessItem *)item{
-//    WeakSelf
-//    dispatch_async(dispatch_get_main_queue(), ^{
-////        paySeccessVC = [[PaySuccessViewController alloc]initWithNibName:@"PaySuccessViewController" bundle:nil];
-////        paySeccessVC.doneBlock = ^{
-////            [weakSelf dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
-////            //跳转交易记录
-////            IncomeDetailViewController * VC = [[IncomeDetailViewController alloc]init];
-////            
-////            [weakSelf.navigationController pushViewController:VC animated:YES];
-////        };
-////        [self presentPopupViewController:paySeccessVC animationType:MJPopupViewAnimationFade];
-////        [paySeccessVC updateData:item];
-//        IncomeInfoViewController * infoVC = [[IncomeInfoViewController alloc]init];
-//        CollectionItem * collItem = [[CollectionItem alloc]init];
-//        collItem.order_no = item.orderNo;
-//        collItem.amount = _amount;
-//        collItem.add_time = item.reqTime;
-//        collItem.channel_flag = item.channel_flag;
-//        collItem.state = item.status;
-//        infoVC.item = collItem;
-//        infoVC.isComeFromePay = YES;
-//        infoVC.isPopToRootVC =YES;
-//        [weakSelf.navigationController pushViewController:infoVC animated:YES];
-//    });
-//}
+
 #pragma mark - - - 扫描提示声
 /**
  *  播放完成回调函数

@@ -36,6 +36,11 @@
     self.inputTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:dict[@"placeholder"] attributes:@{NSForegroundColorAttributeName :UIColorRGB(51, 51, 51),NSFontAttributeName :[UIFont systemFontOfSize:14]}];
 }
 
+- (void)updatePaySuccessCell:(NSString *)title  textAlignment:(NSTextAlignment)align {
+    self.titleLabel.text = title;
+    self.inputTextField.textAlignment = align;
+}
+
 
 
 

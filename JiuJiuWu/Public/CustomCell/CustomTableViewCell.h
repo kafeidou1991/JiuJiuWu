@@ -18,5 +18,7 @@
 
 //绑定银行卡
 - (void)updateBindCardCell:(NSDictionary *)dict textAlignment:(NSTextAlignment)align;
+//支付成功详情页面
+- (void)updatePaySuccessCell:(NSString *)title  textAlignment:(NSTextAlignment)align;
 
 @end
