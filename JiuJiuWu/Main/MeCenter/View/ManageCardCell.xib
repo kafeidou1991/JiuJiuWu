@@ -77,11 +77,11 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXE-Ls-ktQ">
                         <rect key="frame" x="11" y="331" width="298" height="118.5"/>
-                        <string key="text">1.必须上传身份证和银行卡的正反面
+                        <string key="text">1.请上传本人身份证正反面照片
 
-2.手持证件照片需拍摄到持有人的五官
+2.请上传本人银行卡照片
 
-3.不能佩戴眼镜拍照，拍照时请勿遮挡脸部</string>
+3.请上传真实商铺照片</string>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -161,7 +161,7 @@
                 <outlet property="threeBtn" destination="jtW-f5-Bix" id="qRz-Z7-1ZA"/>
                 <outlet property="twoBtn" destination="inu-GI-Ci5" id="eCu-TY-UkF"/>
             </connections>
-            <point key="canvasLocation" x="-240" y="35"/>
+            <point key="canvasLocation" x="-258" y="-36"/>
         </tableViewCell>
     </objects>
     <resources>
