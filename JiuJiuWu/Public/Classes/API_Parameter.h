@@ -33,6 +33,8 @@ static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #define CheckRegistCode [baseUrl appendBaseUrl:@"user/checkMobileValidateCode"]
 //注册账户
 #define RegistUser [baseUrl appendBaseUrl:@"user/reg"]
+//获取用户状态
+#define UserStatus [baseUrl appendBaseUrl:@"user/userStatus"]
 //用户登录
 #define UserLogin [baseUrl appendBaseUrl:@"user/login"]
 //修改登录密码

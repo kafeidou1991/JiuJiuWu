@@ -1631,7 +1631,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huashangyun.jiujiuwu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7c6780c7-6671-42f8-8f7d-5752d3a22e3b";
+				PROVISIONING_PROFILE = "95b5baac-7da3-4027-a179-9ddccd2e2505";
 				PROVISIONING_PROFILE_SPECIFIER = JiuJIuWu_dev;
 			};
 			name = Debug;

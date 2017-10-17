@@ -37,6 +37,9 @@
 @property (nonatomic, copy) NSString * idcard_img_one;//身份证银行卡正面
 @property (nonatomic, copy) NSString * idcard_img_two;//身份证银行卡反面
 @property (nonatomic, copy) NSString * idcard_img_three;//手持身份证银行卡正面
+@property (nonatomic, copy) NSString * shop_head_img;//店铺门面照片
+@property (nonatomic, copy) NSString * shop_inner_img;//经营场所照片照片
+@property (nonatomic, copy) NSString * shop_cash_img;//收银台照片
 @property (nonatomic, copy) NSString * province;// 省市县 编号
 @property (nonatomic, copy) NSString * city;
 @property (nonatomic, copy) NSString * district;
@@ -54,7 +57,6 @@
 @property (nonatomic, copy) NSString * biz_org;//组织机构代码
 @property (nonatomic, copy) NSString * gszc_name;//工商注册名称
 @property (nonatomic, copy) NSString * biz_tax;//纳税人识别号
-@property (nonatomic, copy) NSString * shop_head_img;//店铺门面照片
 @property (nonatomic, copy) NSString * license_img;//营业执照照片
 @property (nonatomic, copy) NSString * biz_license;//营业执照号
 @property (nonatomic, copy) NSString * legal_person;//法人名称

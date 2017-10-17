@@ -127,29 +127,39 @@
         [LoginVC OpenLogin:viewController callback:nil];
         return NO;
     }
-    //资料齐全正常
-    if ([self checkInfo] == PerfectCheckSuccessInfoType) {
-        DLog(@"资料齐全！");
-        if (block) {
-            block();
+    [viewController hudShow:viewController.view msg:STTR_ater_on];
+    NSDictionary * dict = @{@"token":[JJWLogin sharedMethod].loginData.token};
+    [JJWNetworkingTool PostWithUrl:UserStatus params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+        [viewController hudclose];
+        _loginData.merchant_checked = [responseObject objectForKey:@"merchant_checked"];
+        _loginData.realname_checked = [responseObject objectForKey:@"realname_checked"];
+        [self saveLoginData:_loginData];
+        //资料齐全正常
+        if ([self checkInfo] == PerfectCheckSuccessInfoType) {
+            DLog(@"资料齐全！");
+            if (block) {
+                block();
+            }
+        }else {
+        //需要验证
+        _activeCodeVC = [[PerfectInfoVC alloc]init];
+        _activeCodeVC.cancelBlock = ^{
+            [weakVC dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
+        };
+        _activeCodeVC.activeVlock = ^{
+            ManageCardVC * VC = [[ManageCardVC alloc]init];
+            VC.type = BindRegisterCardType;
+            [weakVC.navigationController pushViewController:VC animated:YES];
+            [weakVC dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
+        };
+        _activeCodeVC.type = [self checkInfo];
+        [viewController presentPopupViewController:_activeCodeVC animationType:MJPopupViewAnimationFade];
         }
-        return YES;
-    }
-    //需要验证
-    _activeCodeVC = [[PerfectInfoVC alloc]init];
-    _activeCodeVC.cancelBlock = ^{
-        [weakVC dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
-    };
-    //激活完成
-    _activeCodeVC.activeVlock = ^{
-        ManageCardVC * VC = [[ManageCardVC alloc]init];
-        VC.type = BindRegisterCardType;
-        [weakVC.navigationController pushViewController:VC animated:YES];
-        [weakVC dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
-    };
-    _activeCodeVC.type = [self checkInfo];
-    [viewController presentPopupViewController:_activeCodeVC animationType:MJPopupViewAnimationFade];
-    return NO;
+        
+    } failed:^(NSError *error, id chaceResponseObject) {
+        [viewController hudclose];
+        [JJWBase alertMessage:error.domain cb:nil];
+    }];
     return YES;
 }
 
