@@ -1151,7 +1151,7 @@
 					B71305651F6814E000735673 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = EBN232Z2Y7;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					B713057E1F6814E000735673 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -1523,6 +1523,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = EBN232Z2Y7;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/JiuJiuWu/PrefixHeader.pch";
@@ -1531,8 +1532,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huashangyun.jiujiuwu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "7c6780c7-6671-42f8-8f7d-5752d3a22e3b";
+				PROVISIONING_PROFILE_SPECIFIER = JiuJIuWu_dev;
 			};
 			name = Debug;
 		};
@@ -1542,7 +1543,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = EBN232Z2Y7;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/JiuJiuWu/PrefixHeader.pch";
@@ -1551,8 +1553,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huashangyun.jiujiuwu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "20c63530-029d-4705-aa8a-dfe33bc5b4b7";
+				PROVISIONING_PROFILE_SPECIFIER = JiuJiuWu_pro;
 			};
 			name = Release;
 		};
