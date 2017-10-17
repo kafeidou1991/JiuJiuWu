@@ -80,7 +80,30 @@
 @property (nonatomic, copy) NSString * name;
 @end
 
+@interface CreditCardsList : DateCenter
+@property (nonatomic, strong) NSArray * credit_list;
+@end
+/**
+ 快捷支付 所需充填信息
+ */
+@interface QuickPayInfoItem : DateCenter<NSCoding>
 
+@property (nonatomic, copy) NSString * acct_type;   // DEBIT-储蓄卡  CREDIT-信用卡
+@property (nonatomic, copy) NSString * account;      // 卡号
+@property (nonatomic, copy) NSString * account_name;   //持卡人姓名
+@property (nonatomic, copy) NSString * account_expire_date;//当卡类型为：CREDIT 必填 有限期
+@property (nonatomic, copy) NSString * account_cvv;        //当卡类型为：CREDIT 必填 安全吗
+@property (nonatomic, copy) NSString * idcard_number;      //证件号码
+@property (nonatomic, copy) NSString * account_mobile;     //银行预留手机号
+@property (nonatomic, copy) NSString * bank_code;//信用卡所属银行代码
+@property (nonatomic, copy) NSString * bank_name;//信用卡开户行完整名称 具体到支行bank_type
+
+@property (nonatomic, copy) NSString * bank_type;//信用卡开户行名称 不具体到支行
+@property (nonatomic, copy) NSString * bankShowName; //用于展示  例如：招商银行（6545）
+
+- (void)saveProdfile;
+
+@end
 
 
 

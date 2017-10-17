@@ -8,6 +8,15 @@
 
 #import "QuickPayHeadView.h"
 
+@interface QuickPayHeadView()
+@property (weak, nonatomic) IBOutlet UILabel *cardTypeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cardNoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
+
+@end
+
 @implementation QuickPayHeadView
 
 /*

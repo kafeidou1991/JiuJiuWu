@@ -35,19 +35,7 @@ static CGFloat const rowHeight = 50.f;
     self.navigationItem.leftBarButtonItem = nil;
     //    self.navigationController.delegate = self;
     self.view.backgroundColor = CommonBackgroudColor;
-    self.dataSources = @[@[@{@"image":@"center_icon_0",@"title":@"密码管理"},
-                           @{@"image":@"center_icon_1",@"title":@"更换手机号"},
-                           @{@"image":@"center_icon_2",@"title":@"结算卡管理"},
-                           @{@"image":@"center_icon_2",@"title":@"企业商户信息"},
-                           @{@"image":@"center_icon_3",@"title":@"用户协议"},
-                           @{@"image":@"center_icon_4",@"title":@"费率信息"}],
-                         
-                         @[@{@"image":@"center_icon_5",@"title":@"操作手册"},
-                           @{@"image":@"center_icon_6",@"title":@"版本号"},
-                           @{@"image":@"center_icon_7",@"title":@"关于我们"},
-                           @{@"image":@"center_icon_8",@"title":@"客服热线"},
-                           @{@"image":@"center_icon_8",@"title":@"设置"}]];
-    
+    [self reloadDataSources];
     [self addSubViews];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kLoginSuccess object:nil];
     
@@ -55,6 +43,8 @@ static CGFloat const rowHeight = 50.f;
 //登录成功
 - (void)loginSuccess {
     [self.headerView updateHeadInfo];
+    [self reloadDataSources];
+    [self.secondTableView reloadData];
 }
 - (void)addSubViews {
     //最下面是scrollerView  上面加上 2个tableview（禁止滚动） 跟 headerView 是为了解决 显示头部背景突出的部分
@@ -73,6 +63,23 @@ static CGFloat const rowHeight = 50.f;
             [LoginVC OpenLogin:weakSelf callback:nil];
         }
     };
+}
+- (void)exitAction{
+    [self hudShow:self.view msg:STTR_ater_on];
+    NSDictionary * dict = @{@"token":[JJWLogin sharedMethod].loginData.token};
+    WeakSelf
+    [JJWNetworkingTool PostWithUrl:Logout params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+        [weakSelf hudclose];
+    } failed:^(NSError *error, id chaceResponseObject) {
+        [weakSelf hudclose];
+        [JJWBase alertMessage:error.domain cb:nil];
+    }];
+    [[JJWLogin sharedMethod]removeLoingData];
+    //更新头部信息
+    [_headerView updateHeadInfo];
+    [self reloadDataSources];
+    [self.secondTableView reloadData];
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -98,11 +105,16 @@ static CGFloat const rowHeight = 50.f;
         }
     }else {
         if (indexPath.row == 4) {
-            SettingVC * VC = [[SettingVC alloc]init];
-            VC.exitBlock = ^{
-                [_headerView updateHeadInfo];
-            };
-            [self.navigationController pushViewController:VC animated:YES];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self jxt_showAlertWithTitle:@"温馨提示" message:@"您确定要退出么？" appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
+                    alertMaker.addActionDefaultTitle(@"确定");
+                    alertMaker.addActionDefaultTitle(@"我再想想");
+                } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
+                    if (buttonIndex == 0) {
+                        [self exitAction];
+                    }
+                }];
+            });
         }
     }
 }
@@ -194,7 +206,34 @@ static CGFloat const rowHeight = 50.f;
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
-
+- (void)reloadDataSources {
+    if ([JJWLogin sharedMethod].isLogin) {
+        self.dataSources = @[@[@{@"image":@"center_icon_0",@"title":@"密码管理"},
+                               @{@"image":@"center_icon_1",@"title":@"更换手机号"},
+                               @{@"image":@"center_icon_2",@"title":@"结算卡管理"},
+                               @{@"image":@"center_icon_3",@"title":@"企业商户信息"},
+                               @{@"image":@"center_icon_4",@"title":@"用户协议"},
+                               @{@"image":@"center_icon_5",@"title":@"费率信息"}],
+                             
+                             @[@{@"image":@"center_icon_6",@"title":@"操作手册"},
+                               @{@"image":@"center_icon_7",@"title":@"版本号"},
+                               @{@"image":@"center_icon_8",@"title":@"关于我们"},
+                               @{@"image":@"center_icon_9",@"title":@"客服热线"},
+                               @{@"image":@"center_icon_10",@"title":@"退出登录"}]];
+    }else {
+        self.dataSources = @[@[@{@"image":@"center_icon_0",@"title":@"密码管理"},
+                               @{@"image":@"center_icon_1",@"title":@"更换手机号"},
+                               @{@"image":@"center_icon_2",@"title":@"结算卡管理"},
+                               @{@"image":@"center_icon_3",@"title":@"企业商户信息"},
+                               @{@"image":@"center_icon_4",@"title":@"用户协议"},
+                               @{@"image":@"center_icon_5",@"title":@"费率信息"}],
+                             
+                             @[@{@"image":@"center_icon_6",@"title":@"操作手册"},
+                               @{@"image":@"center_icon_7",@"title":@"版本号"},
+                               @{@"image":@"center_icon_8",@"title":@"关于我们"},
+                               @{@"image":@"center_icon_9",@"title":@"客服热线"}]];
+    }
+}
 
 
 @end

@@ -140,6 +140,14 @@
 		B9C0E1151F6BB8B000F4D296 /* FeatureListView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0E1141F6BB8B000F4D296 /* FeatureListView.m */; };
 		B9C0E1191F6BBDC600F4D296 /* FeatureListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0E1171F6BBDC600F4D296 /* FeatureListCell.m */; };
 		B9C0E11A1F6BBDC600F4D296 /* FeatureListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0E1181F6BBDC600F4D296 /* FeatureListCell.xib */; };
+		B9DBA1551F8CA6F8008DA6E8 /* CreditCardInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DBA1541F8CA6F8008DA6E8 /* CreditCardInfoVC.m */; };
+		B9DBA15F1F8CA762008DA6E8 /* TwoCreditInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DBA1561F8CA760008DA6E8 /* TwoCreditInfoTableViewCell.m */; };
+		B9DBA1601F8CA762008DA6E8 /* CreditCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DBA1591F8CA761008DA6E8 /* CreditCardTableViewCell.m */; };
+		B9DBA1611F8CA762008DA6E8 /* TwoCreditCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DBA15B1F8CA761008DA6E8 /* TwoCreditCardView.m */; };
+		B9DBA1631F8CAC5A008DA6E8 /* CreditCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DBA15D1F8CA761008DA6E8 /* CreditCardTableViewCell.xib */; };
+		B9DBA1641F8CAC5E008DA6E8 /* TwoCreditCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DBA15C1F8CA761008DA6E8 /* TwoCreditCardView.xib */; };
+		B9DBA1651F8CAC68008DA6E8 /* TwoCreditInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DBA1581F8CA761008DA6E8 /* TwoCreditInfoTableViewCell.xib */; };
+		B9DBA1661F8CAC74008DA6E8 /* CreditCardInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DBA1531F8CA6F8008DA6E8 /* CreditCardInfoVC.xib */; };
 		B9E83A231F6FA92C003BD7E2 /* ManageCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E83A221F6FA92C003BD7E2 /* ManageCardVC.m */; };
 		B9E83A2C1F6FB8E1003BD7E2 /* ManageCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E83A2A1F6FB8E1003BD7E2 /* ManageCardCell.m */; };
 		B9E83A2D1F6FB8E1003BD7E2 /* ManageCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E83A2B1F6FB8E1003BD7E2 /* ManageCardCell.xib */; };
@@ -410,6 +418,18 @@
 		B9C0E1161F6BBDC600F4D296 /* FeatureListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureListCell.h; sourceTree = "<group>"; };
 		B9C0E1171F6BBDC600F4D296 /* FeatureListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureListCell.m; sourceTree = "<group>"; };
 		B9C0E1181F6BBDC600F4D296 /* FeatureListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeatureListCell.xib; sourceTree = "<group>"; };
+		B9DBA1521F8CA6F8008DA6E8 /* CreditCardInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreditCardInfoVC.h; sourceTree = "<group>"; };
+		B9DBA1531F8CA6F8008DA6E8 /* CreditCardInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditCardInfoVC.xib; sourceTree = "<group>"; };
+		B9DBA1541F8CA6F8008DA6E8 /* CreditCardInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreditCardInfoVC.m; sourceTree = "<group>"; };
+		B9DBA1561F8CA760008DA6E8 /* TwoCreditInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoCreditInfoTableViewCell.m; sourceTree = "<group>"; };
+		B9DBA1571F8CA760008DA6E8 /* TwoCreditInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoCreditInfoTableViewCell.h; sourceTree = "<group>"; };
+		B9DBA1581F8CA761008DA6E8 /* TwoCreditInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwoCreditInfoTableViewCell.xib; sourceTree = "<group>"; };
+		B9DBA1591F8CA761008DA6E8 /* CreditCardTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreditCardTableViewCell.m; sourceTree = "<group>"; };
+		B9DBA15A1F8CA761008DA6E8 /* CreditCardTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreditCardTableViewCell.h; sourceTree = "<group>"; };
+		B9DBA15B1F8CA761008DA6E8 /* TwoCreditCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoCreditCardView.m; sourceTree = "<group>"; };
+		B9DBA15C1F8CA761008DA6E8 /* TwoCreditCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwoCreditCardView.xib; sourceTree = "<group>"; };
+		B9DBA15D1F8CA761008DA6E8 /* CreditCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditCardTableViewCell.xib; sourceTree = "<group>"; };
+		B9DBA15E1F8CA761008DA6E8 /* TwoCreditCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoCreditCardView.h; sourceTree = "<group>"; };
 		B9E83A211F6FA92C003BD7E2 /* ManageCardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageCardVC.h; sourceTree = "<group>"; };
 		B9E83A221F6FA92C003BD7E2 /* ManageCardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageCardVC.m; sourceTree = "<group>"; };
 		B9E83A291F6FB8E1003BD7E2 /* ManageCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageCardCell.h; sourceTree = "<group>"; };
@@ -959,6 +979,9 @@
 				B9A762C61F72117B00F7D1A3 /* CashKeyBoradVC.xib */,
 				B91513F91F7E417C0067228C /* QuickPayVC.h */,
 				B91513FA1F7E417C0067228C /* QuickPayVC.m */,
+				B9DBA1521F8CA6F8008DA6E8 /* CreditCardInfoVC.h */,
+				B9DBA1541F8CA6F8008DA6E8 /* CreditCardInfoVC.m */,
+				B9DBA1531F8CA6F8008DA6E8 /* CreditCardInfoVC.xib */,
 				B9A762CC1F72660E00F7D1A3 /* QRCodeVC.h */,
 				B9A762CD1F72660E00F7D1A3 /* QRCodeVC.m */,
 				B91513F61F7E3C800067228C /* PaySuccessVC.h */,
@@ -1005,6 +1028,15 @@
 				B91513FC1F7E467E0067228C /* QuickPayHeadView.h */,
 				B91513FD1F7E467E0067228C /* QuickPayHeadView.m */,
 				B91513FF1F7E46880067228C /* QuickPayHeadView.xib */,
+				B9DBA15A1F8CA761008DA6E8 /* CreditCardTableViewCell.h */,
+				B9DBA1591F8CA761008DA6E8 /* CreditCardTableViewCell.m */,
+				B9DBA15D1F8CA761008DA6E8 /* CreditCardTableViewCell.xib */,
+				B9DBA15E1F8CA761008DA6E8 /* TwoCreditCardView.h */,
+				B9DBA15B1F8CA761008DA6E8 /* TwoCreditCardView.m */,
+				B9DBA15C1F8CA761008DA6E8 /* TwoCreditCardView.xib */,
+				B9DBA1571F8CA760008DA6E8 /* TwoCreditInfoTableViewCell.h */,
+				B9DBA1561F8CA760008DA6E8 /* TwoCreditInfoTableViewCell.m */,
+				B9DBA1581F8CA761008DA6E8 /* TwoCreditInfoTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1221,7 +1253,9 @@
 				B984963E1F694E2400C5A9C3 /* CustomTableViewCell.xib in Resources */,
 				B790F8AB1F6E989D0078BD7F /* ShareCell.xib in Resources */,
 				B9E83A2D1F6FB8E1003BD7E2 /* ManageCardCell.xib in Resources */,
+				B9DBA1661F8CAC74008DA6E8 /* CreditCardInfoVC.xib in Resources */,
 				B99398CF1F73ACF0006470C1 /* CompanyInfoCell.xib in Resources */,
+				B9DBA1631F8CAC5A008DA6E8 /* CreditCardTableViewCell.xib in Resources */,
 				B71306901F68199500735673 /* alertView_button_gray@2x.png in Resources */,
 				B91514001F7E46880067228C /* QuickPayHeadView.xib in Resources */,
 				B98496301F69191A00C5A9C3 /* LoginVC.xib in Resources */,
@@ -1231,8 +1265,10 @@
 				B98496351F69362800C5A9C3 /* RegistVC.xib in Resources */,
 				B789BD651F79436C00B39A55 /* ConfirmPayVC.xib in Resources */,
 				B71306771F68199500735673 /* city.plist in Resources */,
+				B9DBA1651F8CAC68008DA6E8 /* TwoCreditInfoTableViewCell.xib in Resources */,
 				B9A762C81F72117B00F7D1A3 /* CashKeyBoradVC.xib in Resources */,
 				B71305761F6814E000735673 /* Assets.xcassets in Resources */,
+				B9DBA1641F8CAC5E008DA6E8 /* TwoCreditCardView.xib in Resources */,
 				B790F8B31F6EA8B90078BD7F /* MeCenterHeadView.xib in Resources */,
 				B91513F51F7DF5B80067228C /* QRPayCodeVC.xib in Resources */,
 				B71306931F68199500735673 /* alertView_button_green_pressed@2x.png in Resources */,
@@ -1285,13 +1321,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JiuJiuWu-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E83567DD29F7093F5813C0B3 /* [CP] Copy Pods Resources */ = {
@@ -1300,9 +1339,33 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JiuJiuWu/Pods-JiuJiuWu-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_circle@2x.png",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_circle@3x.png",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle.png",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle@2x.png",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle@3x.png",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_selected.png",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_selected@2x.png",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_selected@3x.png",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected.png",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected@2x.png",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected@3x.png",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/defaultphoto.png",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/lock.png",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/navBackBtn@2x.png",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLCollectionCell.xib",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLNoAuthorityViewController.xib",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoActionSheet.xib",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowserCell.xib",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLThumbnailViewController.xib",
+				"${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowser.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1316,6 +1379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9DBA15F1F8CA762008DA6E8 /* TwoCreditInfoTableViewCell.m in Sources */,
 				B71306631F68199400735673 /* UIApplication+Extensions.m in Sources */,
 				B71306611F68199400735673 /* NSDictionary+Extension.m in Sources */,
 				B71305C71F6818EC00735673 /* NSString+AppendSubBaseurl.m in Sources */,
@@ -1325,6 +1389,7 @@
 				B71306AC1F681DC400735673 /* JJWBaseVC.m in Sources */,
 				B71305C61F6818EC00735673 /* NSDate+Category.m in Sources */,
 				B9A762D61F729A3400F7D1A3 /* CompanyInfoVC.m in Sources */,
+				B9DBA1551F8CA6F8008DA6E8 /* CreditCardInfoVC.m in Sources */,
 				B91513F41F7DF5B80067228C /* QRPayCodeVC.m in Sources */,
 				B71306621F68199400735673 /* NSString+BXExtension.m in Sources */,
 				B713068E1F68199500735673 /* CustomIOSAlertView.m in Sources */,
@@ -1378,6 +1443,7 @@
 				B71306B91F68213200735673 /* JJWCache.m in Sources */,
 				B713066C1F68199500735673 /* UITextControl+FaultTolerance.m in Sources */,
 				B71305CA1F6818EC00735673 /* NSString+TrimmWhiteSpace.m in Sources */,
+				B9DBA1611F8CA762008DA6E8 /* TwoCreditCardView.m in Sources */,
 				B71306741F68199500735673 /* BXTabBar.m in Sources */,
 				B71306681F68199500735673 /* UIImage+Extension.m in Sources */,
 				B713067A1F68199500735673 /* HZLocation.m in Sources */,
@@ -1388,6 +1454,7 @@
 				B713056B1F6814E000735673 /* main.m in Sources */,
 				B984961D1F690C7A00C5A9C3 /* ShareVC.m in Sources */,
 				B71305CE1F6818EC00735673 /* UIImage+JKR_MessageImage.m in Sources */,
+				B9DBA1601F8CA762008DA6E8 /* CreditCardTableViewCell.m in Sources */,
 				B71306761F68199500735673 /* BXTabBarButton.m in Sources */,
 				B71306A91F681B9E00735673 /* DateCenter.m in Sources */,
 				B92DA43A1F70EBAA00A5B7BE /* BankCardItem.m in Sources */,

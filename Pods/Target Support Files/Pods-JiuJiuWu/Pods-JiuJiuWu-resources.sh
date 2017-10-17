@@ -8,6 +8,10 @@ RESOURCES_TO_COPY=${PODS_ROOT}/resources-to-copy-${TARGETNAME}.txt
 
 XCASSET_FILES=()
 
+# This protects against multiple targets copying the same framework dependency at the same time. The solution
+# was originally proposed here: https://lists.samba.org/archive/rsync/2008-February/020158.html
+RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
+
 case "${TARGETED_DEVICE_FAMILY}" in
   1,2)
     TARGET_DEVICE_ARGS="--target-device ipad --target-device iphone"
@@ -54,8 +58,8 @@ EOM
     *.framework)
       echo "mkdir -p ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}" || true
       mkdir -p "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
-      echo "rsync --delete -av $RESOURCE_PATH ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}" || true
-      rsync --delete -av "$RESOURCE_PATH" "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
+      echo "rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" $RESOURCE_PATH ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}" || true
+      rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" "$RESOURCE_PATH" "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
       ;;
     *.xcdatamodel)
       echo "xcrun momc \"$RESOURCE_PATH\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename "$RESOURCE_PATH"`.mom\"" || true
@@ -80,59 +84,59 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
-  install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_circle@2x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_circle@3x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle@2x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle@3x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_selected.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_selected@2x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_selected@3x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected@2x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected@3x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/defaultphoto.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/lock.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/navBackBtn@2x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/ZLCollectionCell.xib"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/ZLNoAuthorityViewController.xib"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoActionSheet.xib"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowserCell.xib"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/ZLThumbnailViewController.xib"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowser.bundle"
+  install_resource "${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
+  install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_circle@2x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_circle@3x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle@2x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle@3x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_selected.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_selected@2x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_selected@3x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected@2x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected@3x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/defaultphoto.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/lock.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/navBackBtn@2x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLCollectionCell.xib"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLNoAuthorityViewController.xib"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoActionSheet.xib"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowserCell.xib"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLThumbnailViewController.xib"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowser.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
-  install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_circle@2x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_circle@3x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle@2x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle@3x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_selected.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_selected@2x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_selected@3x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected@2x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected@3x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/defaultphoto.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/lock.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/navBackBtn@2x.png"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/ZLCollectionCell.xib"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/ZLNoAuthorityViewController.xib"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoActionSheet.xib"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowserCell.xib"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/ZLThumbnailViewController.xib"
-  install_resource "ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowser.bundle"
+  install_resource "${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
+  install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_circle@2x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_circle@3x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle@2x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_original_circle@3x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_selected.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_selected@2x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_selected@3x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected@2x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/btn_unselected@3x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/defaultphoto.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/lock.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/navBackBtn@2x.png"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLCollectionCell.xib"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLNoAuthorityViewController.xib"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoActionSheet.xib"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowserCell.xib"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLThumbnailViewController.xib"
+  install_resource "${PODS_ROOT}/ZLPhotoBrowser/PhotoBrowser/resource/ZLPhotoBrowser.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
-rsync --delete -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
+rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 if [[ "${ACTION}" == "install" ]] && [[ "${SKIP_INSTALL}" == "NO" ]]; then
   mkdir -p "${INSTALL_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
-  rsync --delete -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${INSTALL_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
+  rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${INSTALL_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 fi
 rm -f "$RESOURCES_TO_COPY"
 

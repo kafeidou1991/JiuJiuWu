@@ -50,7 +50,8 @@ static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #define ScanPayQrCode [@"https://api.jiujiuwu.cn/jiujiuwuapi/" appendBaseUrl:@"minshengpay/scanPayQrCode"]
 //获取升级列表
 #define GetLevelList [baseUrl appendBaseUrl:@"user/getLevelList"]
-
+//获取信用卡列表
+#define CreditCardList [baseUrl appendBaseUrl:@"merchant/creditList"]
 
 
 #endif /* API_Parameter_h */
