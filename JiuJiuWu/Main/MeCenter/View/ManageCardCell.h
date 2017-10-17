@@ -16,6 +16,8 @@ typedef void(^CameraActionBlock)(UIButton * sender);
 @property (weak, nonatomic) IBOutlet UIButton *twoBtn;
 @property (weak, nonatomic) IBOutlet UIButton *threeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *fourBtn;
+@property (weak, nonatomic) IBOutlet UIButton *fiveBtn;
+@property (weak, nonatomic) IBOutlet UIButton *sixBtn;
 
 @property (nonatomic, copy) CameraActionBlock block;
 - (IBAction)cameraAction:(UIButton *)sender;

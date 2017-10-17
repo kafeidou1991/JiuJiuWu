@@ -12,10 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="450" id="KGk-i7-Jjw" customClass="ManageCardCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="450"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="449.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="599.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请拍摄如下照片用于认证" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qge-gS-CpV">
@@ -76,7 +76,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXE-Ls-ktQ">
-                        <rect key="frame" x="11" y="331" width="298" height="118.5"/>
+                        <rect key="frame" x="11" y="476.5" width="298" height="123"/>
                         <string key="text">1.请上传本人身份证正反面照片
 
 2.请上传本人银行卡照片
@@ -106,7 +106,41 @@
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9Q-jO-je7">
                         <rect key="frame" x="165" y="291" width="145" height="40"/>
-                        <string key="text">商店照片
+                        <string key="text">商铺门头照片
+（正面）</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YI-Wz-V90">
+                        <rect key="frame" x="10" y="331" width="145" height="105.5"/>
+                        <state key="normal" image="companyInfo_1"/>
+                        <state key="selected" image="manageBank_2"/>
+                        <state key="highlighted" image="manageBank_2"/>
+                        <connections>
+                            <action selector="cameraAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mND-xx-axt"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZT-NM-Bh3">
+                        <rect key="frame" x="10" y="436.5" width="145" height="40"/>
+                        <string key="text">经营场所
+（正面）</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUM-Hk-b8a">
+                        <rect key="frame" x="165" y="331" width="145" height="105.5"/>
+                        <state key="normal" image="companyInfo_1"/>
+                        <state key="selected" image="manageBank_2"/>
+                        <state key="highlighted" image="manageBank_2"/>
+                        <connections>
+                            <action selector="cameraAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="H5k-47-Zhn"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6av-k3-wWc">
+                        <rect key="frame" x="165" y="436.5" width="145" height="40"/>
+                        <string key="text">收银台
 （正面）</string>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -116,37 +150,53 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="inu-GI-Ci5" secondAttribute="trailing" constant="10" id="0gn-KF-tUJ"/>
                     <constraint firstItem="uof-mt-njh" firstAttribute="height" secondItem="SMe-l3-DQ7" secondAttribute="height" id="2ND-9P-oDS"/>
+                    <constraint firstItem="6av-k3-wWc" firstAttribute="width" secondItem="U9Q-jO-je7" secondAttribute="width" id="2Qj-6p-k6I"/>
+                    <constraint firstItem="xZT-NM-Bh3" firstAttribute="height" secondItem="DhF-NX-cWa" secondAttribute="height" id="3S2-J9-Mtj"/>
                     <constraint firstItem="U9Q-jO-je7" firstAttribute="top" secondItem="Fup-ij-AdZ" secondAttribute="bottom" id="5j4-fq-MbM"/>
                     <constraint firstItem="Fup-ij-AdZ" firstAttribute="height" secondItem="inu-GI-Ci5" secondAttribute="height" id="7Ex-qM-qUX"/>
+                    <constraint firstItem="xZT-NM-Bh3" firstAttribute="width" secondItem="DhF-NX-cWa" secondAttribute="width" id="7JB-Rt-SUy"/>
                     <constraint firstItem="DhF-NX-cWa" firstAttribute="width" secondItem="SMe-l3-DQ7" secondAttribute="width" id="9aK-gM-7Tf"/>
                     <constraint firstItem="SMe-l3-DQ7" firstAttribute="top" secondItem="Pbf-2J-XBv" secondAttribute="bottom" id="CfH-u4-F5Y"/>
                     <constraint firstItem="Fup-ij-AdZ" firstAttribute="top" secondItem="uof-mt-njh" secondAttribute="bottom" id="EPx-PZ-YEK"/>
                     <constraint firstItem="DhF-NX-cWa" firstAttribute="height" secondItem="SMe-l3-DQ7" secondAttribute="height" id="H55-Cd-WtE"/>
+                    <constraint firstItem="2YI-Wz-V90" firstAttribute="height" secondItem="jtW-f5-Bix" secondAttribute="height" id="JKc-T5-WJp"/>
                     <constraint firstItem="U9Q-jO-je7" firstAttribute="leading" secondItem="uof-mt-njh" secondAttribute="leading" id="K6q-Jo-ESd"/>
                     <constraint firstItem="uof-mt-njh" firstAttribute="leading" secondItem="inu-GI-Ci5" secondAttribute="leading" id="MT7-x7-YCy"/>
                     <constraint firstItem="inu-GI-Ci5" firstAttribute="height" secondItem="Pbf-2J-XBv" secondAttribute="height" id="Nb9-Qr-Xzb"/>
+                    <constraint firstItem="6av-k3-wWc" firstAttribute="top" secondItem="rUM-Hk-b8a" secondAttribute="bottom" id="OA8-4R-Xq7"/>
                     <constraint firstItem="Pbf-2J-XBv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="SS8-Sk-wiD"/>
                     <constraint firstItem="inu-GI-Ci5" firstAttribute="top" secondItem="Pbf-2J-XBv" secondAttribute="top" id="Scl-eA-Q1e"/>
                     <constraint firstItem="jtW-f5-Bix" firstAttribute="leading" secondItem="Pbf-2J-XBv" secondAttribute="leading" id="TUU-me-whd"/>
                     <constraint firstItem="Fup-ij-AdZ" firstAttribute="width" secondItem="inu-GI-Ci5" secondAttribute="width" id="VXr-hg-Ajo"/>
-                    <constraint firstItem="qXE-Ls-ktQ" firstAttribute="top" secondItem="DhF-NX-cWa" secondAttribute="bottom" id="Xts-P6-0GE"/>
                     <constraint firstItem="SMe-l3-DQ7" firstAttribute="leading" secondItem="Pbf-2J-XBv" secondAttribute="leading" id="Xyy-Zb-ftG"/>
                     <constraint firstItem="U9Q-jO-je7" firstAttribute="height" secondItem="uof-mt-njh" secondAttribute="height" id="YV4-os-IRQ"/>
+                    <constraint firstItem="qXE-Ls-ktQ" firstAttribute="top" secondItem="xZT-NM-Bh3" secondAttribute="bottom" id="Z1r-zd-a7f"/>
+                    <constraint firstItem="xZT-NM-Bh3" firstAttribute="top" secondItem="2YI-Wz-V90" secondAttribute="bottom" id="ZCH-1t-gNu"/>
+                    <constraint firstItem="rUM-Hk-b8a" firstAttribute="leading" secondItem="Fup-ij-AdZ" secondAttribute="leading" id="Zla-KA-8cX"/>
+                    <constraint firstItem="2YI-Wz-V90" firstAttribute="top" secondItem="DhF-NX-cWa" secondAttribute="bottom" id="aER-QL-ePp"/>
                     <constraint firstItem="qXE-Ls-ktQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="bFe-Po-Qw7"/>
+                    <constraint firstItem="rUM-Hk-b8a" firstAttribute="width" secondItem="Fup-ij-AdZ" secondAttribute="width" id="bhG-aJ-pUh"/>
                     <constraint firstItem="jtW-f5-Bix" firstAttribute="width" secondItem="Pbf-2J-XBv" secondAttribute="width" id="c31-h2-VPD"/>
                     <constraint firstAttribute="trailing" secondItem="qXE-Ls-ktQ" secondAttribute="trailing" constant="11" id="dQn-tD-KwM"/>
+                    <constraint firstItem="rUM-Hk-b8a" firstAttribute="height" secondItem="Fup-ij-AdZ" secondAttribute="height" id="drb-ZS-gfV"/>
+                    <constraint firstItem="6av-k3-wWc" firstAttribute="height" secondItem="U9Q-jO-je7" secondAttribute="height" id="ehr-nT-r6s"/>
                     <constraint firstItem="jtW-f5-Bix" firstAttribute="height" secondItem="Pbf-2J-XBv" secondAttribute="height" id="fct-8n-SUz"/>
+                    <constraint firstItem="xZT-NM-Bh3" firstAttribute="leading" secondItem="DhF-NX-cWa" secondAttribute="leading" id="gOJ-6b-Ha3"/>
                     <constraint firstItem="DhF-NX-cWa" firstAttribute="top" secondItem="jtW-f5-Bix" secondAttribute="bottom" id="gde-wJ-MTe"/>
                     <constraint firstItem="DhF-NX-cWa" firstAttribute="leading" secondItem="SMe-l3-DQ7" secondAttribute="leading" id="gyg-gP-cpa"/>
                     <constraint firstItem="SMe-l3-DQ7" firstAttribute="width" secondItem="Pbf-2J-XBv" secondAttribute="width" id="hhU-sd-0F6"/>
                     <constraint firstItem="Fup-ij-AdZ" firstAttribute="leading" secondItem="inu-GI-Ci5" secondAttribute="leading" id="hwY-IF-mbN"/>
+                    <constraint firstItem="2YI-Wz-V90" firstAttribute="width" secondItem="jtW-f5-Bix" secondAttribute="width" id="imN-T5-WEO"/>
                     <constraint firstItem="jtW-f5-Bix" firstAttribute="top" secondItem="SMe-l3-DQ7" secondAttribute="bottom" id="k9g-D5-4kO"/>
                     <constraint firstItem="inu-GI-Ci5" firstAttribute="leading" secondItem="Pbf-2J-XBv" secondAttribute="trailing" constant="10" id="kTr-VK-cB4"/>
+                    <constraint firstItem="rUM-Hk-b8a" firstAttribute="top" secondItem="U9Q-jO-je7" secondAttribute="bottom" id="mAH-SJ-RJH"/>
+                    <constraint firstItem="6av-k3-wWc" firstAttribute="leading" secondItem="U9Q-jO-je7" secondAttribute="leading" id="nJf-Nb-odc"/>
                     <constraint firstAttribute="bottom" secondItem="qXE-Ls-ktQ" secondAttribute="bottom" id="nyI-gX-r6M"/>
                     <constraint firstItem="Pbf-2J-XBv" firstAttribute="top" secondItem="qge-gS-CpV" secondAttribute="bottom" id="oFe-ci-9JB"/>
                     <constraint firstItem="uof-mt-njh" firstAttribute="top" secondItem="inu-GI-Ci5" secondAttribute="bottom" id="p6p-eR-xmU"/>
                     <constraint firstItem="U9Q-jO-je7" firstAttribute="width" secondItem="uof-mt-njh" secondAttribute="width" id="qUg-i0-kGC"/>
                     <constraint firstItem="inu-GI-Ci5" firstAttribute="width" secondItem="Pbf-2J-XBv" secondAttribute="width" id="w6R-Yy-1G7"/>
+                    <constraint firstItem="2YI-Wz-V90" firstAttribute="leading" secondItem="jtW-f5-Bix" secondAttribute="leading" id="ye1-r0-4m1"/>
                     <constraint firstItem="uof-mt-njh" firstAttribute="width" secondItem="inu-GI-Ci5" secondAttribute="width" id="yko-sd-JtG"/>
                 </constraints>
             </tableViewCellContentView>
@@ -156,6 +206,7 @@
                 <constraint firstItem="qge-gS-CpV" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="11" id="wWC-zd-rLy"/>
             </constraints>
             <connections>
+                <outlet property="fiveBtn" destination="2YI-Wz-V90" id="bUQ-M3-Ad6"/>
                 <outlet property="fourBtn" destination="Fup-ij-AdZ" id="Xbm-BL-uhq"/>
                 <outlet property="oneBtn" destination="Pbf-2J-XBv" id="a4C-R4-X0a"/>
                 <outlet property="threeBtn" destination="jtW-f5-Bix" id="qRz-Z7-1ZA"/>

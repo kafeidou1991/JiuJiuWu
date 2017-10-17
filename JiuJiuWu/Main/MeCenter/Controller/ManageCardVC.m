@@ -18,7 +18,7 @@
 #import "PubilcBankCardCell.h"
 #import "CompanyInfoVC.h"
 
-static CGFloat thirdHeight = 450.f;
+static CGFloat thirdHeight = 600.f;
 
 @interface ManageCardVC ()<UITextFieldDelegate,HZAreaPickerDelegate>{
     SelectBandVC * selectBandVC;
@@ -92,7 +92,7 @@ static CGFloat thirdHeight = 450.f;
         [JJWBase alertMessage:@"请输入商户详细地址!" cb:nil];
         return;
     }
-    if (_currCardItem.idcard_img_one.size.width == 0 || _currCardItem.idcard_img_two.size.width == 0 || _currCardItem.idcard_img_three.size.width == 0 ||_currCardItem.shop_head_img.size.width == 0) {
+    if (_currCardItem.idcard_img_one.size.width == 0 || _currCardItem.idcard_img_two.size.width == 0 || _currCardItem.idcard_img_three.size.width == 0 ||_currCardItem.shop_head_img.size.width == 0 ||_currCardItem.shop_inner_img.size.width == 0 ||_currCardItem.shop_cash_img.size.width == 0) {
         [JJWBase alertMessage:@"请完善图片认证信息!" cb:nil];
         return;
     }
@@ -107,6 +107,8 @@ static CGFloat thirdHeight = 450.f;
                             @"idcard_img_two":[self base64Str:_currCardItem.idcard_img_two],
                             @"idcard_img_three":[self base64Str:_currCardItem.idcard_img_three],
                             @"shop_head_img":[self base64Str:_currCardItem.shop_head_img],
+                            @"shop_inner_img":[self base64Str:_currCardItem.shop_inner_img],
+                            @"shop_cash_img":[self base64Str:_currCardItem.shop_cash_img],
                             @"province":_currCardItem.province,
                             @"city":_currCardItem.city,
                             @"district":_currCardItem.district,
@@ -339,8 +341,12 @@ static CGFloat thirdHeight = 450.f;
             _currCardItem.idcard_img_two = image;
         }else if (sender.tag == 2){
             _currCardItem.idcard_img_three = image;
-        }else {
+        }else if (sender.tag == 3){
             _currCardItem.shop_head_img = image;
+        }else if (sender.tag == 4){
+            _currCardItem.shop_inner_img = image;
+        }else if (sender.tag == 5){
+            _currCardItem.shop_cash_img = image;
         }
     };
 }
