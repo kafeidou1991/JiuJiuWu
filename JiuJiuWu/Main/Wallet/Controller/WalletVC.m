@@ -11,6 +11,9 @@
 #import "FeatureListView.h"
 #import "CashKeyBoradVC.h"
 #import "LevelUpVC.h"
+#import "QRPayCodeVC.h"
+#import "QuickPayVC.h"
+#import "CreditCardInfoVC.h"
 
 static CGFloat const headerHeight = 220; //顶部视图高度
 
@@ -99,9 +102,19 @@ static CGFloat const headerHeight = 220; //顶部视图高度
         WeakSelf
         _headerView.block = ^(NSInteger index) {
             [[JJWLogin sharedMethod]checkInfo:weakSelf complete:^{
-                CashKeyBoradVC * VC = [[CashKeyBoradVC alloc]init];
-                VC.payType = index;
-                [weakSelf.navigationController pushViewController:VC animated:YES];
+                if (index == 0) {
+                    CashKeyBoradVC * VC = [[CashKeyBoradVC alloc]init];
+                    VC.payType = index;
+                    [weakSelf.navigationController pushViewController:VC animated:YES];
+                }else if (index == 1){
+//                    QuickPayVC * VC = [[QuickPayVC alloc]init];
+                    CreditCardInfoVC * VC = [[CreditCardInfoVC alloc]init];
+                    [weakSelf.navigationController pushViewController:VC animated:YES];
+                }else if (index == 2){
+                    QRPayCodeVC * VC = [[QRPayCodeVC alloc]init];
+                    [weakSelf.navigationController pushViewController:VC animated:YES];
+                }
+                
             }];
         };
     }

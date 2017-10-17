@@ -48,7 +48,16 @@
         [self.fourBtn setImage:item.shop_head_img forState:UIControlStateHighlighted];
         [self.fourBtn setImage:item.shop_head_img forState:UIControlStateSelected];
     }
-    
+    if (item.shop_inner_img.size.width != 0) {
+        [self.fiveBtn setImage:item.shop_inner_img forState:UIControlStateNormal];
+        [self.fiveBtn setImage:item.shop_inner_img forState:UIControlStateHighlighted];
+        [self.fiveBtn setImage:item.shop_inner_img forState:UIControlStateSelected];
+    }
+    if (item.shop_cash_img.size.width != 0) {
+        [self.sixBtn setImage:item.shop_cash_img forState:UIControlStateNormal];
+        [self.sixBtn setImage:item.shop_cash_img forState:UIControlStateHighlighted];
+        [self.sixBtn setImage:item.shop_cash_img forState:UIControlStateSelected];
+    }
 }
 
 @end

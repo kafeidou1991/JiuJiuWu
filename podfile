@@ -11,4 +11,5 @@ target 'JiuJiuWu' do
  pod 'MJRefresh'
  pod 'HcdGuideView'
  pod 'ReactiveObjC'
+ pod 'XXNibBridge'
 end

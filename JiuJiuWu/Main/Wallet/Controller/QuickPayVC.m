@@ -1,0 +1,111 @@
+//
+//  QuickPayVC.m
+//  JiuJiuWu
+//
+//  Created by 张竟巍 on 2017/9/29.
+//  Copyright © 2017年 张竟巍. All rights reserved.
+//
+
+#import "QuickPayVC.h"
+#import "CustomTableViewCell.h"
+#import "QuickPayHeadView.h"
+
+@interface QuickPayVC ()
+
+@end
+
+@implementation QuickPayVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"快捷支付";
+    self.dataSources = @[@{@"title":@"银行卡类型",@"placeholder":@"请选择您的银行卡"},
+                         @{@"title":@"选择银行卡",@"placeholder":@"请选择您的银行卡类型"},
+                         @{@"title":@"开户行地址",@"placeholder":@"请输入开户行地址"},
+                         @{@"title":@"开户人姓名",@"placeholder":@"请输入开户人姓名"},
+                         @{@"title":@"有效期",@"placeholder":@"请输入有效期"}].mutableCopy;
+    [self createTableView];
+    self.tableView.tableHeaderView = [self createHeaderView];
+    self.tableView.tableFooterView = [self _createFootView:@"确认支付" Block:^(UIButton * btn) {
+        DLog(@"支付");
+    }];
+
+}
+- (UIView *)createHeaderView {
+    QuickPayHeadView * view = [[NSBundle mainBundle]loadNibNamed:@"QuickPayHeadView" owner:self options:nil].firstObject;
+    view.frame = CGRectMake(0, 0, SCreenWidth, 160.f);
+    return view;
+}
+#pragma mark - tableview delegate
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString * cellId = @"cellId";
+    CustomTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!cell) {
+        cell = [[NSBundle mainBundle]loadNibNamed:@"CustomTableViewCell" owner:self options:nil].firstObject;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    cell.inputTextField.enabled = NO;
+    [cell updateBindCardCell:(NSDictionary *)self.dataSources[indexPath.row] textAlignment:NSTextAlignmentRight];
+    [self inputContent:cell Row:indexPath];
+    return cell;
+}
+- (void)inputContent:(CustomTableViewCell *)cell Row:(NSIndexPath *)indexPath {
+    //    switch (indexPath.row) {
+    //        case 0:
+    //            cell.inputTextField.text = _currCardItem.merchant_name;
+    //            break;
+    //        case 1:
+    //            cell.inputTextField.text = _currCardItem.gszc_name;
+    //            break;
+    //        case 2:
+    //            cell.inputTextField.text = _currCardItem.legal_person;
+    //            break;
+    //        case 3:
+    //            cell.inputTextField.text = _currCardItem.biz_license;
+    //            break;
+    //        case 4:
+    //            cell.inputTextField.text = _currCardItem.biz_org;
+    //            break;
+    //        case 5:
+    //            cell.inputTextField.text = _currCardItem.biz_tax;
+    //            break;
+    //        default:
+    //            break;
+    //    }
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataSources.count;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50.f;
+}
+- (UIView *) _createFootView:(NSString *)title Block:(void(^)(UIButton *))block{
+    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCreenWidth, 80)];
+    view.backgroundColor = [UIColor clearColor];
+
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setTitle:title forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:15];
+    btn.backgroundColor = themeColor;
+    btn.showsTouchWhenHighlighted = NO;
+    btn.layer.cornerRadius = 5;
+    [[btn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIButton * _Nullable x) {
+        if (block) {
+            block(x);
+        }
+    }];
+    btn.frame = CGRectMake(11, 25, SCreenWidth - 2 * 11, 41);
+    [view addSubview:btn];
+    return view;
+}
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsMake(0, 11, 0, 0)];
+    }
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsMake(0, 11, 0, 0)];
+    }
+}
+
+@end

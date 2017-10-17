@@ -27,7 +27,42 @@
 @implementation BankItem
 
 @end
+@implementation CreditCardsList
++ (NSDictionary *)modelContainerPropertyGenericClass{
+    return @{@"credit_list" : [QuickPayInfoItem class]};
+}
+@end
+@implementation QuickPayInfoItem
+- (instancetype)init{
+    if (self = [super init]) {
+        NSString * path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"QuickPayInfoItem.plist"];
+        id item = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        if (item) {
+            self = item;
+        }
+    }
+    return self;
+}
+- (void)saveProdfile{
+    NSString * path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"QuickPayInfoItem.plist"];
+    BOOL result = [NSKeyedArchiver archiveRootObject:self toFile:path];
+    if (result) {
+        DLog(@"归档成功:%@",path);
+    }else
+    {
+        DLog(@"归档不成功!!!");
+    }
+    
+}
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super init];
+    return [self yy_modelInitWithCoder:aDecoder];
+}
 
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+    [self yy_modelEncodeWithCoder:aCoder];
+}
+@end
 
 
 

@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UIImage * idcard_img_two;//身份证照片反面
 @property (nonatomic, strong) UIImage * idcard_img_three;//手持身份证
 @property (nonatomic, strong) UIImage * shop_head_img;//店铺门面照片
+@property (nonatomic, strong) UIImage * shop_inner_img;//经营场所照片照片
+@property (nonatomic, strong) UIImage * shop_cash_img;//收银台照片
 @property (nonatomic, copy) NSString * province;//省编号
 @property (nonatomic, copy) NSString * provinceName;//省
 @property (nonatomic, copy) NSString * city;//市编号

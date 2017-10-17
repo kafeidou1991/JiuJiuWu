@@ -23,6 +23,7 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - XXNibBridge (2.3.1)
   - YYCache (1.0.4)
   - YYModel (1.0.4)
   - ZLPhotoBrowser (2.2.1)
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - OpenUDID
   - ReactiveObjC
   - SDWebImage
+  - XXNibBridge
   - YYCache
   - YYModel
   - ZLPhotoBrowser
@@ -49,10 +51,11 @@ SPEC CHECKSUMS:
   OpenUDID: e7cb6984c7304906ad20f3a36bf087b025896b6b
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  XXNibBridge: addb780e6db076eb2c61716aa60b176a6799b80f
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   ZLPhotoBrowser: 36a4386a499404cadeed956d93c0c1c4bc1ec770
 
-PODFILE CHECKSUM: 848278917cb1ffc5e8b070729fa7b06206ca777c
+PODFILE CHECKSUM: 6982e3680e65db643db407e1b37990a15ec2dc70
 
-COCOAPODS: 1.3.0.beta.1
+COCOAPODS: 1.3.1
