@@ -209,6 +209,7 @@
                 <outlet property="fiveBtn" destination="2YI-Wz-V90" id="bUQ-M3-Ad6"/>
                 <outlet property="fourBtn" destination="Fup-ij-AdZ" id="Xbm-BL-uhq"/>
                 <outlet property="oneBtn" destination="Pbf-2J-XBv" id="a4C-R4-X0a"/>
+                <outlet property="sixBtn" destination="rUM-Hk-b8a" id="Ub8-j1-eif"/>
                 <outlet property="threeBtn" destination="jtW-f5-Bix" id="qRz-Z7-1ZA"/>
                 <outlet property="twoBtn" destination="inu-GI-Ci5" id="eCu-TY-UkF"/>
             </connections>

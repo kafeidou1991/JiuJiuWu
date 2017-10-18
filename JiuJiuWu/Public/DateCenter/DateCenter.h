@@ -41,8 +41,11 @@
 @property (nonatomic, copy) NSString * shop_inner_img;//经营场所照片照片
 @property (nonatomic, copy) NSString * shop_cash_img;//收银台照片
 @property (nonatomic, copy) NSString * province;// 省市县 编号
+@property (nonatomic, copy) NSString * provinceName; //本地显示用
 @property (nonatomic, copy) NSString * city;
+@property (nonatomic, copy) NSString * cityName;
 @property (nonatomic, copy) NSString * district;
+@property (nonatomic, copy) NSString * districtName;
 @property (nonatomic, copy) NSString * address_detail; //详细地址
 @property (nonatomic, copy) NSString * account_type;//银行卡 1.对私 2.对公 账号
 @property (nonatomic, copy) NSString * open_branch;//银行行号
@@ -50,6 +53,7 @@
 @property (nonatomic, copy) NSString * nickname;//姓名
 @property (nonatomic, copy) NSString * account_name;//银行卡账号名称
 @property (nonatomic, copy) NSString * bank_name;//银行名称
+@property (nonatomic, copy) NSString * bank_code;//银行code
 
 //商户相关
 @property (nonatomic, copy) NSString * merchant_checked; //企业用户   0待审核 1审核中 2审核通过 3审核未通过
@@ -60,6 +64,14 @@
 @property (nonatomic, copy) NSString * license_img;//营业执照照片
 @property (nonatomic, copy) NSString * biz_license;//营业执照号
 @property (nonatomic, copy) NSString * legal_person;//法人名称
+
+//本地使用
+@property (nonatomic, strong) UIImage * idcard_img_one_img;//身份证银行卡正面
+@property (nonatomic, strong) UIImage * idcard_img_two_img;//身份证银行卡反面
+@property (nonatomic, strong) UIImage * idcard_img_three_img;//手持身份证银行卡正面
+@property (nonatomic, strong) UIImage * shop_head_img_img;//店铺门面照片
+@property (nonatomic, strong) UIImage * shop_inner_img_img;//经营场所照片照片
+@property (nonatomic, strong) UIImage * shop_cash_img_img;//收银台照片
 //暂定
 @property (nonatomic, copy) NSString * sex;//性别
 @property (nonatomic, copy) NSString * password;// 密码

@@ -22,8 +22,9 @@ static CGFloat thirdHeight = 600.f;
 
 @interface ManageCardVC ()<UITextFieldDelegate,HZAreaPickerDelegate>{
     SelectBandVC * selectBandVC;
+    NSDictionary *addressData; //地址信息 为了用id获取name 显示用
 }
-@property (nonatomic, strong) BankCardItem * currCardItem;
+@property (nonatomic, strong) DloginData * currCardItem;
 
 @end
 
@@ -55,8 +56,17 @@ static CGFloat thirdHeight = 600.f;
                            @{@"title":@"详细地址",@"placeholder":@"请输入商户详细地址"}],
                          
                          @[@{@"title":@"占位符",@"placeholder":@"占位符"}]].mutableCopy;
-    
-    [self.currCardItem setEmptyItem];
+    addressData = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"city.plist" ofType:nil]];
+    self.currCardItem = [JJWLogin sharedMethod].loginData;
+    if (!STRISEMPTY(self.currCardItem.province)) {
+        _currCardItem.provinceName = [self getProvinceName];
+    }
+    if (!STRISEMPTY(self.currCardItem.city)) {
+        _currCardItem.cityName = [self getCityName];
+    }
+    if (!STRISEMPTY(self.currCardItem.district)) {
+        _currCardItem.districtName = [self getDistrictName];
+    }
 }
 #pragma mark - 上传银行卡信息
 - (void)checkBankInfo {
@@ -84,7 +94,7 @@ static CGFloat thirdHeight = 600.f;
         [JJWBase alertMessage:@"请输入身份证号!" cb:nil];
         return;
     }
-    if (STRISEMPTY(_currCardItem.province) ||STRISEMPTY(_currCardItem.city) ||STRISEMPTY(_currCardItem.district)) {
+    if (STRISEMPTY(_currCardItem.province) || STRISEMPTY(_currCardItem.city) || STRISEMPTY(_currCardItem.district)) {
         [JJWBase alertMessage:@"请选择银行卡开户地!" cb:nil];
         return;
     }
@@ -92,7 +102,7 @@ static CGFloat thirdHeight = 600.f;
         [JJWBase alertMessage:@"请输入商户详细地址!" cb:nil];
         return;
     }
-    if (_currCardItem.idcard_img_one.size.width == 0 || _currCardItem.idcard_img_two.size.width == 0 || _currCardItem.idcard_img_three.size.width == 0 ||_currCardItem.shop_head_img.size.width == 0 ||_currCardItem.shop_inner_img.size.width == 0 ||_currCardItem.shop_cash_img.size.width == 0) {
+    if (_currCardItem.idcard_img_one_img.size.width == 0 || _currCardItem.idcard_img_two.size.width == 0 || _currCardItem.idcard_img_three.size.width == 0 ||_currCardItem.shop_head_img.size.width == 0 ||_currCardItem.shop_inner_img.size.width == 0 ||_currCardItem.shop_cash_img.size.width == 0) {
         [JJWBase alertMessage:@"请完善图片认证信息!" cb:nil];
         return;
     }
@@ -103,12 +113,12 @@ static CGFloat thirdHeight = 600.f;
                             @"idcard_number":_currCardItem.idcard_number,
                             @"account":_currCardItem.account,
                             @"account_name":_currCardItem.account_name,
-                            @"idcard_img_one":[self base64Str:_currCardItem.idcard_img_one],
-                            @"idcard_img_two":[self base64Str:_currCardItem.idcard_img_two],
-                            @"idcard_img_three":[self base64Str:_currCardItem.idcard_img_three],
-                            @"shop_head_img":[self base64Str:_currCardItem.shop_head_img],
-                            @"shop_inner_img":[self base64Str:_currCardItem.shop_inner_img],
-                            @"shop_cash_img":[self base64Str:_currCardItem.shop_cash_img],
+//                            @"idcard_img_one":[self base64Str:_currCardItem.idcard_img_one],
+//                            @"idcard_img_two":[self base64Str:_currCardItem.idcard_img_two],
+//                            @"idcard_img_three":[self base64Str:_currCardItem.idcard_img_three],
+//                            @"shop_head_img":[self base64Str:_currCardItem.shop_head_img],
+//                            @"shop_inner_img":[self base64Str:_currCardItem.shop_inner_img],
+//                            @"shop_cash_img":[self base64Str:_currCardItem.shop_cash_img],
                             @"province":_currCardItem.province,
                             @"city":_currCardItem.city,
                             @"district":_currCardItem.district,
@@ -188,7 +198,7 @@ static CGFloat thirdHeight = 600.f;
             [cell updateBindCardCell:((NSArray *)self.dataSources[indexPath.section])[indexPath.row]textAlignment:NSTextAlignmentRight];
             cell.inputTextField.text = _currCardItem.open_branch;
             cell.selectBtn.selected = cell.inputTextField.enabled =  (_currCardItem.account_type.integerValue == 2);
-            __block BankCardItem * weakItem = _currCardItem;
+            __block DloginData * weakItem = _currCardItem;
             cell.block = ^(UIButton *sender) {
                 if (sender.selected) {
                     weakItem.account_type = @"2";
@@ -253,13 +263,13 @@ static CGFloat thirdHeight = 600.f;
     }else if (indexPath.section == 1) {
         switch (indexPath.row) {
             case 0:
-                cell.inputTextField.text = [NSString stringWithFormat:@"%@",_currCardItem.province];
+                cell.inputTextField.text = [NSString stringWithFormat:@"%@",_currCardItem.provinceName];
                 break;
             case 1:
-                cell.inputTextField.text = [NSString stringWithFormat:@"%@",_currCardItem.city];
+                cell.inputTextField.text = [NSString stringWithFormat:@"%@",_currCardItem.cityName];
                 break;
             case 2:
-                cell.inputTextField.text = [NSString stringWithFormat:@"%@",_currCardItem.district];
+                cell.inputTextField.text = [NSString stringWithFormat:@"%@",_currCardItem.districtName];
                 break;
             case 3:
                 cell.inputTextField.text = [NSString stringWithFormat:@"%@",_currCardItem.address_detail];
@@ -278,7 +288,7 @@ static CGFloat thirdHeight = 600.f;
             selectBandVC.dataSources = bandsArray.mutableCopy;
         }
         WeakSelf
-        __block BankCardItem * weakItem = _currCardItem;
+        __block DloginData * weakItem = _currCardItem;
         selectBandVC.selectBlock = ^(NSInteger row) {
             DLog(@"code = %@-----band = %@",codeArray[row],bandsArray[row]);
             weakItem.bank_name = bandsArray[row];
@@ -336,17 +346,17 @@ static CGFloat thirdHeight = 600.f;
         [sender setImage:image forState:UIControlStateHighlighted];
         [sender setImage:image forState:UIControlStateSelected];
         if (sender.tag == 0) {
-            _currCardItem.idcard_img_one = image;
+            _currCardItem.idcard_img_one_img = image;
         }else if (sender.tag == 1){
-            _currCardItem.idcard_img_two = image;
+            _currCardItem.idcard_img_two_img = image;
         }else if (sender.tag == 2){
-            _currCardItem.idcard_img_three = image;
+            _currCardItem.idcard_img_three_img = image;
         }else if (sender.tag == 3){
-            _currCardItem.shop_head_img = image;
+            _currCardItem.shop_head_img_img = image;
         }else if (sender.tag == 4){
-            _currCardItem.shop_inner_img = image;
+            _currCardItem.shop_inner_img_img = image;
         }else if (sender.tag == 5){
-            _currCardItem.shop_cash_img = image;
+            _currCardItem.shop_cash_img_img = image;
         }
     };
 }
@@ -450,13 +460,36 @@ static CGFloat thirdHeight = 600.f;
     [view addSubview:btn];
     return view;
 }
--(BankCardItem *)currCardItem {
-    if (!_currCardItem) {
-        _currCardItem = [[BankCardItem alloc]init];
+
+- (NSString *)getProvinceName {
+    NSArray * baseProvinces = [addressData valueForKey:@"province"];
+    for (NSDictionary * dict in baseProvinces) {
+        NSString * pid = [dict objectForKey:@"pid"];
+        if ([pid isEqualToString:_currCardItem.province]) {
+            return [dict objectForKey:@"name"];
+        }
     }
-    return _currCardItem;
+    return @"";
 }
-
-
+- (NSString *)getCityName {
+    NSArray * baseCities = [addressData valueForKey:@"city"];
+    for (NSDictionary * dict in baseCities) {
+        NSString * pid = [dict objectForKey:@"cid"];
+        if ([pid isEqualToString:_currCardItem.city]) {
+            return [dict objectForKey:@"name"];
+        }
+    }
+    return @"";
+}
+- (NSString *)getDistrictName {
+    NSArray * baseAreas = [addressData valueForKey:@"area"];
+    for (NSDictionary * dict in baseAreas) {
+        NSString * pid = [dict objectForKey:@"aid"];
+        if ([pid isEqualToString:_currCardItem.district]) {
+            return [dict objectForKey:@"name"];
+        }
+    }
+    return @"";
+}
 
 @end

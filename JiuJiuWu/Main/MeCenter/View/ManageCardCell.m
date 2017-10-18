@@ -8,6 +8,13 @@
 
 #import "ManageCardCell.h"
 #import "BankCardItem.h"
+#import "UIButton+WebCache.h"
+
+#if environment
+static NSString * const baseImageUrl = @"http://www.jiujiuwu.cn/";
+#else
+static NSString * const baseImageUrl = @"http://test.jiujiuwu.cn/";
+#endif
 
 @implementation ManageCardCell
 
@@ -27,36 +34,42 @@
         _block(sender);
     }
 }
-- (void)updateCell:(BankCardItem *)item {
-    if (item.idcard_img_one.size.width != 0) {
-        [self.oneBtn setImage:item.idcard_img_one forState:UIControlStateNormal];
-        [self.oneBtn setImage:item.idcard_img_one forState:UIControlStateHighlighted];
-        [self.oneBtn setImage:item.idcard_img_one forState:UIControlStateSelected];
+- (void)updateCell:(DloginData *)item {
+    if (!STRISEMPTY(item.idcard_img_one)) {
+        NSString * str = [baseImageUrl stringByAppendingString:item.idcard_img_one];
+        [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateNormal];
+        [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateHighlighted];
+        [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateSelected];
     }
-    if (item.idcard_img_two.size.width != 0) {
-        [self.twoBtn setImage:item.idcard_img_two forState:UIControlStateNormal];
-        [self.twoBtn setImage:item.idcard_img_two forState:UIControlStateHighlighted];
-        [self.twoBtn setImage:item.idcard_img_two forState:UIControlStateSelected];
+    if (!STRISEMPTY(item.idcard_img_two)) {
+        NSString * str = [baseImageUrl stringByAppendingString:item.idcard_img_two];
+        [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateNormal];
+        [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateHighlighted];
+        [self.twoBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateSelected];
     }
-    if (item.idcard_img_three.size.width != 0) {
-        [self.threeBtn setImage:item.idcard_img_three forState:UIControlStateNormal];
-        [self.threeBtn setImage:item.idcard_img_three forState:UIControlStateHighlighted];
-        [self.threeBtn setImage:item.idcard_img_three forState:UIControlStateSelected];
+    if (!STRISEMPTY(item.idcard_img_three)) {
+        NSString * str = [baseImageUrl stringByAppendingString:item.idcard_img_three];
+        [self.threeBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateNormal];
+        [self.threeBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateHighlighted];
+        [self.threeBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateSelected];
     }
-    if (item.shop_head_img.size.width != 0) {
-        [self.fourBtn setImage:item.shop_head_img forState:UIControlStateNormal];
-        [self.fourBtn setImage:item.shop_head_img forState:UIControlStateHighlighted];
-        [self.fourBtn setImage:item.shop_head_img forState:UIControlStateSelected];
+    if (!STRISEMPTY(item.shop_head_img)) {
+        NSString * str = [baseImageUrl stringByAppendingString:item.shop_head_img];
+        [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateNormal];
+        [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateHighlighted];
+        [self.fourBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateSelected];
     }
-    if (item.shop_inner_img.size.width != 0) {
-        [self.fiveBtn setImage:item.shop_inner_img forState:UIControlStateNormal];
-        [self.fiveBtn setImage:item.shop_inner_img forState:UIControlStateHighlighted];
-        [self.fiveBtn setImage:item.shop_inner_img forState:UIControlStateSelected];
+    if (!STRISEMPTY(item.shop_inner_img)) {
+        NSString * str = [baseImageUrl stringByAppendingString:item.shop_inner_img];
+        [self.fiveBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateNormal];
+        [self.fiveBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateHighlighted];
+        [self.fiveBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateSelected];
     }
-    if (item.shop_cash_img.size.width != 0) {
-        [self.sixBtn setImage:item.shop_cash_img forState:UIControlStateNormal];
-        [self.sixBtn setImage:item.shop_cash_img forState:UIControlStateHighlighted];
-        [self.sixBtn setImage:item.shop_cash_img forState:UIControlStateSelected];
+    if (!STRISEMPTY(item.shop_cash_img)) {
+        NSString * str = [baseImageUrl stringByAppendingString:item.shop_cash_img];
+        [self.sixBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateNormal];
+        [self.sixBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateHighlighted];
+        [self.sixBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateSelected];
     }
 }
 

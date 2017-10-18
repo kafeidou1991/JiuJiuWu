@@ -96,9 +96,22 @@ static CGFloat const rowHeight = 50.f;
         }else if (indexPath.row == 1){
             
         }else if (indexPath.row == 2){
-            ManageCardVC * VC = [[ManageCardVC alloc]init];
-            VC.type = BindChangeCardType;
-            [self.navigationController pushViewController:VC animated:YES];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                dispatch_block_t t = ^(){
+                    ManageCardVC * VC = [[ManageCardVC alloc]init];
+                    VC.type = BindChangeCardType;
+                    [self.navigationController pushViewController:VC animated:YES];
+                };
+                if (![JJWLogin sharedMethod].isLogin) {
+                    [LoginVC OpenLogin:self callback:^(BOOL compliont) {
+                        if (compliont) {
+                            t();
+                        }
+                    }];
+                }else {
+                    t();
+                }
+            });
         }else if (indexPath.row == 3){
             CompanyInfoVC * VC = [[CompanyInfoVC alloc]init];
             [self.navigationController pushViewController:VC animated:YES];

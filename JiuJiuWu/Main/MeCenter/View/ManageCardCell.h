@@ -22,6 +22,6 @@ typedef void(^CameraActionBlock)(UIButton * sender);
 @property (nonatomic, copy) CameraActionBlock block;
 - (IBAction)cameraAction:(UIButton *)sender;
 
-- (void)updateCell:(BankCardItem *)item;
+- (void)updateCell:(DloginData *)item;
 
 @end
