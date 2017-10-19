@@ -97,7 +97,7 @@
                     </button>
                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fup-ij-AdZ">
                         <rect key="frame" x="165" y="185.5" width="145" height="105.5"/>
-                        <state key="normal" image="companyInfo_1"/>
+                        <state key="normal" image="manageBank_3"/>
                         <state key="selected" image="manageBank_2"/>
                         <state key="highlighted" image="manageBank_2"/>
                         <connections>
@@ -114,7 +114,7 @@
                     </label>
                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YI-Wz-V90">
                         <rect key="frame" x="10" y="331" width="145" height="105.5"/>
-                        <state key="normal" image="companyInfo_1"/>
+                        <state key="normal" image="manageBank_4"/>
                         <state key="selected" image="manageBank_2"/>
                         <state key="highlighted" image="manageBank_2"/>
                         <connections>
@@ -131,7 +131,7 @@
                     </label>
                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUM-Hk-b8a">
                         <rect key="frame" x="165" y="331" width="145" height="105.5"/>
-                        <state key="normal" image="companyInfo_1"/>
+                        <state key="normal" title="manageBank_5" image="manageBank_5"/>
                         <state key="selected" image="manageBank_2"/>
                         <state key="highlighted" image="manageBank_2"/>
                         <connections>
@@ -217,9 +217,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="companyInfo_1" width="115" height="84"/>
         <image name="manageBank_0" width="115" height="84"/>
         <image name="manageBank_1" width="115" height="84"/>
         <image name="manageBank_2" width="115" height="84"/>
+        <image name="manageBank_3" width="115" height="84"/>
+        <image name="manageBank_4" width="170" height="100"/>
+        <image name="manageBank_5" width="255" height="150"/>
     </resources>
 </document>

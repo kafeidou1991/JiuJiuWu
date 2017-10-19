@@ -36,8 +36,11 @@ static NSString * const baseImageUrl = @"http://test.jiujiuwu.cn/";
 }
 - (void)updateCell:(DloginData *)item {
     if (!STRISEMPTY(item.idcard_img_one)) {
+
         NSString * str = [baseImageUrl stringByAppendingString:item.idcard_img_one];
-        [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateNormal];
+        [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateNormal completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            
+        }];
         [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateHighlighted];
         [self.oneBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateSelected];
     }

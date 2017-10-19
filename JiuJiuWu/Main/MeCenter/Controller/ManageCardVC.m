@@ -19,6 +19,7 @@
 #import "CompanyInfoVC.h"
 
 static CGFloat thirdHeight = 600.f;
+#define IMAGEISEMPTY(img) (img==nil || img.size.width == 0)
 
 @interface ManageCardVC ()<UITextFieldDelegate,HZAreaPickerDelegate>{
     SelectBandVC * selectBandVC;
@@ -102,7 +103,13 @@ static CGFloat thirdHeight = 600.f;
         [JJWBase alertMessage:@"请输入商户详细地址!" cb:nil];
         return;
     }
-    if (_currCardItem.idcard_img_one_img.size.width == 0 || _currCardItem.idcard_img_two.size.width == 0 || _currCardItem.idcard_img_three.size.width == 0 ||_currCardItem.shop_head_img.size.width == 0 ||_currCardItem.shop_inner_img.size.width == 0 ||_currCardItem.shop_cash_img.size.width == 0) {
+    if ((STRISEMPTY(_currCardItem.idcard_img_one) && IMAGEISEMPTY(_currCardItem.idcard_img_one_img)) ||
+        (STRISEMPTY(_currCardItem.idcard_img_two) && IMAGEISEMPTY(_currCardItem.idcard_img_one_img)) ||
+        (STRISEMPTY(_currCardItem.idcard_img_three) && IMAGEISEMPTY(_currCardItem.idcard_img_one_img)) ||
+        (STRISEMPTY(_currCardItem.shop_head_img) && IMAGEISEMPTY(_currCardItem.shop_head_img_img)) ||
+        (STRISEMPTY(_currCardItem.shop_inner_img) && IMAGEISEMPTY(_currCardItem.shop_inner_img_img)) ||
+        (STRISEMPTY(_currCardItem.shop_cash_img) && IMAGEISEMPTY(_currCardItem.shop_cash_img_img))
+        ) {
         [JJWBase alertMessage:@"请完善图片认证信息!" cb:nil];
         return;
     }
@@ -113,20 +120,36 @@ static CGFloat thirdHeight = 600.f;
                             @"idcard_number":_currCardItem.idcard_number,
                             @"account":_currCardItem.account,
                             @"account_name":_currCardItem.account_name,
-//                            @"idcard_img_one":[self base64Str:_currCardItem.idcard_img_one],
-//                            @"idcard_img_two":[self base64Str:_currCardItem.idcard_img_two],
-//                            @"idcard_img_three":[self base64Str:_currCardItem.idcard_img_three],
-//                            @"shop_head_img":[self base64Str:_currCardItem.shop_head_img],
-//                            @"shop_inner_img":[self base64Str:_currCardItem.shop_inner_img],
-//                            @"shop_cash_img":[self base64Str:_currCardItem.shop_cash_img],
                             @"province":_currCardItem.province,
                             @"city":_currCardItem.city,
                             @"district":_currCardItem.district,
                             @"account_mobile":_currCardItem.account_mobile,
                             @"bank_code":_currCardItem.bank_code,
+                            @"bank_name":_currCardItem.bank_name,
                             @"address_detail":_currCardItem.address_detail,
                             @"account_type":_currCardItem.account_type}.mutableCopy;
-    if (_currCardItem.account_type.integerValue == 2) {
+    //上传图片
+    if (!IMAGEISEMPTY(_currCardItem.idcard_img_one_img)) {
+        [dict setObject:[self base64Str:_currCardItem.idcard_img_one_img] forKey:@"idcard_img_one"];
+    }
+    if (!IMAGEISEMPTY(_currCardItem.idcard_img_two_img)) {
+        [dict setObject:[self base64Str:_currCardItem.idcard_img_two_img] forKey:@"idcard_img_two"];
+    }
+    if (!IMAGEISEMPTY(_currCardItem.idcard_img_three_img)) {
+        [dict setObject:[self base64Str:_currCardItem.idcard_img_three_img] forKey:@"idcard_img_three"];
+    }
+    if (!IMAGEISEMPTY(_currCardItem.shop_head_img_img)) {
+        [dict setObject:[self base64Str:_currCardItem.shop_head_img_img] forKey:@"shop_head_img"];
+    }
+    if (!IMAGEISEMPTY(_currCardItem.shop_inner_img_img)) {
+        [dict setObject:[self base64Str:_currCardItem.shop_inner_img_img] forKey:@"shop_inner_img"];
+    }
+    if (!IMAGEISEMPTY(_currCardItem.shop_cash_img_img)) {
+        [dict setObject:[self base64Str:_currCardItem.shop_cash_img_img] forKey:@"shop_cash_img"];
+    }
+    
+    //行号
+    if (_currCardItem.account_type.integerValue == 2){
         [dict setObject:_currCardItem.open_branch forKey:@"open_branch"];
     }
     [JJWNetworkingTool PostWithUrl:UpdateBankInfo params:dict.copy isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
