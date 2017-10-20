@@ -282,8 +282,8 @@ static const CGFloat pickHeight = 120.f;
     NSMutableArray * bandsArray = @[].mutableCopy;
     NSMutableArray * codeArray = @[].mutableCopy;
     for (BankItem * item in array) {
-        [codeArray addObject:item.code];
-        [bandsArray addObject:item.name];
+        [codeArray addObject:item.bank_code];
+        [bandsArray addObject:item.bank_name];
     }
     return @[bandsArray,codeArray];;
 }

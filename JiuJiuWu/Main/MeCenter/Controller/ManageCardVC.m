@@ -24,6 +24,7 @@ static CGFloat thirdHeight = 750.f;
 @interface ManageCardVC ()<UITextFieldDelegate,HZAreaPickerDelegate>{
     SelectBandVC * selectBandVC;
     NSDictionary *addressData; //地址信息 为了用id获取name 显示用
+    NSArray * banksListArray; //储存支持银行卡列表
 }
 @property (nonatomic, strong) DloginData * currCardItem;
 
@@ -418,18 +419,39 @@ static CGFloat thirdHeight = 750.f;
     };
 }
 #pragma mark 银行卡选择
+-(void)afterProFun {
+    [self hudShow:self.view msg:STTR_ater_on];
+    WeakSelf
+    [JJWNetworkingTool GetWithUrl:BankList params:@{} isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+        [weakSelf hudclose];
+        banksListArray = [NSArray yy_modelArrayWithClass:[BankItem class] json:responseObject];
+        //构建第一个
+        BankItem * firstItem = [[BankItem alloc]init];
+        firstItem.is_close = @"0";firstItem.bank_name = @"选择开户银行";
+        firstItem.bank_code = @"0000000000";firstItem.use_type = @"1";
+        NSMutableArray * tempArray =@[firstItem].mutableCopy;
+        for (BankItem * item in banksListArray) {
+            if (item.is_close.integerValue == 0) {
+                [tempArray addObject:item];
+            }
+        }
+        //去除关闭的通道
+        banksListArray = tempArray.copy;
+        
+    } failed:^(NSError *error, id chaceResponseObject) {
+        [weakSelf hudclose];
+        [JJWBase alertMessage:error.domain cb:nil];
+    }];
+}
 //银行列表
 - (NSArray *)_openResource{
-    baseUrl
-    NSString * jsonStr = @"[{\"code\":\"00000000\",\"name\":\"选择开户行\"}, {\"code\":\"01000000\",\"name\":\"邮储银行\"},   {\"code\":\"01020000\",\"name\":\"工商银行\"},   {\"code\":\"01040000\",\"name\":\"中国银行\"},   {\"code\":\"01050000\",\"name\":\"建设银行\"},   {\"code\":\"03010000\",\"name\":\"交通银行\"},   {\"code\":\"03020000\",\"name\":\"中信银行\"},   {\"code\":\"03030000\",\"name\":\"光大银行\"},   {\"code\":\"03040000\",\"name\":\"华夏银行\"},   {\"code\":\"03050000\",\"name\":\"民生银行\"},   {\"code\":\"03060000\",\"name\":\"广发银行\"},   {\"code\":\"03070000\",\"name\":\"平安银行\"},   {\"code\":\"03080000\",\"name\":\"招商银行\"},   {\"code\":\"03090000\",\"name\":\"兴业银行\"},   {\"code\":\"04031000\",\"name\":\"北京银行\"}]";
-    NSArray * array = [NSArray yy_modelArrayWithClass:[BankItem class] json:jsonStr];
     NSMutableArray * bandsArray = @[].mutableCopy;
     NSMutableArray * codeArray = @[].mutableCopy;
-    for (BankItem * item in array) {
-        [codeArray addObject:item.code];
-        [bandsArray addObject:item.name];
+    for (BankItem * item in banksListArray) {
+        [codeArray addObject:item.bank_code];
+        [bandsArray addObject:item.bank_name];
     }
-    return @[bandsArray,codeArray];;
+    return @[bandsArray,codeArray];
 }
 
 #pragma mark - tableView delegate

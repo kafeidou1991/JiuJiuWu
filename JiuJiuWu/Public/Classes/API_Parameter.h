@@ -54,6 +54,8 @@ static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #define GetLevelList [baseUrl appendBaseUrl:@"user/getLevelList"]
 //获取信用卡列表
 #define CreditCardList [baseUrl appendBaseUrl:@"merchant/creditList"]
+//获取支持银行卡
+#define BankList [baseUrl appendBaseUrl:@"app/bankList"]
 
 
 #endif /* API_Parameter_h */

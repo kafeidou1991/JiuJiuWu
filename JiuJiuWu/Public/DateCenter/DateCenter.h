@@ -94,8 +94,10 @@
 @end
 
 @interface BankItem : DateCenter
-@property (nonatomic, copy) NSString * code;
-@property (nonatomic, copy) NSString * name;
+@property (nonatomic, copy) NSString * bank_code;
+@property (nonatomic, copy) NSString * bank_name;
+@property (nonatomic, copy) NSString * is_close;
+@property (nonatomic, copy) NSString * use_type;
 @end
 
 @interface CreditCardsList : DateCenter
