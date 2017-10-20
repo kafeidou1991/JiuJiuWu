@@ -18,7 +18,7 @@
 #import "PubilcBankCardCell.h"
 #import "CompanyInfoVC.h"
 
-static CGFloat thirdHeight = 600.f;
+static CGFloat thirdHeight = 750.f;
 #define IMAGEISEMPTY(img) (img==nil || img.size.width == 0)
 
 @interface ManageCardVC ()<UITextFieldDelegate,HZAreaPickerDelegate>{
@@ -103,12 +103,16 @@ static CGFloat thirdHeight = 600.f;
         [JJWBase alertMessage:@"请输入商户详细地址!" cb:nil];
         return;
     }
-    if ((STRISEMPTY(_currCardItem.idcard_img_one) && IMAGEISEMPTY(_currCardItem.idcard_img_one_img)) ||
-        (STRISEMPTY(_currCardItem.idcard_img_two) && IMAGEISEMPTY(_currCardItem.idcard_img_one_img)) ||
-        (STRISEMPTY(_currCardItem.idcard_img_three) && IMAGEISEMPTY(_currCardItem.idcard_img_one_img)) ||
-        (STRISEMPTY(_currCardItem.shop_head_img) && IMAGEISEMPTY(_currCardItem.shop_head_img_img)) ||
-        (STRISEMPTY(_currCardItem.shop_inner_img) && IMAGEISEMPTY(_currCardItem.shop_inner_img_img)) ||
-        (STRISEMPTY(_currCardItem.shop_cash_img) && IMAGEISEMPTY(_currCardItem.shop_cash_img_img))
+//    (STRISEMPTY(_currCardItem.idcard_img_one) && IMAGEISEMPTY(_currCardItem.idcard_img_one_img))
+    //图片必须全部上传 否则会把之前的给顶掉
+    if (IMAGEISEMPTY(_currCardItem.idcard_img_one_img)  ||
+        IMAGEISEMPTY(_currCardItem.idcard_img_one_img)  ||
+        IMAGEISEMPTY(_currCardItem.idcard_img_one_img)  ||
+        IMAGEISEMPTY(_currCardItem.shop_head_img_img)   ||
+        IMAGEISEMPTY(_currCardItem.shop_inner_img_img)  ||
+        IMAGEISEMPTY(_currCardItem.shop_cash_img_img)   ||
+        IMAGEISEMPTY(_currCardItem.contract_img_one_img)||
+        IMAGEISEMPTY(_currCardItem.contract_img_two_img)
         ) {
         [JJWBase alertMessage:@"请完善图片认证信息!" cb:nil];
         return;
@@ -146,6 +150,12 @@ static CGFloat thirdHeight = 600.f;
     }
     if (!IMAGEISEMPTY(_currCardItem.shop_cash_img_img)) {
         [dict setObject:[self base64Str:_currCardItem.shop_cash_img_img] forKey:@"shop_cash_img"];
+    }
+    if (!IMAGEISEMPTY(_currCardItem.contract_img_one_img)) {
+        [dict setObject:[self base64Str:_currCardItem.contract_img_one_img] forKey:@"contract_img_one"];
+    }
+    if (!IMAGEISEMPTY(_currCardItem.contract_img_two_img)) {
+        [dict setObject:[self base64Str:_currCardItem.contract_img_two_img] forKey:@"contract_img_two"];
     }
     
     //行号
@@ -246,6 +256,7 @@ static CGFloat thirdHeight = 600.f;
         return cell;
     }else {
         ManageCardCell * cell = [tableView dequeueReusableCellWithIdentifier:thirdCellId];
+
         if (!cell) {
             cell = [[NSBundle mainBundle]loadNibNamed:@"ManageCardCell" owner:self options:nil].firstObject;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -255,7 +266,26 @@ static CGFloat thirdHeight = 600.f;
             [weakSelf.view endEditing:YES];
             [weakSelf openPhotoCameraAction:sender];
         };
-        [cell updateCell:_currCardItem];
+        __block typeof(_currCardItem)weakItem = _currCardItem;
+        [cell updateCell:_currCardItem ImageBlock:^(UIButton * btn,UIImage * image) {
+            if (btn.tag == 0) {
+                weakItem.idcard_img_one_img = image;
+            }else if (btn.tag == 1){
+                weakItem.idcard_img_two_img = image;
+            }else if (btn.tag == 2){
+                weakItem.idcard_img_three_img = image;
+            }else if (btn.tag == 3){
+                weakItem.shop_head_img_img = image;
+            }else if (btn.tag == 4){
+                weakItem.shop_inner_img_img = image;
+            }else if (btn.tag == 5){
+                weakItem.shop_cash_img_img = image;
+            }else if (btn.tag == 6){
+                weakItem.contract_img_one_img = image;
+            }else if (btn.tag == 7){
+                weakItem.contract_img_two_img = image;
+            }
+        }];
         return cell;
     }
 }
@@ -380,12 +410,17 @@ static CGFloat thirdHeight = 600.f;
             _currCardItem.shop_inner_img_img = image;
         }else if (sender.tag == 5){
             _currCardItem.shop_cash_img_img = image;
+        }else if (sender.tag == 6){
+            _currCardItem.contract_img_one_img = image;
+        }else if (sender.tag == 7){
+            _currCardItem.contract_img_two_img = image;
         }
     };
 }
 #pragma mark 银行卡选择
 //银行列表
 - (NSArray *)_openResource{
+    baseUrl
     NSString * jsonStr = @"[{\"code\":\"00000000\",\"name\":\"选择开户行\"}, {\"code\":\"01000000\",\"name\":\"邮储银行\"},   {\"code\":\"01020000\",\"name\":\"工商银行\"},   {\"code\":\"01040000\",\"name\":\"中国银行\"},   {\"code\":\"01050000\",\"name\":\"建设银行\"},   {\"code\":\"03010000\",\"name\":\"交通银行\"},   {\"code\":\"03020000\",\"name\":\"中信银行\"},   {\"code\":\"03030000\",\"name\":\"光大银行\"},   {\"code\":\"03040000\",\"name\":\"华夏银行\"},   {\"code\":\"03050000\",\"name\":\"民生银行\"},   {\"code\":\"03060000\",\"name\":\"广发银行\"},   {\"code\":\"03070000\",\"name\":\"平安银行\"},   {\"code\":\"03080000\",\"name\":\"招商银行\"},   {\"code\":\"03090000\",\"name\":\"兴业银行\"},   {\"code\":\"04031000\",\"name\":\"北京银行\"}]";
     NSArray * array = [NSArray yy_modelArrayWithClass:[BankItem class] json:jsonStr];
     NSMutableArray * bandsArray = @[].mutableCopy;

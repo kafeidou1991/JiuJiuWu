@@ -18,10 +18,12 @@ typedef void(^CameraActionBlock)(UIButton * sender);
 @property (weak, nonatomic) IBOutlet UIButton *fourBtn;
 @property (weak, nonatomic) IBOutlet UIButton *fiveBtn;
 @property (weak, nonatomic) IBOutlet UIButton *sixBtn;
+@property (weak, nonatomic) IBOutlet UIButton *sevenBtn;
+@property (weak, nonatomic) IBOutlet UIButton *eightBtn;
 
 @property (nonatomic, copy) CameraActionBlock block;
 - (IBAction)cameraAction:(UIButton *)sender;
 
-- (void)updateCell:(DloginData *)item;
+- (void)updateCell:(DloginData *)item ImageBlock:(void (^)(UIButton *,UIImage *))block;
 
 @end

@@ -40,6 +40,8 @@
 @property (nonatomic, copy) NSString * shop_head_img;//店铺门面照片
 @property (nonatomic, copy) NSString * shop_inner_img;//经营场所照片照片
 @property (nonatomic, copy) NSString * shop_cash_img;//收银台照片
+@property (nonatomic, copy) NSString * contract_img_one;//出租合同1
+@property (nonatomic, copy) NSString * contract_img_two;//出租合同2
 @property (nonatomic, copy) NSString * province;// 省市县 编号
 @property (nonatomic, copy) NSString * provinceName; //本地显示用
 @property (nonatomic, copy) NSString * city;
@@ -72,6 +74,8 @@
 @property (nonatomic, strong) UIImage * shop_head_img_img;//店铺门面照片
 @property (nonatomic, strong) UIImage * shop_inner_img_img;//经营场所照片照片
 @property (nonatomic, strong) UIImage * shop_cash_img_img;//收银台照片
+@property (nonatomic, strong) UIImage * contract_img_one_img;//出租合同1
+@property (nonatomic, strong) UIImage * contract_img_two_img;//出租合同2
 //暂定
 @property (nonatomic, copy) NSString * sex;//性别
 @property (nonatomic, copy) NSString * password;// 密码
