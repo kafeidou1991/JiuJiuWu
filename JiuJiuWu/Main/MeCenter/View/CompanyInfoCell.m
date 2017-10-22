@@ -8,6 +8,13 @@
 
 #import "CompanyInfoCell.h"
 #import "BankCardItem.h"
+#import "UIButton+WebCache.h"
+
+#if environment
+static NSString * const baseImageUrl = @"http://www.jiujiuwu.cn/";
+#else
+static NSString * const baseImageUrl = @"http://test.jiujiuwu.cn/";
+#endif
 
 @interface CompanyInfoCell ()
 @property (weak, nonatomic) IBOutlet UIButton *cardPhotoBtn;
@@ -35,16 +42,16 @@
         _block(sender);
     }
 }
--(void)updateCell:(BankCardItem *)item {
-    if (item.license_img.size.width != 0) {
-        [self.cardPhotoBtn setImage:item.license_img forState:UIControlStateNormal];
-        [self.cardPhotoBtn setImage:item.license_img forState:UIControlStateHighlighted];
-        [self.cardPhotoBtn setImage:item.license_img forState:UIControlStateSelected];
-    }
-    if (item.shop_head_img.size.width != 0) {
-        [self.shopInfoBtn setImage:item.shop_head_img forState:UIControlStateNormal];
-        [self.shopInfoBtn setImage:item.shop_head_img forState:UIControlStateHighlighted];
-        [self.shopInfoBtn setImage:item.shop_head_img forState:UIControlStateSelected];
+- (void)updateCell:(DloginData *)item ImageBlock:(void (^)(UIButton *,UIImage *))block {
+    if (!STRISEMPTY(item.license_img)) {
+        NSString * str = [baseImageUrl stringByAppendingString:item.license_img];
+        [self.cardPhotoBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateNormal completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            if (block) {
+                block(self.cardPhotoBtn,image);
+            }
+        }];
+        [self.cardPhotoBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateHighlighted];
+        [self.cardPhotoBtn sd_setImageWithURL:[NSURL URLWithString:str] forState:UIControlStateSelected];
     }
 }
 

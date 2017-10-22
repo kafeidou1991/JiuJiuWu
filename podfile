@@ -12,4 +12,5 @@ target 'JiuJiuWu' do
  pod 'HcdGuideView'
  pod 'ReactiveObjC'
  pod 'XXNibBridge'
+ pod 'Bugly'
 end

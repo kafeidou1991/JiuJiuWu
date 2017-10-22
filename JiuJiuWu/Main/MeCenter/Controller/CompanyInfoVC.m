@@ -14,7 +14,7 @@
 
 @interface CompanyInfoVC ()<UITextFieldDelegate>
 
-@property (nonatomic, strong) BankCardItem * currCardItem;
+@property (nonatomic, strong) DloginData * currCardItem;
 
 @end
 
@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"绑定企业商户信息";
-    [self.currCardItem setEmptyItem];
+    self.currCardItem = [JJWLogin sharedMethod].loginData;
     self.dataSources = @[@[@{@"title":@"商户名称",@"placeholder":@"请输入商户名称"},
                          @{@"title":@"工商注册名称",@"placeholder":@"请输入营业执照注册名称"},
                          @{@"title":@"法人姓名",@"placeholder":@"请输入法人姓名"},
@@ -63,7 +63,8 @@
         [JJWBase alertMessage:@"请输入税务登记号!" cb:nil];
         return;
     }
-    if (_currCardItem.license_img.size.width == 0) {
+    //图片必须全部上传 否则会把之前的给顶掉
+    if (IMAGEISEMPTY(_currCardItem.license_img_img)) {
         [JJWBase alertMessage:@"请完善图片认证信息!" cb:nil];
         return;
     }
@@ -77,10 +78,15 @@
                                    @"biz_org":_currCardItem.biz_org,
                                    @"biz_tax":_currCardItem.biz_tax,
                                    @"legal_person":_currCardItem.legal_person,
-                                   @"license_img":[self base64Str:_currCardItem.license_img]}.mutableCopy;
+                                   @"license_img":[self base64Str:_currCardItem.license_img_img]
+                                   }.mutableCopy;
     [JJWNetworkingTool PostWithUrl:UpdateMerchantInfo params:dict.copy isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [weakSelf hudclose];
         [JJWBase alertMessage:@"绑定成功!" cb:nil];
+        //更新本地数据
+        [self saveUpdateDate:responseObject];
+        [[JJWLogin sharedMethod]saveLoginData:self.currCardItem];
+        
         if (_type == BindChangeCardType) {
             [weakSelf.navigationController popViewControllerAnimated:YES];
         }else {
@@ -91,6 +97,15 @@
         [weakSelf hudclose];
         [JJWBase alertMessage:error.domain cb:nil];
     }];
+}
+- (void)saveUpdateDate:(id)result {
+    self.currCardItem.biz_tax = [result objectForKey:@"biz_tax"];
+    self.currCardItem.license_img = [result objectForKey:@"license_img"];
+    self.currCardItem.gszc_name = [result objectForKey:@"gszc_name"];
+    self.currCardItem.biz_license = [result objectForKey:@"biz_license"];
+    self.currCardItem.merchant_name = [result objectForKey:@"merchant_name"];
+    self.currCardItem.biz_org = [result objectForKey:@"biz_org"];
+    self.currCardItem.legal_person = [result objectForKey:@"legal_person"];
 }
 - (NSString *) base64Str:(UIImage *)image {
     NSData * data = UIImageJPEGRepresentation(image, 0.0);
@@ -121,7 +136,10 @@
         cell.block = ^(UIButton *sender) {
             [weakSelf openPhotoCameraAction:sender];
         };
-        [cell updateCell:_currCardItem];
+        __block typeof(_currCardItem)weakItem = _currCardItem;
+        [cell updateCell:_currCardItem ImageBlock:^(UIButton *btn, UIImage * image) {
+            weakItem.license_img_img = image;
+        }];
         return cell;
     }
 }
@@ -216,7 +234,7 @@
         [sender setImage:image forState:UIControlStateNormal];
         [sender setImage:image forState:UIControlStateHighlighted];
         [sender setImage:image forState:UIControlStateSelected];
-        _currCardItem.license_img = image;
+        _currCardItem.license_img_img = image;
     };
 }
 #pragma mark - textField delegate
@@ -242,18 +260,5 @@
     }
     return YES;
 }
-
-
--(BankCardItem *)currCardItem {
-    if (!_currCardItem) {
-        _currCardItem = [[BankCardItem alloc]init];
-    }
-    return _currCardItem;
-}
-
-
-
-
-
 
 @end

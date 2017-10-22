@@ -113,8 +113,21 @@ static CGFloat const rowHeight = 50.f;
                 }
             });
         }else if (indexPath.row == 3){
-            CompanyInfoVC * VC = [[CompanyInfoVC alloc]init];
-            [self.navigationController pushViewController:VC animated:YES];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                dispatch_block_t t = ^(){
+                    CompanyInfoVC * VC = [[CompanyInfoVC alloc]init];
+                    [self.navigationController pushViewController:VC animated:YES];
+                };
+                if (![JJWLogin sharedMethod].isLogin) {
+                    [LoginVC OpenLogin:self callback:^(BOOL compliont) {
+                        if (compliont) {
+                            t();
+                        }
+                    }];
+                }else {
+                    t();
+                }
+            });
         }
     }else {
         if (indexPath.row == 4) {

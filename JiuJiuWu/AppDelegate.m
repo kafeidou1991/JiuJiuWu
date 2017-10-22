@@ -10,6 +10,7 @@
 #import "BXTabBarController.h"
 #import "BXNavigationController.h"
 #import "HcdGuideView.h"
+#import <Bugly/Bugly.h>
 
 @interface AppDelegate ()
 @property (nonatomic, strong) BXTabBarController * tabBarController;
@@ -24,8 +25,8 @@
     [self.window makeKeyAndVisible];
     // 设置窗口的根控制器
     self.window.rootViewController = self.tabBarController;
-    
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    //初始化bugly
     // 去除键盘上的工具栏
     IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
     keyboardManager.enableAutoToolbar= NO;
@@ -39,6 +40,9 @@
         _tabBarController = [[BXTabBarController alloc]init];
     }
     return _tabBarController;
+}
+- (void)setupBugly {
+    [Bugly startWithAppId:@"fa0e94eabc"];
 }
 //引导页
 - (void) _guidePage{

@@ -13,6 +13,7 @@
 #define CellLine_Color UIColorFromRGB(0xe3e9ee)
 #define CommonBackgroudColor UIColorFromRGB(0xF2F3F4)
 #define STRISEMPTY(str) (str==nil || [str isEqual:[NSNull null]] || [str isEqualToString:@""])
+#define IMAGEISEMPTY(img) (img==nil || img.size.width == 0)
 #define APP_Address @"https://itunes.apple.com/us/app/%E9%93%B6%E6%99%BA%E4%BB%98/id1221203134?mt=8"
 
 //处理颜色

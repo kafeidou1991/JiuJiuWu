@@ -24,6 +24,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## Bugly
+
+Copyright 2017 tencent.com. All rights reserved.
+
+
 ## HcdGuideView
 
 copyright (c) 2016 HcdGuideView (https://github.com/Jvaeyhcd/HcdGuideView)

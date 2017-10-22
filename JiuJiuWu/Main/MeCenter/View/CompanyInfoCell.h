@@ -12,6 +12,6 @@ typedef void(^CameraActionBlock)(UIButton * sender);
 @interface CompanyInfoCell : UITableViewCell
 @property (nonatomic, copy) CameraActionBlock block;
 
-- (void)updateCell:(BankCardItem *)item;
+- (void)updateCell:(DloginData *)item ImageBlock:(void (^)(UIButton *,UIImage *))block;
 
 @end

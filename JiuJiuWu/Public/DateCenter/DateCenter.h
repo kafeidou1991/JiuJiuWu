@@ -76,6 +76,8 @@
 @property (nonatomic, strong) UIImage * shop_cash_img_img;//收银台照片
 @property (nonatomic, strong) UIImage * contract_img_one_img;//出租合同1
 @property (nonatomic, strong) UIImage * contract_img_two_img;//出租合同2
+
+@property (nonatomic, strong) UIImage * license_img_img;//营业执照照片
 //暂定
 @property (nonatomic, copy) NSString * sex;//性别
 @property (nonatomic, copy) NSString * password;// 密码

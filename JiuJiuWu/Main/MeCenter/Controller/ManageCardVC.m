@@ -19,7 +19,6 @@
 #import "CompanyInfoVC.h"
 
 static CGFloat thirdHeight = 750.f;
-#define IMAGEISEMPTY(img) (img==nil || img.size.width == 0)
 
 @interface ManageCardVC ()<UITextFieldDelegate,HZAreaPickerDelegate>{
     SelectBandVC * selectBandVC;
@@ -104,7 +103,6 @@ static CGFloat thirdHeight = 750.f;
         [JJWBase alertMessage:@"请输入商户详细地址!" cb:nil];
         return;
     }
-//    (STRISEMPTY(_currCardItem.idcard_img_one) && IMAGEISEMPTY(_currCardItem.idcard_img_one_img))
     //图片必须全部上传 否则会把之前的给顶掉
     if (IMAGEISEMPTY(_currCardItem.idcard_img_one_img)  ||
         IMAGEISEMPTY(_currCardItem.idcard_img_one_img)  ||
@@ -166,14 +164,9 @@ static CGFloat thirdHeight = 750.f;
     [JJWNetworkingTool PostWithUrl:UpdateBankInfo params:dict.copy isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [weakSelf hudclose];
         [JJWBase alertMessage:@"绑定成功!" cb:nil];
-        DloginData * login = [JJWLogin sharedMethod].loginData;
-        if (_currCardItem.account.integerValue == 2) {
-            //进入审核状态
-            login.merchant_checked = @"1";
-        }else {
-            login.realname_checked = @"1";
-        }
-        [[JJWLogin sharedMethod]saveLoginData:login];
+        //更新本地数据
+        [self saveUpdateDate:responseObject];
+        [[JJWLogin sharedMethod]saveLoginData:self.currCardItem];
         
         if (_type == BindChangeCardType) {
             [weakSelf.navigationController popViewControllerAnimated:YES];
@@ -195,6 +188,27 @@ static CGFloat thirdHeight = 750.f;
         [weakSelf hudclose];
         [JJWBase alertMessage:error.domain cb:nil];
     }];
+}
+- (void)saveUpdateDate:(id)result {
+    self.currCardItem.account = [result objectForKey:@"account"];
+    self.currCardItem.account_name = [result objectForKey:@"account_name"];
+    self.currCardItem.account_mobile = [result objectForKey:@"account_mobile"];
+    self.currCardItem.account_type = [result objectForKey:@"account_type"];
+    self.currCardItem.province = [result objectForKey:@"province"];
+    self.currCardItem.district = [result objectForKey:@"district"];
+    self.currCardItem.city = [result objectForKey:@"city"];
+    self.currCardItem.idcard_number = [result objectForKey:@"idcard_number"];
+    self.currCardItem.idcard_img_one = [result objectForKey:@"idcard_img_one"];
+    self.currCardItem.idcard_img_two = [result objectForKey:@"idcard_img_two"];
+    self.currCardItem.idcard_img_three = [result objectForKey:@"idcard_img_three"];
+    self.currCardItem.shop_head_img = [result objectForKey:@"shop_head_img"];
+    self.currCardItem.shop_inner_img = [result objectForKey:@"shop_inner_img"];
+    self.currCardItem.shop_cash_img = [result objectForKey:@"shop_cash_img"];
+    self.currCardItem.contract_img_one = [result objectForKey:@"contract_img_one"];
+    self.currCardItem.contract_img_two = [result objectForKey:@"contract_img_two"];
+    self.currCardItem.open_branch = [result objectForKey:@"open_branch"];
+    self.currCardItem.bank_code = [result objectForKey:@"bank_code"];
+    self.currCardItem.realname_checked = [result objectForKey:@"realname_checked"];
 }
 - (NSString *) base64Str:(UIImage *)image {
     NSData * data = UIImageJPEGRepresentation(image, 0.0);
