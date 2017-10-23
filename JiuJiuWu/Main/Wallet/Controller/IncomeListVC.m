@@ -21,7 +21,7 @@
 }
 -(void)afterProFun {
     [self hudShow:self.view msg:STTR_ater_on];
-    NSDictionary * dict = @{@"user_id":[JJWLogin sharedMethod].loginData.user_id,@"createtime":@"2017-01-01"};
+    NSDictionary * dict = @{@"user_id":[JJWLogin sharedMethod].loginData.user_id,@"token":[JJWLogin sharedMethod].loginData.token};
     WeakSelf
     [JJWNetworkingTool PostWithUrl:CashOrderList params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [weakSelf hudclose];
