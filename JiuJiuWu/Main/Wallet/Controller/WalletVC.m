@@ -14,6 +14,7 @@
 #import "QRPayCodeVC.h"
 #import "QuickPayVC.h"
 #import "CreditCardInfoVC.h"
+#import "IncomeListVC.h"
 
 static CGFloat const headerHeight = 220; //顶部视图高度
 
@@ -53,7 +54,9 @@ static CGFloat const headerHeight = 220; //顶部视图高度
         }else if (type == SelectType_MyProfit){
             
         }else if (type == SelectType_PayList){
-            
+            //收款记录
+            IncomeListVC * VC = [[IncomeListVC alloc]init];
+            [self.navigationController pushViewController:VC animated:YES];
         }else if (type == SelectType_MyShop){
             
         }else if (type == SelectType_MyRate){
