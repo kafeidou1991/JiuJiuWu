@@ -9,5 +9,5 @@
 #import "JJWBaseTableVC.h"
 
 @interface PaySuccessVC : JJWBaseTableVC
-
+@property (nonatomic, strong) PaySuccessItem * item; //扫码付款成功返回
 @end

@@ -195,10 +195,13 @@
     [dict setObject:obj.stringValue forKey:@"auth_code"];
     //以分 计算 传入 都得是整形
     [dict setObject:STRISEMPTY(_amount) ? @(0):@([NSString stringWithFormat:@"%.2f",_amount.floatValue * 100].integerValue) forKey:@"amount"];
+    //通道 目前写死
+    [dict setObject:@"1" forKey:@"channel_id"];
     [JJWNetworkingTool PostOriginalWithUrl:UnScanCodePay params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
-        [JJWBase alertMessage:@"付款成功!" cb:nil];
-//        PaySuccessItem * item = [PaySuccessItem yy_modelWithDictionary:responseObject];
+        [JJWBase alertMessage:@"收款成功!" cb:nil];
+        PaySuccessItem * item = [PaySuccessItem yy_modelWithDictionary:responseObject];
         PaySuccessVC * VC = [[PaySuccessVC alloc]init];
+        VC.item = item;
         [weakSelf.navigationController pushViewController:VC animated:YES];
     } failed:^(NSError *error, id chaceResponseObject) {
         [JJWBase alertMessage:error.domain cb:^(BOOL compliont) {

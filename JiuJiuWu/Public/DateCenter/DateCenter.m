@@ -32,6 +32,9 @@
     return @{@"credit_list" : [QuickPayInfoItem class]};
 }
 @end
+@implementation PaySuccessItem
+
+@end
 @implementation QuickPayInfoItem
 - (instancetype)init{
     if (self = [super init]) {

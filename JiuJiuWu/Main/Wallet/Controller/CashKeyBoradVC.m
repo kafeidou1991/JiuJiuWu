@@ -9,12 +9,11 @@
 #import "CashKeyBoradVC.h"
 #import "KeyBoradView.h"
 #import "QRCodeVC.h"
+#import "IncomeListVC.h"
 
 @interface CashKeyBoradVC ()
 @property (weak, nonatomic) IBOutlet UIButton *cashBtn;
 @property (weak, nonatomic) IBOutlet KeyBoradView *keyBoradView;
-
-@property (nonatomic,copy) NSString * amountStr;
 
 @end
 
@@ -23,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = CommonBackgroudColor;
+    self.navigationItem.rightBarButtonItem = [JJWBase createCustomBarButtonItem:self action:@selector(listAction) title:@"收款记录"];
     self.cashBtn.layer.borderColor = [UIColor whiteColor].CGColor;
     self.cashBtn.layer.borderWidth = 1.f;
     switch (_payType) {
@@ -38,18 +38,19 @@
         default:
             break;
     }
-    __block typeof(_amountStr)weakAmount = _amountStr;
-    self.keyBoradView.valueBlock = ^(NSString * s) {
-        weakAmount = s;
-    };
     WeakSelf
     self.keyBoradView.valueBlock = ^(NSString * str) {
         QRCodeVC * VC = [[QRCodeVC alloc]init];
-        VC.amount = _amountStr;
+        VC.amount = str;
         [weakSelf.navigationController pushViewController:VC animated:YES];
     };
 }
 
+-(void)listAction {
+    //收款记录
+    IncomeListVC * VC = [[IncomeListVC alloc]init];
+    [self.navigationController pushViewController:VC animated:YES];
+}
 
 
 

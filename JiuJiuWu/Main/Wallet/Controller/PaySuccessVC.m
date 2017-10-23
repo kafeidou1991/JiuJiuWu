@@ -8,6 +8,7 @@
 
 #import "PaySuccessVC.h"
 #import "CustomTableViewCell.h"
+#import "NSDate+Category.h"
 
 @interface PaySuccessVC ()
 
@@ -19,7 +20,7 @@
     [super viewDidLoad];
     self.title = @"订单详情";
     self.navigationItem.leftBarButtonItem = BLACKBAR_BUTTON;
-    self.dataSources = @[@[@"商户名称",@"商户编号"],@[@"发卡机构",@"交易类型",@"订单编号"],@[@"商户电话",@"日期时间",@"交易金额"]].mutableCopy;
+    self.dataSources = @[@[@"商户名称:",@"商户编号:"],@[@"交易类型:",@"订单编号:"],@[@"商户电话:",@"日期时间:",@"交易金额:"]].mutableCopy;
     [self createTableView];
 }
 -(void)backAction:(id)sender {
@@ -40,28 +41,53 @@
     return cell;
 }
 - (void)inputContent:(CustomTableViewCell *)cell Row:(NSIndexPath *)indexPath {
-//    switch (indexPath.row) {
-//        case 0:
-//            cell.inputTextField.text = _currCardItem.merchant_name;
-//            break;
-//        case 1:
-//            cell.inputTextField.text = _currCardItem.gszc_name;
-//            break;
-//        case 2:
-//            cell.inputTextField.text = _currCardItem.legal_person;
-//            break;
-//        case 3:
-//            cell.inputTextField.text = _currCardItem.biz_license;
-//            break;
-//        case 4:
-//            cell.inputTextField.text = _currCardItem.biz_org;
-//            break;
-//        case 5:
-//            cell.inputTextField.text = _currCardItem.biz_tax;
-//            break;
-//        default:
-//            break;
-//    }
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+                cell.inputTextField.text = [JJWLogin sharedMethod].loginData.merchant_name;
+                break;
+            case 1:
+                cell.inputTextField.text = [JJWLogin sharedMethod].loginData.user_id;
+                break;
+            default:
+                break;
+        }
+    }else if (indexPath.section == 1) {
+        switch (indexPath.row) {
+            case 0:
+                cell.inputTextField.text = [self checkPayType:_item.channel_flag];
+                break;
+            case 1:
+                cell.inputTextField.text = _item.orderNo;
+                break;
+            default:
+                break;
+        }
+    }else if (indexPath.section == 2) {
+        NSDate * date = [NSDate dateWithTimeIntervalSince1970:_item.reqTime.doubleValue];
+        switch (indexPath.row) {
+            case 0:
+                cell.inputTextField.text = [JJWLogin sharedMethod].loginData.mobile;
+                break;
+            case 1:
+                cell.inputTextField.text = [NSString stringWithFormat:@"%@",[date toString]];
+                break;
+            case 2:
+                cell.inputTextField.text = [NSString stringWithFormat:@"%.2f元",_item.amount.doubleValue/100];
+                break;
+            default:
+                break;
+        }
+    }
+}
+- (NSString *)checkPayType:(NSString *)type {
+    NSString * s = @"其他";
+    if ([type isEqualToString:@"00"]) {
+        s = @"微信";
+    }else if ([type isEqualToString:@"01"]){
+        s = @"支付宝";
+    }
+    return s;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.dataSources.count;

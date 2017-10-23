@@ -105,6 +105,17 @@
 @interface CreditCardsList : DateCenter
 @property (nonatomic, strong) NSArray * credit_list;
 @end
+//扫码收款成功返回
+@interface PaySuccessItem : DateCenter
+@property (nonatomic, copy) NSString * result;
+@property (nonatomic, copy) NSString * amount;
+@property (nonatomic, copy) NSString * channel_flag;
+@property (nonatomic, copy) NSString * reqTime;
+@property (nonatomic, copy) NSString * desc;
+@property (nonatomic, copy) NSString * orderNo;
+@property (nonatomic, copy) NSString * order_no; //收款记录里面的订单编号  字段不统一
+@end
+
 /**
  快捷支付 所需充填信息
  */
