@@ -23,7 +23,7 @@
 }
 -(void)afterProFun {
     [self hudShow:self.view msg:STTR_ater_on];
-    NSDictionary * dict = @{@"token":[JJWLogin sharedMethod].loginData.token};
+    NSDictionary * dict = @{@"token":[JJWLogin sharedMethod].loginData.token,@"channel_id":@"1"};
     WeakSelf
     [JJWNetworkingTool PostOriginalWithUrl:ScanPayQrCode params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         NSString * qrUrl = [responseObject objectForKey:@"qrcode_url"];

@@ -67,10 +67,8 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhF-NX-cWa">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手持身份证+银行卡" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhF-NX-cWa">
                         <rect key="frame" x="10" y="291" width="145" height="40"/>
-                        <string key="text">手持身份证+银行卡
-（正面）</string>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -131,7 +129,7 @@
                     </label>
                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUM-Hk-b8a">
                         <rect key="frame" x="165" y="331" width="145" height="105.5"/>
-                        <state key="normal" title="manageBank_5" image="manageBank_5"/>
+                        <state key="normal" image="manageBank_5"/>
                         <state key="selected" image="manageBank_2"/>
                         <state key="highlighted" image="manageBank_2"/>
                         <connections>
@@ -156,7 +154,7 @@
                     </label>
                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMp-NK-HjK">
                         <rect key="frame" x="165" y="476.5" width="145" height="105.5"/>
-                        <state key="normal" title="manageBank_5" image="manageBank_5"/>
+                        <state key="normal" image="manageBank_7"/>
                         <state key="selected" image="manageBank_2"/>
                         <state key="highlighted" image="manageBank_2"/>
                         <connections>
@@ -173,7 +171,7 @@
                     </label>
                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Irk-YJ-gH4">
                         <rect key="frame" x="10" y="476.5" width="145" height="105.5"/>
-                        <state key="normal" image="manageBank_4"/>
+                        <state key="normal" image="manageBank_6"/>
                         <state key="selected" image="manageBank_2"/>
                         <state key="highlighted" image="manageBank_2"/>
                         <connections>
@@ -275,5 +273,7 @@
         <image name="manageBank_3" width="115" height="84"/>
         <image name="manageBank_4" width="170" height="100"/>
         <image name="manageBank_5" width="255" height="150"/>
+        <image name="manageBank_6" width="170" height="100"/>
+        <image name="manageBank_7" width="170" height="100"/>
     </resources>
 </document>
