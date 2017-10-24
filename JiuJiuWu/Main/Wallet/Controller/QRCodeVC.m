@@ -202,6 +202,7 @@
         PaySuccessItem * item = [PaySuccessItem yy_modelWithDictionary:responseObject];
         PaySuccessVC * VC = [[PaySuccessVC alloc]init];
         VC.item = item;
+        VC.isComeSuccess = YES;
         [weakSelf.navigationController pushViewController:VC animated:YES];
     } failed:^(NSError *error, id chaceResponseObject) {
         [JJWBase alertMessage:error.domain cb:^(BOOL compliont) {

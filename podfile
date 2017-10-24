@@ -13,4 +13,5 @@ target 'JiuJiuWu' do
  pod 'ReactiveObjC'
  pod 'XXNibBridge'
  pod 'Bugly'
+ pod 'WebViewJavascriptBridge'
 end

@@ -20,7 +20,6 @@ static CGFloat const space =10.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.leftBarButtonItem = nil;
-    self.navigationItem.rightBarButtonItem = [JJWBase createCustomBarButtonItem:self action:@selector(list) title:@"转账记录"];
     self.view.backgroundColor = CommonBackgroudColor;
     self.dataSources = @[@{@"image":@"share_0",@"title":@"分享二维码图片链接"},
                         @{@"image":@"share_1",@"title":@"朋友圈中央文案库"},
@@ -32,9 +31,6 @@ static CGFloat const space =10.f;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.frame = CGRectMake(space, 0, SCreenWidth - 2 * space, SCreenHegiht - NAVIGATION_BAR_HEIGHT - kTabBarHeight);
     self.tableView.backgroundColor = [UIColor clearColor];
-}
-- (void)list {
-    
 }
 #pragma mark - tableiView
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

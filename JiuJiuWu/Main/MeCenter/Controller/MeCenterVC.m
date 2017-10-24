@@ -133,10 +133,10 @@ static CGFloat const rowHeight = 50.f;
         if (indexPath.row == 4) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self jxt_showAlertWithTitle:@"温馨提示" message:@"您确定要退出么？" appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
-                    alertMaker.addActionDefaultTitle(@"确定");
                     alertMaker.addActionDefaultTitle(@"我再想想");
+                    alertMaker.addActionDefaultTitle(@"确定");
                 } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
-                    if (buttonIndex == 0) {
+                    if (buttonIndex == 1) {
                         [self exitAction];
                     }
                 }];

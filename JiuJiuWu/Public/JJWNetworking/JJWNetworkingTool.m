@@ -126,13 +126,16 @@
             [JJWCache saveDataCache:responseObject forKey:url];
         }else{
             //用户需要重新登录
-            if (error.code == -1) {
-                [[NSNotificationCenter defaultCenter] postNotificationName:ReplaceLogin object:nil];
-            }else{
-                if (failed) {
-                    failed(error,nil);
-                }
+            if (failed) {
+                failed(error,nil);
             }
+//            if (error.code == -1) {
+//                [[NSNotificationCenter defaultCenter] postNotificationName:ReplaceLogin object:nil];
+//            }else{
+//                if (failed) {
+//                    failed(error,nil);
+//                }
+//            }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         id cacheData= nil;

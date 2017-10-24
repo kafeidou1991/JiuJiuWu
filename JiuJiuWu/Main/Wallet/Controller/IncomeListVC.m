@@ -8,6 +8,7 @@
 
 #import "IncomeListVC.h"
 #import "IncomeTableViewCell.h"
+#import "PaySuccessVC.h"
 
 @interface IncomeListVC ()
 
@@ -54,5 +55,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60.f;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PaySuccessVC * VC = [[PaySuccessVC alloc]init];
+    PaySuccessItem * item = [self.dataSources objectAtIndex:indexPath.row];
+    VC.item = item;
+    [self.navigationController pushViewController:VC animated:YES];
+}
+
+
 
 @end

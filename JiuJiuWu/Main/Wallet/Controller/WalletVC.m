@@ -15,6 +15,7 @@
 #import "QuickPayVC.h"
 #import "CreditCardInfoVC.h"
 #import "IncomeListVC.h"
+#import "QuickPayWebVC.h"
 
 static CGFloat const headerHeight = 220; //顶部视图高度
 
@@ -110,8 +111,9 @@ static CGFloat const headerHeight = 220; //顶部视图高度
                     VC.payType = index;
                     [weakSelf.navigationController pushViewController:VC animated:YES];
                 }else if (index == 1){
-//                    QuickPayVC * VC = [[QuickPayVC alloc]init];
-                    CreditCardInfoVC * VC = [[CreditCardInfoVC alloc]init];
+                    QuickPayWebVC * VC = [[QuickPayWebVC alloc]init];
+                    VC.urlString = QuickPayUrl;
+                    
                     [weakSelf.navigationController pushViewController:VC animated:YES];
                 }else if (index == 2){
                     QRPayCodeVC * VC = [[QRPayCodeVC alloc]init];

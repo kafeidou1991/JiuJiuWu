@@ -24,7 +24,11 @@
     [self createTableView];
 }
 -(void)backAction:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    if (_isComeSuccess) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - tableview delegate
@@ -47,7 +51,7 @@
                 cell.inputTextField.text = [JJWLogin sharedMethod].loginData.merchant_name;
                 break;
             case 1:
-                cell.inputTextField.text = [JJWLogin sharedMethod].loginData.user_id;
+                cell.inputTextField.text = STRISEMPTY(_item.mer_no) ? [JJWLogin sharedMethod].loginData.user_id : _item.mer_no;
                 break;
             default:
                 break;
@@ -58,7 +62,7 @@
                 cell.inputTextField.text = [self checkPayType:_item.channel_flag];
                 break;
             case 1:
-                cell.inputTextField.text = _item.orderNo;
+                cell.inputTextField.text = STRISEMPTY(_item.orderNo) ? _item.order_no : _item.orderNo;
                 break;
             default:
                 break;

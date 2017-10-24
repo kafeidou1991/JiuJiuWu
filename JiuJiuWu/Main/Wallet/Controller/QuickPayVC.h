@@ -7,7 +7,7 @@
 //
 
 #import "JJWBaseTableVC.h"
-
+//暂时没用
 @interface QuickPayVC : JJWBaseTableVC
 
 @end

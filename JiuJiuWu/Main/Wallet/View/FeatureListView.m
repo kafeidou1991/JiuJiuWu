@@ -70,8 +70,43 @@ static NSString * cellId = @"cellId";
     return cell;
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (_typeBlock) {
-        _typeBlock(indexPath.row);
+    NSString * title = [self.dataSource[indexPath.item] objectForKey:@"title"];
+    if ([title isEqualToString:@"我的账户"]) {
+        if (_typeBlock) {
+            _typeBlock(SelectType_MyAccount);
+        }
+    }else if ([title isEqualToString:@"我的分润"]) {
+        if (_typeBlock) {
+            _typeBlock(SelectType_MyProfit);
+        }
+    }else if ([title isEqualToString:@"交易记录"]) {
+        if (_typeBlock) {
+            _typeBlock(SelectType_PayList);
+        }
+    }else if ([title isEqualToString:@"我的商户"]) {
+        if (_typeBlock) {
+            _typeBlock(SelectType_MyShop);
+        }
+    }else if ([title isEqualToString:@"我的费率"]) {
+        if (_typeBlock) {
+            _typeBlock(SelectType_MyRate);
+        }
+    }else if ([title isEqualToString:@"我要升级"]) {
+        if (_typeBlock) {
+            _typeBlock(SelectType_LeveUp);
+        }
+    }else if ([title isEqualToString:@"贷款"]) {
+        if (_typeBlock) {
+            _typeBlock(SelectType_Loan);
+        }
+    }else if ([title isEqualToString:@"理财"]) {
+        if (_typeBlock) {
+            _typeBlock(SelectType_Money);
+        }
+    }else if ([title isEqualToString:@"更多"]) {
+        if (_typeBlock) {
+            _typeBlock(SelectType_More);
+        }
     }
 }
 

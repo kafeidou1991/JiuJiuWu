@@ -112,6 +112,9 @@
 		B92DA43A1F70EBAA00A5B7BE /* BankCardItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA4391F70EBAA00A5B7BE /* BankCardItem.m */; };
 		B92DA43D1F71009100A5B7BE /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA43C1F71009100A5B7BE /* SettingVC.m */; };
 		B92DA4401F711A7400A5B7BE /* KeyBoradView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA43F1F711A7400A5B7BE /* KeyBoradView.m */; };
+		B946DDFB1F9EDAD7007C9632 /* JJWWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B946DDF91F9EDAD6007C9632 /* JJWWebViewVC.m */; };
+		B946DDFE1F9EE2E2007C9632 /* QuickPayWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B946DDFD1F9EE2E2007C9632 /* QuickPayWebVC.m */; };
+		B946DE011F9F2E16007C9632 /* MyRateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B946DE001F9F2E16007C9632 /* MyRateVC.m */; };
 		B97260BE1F78E1E000429C5E /* LevelUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B97260BD1F78E1E000429C5E /* LevelUpVC.m */; };
 		B97260C11F78EA9000429C5E /* LevelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B97260C01F78EA9000429C5E /* LevelItem.m */; };
 		B97260C51F78EC7100429C5E /* LevelUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B97260C31F78EC7100429C5E /* LevelUpCell.m */; };
@@ -373,6 +376,12 @@
 		B92DA43C1F71009100A5B7BE /* SettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
 		B92DA43E1F711A7400A5B7BE /* KeyBoradView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyBoradView.h; sourceTree = "<group>"; };
 		B92DA43F1F711A7400A5B7BE /* KeyBoradView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyBoradView.m; sourceTree = "<group>"; };
+		B946DDF91F9EDAD6007C9632 /* JJWWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJWWebViewVC.m; sourceTree = "<group>"; };
+		B946DDFA1F9EDAD7007C9632 /* JJWWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJWWebViewVC.h; sourceTree = "<group>"; };
+		B946DDFC1F9EE2E2007C9632 /* QuickPayWebVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickPayWebVC.h; sourceTree = "<group>"; };
+		B946DDFD1F9EE2E2007C9632 /* QuickPayWebVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickPayWebVC.m; sourceTree = "<group>"; };
+		B946DDFF1F9F2E16007C9632 /* MyRateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRateVC.h; sourceTree = "<group>"; };
+		B946DE001F9F2E16007C9632 /* MyRateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRateVC.m; sourceTree = "<group>"; };
 		B97260BC1F78E1E000429C5E /* LevelUpVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelUpVC.h; sourceTree = "<group>"; };
 		B97260BD1F78E1E000429C5E /* LevelUpVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelUpVC.m; sourceTree = "<group>"; };
 		B97260BF1F78EA9000429C5E /* LevelItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelItem.h; sourceTree = "<group>"; };
@@ -640,6 +649,8 @@
 				B71306AB1F681DC400735673 /* JJWBaseVC.m */,
 				B71306AD1F681FB200735673 /* JJWBaseTableVC.h */,
 				B71306AE1F681FB200735673 /* JJWBaseTableVC.m */,
+				B946DDFA1F9EDAD7007C9632 /* JJWWebViewVC.h */,
+				B946DDF91F9EDAD6007C9632 /* JJWWebViewVC.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -987,6 +998,10 @@
 				B9A762C61F72117B00F7D1A3 /* CashKeyBoradVC.xib */,
 				B9896AD51F9DE346004F33EB /* IncomeListVC.h */,
 				B9896AD61F9DE346004F33EB /* IncomeListVC.m */,
+				B946DDFF1F9F2E16007C9632 /* MyRateVC.h */,
+				B946DE001F9F2E16007C9632 /* MyRateVC.m */,
+				B946DDFC1F9EE2E2007C9632 /* QuickPayWebVC.h */,
+				B946DDFD1F9EE2E2007C9632 /* QuickPayWebVC.m */,
 				B91513F91F7E417C0067228C /* QuickPayVC.h */,
 				B91513FA1F7E417C0067228C /* QuickPayVC.m */,
 				B9DBA1521F8CA6F8008DA6E8 /* CreditCardInfoVC.h */,
@@ -1393,6 +1408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B946DE011F9F2E16007C9632 /* MyRateVC.m in Sources */,
 				B9DBA15F1F8CA762008DA6E8 /* TwoCreditInfoTableViewCell.m in Sources */,
 				B71306631F68199400735673 /* UIApplication+Extensions.m in Sources */,
 				B71306611F68199400735673 /* NSDictionary+Extension.m in Sources */,
@@ -1400,6 +1416,7 @@
 				B71305C81F6818EC00735673 /* NSString+category.m in Sources */,
 				B71305D41F6818EC00735673 /* UIView+DashesLion.m in Sources */,
 				B9E83A231F6FA92C003BD7E2 /* ManageCardVC.m in Sources */,
+				B946DDFB1F9EDAD7007C9632 /* JJWWebViewVC.m in Sources */,
 				B71306AC1F681DC400735673 /* JJWBaseVC.m in Sources */,
 				B71305C61F6818EC00735673 /* NSDate+Category.m in Sources */,
 				B9A762D61F729A3400F7D1A3 /* CompanyInfoVC.m in Sources */,
@@ -1459,6 +1476,7 @@
 				B71305CA1F6818EC00735673 /* NSString+TrimmWhiteSpace.m in Sources */,
 				B9DBA1611F8CA762008DA6E8 /* TwoCreditCardView.m in Sources */,
 				B71306741F68199500735673 /* BXTabBar.m in Sources */,
+				B946DDFE1F9EE2E2007C9632 /* QuickPayWebVC.m in Sources */,
 				B71306681F68199500735673 /* UIImage+Extension.m in Sources */,
 				B713067A1F68199500735673 /* HZLocation.m in Sources */,
 				B97260BE1F78E1E000429C5E /* LevelUpVC.m in Sources */,
