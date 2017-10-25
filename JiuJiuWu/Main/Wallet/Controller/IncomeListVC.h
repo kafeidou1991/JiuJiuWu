@@ -7,7 +7,12 @@
 //
 
 #import "JJWBaseTableVC.h"
-
+typedef NS_ENUM(NSInteger, ListType) {
+    ListType_Income = 0, //交易记录
+    ListType_MyCashDis,       //我的分润
+};
 @interface IncomeListVC : JJWBaseTableVC
+
+@property (nonatomic, assign) ListType type;
 
 @end

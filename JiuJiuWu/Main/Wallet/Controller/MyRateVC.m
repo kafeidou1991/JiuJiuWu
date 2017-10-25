@@ -19,7 +19,9 @@
     // Do any additional setup after loading the view.
     self.title = @"我的费率";
 }
+
 -(void)afterProFun {
+    
     
 }
 

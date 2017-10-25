@@ -100,6 +100,7 @@
 		B790F8AB1F6E989D0078BD7F /* ShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B790F8A91F6E989D0078BD7F /* ShareCell.xib */; };
 		B790F8B11F6EA8A50078BD7F /* MeCenterHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B790F8B01F6EA8A50078BD7F /* MeCenterHeadView.m */; };
 		B790F8B31F6EA8B90078BD7F /* MeCenterHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B790F8B21F6EA8B90078BD7F /* MeCenterHeadView.xib */; };
+		B90170881FA07443006A4E0F /* MyRateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B90170871FA07443006A4E0F /* MyRateVC.m */; };
 		B90B70C01F74EF6100CD20DE /* PubilcBankCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B90B70BE1F74EF6100CD20DE /* PubilcBankCardCell.m */; };
 		B90B70C11F74EF6100CD20DE /* PubilcBankCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B90B70BF1F74EF6100CD20DE /* PubilcBankCardCell.xib */; };
 		B91513F41F7DF5B80067228C /* QRPayCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B91513F21F7DF5B80067228C /* QRPayCodeVC.m */; };
@@ -114,7 +115,6 @@
 		B92DA4401F711A7400A5B7BE /* KeyBoradView.m in Sources */ = {isa = PBXBuildFile; fileRef = B92DA43F1F711A7400A5B7BE /* KeyBoradView.m */; };
 		B946DDFB1F9EDAD7007C9632 /* JJWWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B946DDF91F9EDAD6007C9632 /* JJWWebViewVC.m */; };
 		B946DDFE1F9EE2E2007C9632 /* QuickPayWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B946DDFD1F9EE2E2007C9632 /* QuickPayWebVC.m */; };
-		B946DE011F9F2E16007C9632 /* MyRateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B946DE001F9F2E16007C9632 /* MyRateVC.m */; };
 		B97260BE1F78E1E000429C5E /* LevelUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B97260BD1F78E1E000429C5E /* LevelUpVC.m */; };
 		B97260C11F78EA9000429C5E /* LevelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B97260C01F78EA9000429C5E /* LevelItem.m */; };
 		B97260C51F78EC7100429C5E /* LevelUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B97260C31F78EC7100429C5E /* LevelUpCell.m */; };
@@ -131,8 +131,6 @@
 		B984963D1F694E2400C5A9C3 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B984963B1F694E2400C5A9C3 /* CustomTableViewCell.m */; };
 		B984963E1F694E2400C5A9C3 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B984963C1F694E2400C5A9C3 /* CustomTableViewCell.xib */; };
 		B9896AD71F9DE346004F33EB /* IncomeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9896AD61F9DE346004F33EB /* IncomeListVC.m */; };
-		B9896AE01F9DF2C9004F33EB /* IncomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9896ADD1F9DF2C8004F33EB /* IncomeTableViewCell.m */; };
-		B9896AE11F9DF2C9004F33EB /* IncomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9896ADE1F9DF2C8004F33EB /* IncomeTableViewCell.xib */; };
 		B99398CE1F73ACF0006470C1 /* CompanyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B99398CC1F73ACEF006470C1 /* CompanyInfoCell.m */; };
 		B99398CF1F73ACF0006470C1 /* CompanyInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99398CD1F73ACF0006470C1 /* CompanyInfoCell.xib */; };
 		B9A762C71F72117B00F7D1A3 /* CashKeyBoradVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A762C51F72117B00F7D1A3 /* CashKeyBoradVC.m */; };
@@ -141,6 +139,15 @@
 		B9A762D21F728C0D00F7D1A3 /* PerfectInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A762D01F728C0D00F7D1A3 /* PerfectInfoVC.m */; };
 		B9A762D31F728C0D00F7D1A3 /* PerfectInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A762D11F728C0D00F7D1A3 /* PerfectInfoVC.xib */; };
 		B9A762D61F729A3400F7D1A3 /* CompanyInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A762D51F729A3400F7D1A3 /* CompanyInfoVC.m */; };
+		B9C0DC571FA078240002B5F5 /* IncomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0DC541FA078240002B5F5 /* IncomeTableViewCell.m */; };
+		B9C0DC581FA078240002B5F5 /* IncomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0DC551FA078240002B5F5 /* IncomeTableViewCell.xib */; };
+		B9C0DC5D1FA078870002B5F5 /* ProfitInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0DC5A1FA078870002B5F5 /* ProfitInfoVC.xib */; };
+		B9C0DC611FA079680002B5F5 /* GeneralTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0DC5E1FA079680002B5F5 /* GeneralTableViewCell.xib */; };
+		B9C0DC621FA079680002B5F5 /* GeneralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0DC601FA079680002B5F5 /* GeneralTableViewCell.m */; };
+		B9C0DC641FA084690002B5F5 /* ProfitInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0DC631FA084690002B5F5 /* ProfitInfoVC.m */; };
+		B9C0DC681FA0855E0002B5F5 /* MyDelegateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0DC661FA0855E0002B5F5 /* MyDelegateTableViewCell.m */; };
+		B9C0DC691FA0855E0002B5F5 /* MyDelegateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0DC671FA0855E0002B5F5 /* MyDelegateTableViewCell.xib */; };
+		B9C0DC6E1FA086330002B5F5 /* MyShopsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0DC6D1FA086330002B5F5 /* MyShopsVC.m */; };
 		B9C0E1101F6BA61200F4D296 /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0E10F1F6BA61200F4D296 /* HomeHeaderView.m */; };
 		B9C0E1121F6BA61D00F4D296 /* HomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0E1111F6BA61D00F4D296 /* HomeHeaderView.xib */; };
 		B9C0E1151F6BB8B000F4D296 /* FeatureListView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0E1141F6BB8B000F4D296 /* FeatureListView.m */; };
@@ -355,6 +362,8 @@
 		B790F8AF1F6EA8A50078BD7F /* MeCenterHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeCenterHeadView.h; sourceTree = "<group>"; };
 		B790F8B01F6EA8A50078BD7F /* MeCenterHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeCenterHeadView.m; sourceTree = "<group>"; };
 		B790F8B21F6EA8B90078BD7F /* MeCenterHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeCenterHeadView.xib; sourceTree = "<group>"; };
+		B90170861FA07443006A4E0F /* MyRateVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRateVC.h; sourceTree = "<group>"; };
+		B90170871FA07443006A4E0F /* MyRateVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRateVC.m; sourceTree = "<group>"; };
 		B90B70BD1F74EF6100CD20DE /* PubilcBankCardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PubilcBankCardCell.h; sourceTree = "<group>"; };
 		B90B70BE1F74EF6100CD20DE /* PubilcBankCardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PubilcBankCardCell.m; sourceTree = "<group>"; };
 		B90B70BF1F74EF6100CD20DE /* PubilcBankCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PubilcBankCardCell.xib; sourceTree = "<group>"; };
@@ -380,8 +389,6 @@
 		B946DDFA1F9EDAD7007C9632 /* JJWWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJWWebViewVC.h; sourceTree = "<group>"; };
 		B946DDFC1F9EE2E2007C9632 /* QuickPayWebVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickPayWebVC.h; sourceTree = "<group>"; };
 		B946DDFD1F9EE2E2007C9632 /* QuickPayWebVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickPayWebVC.m; sourceTree = "<group>"; };
-		B946DDFF1F9F2E16007C9632 /* MyRateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRateVC.h; sourceTree = "<group>"; };
-		B946DE001F9F2E16007C9632 /* MyRateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRateVC.m; sourceTree = "<group>"; };
 		B97260BC1F78E1E000429C5E /* LevelUpVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelUpVC.h; sourceTree = "<group>"; };
 		B97260BD1F78E1E000429C5E /* LevelUpVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LevelUpVC.m; sourceTree = "<group>"; };
 		B97260BF1F78EA9000429C5E /* LevelItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelItem.h; sourceTree = "<group>"; };
@@ -410,9 +417,6 @@
 		B984963C1F694E2400C5A9C3 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		B9896AD51F9DE346004F33EB /* IncomeListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IncomeListVC.h; sourceTree = "<group>"; };
 		B9896AD61F9DE346004F33EB /* IncomeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IncomeListVC.m; sourceTree = "<group>"; };
-		B9896ADD1F9DF2C8004F33EB /* IncomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncomeTableViewCell.m; path = "../../../../../YZF/YZF/Main/Find(发现)/View/IncomeTableViewCell.m"; sourceTree = "<group>"; };
-		B9896ADE1F9DF2C8004F33EB /* IncomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeTableViewCell.xib; path = "../../../../../YZF/YZF/Main/Find(发现)/View/IncomeTableViewCell.xib"; sourceTree = "<group>"; };
-		B9896ADF1F9DF2C9004F33EB /* IncomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncomeTableViewCell.h; path = "../../../../../YZF/YZF/Main/Find(发现)/View/IncomeTableViewCell.h"; sourceTree = "<group>"; };
 		B99398CB1F73ACEF006470C1 /* CompanyInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompanyInfoCell.h; sourceTree = "<group>"; };
 		B99398CC1F73ACEF006470C1 /* CompanyInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanyInfoCell.m; sourceTree = "<group>"; };
 		B99398CD1F73ACF0006470C1 /* CompanyInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyInfoCell.xib; sourceTree = "<group>"; };
@@ -427,6 +431,20 @@
 		B9A762D11F728C0D00F7D1A3 /* PerfectInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PerfectInfoVC.xib; sourceTree = "<group>"; };
 		B9A762D41F729A3400F7D1A3 /* CompanyInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyInfoVC.h; sourceTree = "<group>"; };
 		B9A762D51F729A3400F7D1A3 /* CompanyInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyInfoVC.m; sourceTree = "<group>"; };
+		B9C0DC541FA078240002B5F5 /* IncomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncomeTableViewCell.m; sourceTree = "<group>"; };
+		B9C0DC551FA078240002B5F5 /* IncomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IncomeTableViewCell.xib; sourceTree = "<group>"; };
+		B9C0DC561FA078240002B5F5 /* IncomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncomeTableViewCell.h; sourceTree = "<group>"; };
+		B9C0DC5A1FA078870002B5F5 /* ProfitInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfitInfoVC.xib; sourceTree = "<group>"; };
+		B9C0DC5B1FA078870002B5F5 /* ProfitInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfitInfoVC.h; sourceTree = "<group>"; };
+		B9C0DC5E1FA079680002B5F5 /* GeneralTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralTableViewCell.xib; sourceTree = "<group>"; };
+		B9C0DC5F1FA079680002B5F5 /* GeneralTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralTableViewCell.h; sourceTree = "<group>"; };
+		B9C0DC601FA079680002B5F5 /* GeneralTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralTableViewCell.m; sourceTree = "<group>"; };
+		B9C0DC631FA084690002B5F5 /* ProfitInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfitInfoVC.m; sourceTree = "<group>"; };
+		B9C0DC651FA0855D0002B5F5 /* MyDelegateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDelegateTableViewCell.h; sourceTree = "<group>"; };
+		B9C0DC661FA0855E0002B5F5 /* MyDelegateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDelegateTableViewCell.m; sourceTree = "<group>"; };
+		B9C0DC671FA0855E0002B5F5 /* MyDelegateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDelegateTableViewCell.xib; sourceTree = "<group>"; };
+		B9C0DC6A1FA085650002B5F5 /* MyShopsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyShopsVC.h; sourceTree = "<group>"; };
+		B9C0DC6D1FA086330002B5F5 /* MyShopsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyShopsVC.m; sourceTree = "<group>"; };
 		B9C0E10E1F6BA61200F4D296 /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
 		B9C0E10F1F6BA61200F4D296 /* HomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
 		B9C0E1111F6BA61D00F4D296 /* HomeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeHeaderView.xib; sourceTree = "<group>"; };
@@ -991,6 +1009,8 @@
 		B98496191F690C7A00C5A9C3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B9C0DC6A1FA085650002B5F5 /* MyShopsVC.h */,
+				B9C0DC6D1FA086330002B5F5 /* MyShopsVC.m */,
 				B984961A1F690C7A00C5A9C3 /* WalletVC.h */,
 				B984961B1F690C7A00C5A9C3 /* WalletVC.m */,
 				B9A762C41F72117B00F7D1A3 /* CashKeyBoradVC.h */,
@@ -998,12 +1018,12 @@
 				B9A762C61F72117B00F7D1A3 /* CashKeyBoradVC.xib */,
 				B9896AD51F9DE346004F33EB /* IncomeListVC.h */,
 				B9896AD61F9DE346004F33EB /* IncomeListVC.m */,
-				B946DDFF1F9F2E16007C9632 /* MyRateVC.h */,
-				B946DE001F9F2E16007C9632 /* MyRateVC.m */,
 				B946DDFC1F9EE2E2007C9632 /* QuickPayWebVC.h */,
 				B946DDFD1F9EE2E2007C9632 /* QuickPayWebVC.m */,
 				B91513F91F7E417C0067228C /* QuickPayVC.h */,
 				B91513FA1F7E417C0067228C /* QuickPayVC.m */,
+				B90170861FA07443006A4E0F /* MyRateVC.h */,
+				B90170871FA07443006A4E0F /* MyRateVC.m */,
 				B9DBA1521F8CA6F8008DA6E8 /* CreditCardInfoVC.h */,
 				B9DBA1541F8CA6F8008DA6E8 /* CreditCardInfoVC.m */,
 				B9DBA1531F8CA6F8008DA6E8 /* CreditCardInfoVC.xib */,
@@ -1037,6 +1057,12 @@
 		B98496201F69178200C5A9C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B9C0DC651FA0855D0002B5F5 /* MyDelegateTableViewCell.h */,
+				B9C0DC661FA0855E0002B5F5 /* MyDelegateTableViewCell.m */,
+				B9C0DC671FA0855E0002B5F5 /* MyDelegateTableViewCell.xib */,
+				B9C0DC5B1FA078870002B5F5 /* ProfitInfoVC.h */,
+				B9C0DC631FA084690002B5F5 /* ProfitInfoVC.m */,
+				B9C0DC5A1FA078870002B5F5 /* ProfitInfoVC.xib */,
 				B92DA43E1F711A7400A5B7BE /* KeyBoradView.h */,
 				B92DA43F1F711A7400A5B7BE /* KeyBoradView.m */,
 				B9C0E10E1F6BA61200F4D296 /* HomeHeaderView.h */,
@@ -1062,9 +1088,12 @@
 				B9DBA1571F8CA760008DA6E8 /* TwoCreditInfoTableViewCell.h */,
 				B9DBA1561F8CA760008DA6E8 /* TwoCreditInfoTableViewCell.m */,
 				B9DBA1581F8CA761008DA6E8 /* TwoCreditInfoTableViewCell.xib */,
-				B9896ADF1F9DF2C9004F33EB /* IncomeTableViewCell.h */,
-				B9896ADD1F9DF2C8004F33EB /* IncomeTableViewCell.m */,
-				B9896ADE1F9DF2C8004F33EB /* IncomeTableViewCell.xib */,
+				B9C0DC561FA078240002B5F5 /* IncomeTableViewCell.h */,
+				B9C0DC541FA078240002B5F5 /* IncomeTableViewCell.m */,
+				B9C0DC551FA078240002B5F5 /* IncomeTableViewCell.xib */,
+				B9C0DC5F1FA079680002B5F5 /* GeneralTableViewCell.h */,
+				B9C0DC601FA079680002B5F5 /* GeneralTableViewCell.m */,
+				B9C0DC5E1FA079680002B5F5 /* GeneralTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1284,12 +1313,13 @@
 				B9DBA1661F8CAC74008DA6E8 /* CreditCardInfoVC.xib in Resources */,
 				B99398CF1F73ACF0006470C1 /* CompanyInfoCell.xib in Resources */,
 				B9DBA1631F8CAC5A008DA6E8 /* CreditCardTableViewCell.xib in Resources */,
-				B9896AE11F9DF2C9004F33EB /* IncomeTableViewCell.xib in Resources */,
+				B9C0DC581FA078240002B5F5 /* IncomeTableViewCell.xib in Resources */,
 				B71306901F68199500735673 /* alertView_button_gray@2x.png in Resources */,
 				B91514001F7E46880067228C /* QuickPayHeadView.xib in Resources */,
 				B98496301F69191A00C5A9C3 /* LoginVC.xib in Resources */,
 				B9C0E11A1F6BBDC600F4D296 /* FeatureListCell.xib in Resources */,
 				B713068F1F68199500735673 /* alertView_bg@2x.png in Resources */,
+				B9C0DC5D1FA078870002B5F5 /* ProfitInfoVC.xib in Resources */,
 				B71306791F68199500735673 /* HZAreaPickerView.xib in Resources */,
 				B98496351F69362800C5A9C3 /* RegistVC.xib in Resources */,
 				B789BD651F79436C00B39A55 /* ConfirmPayVC.xib in Resources */,
@@ -1297,10 +1327,12 @@
 				B9DBA1651F8CAC68008DA6E8 /* TwoCreditInfoTableViewCell.xib in Resources */,
 				B9A762C81F72117B00F7D1A3 /* CashKeyBoradVC.xib in Resources */,
 				B71305761F6814E000735673 /* Assets.xcassets in Resources */,
+				B9C0DC691FA0855E0002B5F5 /* MyDelegateTableViewCell.xib in Resources */,
 				B9DBA1641F8CAC5E008DA6E8 /* TwoCreditCardView.xib in Resources */,
 				B790F8B31F6EA8B90078BD7F /* MeCenterHeadView.xib in Resources */,
 				B91513F51F7DF5B80067228C /* QRPayCodeVC.xib in Resources */,
 				B71306931F68199500735673 /* alertView_button_green_pressed@2x.png in Resources */,
+				B9C0DC611FA079680002B5F5 /* GeneralTableViewCell.xib in Resources */,
 				B71306921F68199500735673 /* alertView_button_green@2x.png in Resources */,
 				B9A762D31F728C0D00F7D1A3 /* PerfectInfoVC.xib in Resources */,
 				B9C0E1121F6BA61D00F4D296 /* HomeHeaderView.xib in Resources */,
@@ -1408,7 +1440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B946DE011F9F2E16007C9632 /* MyRateVC.m in Sources */,
+				B90170881FA07443006A4E0F /* MyRateVC.m in Sources */,
 				B9DBA15F1F8CA762008DA6E8 /* TwoCreditInfoTableViewCell.m in Sources */,
 				B71306631F68199400735673 /* UIApplication+Extensions.m in Sources */,
 				B71306611F68199400735673 /* NSDictionary+Extension.m in Sources */,
@@ -1418,6 +1450,7 @@
 				B9E83A231F6FA92C003BD7E2 /* ManageCardVC.m in Sources */,
 				B946DDFB1F9EDAD7007C9632 /* JJWWebViewVC.m in Sources */,
 				B71306AC1F681DC400735673 /* JJWBaseVC.m in Sources */,
+				B9C0DC681FA0855E0002B5F5 /* MyDelegateTableViewCell.m in Sources */,
 				B71305C61F6818EC00735673 /* NSDate+Category.m in Sources */,
 				B9A762D61F729A3400F7D1A3 /* CompanyInfoVC.m in Sources */,
 				B9DBA1551F8CA6F8008DA6E8 /* CreditCardInfoVC.m in Sources */,
@@ -1436,8 +1469,10 @@
 				B71306651F68199400735673 /* UIButton+Extension.m in Sources */,
 				B71306A51F681AAE00735673 /* JJWGlobal.m in Sources */,
 				B71306851F68199500735673 /* SRImageManager.m in Sources */,
+				B9C0DC641FA084690002B5F5 /* ProfitInfoVC.m in Sources */,
 				B713068B1F68199500735673 /* UIView+Extension.m in Sources */,
 				B713066A1F68199500735673 /* UILabel+Extension.m in Sources */,
+				B9C0DC571FA078240002B5F5 /* IncomeTableViewCell.m in Sources */,
 				B97260C11F78EA9000429C5E /* LevelItem.m in Sources */,
 				B7534EC71F7008DF007DD232 /* ManagePasswordVC.m in Sources */,
 				B71305D31F6818EC00735673 /* UIView+cate.m in Sources */,
@@ -1474,6 +1509,7 @@
 				B71306B91F68213200735673 /* JJWCache.m in Sources */,
 				B713066C1F68199500735673 /* UITextControl+FaultTolerance.m in Sources */,
 				B71305CA1F6818EC00735673 /* NSString+TrimmWhiteSpace.m in Sources */,
+				B9C0DC6E1FA086330002B5F5 /* MyShopsVC.m in Sources */,
 				B9DBA1611F8CA762008DA6E8 /* TwoCreditCardView.m in Sources */,
 				B71306741F68199500735673 /* BXTabBar.m in Sources */,
 				B946DDFE1F9EE2E2007C9632 /* QuickPayWebVC.m in Sources */,
@@ -1502,13 +1538,13 @@
 				B98496381F694ACB00C5A9C3 /* RegistExtendVC.m in Sources */,
 				B71306861F68199500735673 /* SRInfiniteCarouselView.m in Sources */,
 				B71306601F68199400735673 /* NSDate+Extension.m in Sources */,
+				B9C0DC621FA079680002B5F5 /* GeneralTableViewCell.m in Sources */,
 				B99398CE1F73ACF0006470C1 /* CompanyInfoCell.m in Sources */,
 				B71306971F68199500735673 /* XYLoadingView.m in Sources */,
 				B71306821F68199500735673 /* UIViewController+MJPopupViewController.m in Sources */,
 				B9E83A2C1F6FB8E1003BD7E2 /* ManageCardCell.m in Sources */,
 				B713068A1F68199500735673 /* NSDate+Extension.m in Sources */,
 				B71306721F68199500735673 /* MXNavigationBarManager.m in Sources */,
-				B9896AE01F9DF2C9004F33EB /* IncomeTableViewCell.m in Sources */,
 				B92DA4401F711A7400A5B7BE /* KeyBoradView.m in Sources */,
 				B713067F1F68199500735673 /* JXTAlertView.m in Sources */,
 				B92DA43D1F71009100A5B7BE /* SettingVC.m in Sources */,

@@ -115,6 +115,8 @@
 @property (nonatomic, copy) NSString * orderNo;
 @property (nonatomic, copy) NSString * order_no; //收款记录里面的订单编号  字段不统一
 @property (nonatomic, copy) NSString * mer_no; //商户编号
+@property (nonatomic, copy) NSString * add_time; //我的分润
+@property (nonatomic, copy) NSString * member_name; //商户名称
 @end
 
 /**
