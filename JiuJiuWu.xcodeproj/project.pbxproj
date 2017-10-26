@@ -133,6 +133,14 @@
 		B9896AD71F9DE346004F33EB /* IncomeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9896AD61F9DE346004F33EB /* IncomeListVC.m */; };
 		B99398CE1F73ACF0006470C1 /* CompanyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B99398CC1F73ACEF006470C1 /* CompanyInfoCell.m */; };
 		B99398CF1F73ACF0006470C1 /* CompanyInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99398CD1F73ACF0006470C1 /* CompanyInfoCell.xib */; };
+		B9A4DCED1FA1BB750096729F /* KTDropdownMenuView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B9A4DCEA1FA1BB740096729F /* KTDropdownMenuView.bundle */; };
+		B9A4DCEE1FA1BB750096729F /* KTDropdownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A4DCEC1FA1BB740096729F /* KTDropdownMenuView.m */; };
+		B9A4DCF21FA1BF530096729F /* MyShopListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A4DCF01FA1BF530096729F /* MyShopListCell.m */; };
+		B9A4DCF31FA1BF530096729F /* MyShopListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A4DCF11FA1BF530096729F /* MyShopListCell.xib */; };
+		B9A4DCF71FA1D43A0096729F /* BalanceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A4DCF41FA1D4390096729F /* BalanceVC.xib */; };
+		B9A4DCFF1FA1DADE0096729F /* BalanceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A4DCFE1FA1DADE0096729F /* BalanceVC.m */; };
+		B9A4DD031FA1DBB80096729F /* WithdrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A4DD011FA1DBB80096729F /* WithdrawViewController.m */; };
+		B9A4DD041FA1DBB80096729F /* WithdrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A4DD021FA1DBB80096729F /* WithdrawViewController.xib */; };
 		B9A762C71F72117B00F7D1A3 /* CashKeyBoradVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A762C51F72117B00F7D1A3 /* CashKeyBoradVC.m */; };
 		B9A762C81F72117B00F7D1A3 /* CashKeyBoradVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9A762C61F72117B00F7D1A3 /* CashKeyBoradVC.xib */; };
 		B9A762CE1F72660E00F7D1A3 /* QRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A762CD1F72660E00F7D1A3 /* QRCodeVC.m */; };
@@ -145,8 +153,6 @@
 		B9C0DC611FA079680002B5F5 /* GeneralTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0DC5E1FA079680002B5F5 /* GeneralTableViewCell.xib */; };
 		B9C0DC621FA079680002B5F5 /* GeneralTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0DC601FA079680002B5F5 /* GeneralTableViewCell.m */; };
 		B9C0DC641FA084690002B5F5 /* ProfitInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0DC631FA084690002B5F5 /* ProfitInfoVC.m */; };
-		B9C0DC681FA0855E0002B5F5 /* MyDelegateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0DC661FA0855E0002B5F5 /* MyDelegateTableViewCell.m */; };
-		B9C0DC691FA0855E0002B5F5 /* MyDelegateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0DC671FA0855E0002B5F5 /* MyDelegateTableViewCell.xib */; };
 		B9C0DC6E1FA086330002B5F5 /* MyShopsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0DC6D1FA086330002B5F5 /* MyShopsVC.m */; };
 		B9C0E1101F6BA61200F4D296 /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0E10F1F6BA61200F4D296 /* HomeHeaderView.m */; };
 		B9C0E1121F6BA61D00F4D296 /* HomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0E1111F6BA61D00F4D296 /* HomeHeaderView.xib */; };
@@ -421,6 +427,18 @@
 		B99398CC1F73ACEF006470C1 /* CompanyInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanyInfoCell.m; sourceTree = "<group>"; };
 		B99398CD1F73ACF0006470C1 /* CompanyInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyInfoCell.xib; sourceTree = "<group>"; };
 		B9A443D31F6F79F40050A08C /* DefineString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineString.h; sourceTree = "<group>"; };
+		B9A4DCEA1FA1BB740096729F /* KTDropdownMenuView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KTDropdownMenuView.bundle; sourceTree = "<group>"; };
+		B9A4DCEB1FA1BB740096729F /* KTDropdownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTDropdownMenuView.h; sourceTree = "<group>"; };
+		B9A4DCEC1FA1BB740096729F /* KTDropdownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTDropdownMenuView.m; sourceTree = "<group>"; };
+		B9A4DCEF1FA1BF530096729F /* MyShopListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyShopListCell.h; sourceTree = "<group>"; };
+		B9A4DCF01FA1BF530096729F /* MyShopListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyShopListCell.m; sourceTree = "<group>"; };
+		B9A4DCF11FA1BF530096729F /* MyShopListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyShopListCell.xib; sourceTree = "<group>"; };
+		B9A4DCF41FA1D4390096729F /* BalanceVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BalanceVC.xib; sourceTree = "<group>"; };
+		B9A4DCF61FA1D4390096729F /* BalanceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalanceVC.h; sourceTree = "<group>"; };
+		B9A4DCFE1FA1DADE0096729F /* BalanceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalanceVC.m; sourceTree = "<group>"; };
+		B9A4DD001FA1DBB80096729F /* WithdrawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithdrawViewController.h; sourceTree = "<group>"; };
+		B9A4DD011FA1DBB80096729F /* WithdrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WithdrawViewController.m; sourceTree = "<group>"; };
+		B9A4DD021FA1DBB80096729F /* WithdrawViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WithdrawViewController.xib; sourceTree = "<group>"; };
 		B9A762C41F72117B00F7D1A3 /* CashKeyBoradVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CashKeyBoradVC.h; sourceTree = "<group>"; };
 		B9A762C51F72117B00F7D1A3 /* CashKeyBoradVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CashKeyBoradVC.m; sourceTree = "<group>"; };
 		B9A762C61F72117B00F7D1A3 /* CashKeyBoradVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CashKeyBoradVC.xib; sourceTree = "<group>"; };
@@ -440,9 +458,6 @@
 		B9C0DC5F1FA079680002B5F5 /* GeneralTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralTableViewCell.h; sourceTree = "<group>"; };
 		B9C0DC601FA079680002B5F5 /* GeneralTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralTableViewCell.m; sourceTree = "<group>"; };
 		B9C0DC631FA084690002B5F5 /* ProfitInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfitInfoVC.m; sourceTree = "<group>"; };
-		B9C0DC651FA0855D0002B5F5 /* MyDelegateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDelegateTableViewCell.h; sourceTree = "<group>"; };
-		B9C0DC661FA0855E0002B5F5 /* MyDelegateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDelegateTableViewCell.m; sourceTree = "<group>"; };
-		B9C0DC671FA0855E0002B5F5 /* MyDelegateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDelegateTableViewCell.xib; sourceTree = "<group>"; };
 		B9C0DC6A1FA085650002B5F5 /* MyShopsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyShopsVC.h; sourceTree = "<group>"; };
 		B9C0DC6D1FA086330002B5F5 /* MyShopsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyShopsVC.m; sourceTree = "<group>"; };
 		B9C0E10E1F6BA61200F4D296 /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
@@ -765,6 +780,7 @@
 		B71306111F68199400735673 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				B9A4DCE91FA1BB740096729F /* KTDropdownMenuView */,
 				B71306121F68199400735673 /* AddressPick */,
 				B71306191F68199400735673 /* CenterLabel.h */,
 				B713061A1F68199400735673 /* CenterLabel.m */,
@@ -1009,10 +1025,16 @@
 		B98496191F690C7A00C5A9C3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B9C0DC6A1FA085650002B5F5 /* MyShopsVC.h */,
-				B9C0DC6D1FA086330002B5F5 /* MyShopsVC.m */,
+				B9A4DD001FA1DBB80096729F /* WithdrawViewController.h */,
+				B9A4DD011FA1DBB80096729F /* WithdrawViewController.m */,
+				B9A4DD021FA1DBB80096729F /* WithdrawViewController.xib */,
+				B9A4DCF61FA1D4390096729F /* BalanceVC.h */,
+				B9A4DCFE1FA1DADE0096729F /* BalanceVC.m */,
+				B9A4DCF41FA1D4390096729F /* BalanceVC.xib */,
 				B984961A1F690C7A00C5A9C3 /* WalletVC.h */,
 				B984961B1F690C7A00C5A9C3 /* WalletVC.m */,
+				B9C0DC6A1FA085650002B5F5 /* MyShopsVC.h */,
+				B9C0DC6D1FA086330002B5F5 /* MyShopsVC.m */,
 				B9A762C41F72117B00F7D1A3 /* CashKeyBoradVC.h */,
 				B9A762C51F72117B00F7D1A3 /* CashKeyBoradVC.m */,
 				B9A762C61F72117B00F7D1A3 /* CashKeyBoradVC.xib */,
@@ -1057,9 +1079,6 @@
 		B98496201F69178200C5A9C3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B9C0DC651FA0855D0002B5F5 /* MyDelegateTableViewCell.h */,
-				B9C0DC661FA0855E0002B5F5 /* MyDelegateTableViewCell.m */,
-				B9C0DC671FA0855E0002B5F5 /* MyDelegateTableViewCell.xib */,
 				B9C0DC5B1FA078870002B5F5 /* ProfitInfoVC.h */,
 				B9C0DC631FA084690002B5F5 /* ProfitInfoVC.m */,
 				B9C0DC5A1FA078870002B5F5 /* ProfitInfoVC.xib */,
@@ -1094,6 +1113,9 @@
 				B9C0DC5F1FA079680002B5F5 /* GeneralTableViewCell.h */,
 				B9C0DC601FA079680002B5F5 /* GeneralTableViewCell.m */,
 				B9C0DC5E1FA079680002B5F5 /* GeneralTableViewCell.xib */,
+				B9A4DCEF1FA1BF530096729F /* MyShopListCell.h */,
+				B9A4DCF01FA1BF530096729F /* MyShopListCell.m */,
+				B9A4DCF11FA1BF530096729F /* MyShopListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1193,6 +1215,16 @@
 				B984963C1F694E2400C5A9C3 /* CustomTableViewCell.xib */,
 			);
 			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		B9A4DCE91FA1BB740096729F /* KTDropdownMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				B9A4DCEA1FA1BB740096729F /* KTDropdownMenuView.bundle */,
+				B9A4DCEB1FA1BB740096729F /* KTDropdownMenuView.h */,
+				B9A4DCEC1FA1BB740096729F /* KTDropdownMenuView.m */,
+			);
+			path = KTDropdownMenuView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1307,13 +1339,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9A4DD041FA1DBB80096729F /* WithdrawViewController.xib in Resources */,
 				B984963E1F694E2400C5A9C3 /* CustomTableViewCell.xib in Resources */,
 				B790F8AB1F6E989D0078BD7F /* ShareCell.xib in Resources */,
 				B9E83A2D1F6FB8E1003BD7E2 /* ManageCardCell.xib in Resources */,
+				B9A4DCF71FA1D43A0096729F /* BalanceVC.xib in Resources */,
 				B9DBA1661F8CAC74008DA6E8 /* CreditCardInfoVC.xib in Resources */,
 				B99398CF1F73ACF0006470C1 /* CompanyInfoCell.xib in Resources */,
 				B9DBA1631F8CAC5A008DA6E8 /* CreditCardTableViewCell.xib in Resources */,
 				B9C0DC581FA078240002B5F5 /* IncomeTableViewCell.xib in Resources */,
+				B9A4DCF31FA1BF530096729F /* MyShopListCell.xib in Resources */,
 				B71306901F68199500735673 /* alertView_button_gray@2x.png in Resources */,
 				B91514001F7E46880067228C /* QuickPayHeadView.xib in Resources */,
 				B98496301F69191A00C5A9C3 /* LoginVC.xib in Resources */,
@@ -1327,7 +1362,6 @@
 				B9DBA1651F8CAC68008DA6E8 /* TwoCreditInfoTableViewCell.xib in Resources */,
 				B9A762C81F72117B00F7D1A3 /* CashKeyBoradVC.xib in Resources */,
 				B71305761F6814E000735673 /* Assets.xcassets in Resources */,
-				B9C0DC691FA0855E0002B5F5 /* MyDelegateTableViewCell.xib in Resources */,
 				B9DBA1641F8CAC5E008DA6E8 /* TwoCreditCardView.xib in Resources */,
 				B790F8B31F6EA8B90078BD7F /* MeCenterHeadView.xib in Resources */,
 				B91513F51F7DF5B80067228C /* QRPayCodeVC.xib in Resources */,
@@ -1338,6 +1372,7 @@
 				B9C0E1121F6BA61D00F4D296 /* HomeHeaderView.xib in Resources */,
 				B97260C61F78EC7100429C5E /* LevelUpCell.xib in Resources */,
 				B71306911F68199500735673 /* alertView_button_gray_pressed@2x.png in Resources */,
+				B9A4DCED1FA1BB750096729F /* KTDropdownMenuView.bundle in Resources */,
 				B71306941F68199500735673 /* alertView_loading@2x.png in Resources */,
 				B90B70C11F74EF6100CD20DE /* PubilcBankCardCell.xib in Resources */,
 				B713068D1F68199500735673 /* WSDatePickerView.xib in Resources */,
@@ -1450,7 +1485,6 @@
 				B9E83A231F6FA92C003BD7E2 /* ManageCardVC.m in Sources */,
 				B946DDFB1F9EDAD7007C9632 /* JJWWebViewVC.m in Sources */,
 				B71306AC1F681DC400735673 /* JJWBaseVC.m in Sources */,
-				B9C0DC681FA0855E0002B5F5 /* MyDelegateTableViewCell.m in Sources */,
 				B71305C61F6818EC00735673 /* NSDate+Category.m in Sources */,
 				B9A762D61F729A3400F7D1A3 /* CompanyInfoVC.m in Sources */,
 				B9DBA1551F8CA6F8008DA6E8 /* CreditCardInfoVC.m in Sources */,
@@ -1461,6 +1495,7 @@
 				B71305CC1F6818EC00735673 /* UIDevice+Resolutions.m in Sources */,
 				B713066D1F68199500735673 /* UIView+Extension.m in Sources */,
 				B71306701F68199500735673 /* BXNavigationController.m in Sources */,
+				B9A4DCEE1FA1BB750096729F /* KTDropdownMenuView.m in Sources */,
 				B71306641F68199400735673 /* UIBarButtonItem+Extension.m in Sources */,
 				B984962F1F69191A00C5A9C3 /* LoginVC.m in Sources */,
 				B9C0E1151F6BB8B000F4D296 /* FeatureListView.m in Sources */,
@@ -1469,6 +1504,7 @@
 				B71306651F68199400735673 /* UIButton+Extension.m in Sources */,
 				B71306A51F681AAE00735673 /* JJWGlobal.m in Sources */,
 				B71306851F68199500735673 /* SRImageManager.m in Sources */,
+				B9A4DD031FA1DBB80096729F /* WithdrawViewController.m in Sources */,
 				B9C0DC641FA084690002B5F5 /* ProfitInfoVC.m in Sources */,
 				B713068B1F68199500735673 /* UIView+Extension.m in Sources */,
 				B713066A1F68199500735673 /* UILabel+Extension.m in Sources */,
@@ -1503,6 +1539,7 @@
 				B90B70C01F74EF6100CD20DE /* PubilcBankCardCell.m in Sources */,
 				B71306731F68199500735673 /* BXBadgeView.m in Sources */,
 				B71306841F68199500735673 /* SGScanningQRCodeView.m in Sources */,
+				B9A4DCFF1FA1DADE0096729F /* BalanceVC.m in Sources */,
 				B97260C51F78EC7100429C5E /* LevelUpCell.m in Sources */,
 				B71305CF1F6818EC00735673 /* UIImage+JKRImage.m in Sources */,
 				B71306951F68199500735673 /* XYAlertView.m in Sources */,
@@ -1552,6 +1589,7 @@
 				B71306811F68199500735673 /* MJPopupBackgroundView.m in Sources */,
 				B984961E1F690C7A00C5A9C3 /* WalletVC.m in Sources */,
 				B91513FB1F7E417C0067228C /* QuickPayVC.m in Sources */,
+				B9A4DCF21FA1BF530096729F /* MyShopListCell.m in Sources */,
 				B713065F1F68199400735673 /* Foundation+Log.m in Sources */,
 				B9C0E1191F6BBDC600F4D296 /* FeatureListCell.m in Sources */,
 				B71306711F68199500735673 /* BXTabBarController.m in Sources */,

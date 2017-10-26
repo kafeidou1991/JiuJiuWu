@@ -62,5 +62,7 @@ static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #define QuickPayUrl [NSString stringWithFormat:@"https://api.jiujiuwu.cn/jiujiuwuapi/quickpay/pay?channel_id=2&token=%@",[JJWLogin sharedMethod].loginData.token]
 //我的分润
 #define CashDistribute [baseUrl appendBaseUrl:@"cash/cashDistribute"]
+//我的商户
+#define MyShopsLeader  [baseUrl appendBaseUrl:@"user/getUserFirstLeader"]
 
 #endif /* API_Parameter_h */

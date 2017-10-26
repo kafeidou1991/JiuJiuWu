@@ -109,13 +109,20 @@
     if (_tableView && [self.view.subviews containsObject:_tableView]) {
         [_tableView removeFromSuperview];_tableView =nil;
     }
+    WeakSelf
     if (!_emptyView) {
         _emptyView = [[SUEmptyView alloc] initWithFrame:CGRectMake(0, 0, SCreenWidth, SCreenHegiht - NAVIGATION_BAR_HEIGHT)];
         [_emptyView setDestext:@"暂无数据!"];
+        [_emptyView setRefreshCallBack:^{
+            [weakSelf refreshAction];
+        }];
     }
     if (![self.view.subviews containsObject:_emptyView]) {
         [self.view addSubview:_emptyView];
     }
+}
+- (void)refreshAction {
+    
 }
 - (void)addHeaderRefesh:(BOOL)isRightNow Block:(MJRefreshComponentRefreshingBlock)block{
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）

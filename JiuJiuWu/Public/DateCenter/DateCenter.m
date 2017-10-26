@@ -67,6 +67,9 @@
 }
 @end
 
+@implementation MyShopItem
+@end
+
 
 
 

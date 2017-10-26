@@ -14,4 +14,5 @@ target 'JiuJiuWu' do
  pod 'XXNibBridge'
  pod 'Bugly'
  pod 'WebViewJavascriptBridge'
+ pod 'Masonry'
 end

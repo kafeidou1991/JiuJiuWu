@@ -141,6 +141,15 @@
 
 @end
 
+@interface MyShopItem :DateCenter
+@property (nonatomic, copy) NSString * level;
+@property (nonatomic, copy) NSString * level_name;
+@property (nonatomic, copy) NSString * mobile;
+@property (nonatomic, copy) NSString * nickname;
+@property (nonatomic, copy) NSString * user_id;
+
+@end
+
 
 
 

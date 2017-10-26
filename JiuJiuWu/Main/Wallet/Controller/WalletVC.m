@@ -16,6 +16,8 @@
 #import "CreditCardInfoVC.h"
 #import "IncomeListVC.h"
 #import "QuickPayWebVC.h"
+#import "MyShopsVC.h"
+#import "BalanceVC.h"
 
 static CGFloat const headerHeight = 220; //顶部视图高度
 
@@ -51,7 +53,8 @@ static CGFloat const headerHeight = 220; //顶部视图高度
 - (void)_gotoVC:(SelectType)type {
     [[JJWLogin sharedMethod]checkInfo:self complete:^{
         if (type == SelectType_MyAccount) {
-            
+            BalanceVC * VC = [[BalanceVC alloc]init];
+            [self.navigationController pushViewController:VC animated:YES];
         }else if (type == SelectType_MyProfit){
             IncomeListVC * VC = [[IncomeListVC alloc]init];
             VC.type = ListType_MyCashDis;
@@ -62,7 +65,8 @@ static CGFloat const headerHeight = 220; //顶部视图高度
             VC.type = ListType_Income;
             [self.navigationController pushViewController:VC animated:YES];
         }else if (type == SelectType_MyShop){
-            
+            MyShopsVC * VC = [[MyShopsVC alloc]init];
+            [self.navigationController pushViewController:VC animated:YES];
         }else if (type == SelectType_MyRate){
             
         }else if (type == SelectType_LeveUp){

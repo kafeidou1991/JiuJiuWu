@@ -32,6 +32,8 @@
 
 - (void)createEmptyView;
 
+- (void)refreshAction; //空视图点击刷新
+
 
 - (UIView *) _createFootView:(NSString *)title Block:(void(^)(UIButton *))block;
 
