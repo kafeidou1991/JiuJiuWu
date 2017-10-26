@@ -64,5 +64,8 @@ static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 #define CashDistribute [baseUrl appendBaseUrl:@"cash/cashDistribute"]
 //我的商户
 #define MyShopsLeader  [baseUrl appendBaseUrl:@"user/getUserFirstLeader"]
-
+//我的余额
+#define GetUserMoney  [baseUrl appendBaseUrl:@"user/getUserMoney"]
+//提现
+#define Withdrawal  [baseUrl appendBaseUrl:@"unionpay/withdrawal"]
 #endif /* API_Parameter_h */

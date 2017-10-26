@@ -7,11 +7,12 @@
 //
 
 #import "BalanceVC.h"
-#import "WithdrawViewController.h"
+#import "WithdrawVC.h"
 
 @interface BalanceVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
+@property (nonatomic, copy) NSString * userMoney; //余额
 
 @end
 
@@ -35,22 +36,17 @@
 }
 -(void)afterProFun{
     //请求接口 余额
-//    [self hudShow:self.view msg:STTR_ater_on];
+    [self hudShow:self.view msg:STTR_ater_on];
+    NSDictionary * dict = @{@"token":[JJWLogin sharedMethod].loginData.token,@"user_id":[JJWLogin sharedMethod].loginData.user_id};
     WeakSelf
-//    NSDictionary * dict = @{@"token":[YZFLogin sharedMethod].loginData.token};
-//    [YZFNetworkingTool PostWithUrl:UserStaus params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
-//
-//        CheckItem * item = [CheckItem yy_modelWithDictionary:responseObject];
-//        NSString * money = item.money;
-//        DloginData * loginData = [YZFLogin sharedMethod].loginData;
-//        loginData.member.money = money;
-//        [[YZFLogin sharedMethod]saveLoginData:loginData];
-//        weakSelf.balanceLabel.text = [NSString stringWithFormat:@"%.2f",money.floatValue];
-//        [weakSelf hudclose];
-//    } failed:^(NSError *error, id chaceResponseObject) {
-//        [weakSelf hudclose];
-//        [YZFBase alertMessage:error.domain cb:nil];
-//    }];
+    [JJWNetworkingTool PostWithUrl:GetUserMoney params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+        [weakSelf hudclose];
+        weakSelf.userMoney = [responseObject objectForKey:@"user_money"];
+        weakSelf.balanceLabel.text = [NSString stringWithFormat:@"%.2f",weakSelf.userMoney.doubleValue];
+    } failed:^(NSError *error, id chaceResponseObject) {
+        [weakSelf hudclose];
+        [JJWBase alertMessage:error.domain cb:nil];
+    }];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -76,7 +72,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    WithdrawViewController * VC = [[WithdrawViewController alloc]init];
+    WithdrawVC * VC = [[WithdrawVC alloc]init];
+    VC.userMoney = self.userMoney;
     [self.navigationController pushViewController:VC animated:YES];
 }
 

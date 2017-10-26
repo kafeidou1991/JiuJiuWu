@@ -72,7 +72,7 @@ static CGFloat const rowHeight = 50.f;
         [weakSelf hudclose];
     } failed:^(NSError *error, id chaceResponseObject) {
         [weakSelf hudclose];
-        [JJWBase alertMessage:error.domain cb:nil];
+//        [JJWBase alertMessage:error.domain cb:nil];
     }];
     [[JJWLogin sharedMethod]removeLoingData];
     //更新头部信息

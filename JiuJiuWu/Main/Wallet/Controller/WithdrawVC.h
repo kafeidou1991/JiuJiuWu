@@ -8,8 +8,8 @@
 
 #import "JJWBaseVC.h"
 //提现
-@interface WithdrawViewController : JJWBaseVC
+@interface WithdrawVC : JJWBaseVC
 
-//@property (nonatomic, strong) AgentInfo * info;
+@property (nonatomic, copy) NSString * userMoney; //余额
 
 @end
