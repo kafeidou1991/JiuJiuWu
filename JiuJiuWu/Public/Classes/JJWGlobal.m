@@ -9,7 +9,6 @@
 #import "JJWGlobal.h"
 #import "OpenUDID.h"
 #import "UIViewController+MJPopupViewController.h"
-#import "LoginVC.h"
 #import "PerfectInfoVC.h"
 #import "ManageCardVC.h"
 

@@ -167,6 +167,11 @@
 		B9DBA1641F8CAC5E008DA6E8 /* TwoCreditCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DBA15C1F8CA761008DA6E8 /* TwoCreditCardView.xib */; };
 		B9DBA1651F8CAC68008DA6E8 /* TwoCreditInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DBA1581F8CA761008DA6E8 /* TwoCreditInfoTableViewCell.xib */; };
 		B9DBA1661F8CAC74008DA6E8 /* CreditCardInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DBA1531F8CA6F8008DA6E8 /* CreditCardInfoVC.xib */; };
+		B9DDF5BF1FA318900019B1AD /* AboutOurVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DDF5BD1FA318900019B1AD /* AboutOurVC.m */; };
+		B9DDF5C01FA318910019B1AD /* AboutOurVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DDF5BE1FA318900019B1AD /* AboutOurVC.xib */; };
+		B9DDF5C51FA31EBC0019B1AD /* MyRateListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DDF5C31FA31EBC0019B1AD /* MyRateListCell.m */; };
+		B9DDF5C61FA31EBC0019B1AD /* MyRateListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DDF5C41FA31EBC0019B1AD /* MyRateListCell.xib */; };
+		B9DDF5C91FA3204F0019B1AD /* MyRateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DDF5C81FA3204F0019B1AD /* MyRateItem.m */; };
 		B9E83A231F6FA92C003BD7E2 /* ManageCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E83A221F6FA92C003BD7E2 /* ManageCardVC.m */; };
 		B9E83A2C1F6FB8E1003BD7E2 /* ManageCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E83A2A1F6FB8E1003BD7E2 /* ManageCardCell.m */; };
 		B9E83A2D1F6FB8E1003BD7E2 /* ManageCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9E83A2B1F6FB8E1003BD7E2 /* ManageCardCell.xib */; };
@@ -480,6 +485,14 @@
 		B9DBA15C1F8CA761008DA6E8 /* TwoCreditCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwoCreditCardView.xib; sourceTree = "<group>"; };
 		B9DBA15D1F8CA761008DA6E8 /* CreditCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditCardTableViewCell.xib; sourceTree = "<group>"; };
 		B9DBA15E1F8CA761008DA6E8 /* TwoCreditCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoCreditCardView.h; sourceTree = "<group>"; };
+		B9DDF5BD1FA318900019B1AD /* AboutOurVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutOurVC.m; sourceTree = "<group>"; };
+		B9DDF5BE1FA318900019B1AD /* AboutOurVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutOurVC.xib; sourceTree = "<group>"; };
+		B9DDF5C11FA3193F0019B1AD /* AboutOurVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutOurVC.h; sourceTree = "<group>"; };
+		B9DDF5C21FA31EBC0019B1AD /* MyRateListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRateListCell.h; sourceTree = "<group>"; };
+		B9DDF5C31FA31EBC0019B1AD /* MyRateListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRateListCell.m; sourceTree = "<group>"; };
+		B9DDF5C41FA31EBC0019B1AD /* MyRateListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRateListCell.xib; sourceTree = "<group>"; };
+		B9DDF5C71FA3204F0019B1AD /* MyRateItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRateItem.h; sourceTree = "<group>"; };
+		B9DDF5C81FA3204F0019B1AD /* MyRateItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRateItem.m; sourceTree = "<group>"; };
 		B9E83A211F6FA92C003BD7E2 /* ManageCardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageCardVC.h; sourceTree = "<group>"; };
 		B9E83A221F6FA92C003BD7E2 /* ManageCardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageCardVC.m; sourceTree = "<group>"; };
 		B9E83A291F6FB8E1003BD7E2 /* ManageCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageCardCell.h; sourceTree = "<group>"; };
@@ -977,6 +990,9 @@
 			children = (
 				B98496121F690C7A00C5A9C3 /* MeCenterVC.h */,
 				B98496131F690C7A00C5A9C3 /* MeCenterVC.m */,
+				B9DDF5C11FA3193F0019B1AD /* AboutOurVC.h */,
+				B9DDF5BD1FA318900019B1AD /* AboutOurVC.m */,
+				B9DDF5BE1FA318900019B1AD /* AboutOurVC.xib */,
 				B92DA43B1F71009100A5B7BE /* SettingVC.h */,
 				B92DA43C1F71009100A5B7BE /* SettingVC.m */,
 				B9E83A211F6FA92C003BD7E2 /* ManageCardVC.h */,
@@ -1072,6 +1088,8 @@
 			children = (
 				B97260BF1F78EA9000429C5E /* LevelItem.h */,
 				B97260C01F78EA9000429C5E /* LevelItem.m */,
+				B9DDF5C71FA3204F0019B1AD /* MyRateItem.h */,
+				B9DDF5C81FA3204F0019B1AD /* MyRateItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1116,6 +1134,9 @@
 				B9A4DCEF1FA1BF530096729F /* MyShopListCell.h */,
 				B9A4DCF01FA1BF530096729F /* MyShopListCell.m */,
 				B9A4DCF11FA1BF530096729F /* MyShopListCell.xib */,
+				B9DDF5C21FA31EBC0019B1AD /* MyRateListCell.h */,
+				B9DDF5C31FA31EBC0019B1AD /* MyRateListCell.m */,
+				B9DDF5C41FA31EBC0019B1AD /* MyRateListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1347,6 +1368,7 @@
 				B9DBA1661F8CAC74008DA6E8 /* CreditCardInfoVC.xib in Resources */,
 				B99398CF1F73ACF0006470C1 /* CompanyInfoCell.xib in Resources */,
 				B9DBA1631F8CAC5A008DA6E8 /* CreditCardTableViewCell.xib in Resources */,
+				B9DDF5C61FA31EBC0019B1AD /* MyRateListCell.xib in Resources */,
 				B9C0DC581FA078240002B5F5 /* IncomeTableViewCell.xib in Resources */,
 				B9A4DCF31FA1BF530096729F /* MyShopListCell.xib in Resources */,
 				B71306901F68199500735673 /* alertView_button_gray@2x.png in Resources */,
@@ -1366,6 +1388,7 @@
 				B790F8B31F6EA8B90078BD7F /* MeCenterHeadView.xib in Resources */,
 				B91513F51F7DF5B80067228C /* QRPayCodeVC.xib in Resources */,
 				B71306931F68199500735673 /* alertView_button_green_pressed@2x.png in Resources */,
+				B9DDF5C01FA318910019B1AD /* AboutOurVC.xib in Resources */,
 				B9C0DC611FA079680002B5F5 /* GeneralTableViewCell.xib in Resources */,
 				B71306921F68199500735673 /* alertView_button_green@2x.png in Resources */,
 				B9A762D31F728C0D00F7D1A3 /* PerfectInfoVC.xib in Resources */,
@@ -1485,6 +1508,7 @@
 				B9E83A231F6FA92C003BD7E2 /* ManageCardVC.m in Sources */,
 				B946DDFB1F9EDAD7007C9632 /* JJWWebViewVC.m in Sources */,
 				B71306AC1F681DC400735673 /* JJWBaseVC.m in Sources */,
+				B9DDF5C51FA31EBC0019B1AD /* MyRateListCell.m in Sources */,
 				B71305C61F6818EC00735673 /* NSDate+Category.m in Sources */,
 				B9A762D61F729A3400F7D1A3 /* CompanyInfoVC.m in Sources */,
 				B9DBA1551F8CA6F8008DA6E8 /* CreditCardInfoVC.m in Sources */,
@@ -1560,6 +1584,7 @@
 				B9896AD71F9DE346004F33EB /* IncomeListVC.m in Sources */,
 				B984961D1F690C7A00C5A9C3 /* ShareVC.m in Sources */,
 				B71305CE1F6818EC00735673 /* UIImage+JKR_MessageImage.m in Sources */,
+				B9DDF5C91FA3204F0019B1AD /* MyRateItem.m in Sources */,
 				B9DBA1601F8CA762008DA6E8 /* CreditCardTableViewCell.m in Sources */,
 				B71306761F68199500735673 /* BXTabBarButton.m in Sources */,
 				B71306A91F681B9E00735673 /* DateCenter.m in Sources */,
@@ -1578,6 +1603,7 @@
 				B9C0DC621FA079680002B5F5 /* GeneralTableViewCell.m in Sources */,
 				B99398CE1F73ACF0006470C1 /* CompanyInfoCell.m in Sources */,
 				B71306971F68199500735673 /* XYLoadingView.m in Sources */,
+				B9DDF5BF1FA318900019B1AD /* AboutOurVC.m in Sources */,
 				B71306821F68199500735673 /* UIViewController+MJPopupViewController.m in Sources */,
 				B9E83A2C1F6FB8E1003BD7E2 /* ManageCardCell.m in Sources */,
 				B713068A1F68199500735673 /* NSDate+Extension.m in Sources */,

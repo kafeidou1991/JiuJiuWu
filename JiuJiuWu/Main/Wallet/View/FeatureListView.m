@@ -34,6 +34,9 @@ static NSString * cellId = @"cellId";
     }
     return self;
 }
+-(void)reloadDate:(NSArray<NSDictionary *> *)dataArray {
+    
+}
 //增加分割线
 - (void)addSepLions {
     if (self.dataSource.count <= 3) {

@@ -8,7 +8,6 @@
 
 #import "RegistExtendVC.h"
 #import "CustomTableViewCell.h"
-#import "LoginVC.h"
 
 @interface RegistExtendVC ()<UITextFieldDelegate>
 

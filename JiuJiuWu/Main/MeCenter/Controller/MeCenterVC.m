@@ -7,13 +7,13 @@
 //
 
 #import "MeCenterVC.h"
-#import "LoginVC.h"
 #import "MeCenterHeadView.h"
 #import "ShareCell.h"
 #import "ManageCardVC.h"
 #import "ManagePasswordVC.h"
 #import "SettingVC.h"
 #import "CompanyInfoVC.h"
+#import "AboutOurVC.h"
 
 static CGFloat const headerHeight = 200.f; //顶部视图高度
 static CGFloat const space = 11.f;
@@ -91,8 +91,21 @@ static CGFloat const rowHeight = 50.f;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView.tag == 100) {
         if (indexPath.row == 0) {
-            ManagePasswordVC * VC = [[ManagePasswordVC alloc]init];
-            [self.navigationController pushViewController:VC animated:YES];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                dispatch_block_t t = ^(){
+                    ManagePasswordVC * VC = [[ManagePasswordVC alloc]init];
+                    [self.navigationController pushViewController:VC animated:YES];
+                };
+                if (![JJWLogin sharedMethod].isLogin) {
+                    [LoginVC OpenLogin:self callback:^(BOOL compliont) {
+                        if (compliont) {
+                            t();
+                        }
+                    }];
+                }else {
+                    t();
+                }
+            });
         }else if (indexPath.row == 1){
             
         }else if (indexPath.row == 2){
@@ -129,8 +142,16 @@ static CGFloat const rowHeight = 50.f;
                 }
             });
         }
+        
+        
+        //第二个tableView
     }else {
-        if (indexPath.row == 4) {
+        if (indexPath.row == 0) {
+            
+        }else if (indexPath.row == 2){
+            AboutOurVC * VC = [[AboutOurVC alloc]init];
+            [self.navigationController pushViewController:VC animated:YES];
+        }else if (indexPath.row == 4) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self jxt_showAlertWithTitle:@"温馨提示" message:@"您确定要退出么？" appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
                     alertMaker.addActionDefaultTitle(@"我再想想");

@@ -8,9 +8,10 @@
 
 #import "ShareVC.h"
 #import "ShareCell.h"
+#import "JJWWebViewVC.h"
 
 static CGFloat const space =10.f;
-
+#define ShareURL [NSString stringWithFormat:@"http://www.jiujiuwu.cn/mobile/share/qrcode/token/%@",[JJWLogin sharedMethod].loginData.token]
 @interface ShareVC ()
 
 @end
@@ -59,7 +60,28 @@ static CGFloat const space =10.f;
     [cell updateCell:self.dataSources[indexPath.section]];
     return cell;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            dispatch_block_t t = ^(){
+                JJWWebViewVC * VC = [[JJWWebViewVC alloc]init];
+                VC.urlString = ShareURL;
+                VC.isHiddenBottom = YES;
+                VC.title = @"分享二维码";
+                [self.navigationController pushViewController:VC animated:YES];
+            };
+            if (![JJWLogin sharedMethod].isLogin) {
+                [LoginVC OpenLogin:self callback:^(BOOL compliont) {
+                    if (compliont) {
+                        t();
+                    }
+                }];
+            }else {
+                t();
+            }
+        });
+    }
+}
 
 
 

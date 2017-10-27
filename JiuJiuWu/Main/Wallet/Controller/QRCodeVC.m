@@ -9,7 +9,6 @@
 #import "QRCodeVC.h"
 #import "SGScanningQRCodeView.h"
 #import <Photos/Photos.h>
-#import "LoginVC.h"
 #import "PaySuccessVC.h"
 
 

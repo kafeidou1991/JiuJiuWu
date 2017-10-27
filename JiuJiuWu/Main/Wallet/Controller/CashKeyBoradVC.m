@@ -40,9 +40,13 @@
     }
     WeakSelf
     self.keyBoradView.valueBlock = ^(NSString * str) {
-        QRCodeVC * VC = [[QRCodeVC alloc]init];
-        VC.amount = str;
-        [weakSelf.navigationController pushViewController:VC animated:YES];
+        if (str.doubleValue > 0) {
+            QRCodeVC * VC = [[QRCodeVC alloc]init];
+            VC.amount = str;
+            [weakSelf.navigationController pushViewController:VC animated:YES];
+        }else {
+            [JJWBase alertMessage:@"请输入指定金额" cb:nil];
+        }
     };
 }
 

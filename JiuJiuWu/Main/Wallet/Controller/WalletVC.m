@@ -18,6 +18,7 @@
 #import "QuickPayWebVC.h"
 #import "MyShopsVC.h"
 #import "BalanceVC.h"
+#import "MyRateVC.h"
 
 static CGFloat const headerHeight = 220; //顶部视图高度
 
@@ -27,6 +28,7 @@ static CGFloat const headerHeight = 220; //顶部视图高度
 @property (nonatomic, strong) HomeHeaderView * headerView;
 @property (nonatomic, strong) FeatureListView * centerView;
 @property (nonatomic, strong) UIImageView * bannerImageView;
+@property (nonatomic, strong) Version_App * version;
 
 @end
 
@@ -39,16 +41,19 @@ static CGFloat const headerHeight = 220; //顶部视图高度
     self.navigationItem.leftBarButtonItem = nil;
     [self addSubViews];
     //检查更新
-    [self checkVersion];
+    WeakSelf
+    [self checkVersion:^(Version_App * version) {
+        weakSelf.version = version;
+        [self.backView addSubview:self.centerView];
+        [self.backView addSubview:self.bannerImageView];
+        [self.backView setContentSize:CGSizeMake(SCreenWidth, _bannerImageView.bottom + 10)];
+    }];
 }
 
 - (void)addSubViews {
     [self.view addSubview:self.backView];
     [self.backView setContentInset:UIEdgeInsetsMake(headerHeight, 0, 0, 0)];
     [self.backView addSubview:self.headerView];
-    [self.backView addSubview:self.centerView];
-    [self.backView addSubview:self.bannerImageView];
-    [self.backView setContentSize:CGSizeMake(SCreenWidth, _bannerImageView.bottom + 10)];
 }
 - (void)_gotoVC:(SelectType)type {
     [[JJWLogin sharedMethod]checkInfo:self complete:^{
@@ -68,7 +73,8 @@ static CGFloat const headerHeight = 220; //顶部视图高度
             MyShopsVC * VC = [[MyShopsVC alloc]init];
             [self.navigationController pushViewController:VC animated:YES];
         }else if (type == SelectType_MyRate){
-            
+            MyRateVC * VC = [[MyRateVC alloc]init];
+            [self.navigationController pushViewController:VC animated:YES];
         }else if (type == SelectType_LeveUp){
             LevelUpVC * VC = [[LevelUpVC alloc]init];
             [self.navigationController pushViewController:VC animated:YES];
@@ -134,15 +140,23 @@ static CGFloat const headerHeight = 220; //顶部视图高度
 
 -(FeatureListView *)centerView {
     if (!_centerView) {
-        NSArray * array = @[@{@"image":@"featurelist_0",@"title":@"我的账户"},
-                            @{@"image":@"featurelist_1",@"title":@"我的分润"},
-                            @{@"image":@"featurelist_2",@"title":@"交易记录"},
-                            @{@"image":@"featurelist_3",@"title":@"我的商户"},
-                            @{@"image":@"featurelist_4",@"title":@"我的费率"},
-                            @{@"image":@"featurelist_5",@"title":@"我要升级"},
-                            @{@"image":@"featurelist_6",@"title":@"贷款"},
-                            @{@"image":@"featurelist_7",@"title":@"理财"},
-                            @{@"image":@"featurelist_8",@"title":@"更多"}];
+        NSArray * array = @[];
+        if (self.version.ischeck.integerValue == 1) {
+           array = @[@{@"image":@"featurelist_0",@"title":@"我的账户"},
+                @{@"image":@"featurelist_1",@"title":@"我的分润"},
+                @{@"image":@"featurelist_2",@"title":@"交易记录"},
+                @{@"image":@"featurelist_3",@"title":@"我的商户"},
+                @{@"image":@"featurelist_4",@"title":@"我的费率"},
+                @{@"image":@"featurelist_5",@"title":@"我要升级"},
+                @{@"image":@"featurelist_6",@"title":@"贷款"},
+                @{@"image":@"featurelist_7",@"title":@"理财"},
+                @{@"image":@"featurelist_8",@"title":@"更多"}];
+        }else {
+            array = @[@{@"image":@"featurelist_0",@"title":@"我的账户"},
+                      @{@"image":@"featurelist_1",@"title":@"我的分润"},
+                      @{@"image":@"featurelist_2",@"title":@"交易记录"},
+                      @{@"image":@"featurelist_3",@"title":@"我的商户"}];
+        }
         _centerView = [[FeatureListView alloc]initWithFrame:CGRectMake(0, _headerView.bottom - 40, SCreenWidth, 0) DataSourse:array];
         WeakSelf
         _centerView.typeBlock = ^(SelectType type) {

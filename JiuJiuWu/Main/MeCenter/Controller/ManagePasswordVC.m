@@ -19,7 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"密码管理";
-    self.dataSources = @[@"更改登录密码",@"更改交易密码",@"忘记交易密码"].mutableCopy;
+//    @"更改交易密码",@"忘记交易密码"
+    self.dataSources = @[@"更改登录密码"].mutableCopy;
     [self createTableView];
     
 }

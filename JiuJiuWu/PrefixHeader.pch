@@ -31,5 +31,6 @@
 #import "UIImage+TintColor.h"
 #import "BXExtensions.h"
 #import "NSString+category.h"
+#import "LoginVC.h"
 
 #endif /* PrefixHeader_pch */

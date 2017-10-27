@@ -10,7 +10,6 @@
 #import "UIImage+Extension.h"
 #import "MBProgressHUD.h"
 #import "BXNavigationController.h"
-#import "LoginVC.h"
 
 //#import "LoginViewController.h"
 
@@ -73,11 +72,18 @@
 }
 
 #pragma mark - 版本控制
-- (void)checkVersion{
+- (void)checkVersion:(void (^)(Version_App *))block{
     NSDictionary * dict = @{@"OS":@"2"};
     [JJWNetworkingTool PostWithUrl:CheckUpdate params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [self hudclose];
         Version_App * version = [Version_App yy_modelWithDictionary:responseObject];
+        if (!version) {
+            version = [[Version_App alloc]init];
+            version.ischeck = @"1";
+        }
+        if (block) {
+            block(version);
+        }
         if (STRISEMPTY(version.version_code)) {
             return;
         }
@@ -103,6 +109,10 @@
     } failed:^(NSError *error, id chaceResponseObject) {
         [self hudclose];
         [JJWBase alertMessage:error.domain cb:nil];
+        Version_App * version = [[Version_App alloc]init];
+        if (block) {
+            block(version);
+        }
     }];
 }
 - (void)toAppstore{

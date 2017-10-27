@@ -27,4 +27,6 @@ typedef void(^SelectTypeBlock)(SelectType);
 
 @property (nonatomic, copy) SelectTypeBlock typeBlock;
 
+- (void)reloadDate:(NSArray <NSDictionary *> *)dataArray;
+
 @end

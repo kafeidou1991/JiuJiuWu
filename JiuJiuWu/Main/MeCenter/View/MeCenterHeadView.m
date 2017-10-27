@@ -7,7 +7,6 @@
 //
 
 #import "MeCenterHeadView.h"
-#import "LoginVC.h"
 
 @interface MeCenterHeadView ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
