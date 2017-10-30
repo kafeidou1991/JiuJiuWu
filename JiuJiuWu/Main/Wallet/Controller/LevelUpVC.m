@@ -38,16 +38,19 @@
         return;
     }
     WeakSelf
-    if (!payTypeVC) {
-        payTypeVC = [[PayTypeVC alloc]init];
-    }
-    payTypeVC.block = ^(PayType type) {
-        [weakSelf dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideBottomBottom];
-        ConfirmPayVC * VC = [[ConfirmPayVC alloc]init];
-        VC.item = item;
-        [weakSelf.navigationController pushViewController:VC animated:YES];
-    };
-    [self presentPopupViewController:payTypeVC animationType:MJPopupViewAnimationSlideBottomBottom];
+//    if (!payTypeVC) {
+//        payTypeVC = [[PayTypeVC alloc]init];
+//    }
+//    payTypeVC.block = ^(PayType type) {
+//        [weakSelf dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideBottomBottom];
+//        ConfirmPayVC * VC = [[ConfirmPayVC alloc]init];
+//        VC.item = item;
+//        [weakSelf.navigationController pushViewController:VC animated:YES];
+//    };
+//    [self presentPopupViewController:payTypeVC animationType:MJPopupViewAnimationSlideBottomBottom];
+    ConfirmPayVC * VC = [[ConfirmPayVC alloc]init];
+    VC.item = item;
+    [weakSelf.navigationController pushViewController:VC animated:YES];
 }
 -(void)afterProFun {
     [self hudShow:self.view msg:STTR_ater_on];

@@ -93,7 +93,7 @@
 @property (nonatomic, copy) NSString * is_force; //公告
 @property (nonatomic, copy) NSString * content; //公告
 @property (nonatomic, copy) NSString * dl_url; //请求的地址
-@property (nonatomic, copy) NSString * ischeck;
+@property (nonatomic, copy) NSString * is_open; //是否开发审核开关
 @end
 
 @interface BankItem : DateCenter

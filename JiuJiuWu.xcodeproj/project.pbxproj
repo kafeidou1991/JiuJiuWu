@@ -159,6 +159,7 @@
 		B9C0E1151F6BB8B000F4D296 /* FeatureListView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0E1141F6BB8B000F4D296 /* FeatureListView.m */; };
 		B9C0E1191F6BBDC600F4D296 /* FeatureListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C0E1171F6BBDC600F4D296 /* FeatureListCell.m */; };
 		B9C0E11A1F6BBDC600F4D296 /* FeatureListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C0E1181F6BBDC600F4D296 /* FeatureListCell.xib */; };
+		B9C8F65D1FA6C07600B711B4 /* ShareWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C8F65C1FA6C07600B711B4 /* ShareWebVC.m */; };
 		B9DBA1551F8CA6F8008DA6E8 /* CreditCardInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DBA1541F8CA6F8008DA6E8 /* CreditCardInfoVC.m */; };
 		B9DBA15F1F8CA762008DA6E8 /* TwoCreditInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DBA1561F8CA760008DA6E8 /* TwoCreditInfoTableViewCell.m */; };
 		B9DBA1601F8CA762008DA6E8 /* CreditCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DBA1591F8CA761008DA6E8 /* CreditCardTableViewCell.m */; };
@@ -473,6 +474,8 @@
 		B9C0E1161F6BBDC600F4D296 /* FeatureListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureListCell.h; sourceTree = "<group>"; };
 		B9C0E1171F6BBDC600F4D296 /* FeatureListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureListCell.m; sourceTree = "<group>"; };
 		B9C0E1181F6BBDC600F4D296 /* FeatureListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeatureListCell.xib; sourceTree = "<group>"; };
+		B9C8F65B1FA6C07600B711B4 /* ShareWebVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareWebVC.h; sourceTree = "<group>"; };
+		B9C8F65C1FA6C07600B711B4 /* ShareWebVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareWebVC.m; sourceTree = "<group>"; };
 		B9DBA1521F8CA6F8008DA6E8 /* CreditCardInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreditCardInfoVC.h; sourceTree = "<group>"; };
 		B9DBA1531F8CA6F8008DA6E8 /* CreditCardInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditCardInfoVC.xib; sourceTree = "<group>"; };
 		B9DBA1541F8CA6F8008DA6E8 /* CreditCardInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreditCardInfoVC.m; sourceTree = "<group>"; };
@@ -1024,6 +1027,8 @@
 			children = (
 				B98496161F690C7A00C5A9C3 /* ShareVC.h */,
 				B98496171F690C7A00C5A9C3 /* ShareVC.m */,
+				B9C8F65B1FA6C07600B711B4 /* ShareWebVC.h */,
+				B9C8F65C1FA6C07600B711B4 /* ShareWebVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1534,6 +1539,7 @@
 				B713066A1F68199500735673 /* UILabel+Extension.m in Sources */,
 				B9C0DC571FA078240002B5F5 /* IncomeTableViewCell.m in Sources */,
 				B97260C11F78EA9000429C5E /* LevelItem.m in Sources */,
+				B9C8F65D1FA6C07600B711B4 /* ShareWebVC.m in Sources */,
 				B7534EC71F7008DF007DD232 /* ManagePasswordVC.m in Sources */,
 				B71305D31F6818EC00735673 /* UIView+cate.m in Sources */,
 				B713067E1F68199500735673 /* JXTAlertController.m in Sources */,

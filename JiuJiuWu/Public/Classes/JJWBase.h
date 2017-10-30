@@ -14,7 +14,6 @@
 #define CommonBackgroudColor UIColorFromRGB(0xF2F3F4)
 #define STRISEMPTY(str) (str==nil || [str isEqual:[NSNull null]] || [str isEqualToString:@""])
 #define IMAGEISEMPTY(img) (img==nil || img.size.width == 0)
-#define APP_Address @"https://itunes.apple.com/us/app/%E9%93%B6%E6%99%BA%E4%BB%98/id1221203134?mt=8"
 
 //处理颜色
 #define UIColorRGB(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
@@ -74,7 +73,20 @@ alpha:alphaValue]
 #define APP_VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
 #define APP_NAME [[NSBundle mainBundle]objectForInfoDictionaryKey:@"CFBundleDisplayName"]
 #define APP_ID  @"49ba59abbe56e057" //针对不同App拥有不同的appid
-#define APP_INVITE_CODE [NSString stringWithFormat:@"http://yinzhifu.yongqingjt.com/index/member/register.html?invitationCodea=%@",[JJWLogin sharedMethod].loginData.member.invitation_codea]
+
+#pragma mark - 相关H5 链接
+//分享链接
+#define ShareURL [NSString stringWithFormat:@"http://www.jiujiuwu.cn/mobile/share/qrcode/token/%@",[JJWLogin sharedMethod].loginData.token]
+//协议
+#define AgreementURL @"http://www.jiujiuwu.cn/mobile/share/agreement"
+//关羽我们
+#define AbountOurURL @"http://www.jiujiuwu.cn/mobile/share/about"
+//操作手册
+#define ManualURL @"http://www.jiujiuwu.cn/mobile/share/manual"
+//热线电话
+#define TelMobile @"tel://4000596818"
+
+#define LevelUpURL [NSString stringWithFormat:@"http://www.jiujiuwu.cn/mobile/user/upgrade/token/%@",[JJWLogin sharedMethod].loginData.token]
 
 #define Segment_height 30
 #define STTR_ater_on @"请稍后..."

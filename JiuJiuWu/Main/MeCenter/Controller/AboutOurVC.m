@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title =@"关于我们";
+    self.title =@"版本号";
     self.aboutLabel.text = [NSString stringWithFormat:@"%@  %@",APP_NAME,APP_VERSION];
 }
 

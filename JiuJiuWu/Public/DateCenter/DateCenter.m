@@ -8,8 +8,6 @@
 
 #import "DateCenter.h"
 
-
-
 @implementation DateCenter
 
 @end
@@ -23,6 +21,7 @@
 @end
 
 @implementation Version_App
+
 @end
 @implementation BankItem
 

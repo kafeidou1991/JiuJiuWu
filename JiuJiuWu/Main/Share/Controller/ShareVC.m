@@ -11,7 +11,6 @@
 #import "JJWWebViewVC.h"
 
 static CGFloat const space =10.f;
-#define ShareURL [NSString stringWithFormat:@"http://www.jiujiuwu.cn/mobile/share/qrcode/token/%@",[JJWLogin sharedMethod].loginData.token]
 @interface ShareVC ()
 
 @end
@@ -35,7 +34,7 @@ static CGFloat const space =10.f;
 }
 #pragma mark - tableiView
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataSources.count;
+    return 1;//self.dataSources.count;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;

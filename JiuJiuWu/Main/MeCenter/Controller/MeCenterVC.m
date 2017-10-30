@@ -14,6 +14,7 @@
 #import "SettingVC.h"
 #import "CompanyInfoVC.h"
 #import "AboutOurVC.h"
+#import "JJWWebViewVC.h"
 
 static CGFloat const headerHeight = 200.f; //顶部视图高度
 static CGFloat const space = 11.f;
@@ -23,7 +24,7 @@ static CGFloat const rowHeight = 50.f;
 @property (nonatomic, strong) UIScrollView * backView;
 @property (nonatomic, strong) UITableView * firstTableView;
 @property (nonatomic, strong) UITableView * secondTableView;
-@property (nonatomic, strong) NSArray * dataSources;
+@property (nonatomic, strong) NSMutableArray * dataSources;
 @property (nonatomic, strong) MeCenterHeadView * headerView;
 
 @end
@@ -38,7 +39,6 @@ static CGFloat const rowHeight = 50.f;
     [self reloadDataSources];
     [self addSubViews];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kLoginSuccess object:nil];
-    
 }
 //登录成功
 - (void)loginSuccess {
@@ -89,83 +89,95 @@ static CGFloat const rowHeight = 50.f;
     return rowHeight;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (tableView.tag == 100) {
-        if (indexPath.row == 0) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                dispatch_block_t t = ^(){
-                    ManagePasswordVC * VC = [[ManagePasswordVC alloc]init];
-                    [self.navigationController pushViewController:VC animated:YES];
-                };
-                if (![JJWLogin sharedMethod].isLogin) {
-                    [LoginVC OpenLogin:self callback:^(BOOL compliont) {
-                        if (compliont) {
-                            t();
-                        }
-                    }];
-                }else {
-                    t();
-                }
-            });
-        }else if (indexPath.row == 1){
-            
-        }else if (indexPath.row == 2){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                dispatch_block_t t = ^(){
-                    ManageCardVC * VC = [[ManageCardVC alloc]init];
-                    VC.type = BindChangeCardType;
-                    [self.navigationController pushViewController:VC animated:YES];
-                };
-                if (![JJWLogin sharedMethod].isLogin) {
-                    [LoginVC OpenLogin:self callback:^(BOOL compliont) {
-                        if (compliont) {
-                            t();
-                        }
-                    }];
-                }else {
-                    t();
-                }
-            });
-        }else if (indexPath.row == 3){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                dispatch_block_t t = ^(){
-                    CompanyInfoVC * VC = [[CompanyInfoVC alloc]init];
-                    [self.navigationController pushViewController:VC animated:YES];
-                };
-                if (![JJWLogin sharedMethod].isLogin) {
-                    [LoginVC OpenLogin:self callback:^(BOOL compliont) {
-                        if (compliont) {
-                            t();
-                        }
-                    }];
-                }else {
-                    t();
-                }
-            });
-        }
-        
-        
-        //第二个tableView
-    }else {
-        if (indexPath.row == 0) {
-            
-        }else if (indexPath.row == 2){
-            AboutOurVC * VC = [[AboutOurVC alloc]init];
-            [self.navigationController pushViewController:VC animated:YES];
-        }else if (indexPath.row == 4) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self jxt_showAlertWithTitle:@"温馨提示" message:@"您确定要退出么？" appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
-                    alertMaker.addActionDefaultTitle(@"我再想想");
-                    alertMaker.addActionDefaultTitle(@"确定");
-                } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
-                    if (buttonIndex == 1) {
-                        [self exitAction];
+    NSArray * titleArray = (NSArray *)self.dataSources[tableView.tag - 100];
+    NSString * title = [[titleArray objectAtIndex:indexPath.row]objectForKey:@"title"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([title isEqualToString:@"密码管理"]) {
+            dispatch_block_t t = ^(){
+                ManagePasswordVC * VC = [[ManagePasswordVC alloc]init];
+                [self.navigationController pushViewController:VC animated:YES];
+            };
+            if (![JJWLogin sharedMethod].isLogin) {
+                [LoginVC OpenLogin:self callback:^(BOOL compliont) {
+                    if (compliont) {
+                        t();
                     }
                 }];
-            });
+            }else {
+                t();
+            }
+        }else if ([title isEqualToString:@"更换手机号"]) {
+            //do something
+        }else if ([title isEqualToString:@"结算卡管理"]) {
+            dispatch_block_t t = ^(){
+                ManageCardVC * VC = [[ManageCardVC alloc]init];
+                VC.type = BindChangeCardType;
+                [self.navigationController pushViewController:VC animated:YES];
+            };
+            if (![JJWLogin sharedMethod].isLogin) {
+                [LoginVC OpenLogin:self callback:^(BOOL compliont) {
+                    if (compliont) {
+                        t();
+                    }
+                }];
+            }else {
+                t();
+            }
+        }else if ([title isEqualToString:@"企业商户信息"]) {
+            dispatch_block_t t = ^(){ //企业商户信息
+                CompanyInfoVC * VC = [[CompanyInfoVC alloc]init];
+                [self.navigationController pushViewController:VC animated:YES];
+            };
+            if (![JJWLogin sharedMethod].isLogin) {
+                [LoginVC OpenLogin:self callback:^(BOOL compliont) {
+                    if (compliont) {
+                        t();
+                    }
+                }];
+            }else {
+                t();
+            }
+        }else if ([title isEqualToString:@"用户协议"]) {
+            JJWWebViewVC * VC = [[JJWWebViewVC alloc]init];
+            VC.urlString = AgreementURL;
+            VC.isHiddenBottom = YES;
+            VC.title = title;
+            [self.navigationController pushViewController:VC animated:YES];
+        }else if ([title isEqualToString:@"费率信息"]) {
+            JJWWebViewVC * VC = [[JJWWebViewVC alloc]init];
+            VC.urlString = AgreementURL;
+            VC.isHiddenBottom = YES;
+            VC.title = title;
+            [self.navigationController pushViewController:VC animated:YES];
+        }else if ([title isEqualToString:@"操作手册"]) {
+            JJWWebViewVC * VC = [[JJWWebViewVC alloc]init];
+            VC.urlString = ManualURL;
+            VC.isHiddenBottom = YES;
+            VC.title = title;
+            [self.navigationController pushViewController:VC animated:YES];
+        }else if ([title isEqualToString:@"版本号"]) {
+            AboutOurVC * VC = [[AboutOurVC alloc]init];
+            [self.navigationController pushViewController:VC animated:YES];
+        }else if ([title isEqualToString:@"关于我们"]) {
+            JJWWebViewVC * VC = [[JJWWebViewVC alloc]init];
+            VC.urlString = AbountOurURL;
+            VC.isHiddenBottom = YES;
+            VC.title = title;
+            [self.navigationController pushViewController:VC animated:YES];
+        }else if ([title isEqualToString:@"客服热线"]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:TelMobile]];
+        }else if ([title isEqualToString:@"退出登录"]) {
+            [self jxt_showAlertWithTitle:@"温馨提示" message:@"您确定要退出么？" appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
+                alertMaker.addActionDefaultTitle(@"我再想想");
+                alertMaker.addActionDefaultTitle(@"确定");
+            } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
+                if (buttonIndex == 1) {
+                    [self exitAction];
+                }
+            }];
         }
-    }
+    });
 }
-
 
 -(ShareCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * cellId = @"cellId";
@@ -254,7 +266,7 @@ static CGFloat const rowHeight = 50.f;
 }
 
 - (void)reloadDataSources {
-    if ([JJWLogin sharedMethod].isLogin) {
+    if ([JJWLogin sharedMethod].version.is_open.integerValue == 1) {
         self.dataSources = @[@[@{@"image":@"center_icon_0",@"title":@"密码管理"},
                                @{@"image":@"center_icon_1",@"title":@"更换手机号"},
                                @{@"image":@"center_icon_2",@"title":@"结算卡管理"},
@@ -265,20 +277,20 @@ static CGFloat const rowHeight = 50.f;
                              @[@{@"image":@"center_icon_6",@"title":@"操作手册"},
                                @{@"image":@"center_icon_7",@"title":@"版本号"},
                                @{@"image":@"center_icon_8",@"title":@"关于我们"},
-                               @{@"image":@"center_icon_9",@"title":@"客服热线"},
-                               @{@"image":@"center_icon_10",@"title":@"退出登录"}]];
+                               @{@"image":@"center_icon_9",@"title":@"客服热线"}]].mutableCopy;
     }else {
         self.dataSources = @[@[@{@"image":@"center_icon_0",@"title":@"密码管理"},
-                               @{@"image":@"center_icon_1",@"title":@"更换手机号"},
                                @{@"image":@"center_icon_2",@"title":@"结算卡管理"},
-                               @{@"image":@"center_icon_3",@"title":@"企业商户信息"},
-                               @{@"image":@"center_icon_4",@"title":@"用户协议"},
-                               @{@"image":@"center_icon_5",@"title":@"费率信息"}],
+                               @{@"image":@"center_icon_3",@"title":@"企业商户信息"}],
                              
-                             @[@{@"image":@"center_icon_6",@"title":@"操作手册"},
-                               @{@"image":@"center_icon_7",@"title":@"版本号"},
-                               @{@"image":@"center_icon_8",@"title":@"关于我们"},
-                               @{@"image":@"center_icon_9",@"title":@"客服热线"}]];
+                             @[@{@"image":@"center_icon_7",@"title":@"版本号"},
+                               @{@"image":@"center_icon_9",@"title":@"客服热线"}]].mutableCopy;
+    }
+    
+    if ([JJWLogin sharedMethod].isLogin) {
+        NSMutableArray * tempArray = [[self.dataSources objectAtIndex:1] mutableCopy];
+        [tempArray addObject:@{@"image":@"center_icon_10",@"title":@"退出登录"}];
+        [self.dataSources replaceObjectAtIndex:1 withObject:tempArray.copy];
     }
 }
 

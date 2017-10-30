@@ -79,7 +79,8 @@
         Version_App * version = [Version_App yy_modelWithDictionary:responseObject];
         if (!version) {
             version = [[Version_App alloc]init];
-            version.ischeck = @"1";
+            version.is_open = @"1";
+            [JJWLogin sharedMethod].version = version;
         }
         if (block) {
             block(version);
@@ -95,7 +96,7 @@
             WeakSelf
             [_alarmMessage showAlarm:@"更新提示" msg:STRISEMPTY(version.content)?@"发现新版本":version.content cancelButtonTitle:@"取消" otherButtonTitle:@"更新" callBack:^(int buttonIndex) {
                 if (buttonIndex == 1) {
-                    [weakSelf toAppstore];
+                    [weakSelf toAppstore:version];
                     if ([version.is_force isEqualToString:@"1"]) {
                         exit(0);
                     }
@@ -115,8 +116,12 @@
         }
     }];
 }
-- (void)toAppstore{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_Address]];
+- (void)toAppstore:(Version_App *)version{
+    if (!STRISEMPTY(version.dl_url)) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:version.dl_url]];
+    }else {
+        [JJWBase alertMessage:@"请求地址为空" cb:nil];
+    }
     
 }
 //如果当前版本小于系统返回版本，则需要提示升级

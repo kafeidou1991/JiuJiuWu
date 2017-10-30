@@ -45,8 +45,12 @@ static CGFloat const headerHeight = 220; //顶部视图高度
     [self checkVersion:^(Version_App * version) {
         weakSelf.version = version;
         [self.backView addSubview:self.centerView];
-        [self.backView addSubview:self.bannerImageView];
-        [self.backView setContentSize:CGSizeMake(SCreenWidth, _bannerImageView.bottom + 10)];
+        if (version.is_open.integerValue == 1) {
+            [self.backView addSubview:self.bannerImageView];
+            [self.backView setContentSize:CGSizeMake(SCreenWidth, _bannerImageView.bottom + 10)];
+        }else {
+            [self.backView setContentSize:CGSizeMake(SCreenWidth, _centerView.bottom + 10)];
+        }
     }];
 }
 
@@ -76,14 +80,17 @@ static CGFloat const headerHeight = 220; //顶部视图高度
             MyRateVC * VC = [[MyRateVC alloc]init];
             [self.navigationController pushViewController:VC animated:YES];
         }else if (type == SelectType_LeveUp){
-            LevelUpVC * VC = [[LevelUpVC alloc]init];
+//            LevelUpVC * VC = [[LevelUpVC alloc]init];
+//            [self.navigationController pushViewController:VC animated:YES];
+            JJWWebViewVC * VC = [[JJWWebViewVC alloc]init];
+            VC.urlString = LevelUpURL;
+            VC.isHiddenBottom = YES;
+            VC.title = @"我要升级";
             [self.navigationController pushViewController:VC animated:YES];
-        }else if (type == SelectType_Loan){
-            
-        }else if (type == SelectType_Money){
-            
-        }else if (type == SelectType_More){
-            
+        }else if (type == SelectType_Loan || type == SelectType_Money || type == SelectType_More){
+            [self jxt_showAlertWithTitle:@"温馨提示" message:@"攻城狮正在玩命开发中..." appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
+                alertMaker.addActionCancelTitle(@"我知道了");
+            } actionsBlock:nil];
         }
     }];
 }
@@ -141,7 +148,7 @@ static CGFloat const headerHeight = 220; //顶部视图高度
 -(FeatureListView *)centerView {
     if (!_centerView) {
         NSArray * array = @[];
-        if (self.version.ischeck.integerValue == 1) {
+        if (self.version.is_open.integerValue == 1) {
            array = @[@{@"image":@"featurelist_0",@"title":@"我的账户"},
                 @{@"image":@"featurelist_1",@"title":@"我的分润"},
                 @{@"image":@"featurelist_2",@"title":@"交易记录"},
@@ -153,9 +160,8 @@ static CGFloat const headerHeight = 220; //顶部视图高度
                 @{@"image":@"featurelist_8",@"title":@"更多"}];
         }else {
             array = @[@{@"image":@"featurelist_0",@"title":@"我的账户"},
-                      @{@"image":@"featurelist_1",@"title":@"我的分润"},
                       @{@"image":@"featurelist_2",@"title":@"交易记录"},
-                      @{@"image":@"featurelist_3",@"title":@"我的商户"}];
+                      @{@"image":@"featurelist_8",@"title":@"更多"}];
         }
         _centerView = [[FeatureListView alloc]initWithFrame:CGRectMake(0, _headerView.bottom - 40, SCreenWidth, 0) DataSourse:array];
         WeakSelf

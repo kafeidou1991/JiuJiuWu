@@ -30,8 +30,10 @@
 @property(nonatomic,assign, readonly) BOOL isLogin;
 
 @property (nonatomic, assign) BOOL isVisitor;//是否是体验用户
-
+//登录数据
 @property (nonatomic, strong) DloginData * loginData;
+//版本信息
+@property (nonatomic, strong) Version_App * version;
 
 +(instancetype) sharedMethod;
 
