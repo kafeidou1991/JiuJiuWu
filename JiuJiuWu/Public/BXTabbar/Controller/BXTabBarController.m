@@ -108,7 +108,7 @@
 - (void)addAllChildVc {
     // 添加初始化子控制器 BXHomeViewController
     WalletVC *moduleHomeVC = [[WalletVC alloc] init];
-    [self addOneChildVC:moduleHomeVC title:@"51钱包" imageName:@"tabBar_wallet" selectedImageName:@"tabBar_wallet_Select"];
+    [self addOneChildVC:moduleHomeVC title:@"钱包" imageName:@"tabBar_wallet" selectedImageName:@"tabBar_wallet_Select"];
 //    ShareWebVC *mainCourseVC = [[ShareWebVC alloc]init];
     ShareVC *mainCourseVC = [[ShareVC alloc]init];
     [self addOneChildVC:mainCourseVC title:@"分享" imageName:@"tabBar_share" selectedImageName:@"tabBar_share_Select"];
