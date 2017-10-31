@@ -133,6 +133,7 @@ static CGFloat const headerHeight = 220; //顶部视图高度
                 }else if (index == 1){
                     QuickPayWebVC * VC = [[QuickPayWebVC alloc]init];
                     VC.urlString = QuickPayUrl;
+                    VC.isHiddenBottom = YES;
                     [weakSelf.navigationController pushViewController:VC animated:YES];
                 }else if (index == 2){
                     QRPayCodeVC * VC = [[QRPayCodeVC alloc]init];
@@ -178,19 +179,6 @@ static CGFloat const headerHeight = 220; //顶部视图高度
     }
     return _bannerImageView;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

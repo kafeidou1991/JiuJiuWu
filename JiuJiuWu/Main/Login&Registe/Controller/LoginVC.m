@@ -24,6 +24,8 @@
 
 - (IBAction)closeAction:(UIButton *)sender;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *closeTopLayout;
+
 @end
 
 @implementation LoginVC
@@ -33,7 +35,7 @@
     self.registBtn.layer.borderColor = themeColor.CGColor;
     self.registBtn.layer.borderWidth = 1.f;
     self.topSpace.constant = IS_IPHONE5 ? 32.f : 64.f;
-    
+    self.closeTopLayout.constant = STATUS_BAR_HEIGHT;
     [self.closeBtn setImage:[[UIImage imageNamed:@"closePage"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     [self.closeBtn setImage:[[UIImage imageNamed:@"closePage"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateSelected];
     [self.closeBtn setImage:[[UIImage imageNamed:@"closePage"]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateHighlighted];
@@ -70,10 +72,6 @@
         [weakSelf hudclose];
         //登录成功
         DloginData * data = [DloginData yy_modelWithDictionary:responseObject];
-        
-//        data.merchant_checked =@"0";
-//        data.realname_checked =@"2";
-        
         [[JJWLogin sharedMethod]saveLoginData:data];
         [self backAction:nil];
         if (self.loginCompletion) {

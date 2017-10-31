@@ -77,11 +77,8 @@
     [JJWNetworkingTool PostWithUrl:CheckUpdate params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [self hudclose];
         Version_App * version = [Version_App yy_modelWithDictionary:responseObject];
-        if (!version) {
-            version = [[Version_App alloc]init];
-            version.is_open = @"1";
-            [JJWLogin sharedMethod].version = version;
-        }
+//        version.is_open = @"1";
+        [JJWLogin sharedMethod].version = version;
         if (block) {
             block(version);
         }

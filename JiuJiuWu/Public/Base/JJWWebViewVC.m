@@ -173,7 +173,7 @@ initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completi
     if (!_webView) {
         WKWebViewConfiguration *conf = [[WKWebViewConfiguration alloc] init];
         conf.userContentController = [WKUserContentController new];
-        _webView = [[WKWebView alloc]initWithFrame:CGRectMake(0,0,SCreenWidth,SCreenHegiht- 64 - (_isHiddenBottom ? 0 : 49)) configuration:conf];
+        _webView = [[WKWebView alloc]initWithFrame:CGRectMake(0,0,SCreenWidth,SCreenHegiht- NAVIGATION_BAR_HEIGHT - (_isHiddenBottom ? 0 : kTabBarHeight)) configuration:conf];
         _webView.navigationDelegate = self;
         _webView.UIDelegate = self;
         //添加观察者

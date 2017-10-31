@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC">
             <connections>
                 <outlet property="closeBtn" destination="plP-o3-yay" id="hSa-fP-D5V"/>
+                <outlet property="closeTopLayout" destination="Dkj-6k-hpa" id="zpw-ZF-Iw4"/>
                 <outlet property="mobileTextField" destination="LML-XX-05o" id="eI4-PX-c1r"/>
                 <outlet property="passwordTextField" destination="0Sc-G8-Phz" id="iny-R8-zD0"/>
                 <outlet property="registBtn" destination="hHa-yH-m1T" id="yP6-EL-kBD"/>
@@ -26,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" highlightedImage="loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="vqM-XF-aNZ">
-                    <rect key="frame" x="107" y="64" width="160" height="160.5"/>
+                    <rect key="frame" x="107.5" y="64" width="160" height="160.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="vqM-XF-aNZ" secondAttribute="height" multiplier="1:1" id="I92-p0-Sqk"/>
                         <constraint firstAttribute="width" constant="160" id="abw-2O-azh"/>
@@ -134,7 +135,7 @@
             <constraints>
                 <constraint firstItem="LML-XX-05o" firstAttribute="leading" secondItem="8de-Ve-3mk" secondAttribute="trailing" constant="11" id="3GZ-jI-gZJ"/>
                 <constraint firstItem="4bC-cl-avn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="11" id="9zc-4Y-rzN"/>
-                <constraint firstItem="plP-o3-yay" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="Aql-Ub-ShV"/>
+                <constraint firstItem="plP-o3-yay" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="Dkj-6k-hpa"/>
                 <constraint firstItem="hHa-yH-m1T" firstAttribute="top" secondItem="4bC-cl-avn" secondAttribute="bottom" constant="20" id="Fgr-PA-rpT"/>
                 <constraint firstItem="8de-Ve-3mk" firstAttribute="top" secondItem="vqM-XF-aNZ" secondAttribute="bottom" constant="40" id="Ip5-0F-ShY"/>
                 <constraint firstAttribute="trailing" secondItem="4bC-cl-avn" secondAttribute="trailing" constant="11" id="Kpz-E4-wwm"/>

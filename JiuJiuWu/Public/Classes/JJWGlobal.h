@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "DateCenter.h"
 @class JJWBaseVC;
-
-#define SCreenWidth      (([UIScreen mainScreen].bounds.size.width > [UIScreen mainScreen].bounds.size.height)?([UIScreen mainScreen].bounds.size.height):([UIScreen mainScreen].bounds.size.width))
-#define SCreenHegiht     (([UIScreen mainScreen].bounds.size.height < [UIScreen mainScreen].bounds.size.width)?([UIScreen mainScreen].bounds.size.width):([UIScreen mainScreen].bounds.size.height))
 #define LOGIN_DATA_KEY @"LOGIN_DATA_KEY"
 
 @interface JJWGlobal : NSObject

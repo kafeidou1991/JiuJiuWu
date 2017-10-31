@@ -190,25 +190,27 @@ static CGFloat thirdHeight = 750.f;
     }];
 }
 - (void)saveUpdateDate:(id)result {
-    self.currCardItem.account = [result objectForKey:@"account"];
-    self.currCardItem.account_name = [result objectForKey:@"account_name"];
-    self.currCardItem.account_mobile = [result objectForKey:@"account_mobile"];
-    self.currCardItem.account_type = [result objectForKey:@"account_type"];
-    self.currCardItem.province = [result objectForKey:@"province"];
-    self.currCardItem.district = [result objectForKey:@"district"];
-    self.currCardItem.city = [result objectForKey:@"city"];
-    self.currCardItem.idcard_number = [result objectForKey:@"idcard_number"];
-    self.currCardItem.idcard_img_one = [result objectForKey:@"idcard_img_one"];
-    self.currCardItem.idcard_img_two = [result objectForKey:@"idcard_img_two"];
-    self.currCardItem.idcard_img_three = [result objectForKey:@"idcard_img_three"];
-    self.currCardItem.shop_head_img = [result objectForKey:@"shop_head_img"];
-    self.currCardItem.shop_inner_img = [result objectForKey:@"shop_inner_img"];
-    self.currCardItem.shop_cash_img = [result objectForKey:@"shop_cash_img"];
-    self.currCardItem.contract_img_one = [result objectForKey:@"contract_img_one"];
-    self.currCardItem.contract_img_two = [result objectForKey:@"contract_img_two"];
-    self.currCardItem.open_branch = [result objectForKey:@"open_branch"];
-    self.currCardItem.bank_code = [result objectForKey:@"bank_code"];
-    self.currCardItem.realname_checked = [result objectForKey:@"realname_checked"];
+    DloginData * tempData = [DloginData yy_modelWithJSON:result];
+    self.currCardItem.account = tempData.account;
+    self.currCardItem.account_name = tempData.account_name;
+    self.currCardItem.account_mobile = tempData.account_mobile;
+    self.currCardItem.account_type = tempData.account_type;
+    self.currCardItem.province = tempData.province;
+    self.currCardItem.district = tempData.district;
+    self.currCardItem.city = tempData.city;
+    self.currCardItem.address_detail = tempData.address_detail;
+    self.currCardItem.idcard_number = tempData.idcard_number;
+    self.currCardItem.idcard_img_one = tempData.idcard_img_one;
+    self.currCardItem.idcard_img_two = tempData.idcard_img_two;
+    self.currCardItem.idcard_img_three = tempData.idcard_img_three;
+    self.currCardItem.shop_head_img = tempData.shop_head_img;
+    self.currCardItem.shop_inner_img = tempData.shop_inner_img;
+    self.currCardItem.shop_cash_img = tempData.shop_cash_img;
+    self.currCardItem.contract_img_one = tempData.contract_img_one;
+    self.currCardItem.contract_img_two = tempData.contract_img_two;
+    self.currCardItem.open_branch = tempData.open_branch;
+    self.currCardItem.bank_code = tempData.bank_code;
+    self.currCardItem.realname_checked = tempData.realname_checked;
 }
 - (NSString *) base64Str:(UIImage *)image {
     NSData * data = UIImageJPEGRepresentation(image, 0.0);

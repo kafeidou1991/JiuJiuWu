@@ -54,7 +54,8 @@
     self.titleLabel.x = 0;
     self.titleLabel.width = self.width;
     self.titleLabel.height = 20;
-    self.titleLabel.y = self.height - self.titleLabel.height;    
+    //适配iPhone X
+    self.titleLabel.y = self.height - self.titleLabel.height - HOME_INDICATOR_HEIGHT;
     // 图片位置
 //    self.imageView.width = 35;
 //    self.imageView.height = 35;

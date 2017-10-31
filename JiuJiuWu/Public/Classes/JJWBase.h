@@ -42,10 +42,6 @@ alpha:alphaValue]
 #define SuperPartner [NSString stringWithFormat:@"http://yinzhifu.yongqingjt.com/index/member/upgrade.html?member_id=%@",[JJWLogin sharedMethod].loginData.member.cmid]
 #define CardApplyUrl @"http://lx.jifuzf.com/mobile/index/lx_xin?id=VzVng2zX&aciton=1.html"
 
-#define kTabBarHeight 49
-
-#define NAVIGATION_BAR_HEIGHT   64.0f
-
 // xcode8 bug
 #ifdef DEBUG
 #define DLog(format, ...) printf("class: < %s:(%d) > method: %s \n%s\n", [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __PRETTY_FUNCTION__, [[NSString stringWithFormat:(format), ##__VA_ARGS__] UTF8String] )
@@ -54,11 +50,22 @@ alpha:alphaValue]
 #endif
 
 #pragma mark - 设备相关
-
+#define SCreenWidth      (([UIScreen mainScreen].bounds.size.width > [UIScreen mainScreen].bounds.size.height)?([UIScreen mainScreen].bounds.size.height):([UIScreen mainScreen].bounds.size.width))
+#define SCreenHegiht     (([UIScreen mainScreen].bounds.size.height < [UIScreen mainScreen].bounds.size.width)?([UIScreen mainScreen].bounds.size.width):([UIScreen mainScreen].bounds.size.height))
 #define IS_IPHONE4 [[UIScreen mainScreen] bounds].size.height == 480.0f
 #define IS_IPHONE5 [[UIScreen mainScreen] bounds].size.height == 568.0f
 #define IS_IPHONE6 [[UIScreen mainScreen] bounds].size.height == 667.0f
 #define IS_IPHONE6_PLUS [[UIScreen mainScreen] bounds].size.height == 736.0f
+// 判断是否是iPhone X
+#define IS_IPHONEX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+// 状态栏高度
+#define STATUS_BAR_HEIGHT (IS_IPHONEX ? 44.f : 20.f)
+// 导航栏高度
+#define NAVIGATION_BAR_HEIGHT (IS_IPHONEX ? 88.f : 64.f)
+// home indicator
+#define HOME_INDICATOR_HEIGHT (IS_IPHONEX ? 34.f : 0.f)
+// tabBar高度
+#define kTabBarHeight (IS_IPHONEX ? (49.f + 34.f) : 49.f)
 
 #pragma mark - 系统相关
 
@@ -72,7 +79,7 @@ alpha:alphaValue]
 #define BLACKBAR_BUTTON [JJWBase backButton:self action:@selector(backAction:)]
 #define APP_VERSION [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
 #define APP_NAME [[NSBundle mainBundle]objectForInfoDictionaryKey:@"CFBundleDisplayName"]
-#define APP_ID  @"49ba59abbe56e057" //针对不同App拥有不同的appid
+#define APP_ID  @"1282870764" //针对不同App拥有不同的appid
 
 #pragma mark - 相关H5 链接
 //分享链接

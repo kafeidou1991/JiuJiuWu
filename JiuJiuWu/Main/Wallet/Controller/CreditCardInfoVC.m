@@ -290,7 +290,7 @@ static const CGFloat pickHeight = 120.f;
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [UIView animateWithDuration:0.25 animations:^{
-        self.pickView.top = SCreenHegiht - NAVIGATION_BAR_HEIGHT;
+        self.pickView.top = SCreenHegiht - NAVIGATION_BAR_HEIGHT - HOME_INDICATOR_HEIGHT;
     }];
 }
 #pragma mark - pickView delegate
@@ -316,14 +316,14 @@ static const CGFloat pickHeight = 120.f;
     return customLabel;
 }
 - (void) _openOrClosePickView{
-    BOOL isOpen = (self.pickView.top == SCreenHegiht - NAVIGATION_BAR_HEIGHT - pickHeight)? NO : YES;
+    BOOL isOpen = (self.pickView.top == SCreenHegiht - NAVIGATION_BAR_HEIGHT- HOME_INDICATOR_HEIGHT - pickHeight)? NO : YES;
     if (isOpen) {
         [UIView animateWithDuration:0.25 animations:^{
-            self.pickView.top = SCreenHegiht - NAVIGATION_BAR_HEIGHT - pickHeight;
+            self.pickView.top = SCreenHegiht - NAVIGATION_BAR_HEIGHT- HOME_INDICATOR_HEIGHT - pickHeight;
         }];
     }else{
         [UIView animateWithDuration:0.25 animations:^{
-            self.pickView.top = SCreenHegiht - NAVIGATION_BAR_HEIGHT;
+            self.pickView.top = SCreenHegiht - NAVIGATION_BAR_HEIGHT- HOME_INDICATOR_HEIGHT;
         }];
     }
 }
@@ -354,7 +354,7 @@ static const CGFloat pickHeight = 120.f;
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [UIView animateWithDuration:0.25 animations:^{
-        self.pickView.top = SCreenHegiht - NAVIGATION_BAR_HEIGHT;
+        self.pickView.top = SCreenHegiht - NAVIGATION_BAR_HEIGHT- HOME_INDICATOR_HEIGHT;
     }];
 }
 

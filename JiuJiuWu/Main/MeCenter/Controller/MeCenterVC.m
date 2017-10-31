@@ -43,6 +43,7 @@ static CGFloat const rowHeight = 50.f;
 //登录成功
 - (void)loginSuccess {
     [self.headerView updateHeadInfo];
+    
     [self reloadDataSources];
     [self.secondTableView reloadData];
 }
@@ -81,7 +82,9 @@ static CGFloat const rowHeight = 50.f;
     [self.secondTableView reloadData];
     
 }
-
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return ((NSArray *)self.dataSources[tableView.tag - 100]).count;
 }
@@ -273,7 +276,7 @@ static CGFloat const rowHeight = 50.f;
                                @{@"image":@"center_icon_3",@"title":@"企业商户信息"},
                                @{@"image":@"center_icon_4",@"title":@"用户协议"},
                                @{@"image":@"center_icon_5",@"title":@"费率信息"}],
-                             
+
                              @[@{@"image":@"center_icon_6",@"title":@"操作手册"},
                                @{@"image":@"center_icon_7",@"title":@"版本号"},
                                @{@"image":@"center_icon_8",@"title":@"关于我们"},
@@ -282,11 +285,11 @@ static CGFloat const rowHeight = 50.f;
         self.dataSources = @[@[@{@"image":@"center_icon_0",@"title":@"密码管理"},
                                @{@"image":@"center_icon_2",@"title":@"结算卡管理"},
                                @{@"image":@"center_icon_3",@"title":@"企业商户信息"}],
-                             
+
                              @[@{@"image":@"center_icon_7",@"title":@"版本号"},
                                @{@"image":@"center_icon_9",@"title":@"客服热线"}]].mutableCopy;
     }
-    
+
     if ([JJWLogin sharedMethod].isLogin) {
         NSMutableArray * tempArray = [[self.dataSources objectAtIndex:1] mutableCopy];
         [tempArray addObject:@{@"image":@"center_icon_10",@"title":@"退出登录"}];

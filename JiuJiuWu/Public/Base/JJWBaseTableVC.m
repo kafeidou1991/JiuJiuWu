@@ -52,7 +52,7 @@
         [_emptyView removeFromSuperview]; _emptyView = nil;
     }
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCreenWidth, SCreenHegiht - NAVIGATION_BAR_HEIGHT) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCreenWidth, SCreenHegiht - NAVIGATION_BAR_HEIGHT- HOME_INDICATOR_HEIGHT) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorColor = CellLine_Color;
@@ -81,7 +81,7 @@
         [_emptyView removeFromSuperview]; _emptyView = nil;
     }
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCreenWidth, SCreenHegiht - NAVIGATION_BAR_HEIGHT) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCreenWidth, SCreenHegiht - NAVIGATION_BAR_HEIGHT- HOME_INDICATOR_HEIGHT) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorColor = CellLine_Color;
@@ -111,7 +111,7 @@
     }
     WeakSelf
     if (!_emptyView) {
-        _emptyView = [[SUEmptyView alloc] initWithFrame:CGRectMake(0, 0, SCreenWidth, SCreenHegiht - NAVIGATION_BAR_HEIGHT)];
+        _emptyView = [[SUEmptyView alloc] initWithFrame:CGRectMake(0, 0, SCreenWidth, SCreenHegiht - NAVIGATION_BAR_HEIGHT- HOME_INDICATOR_HEIGHT)];
         [_emptyView setDestext:@"暂无数据!"];
         [_emptyView setRefreshCallBack:^{
             [weakSelf refreshAction];

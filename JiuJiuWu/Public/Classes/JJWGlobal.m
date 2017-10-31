@@ -132,6 +132,7 @@
         [viewController hudclose];
         _loginData.merchant_checked = [responseObject objectForKey:@"merchant_checked"];
         _loginData.realname_checked = [responseObject objectForKey:@"realname_checked"];
+//        _loginData.realname_checked = @"2";
         [self saveLoginData:_loginData];
         //资料齐全正常
         if ([self checkInfo] == PerfectCheckSuccessInfoType) {
