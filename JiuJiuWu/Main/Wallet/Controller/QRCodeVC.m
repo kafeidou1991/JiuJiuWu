@@ -189,6 +189,7 @@
 #pragma mark - 扫描结果上传服务器
 - (void)_loadResult:(AVMetadataMachineReadableCodeObject *)obj{
     WeakSelf
+    [self hudShow:[UIApplication sharedApplication].keyWindow msg:@"正在支付..."];
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
     [dict setObject:[JJWLogin sharedMethod].loginData.token forKey:@"token"];
     [dict setObject:obj.stringValue forKey:@"auth_code"];
@@ -197,6 +198,7 @@
     //通道 目前写死
     [dict setObject:@"1" forKey:@"channel_id"];
     [JJWNetworkingTool PostOriginalWithUrl:UnScanCodePay params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+        [weakSelf hudclose];
         [JJWBase alertMessage:@"收款成功!" cb:nil];
         PaySuccessItem * item = [PaySuccessItem yy_modelWithDictionary:responseObject];
         PaySuccessVC * VC = [[PaySuccessVC alloc]init];
@@ -204,6 +206,7 @@
         VC.isComeSuccess = YES;
         [weakSelf.navigationController pushViewController:VC animated:YES];
     } failed:^(NSError *error, id chaceResponseObject) {
+        [weakSelf hudclose];
         [JJWBase alertMessage:error.domain cb:^(BOOL compliont) {
             [weakSelf setupScanningQRCode];
         }];

@@ -67,7 +67,7 @@ static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
 //我的余额
 #define GetUserMoney  [baseUrl appendBaseUrl:@"user/getUserMoney"]
 //提现
-#define Withdrawal  [baseUrl appendBaseUrl:@"unionpay/withdrawal"]
+#define Withdrawal  [@"https://api.jiujiuwu.cn/jiujiuwuapi/" appendBaseUrl:@"unionpay/withdrawal"]
 //费率列表
 #define CashScale  [baseUrl appendBaseUrl:@"cash/cashScale"]
 

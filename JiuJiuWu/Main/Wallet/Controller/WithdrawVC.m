@@ -51,7 +51,7 @@
     [self hudShow:self.view msg:STTR_ater_on];
     NSDictionary * dict = @{@"token":[JJWLogin sharedMethod].loginData.token,
                             @"amount":self.amoutTextField.text};
-    [JJWNetworkingTool PostWithUrl:Withdrawal params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+    [JJWNetworkingTool PostOriginalWithUrl:Withdrawal params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
         [weakSelf hudclose];
         [JJWBase alertMessage:@"提现成功!" cb:nil];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"WithdrawSuccess" object:nil];
