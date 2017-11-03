@@ -42,10 +42,7 @@ static CGFloat const rowHeight = 50.f;
 }
 //登录成功
 - (void)loginSuccess {
-    [self.headerView updateHeadInfo];
-    
-    [self reloadDataSources];
-    [self.secondTableView reloadData];
+    [self _reloadSceondTableView];
 }
 - (void)addSubViews {
     //最下面是scrollerView  上面加上 2个tableview（禁止滚动） 跟 headerView 是为了解决 显示头部背景突出的部分
@@ -77,9 +74,7 @@ static CGFloat const rowHeight = 50.f;
     }];
     [[JJWLogin sharedMethod]removeLoingData];
     //更新头部信息
-    [_headerView updateHeadInfo];
-    [self reloadDataSources];
-    [self.secondTableView reloadData];
+   [self _reloadSceondTableView];
     
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -295,6 +290,12 @@ static CGFloat const rowHeight = 50.f;
         [tempArray addObject:@{@"image":@"center_icon_10",@"title":@"退出登录"}];
         [self.dataSources replaceObjectAtIndex:1 withObject:tempArray.copy];
     }
+}
+- (void)_reloadSceondTableView {
+    [self.headerView updateHeadInfo];
+    [self reloadDataSources];
+    self.secondTableView.height = rowHeight * ((NSArray *)self.dataSources[1]).count;
+    [self.secondTableView reloadData];
 }
 
 
