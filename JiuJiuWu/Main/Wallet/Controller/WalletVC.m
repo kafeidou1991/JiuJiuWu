@@ -160,9 +160,7 @@ static CGFloat const headerHeight = 220; //顶部视图高度
                 @{@"image":@"featurelist_7",@"title":@"理财"},
                 @{@"image":@"featurelist_8",@"title":@"更多"}];
         }else {
-            array = @[@{@"image":@"featurelist_0",@"title":@"我的账户"},
-                      @{@"image":@"featurelist_2",@"title":@"交易记录"},
-                      @{@"image":@"featurelist_8",@"title":@"更多"}];
+            array = @[@{@"image":@"featurelist_2",@"title":@"交易记录"}];
         }
         _centerView = [[FeatureListView alloc]initWithFrame:CGRectMake(0, _headerView.bottom - 40, SCreenWidth, 0) DataSourse:array];
         WeakSelf
