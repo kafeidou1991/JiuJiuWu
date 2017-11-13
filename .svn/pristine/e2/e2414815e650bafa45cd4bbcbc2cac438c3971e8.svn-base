@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="KGk-i7-Jjw" customClass="CreditCardTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X0g-SS-fGP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3rp-jT-hAN">
+                                <rect key="frame" x="87" y="0.0" width="233" height="50"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="银行卡类型" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6P-wP-oTI">
+                                <rect key="frame" x="10" y="0.0" width="72" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="LXi-tg-Iep"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.71372549019999998" green="0.71764705880000002" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="9a0-GU-4py"/>
+                            <constraint firstAttribute="trailing" secondItem="3rp-jT-hAN" secondAttribute="trailing" id="FTc-y9-nPW"/>
+                            <constraint firstAttribute="bottom" secondItem="c6P-wP-oTI" secondAttribute="bottom" id="H6P-va-I6a"/>
+                            <constraint firstItem="c6P-wP-oTI" firstAttribute="top" secondItem="X0g-SS-fGP" secondAttribute="top" id="NXl-JK-c66"/>
+                            <constraint firstItem="3rp-jT-hAN" firstAttribute="height" secondItem="c6P-wP-oTI" secondAttribute="height" id="T8e-hU-2Di"/>
+                            <constraint firstItem="3rp-jT-hAN" firstAttribute="top" secondItem="X0g-SS-fGP" secondAttribute="top" id="Zdu-E7-Fib"/>
+                            <constraint firstItem="c6P-wP-oTI" firstAttribute="leading" secondItem="X0g-SS-fGP" secondAttribute="leading" constant="10" id="bpc-nm-onU"/>
+                            <constraint firstItem="3rp-jT-hAN" firstAttribute="leading" secondItem="c6P-wP-oTI" secondAttribute="trailing" constant="5" id="dcG-XN-su3"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="X0g-SS-fGP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="AGd-wW-H3g"/>
+                    <constraint firstItem="X0g-SS-fGP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="Vlu-gq-17F"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="X0g-SS-fGP" secondAttribute="trailing" constant="-8" id="kbL-6U-HW6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="textField" destination="3rp-jT-hAN" id="F8Z-UT-Coj"/>
+                <outlet property="titleLabel" destination="c6P-wP-oTI" id="u2D-a9-Ozn"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

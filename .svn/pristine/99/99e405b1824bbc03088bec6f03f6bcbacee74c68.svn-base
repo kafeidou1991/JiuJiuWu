@@ -1,0 +1,31 @@
+//
+//  FeatureListView.h
+//  JiuJiuWu
+//
+//  Created by 张竟巍 on 2017/9/15.
+//  Copyright © 2017年 张竟巍. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+typedef NS_ENUM(NSInteger, SelectType) {
+    SelectType_MyAccount = 0, //我的账户
+    SelectType_MyProfit,       //我的分润
+    SelectType_PayList,        //交易记录
+    SelectType_MyShop,         //我的商户
+    SelectType_MyRate,         //我的费率
+    SelectType_LeveUp,         //我要升级
+    SelectType_Loan,           //贷款
+    SelectType_Money,          //理财
+    SelectType_More,           //更多
+};
+typedef void(^SelectTypeBlock)(SelectType);
+
+@interface FeatureListView : UIView
+
+- (instancetype)initWithFrame:(CGRect)frame DataSourse:(NSArray <NSDictionary *> *)dataArray;
+
+@property (nonatomic, copy) SelectTypeBlock typeBlock;
+
+
+@end

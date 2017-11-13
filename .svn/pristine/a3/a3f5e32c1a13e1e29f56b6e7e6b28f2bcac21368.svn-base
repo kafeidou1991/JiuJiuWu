@@ -1,0 +1,18 @@
+platform :ios, '9.0'
+target 'JiuJiuWu' do
+ pod 'AFNetworking'
+ pod 'YYModel'
+ pod 'OpenUDID'
+ pod 'SDWebImage'
+ pod 'MBProgressHUD'
+ pod 'YYCache'
+ pod 'IQKeyboardManager'
+ pod 'ZLPhotoBrowser'
+ pod 'MJRefresh'
+ pod 'HcdGuideView'
+ pod 'ReactiveObjC'
+ pod 'XXNibBridge'
+ pod 'Bugly'
+ pod 'WebViewJavascriptBridge'
+ pod 'Masonry'
+end
