@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MyRateListCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="民生" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVE-31-gSJ">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="KI9-jT-IlB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uif-2n-rtC">
+                        <rect key="frame" x="120" y="0.0" width="80" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.6%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4l4-11-a9d">
+                        <rect key="frame" x="240" y="0.0" width="80" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="MVE-31-gSJ" secondAttribute="bottom" id="Ib7-D8-VCJ"/>
+                    <constraint firstItem="Uif-2n-rtC" firstAttribute="top" secondItem="MVE-31-gSJ" secondAttribute="top" id="KeI-Uz-pby"/>
+                    <constraint firstItem="4l4-11-a9d" firstAttribute="top" secondItem="Uif-2n-rtC" secondAttribute="top" id="OB1-4l-7w4"/>
+                    <constraint firstItem="4l4-11-a9d" firstAttribute="width" secondItem="Uif-2n-rtC" secondAttribute="width" id="Qqs-0x-LwH"/>
+                    <constraint firstAttribute="trailing" secondItem="4l4-11-a9d" secondAttribute="trailing" id="dSh-kG-pS0"/>
+                    <constraint firstItem="MVE-31-gSJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fbs-9V-UR7"/>
+                    <constraint firstItem="Uif-2n-rtC" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="jZW-nI-FEY"/>
+                    <constraint firstItem="MVE-31-gSJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mm1-DM-aPR"/>
+                    <constraint firstItem="Uif-2n-rtC" firstAttribute="width" secondItem="MVE-31-gSJ" secondAttribute="width" id="pE0-If-mGO"/>
+                    <constraint firstItem="4l4-11-a9d" firstAttribute="height" secondItem="Uif-2n-rtC" secondAttribute="height" id="wCp-HD-Bdf"/>
+                    <constraint firstItem="Uif-2n-rtC" firstAttribute="height" secondItem="MVE-31-gSJ" secondAttribute="height" id="wXm-1V-cSG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="levelLabel" destination="Uif-2n-rtC" id="aJB-Jv-f6d"/>
+                <outlet property="rateLabel" destination="4l4-11-a9d" id="dT0-sj-kqX"/>
+                <outlet property="rateNameLabel" destination="MVE-31-gSJ" id="Ylg-M2-PGJ"/>
+            </connections>
+            <point key="canvasLocation" x="-92" y="12"/>
+        </tableViewCell>
+    </objects>
+</document>
