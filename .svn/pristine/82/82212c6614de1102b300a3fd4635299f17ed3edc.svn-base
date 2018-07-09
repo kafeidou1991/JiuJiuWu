@@ -1,0 +1,76 @@
+//
+//  FZMWalletHeaderCell.m
+//  JiuJiuWu
+//
+//  Created by 付志敏 on 18/1/9.
+//  Copyright © 2018年 张竟巍. All rights reserved.
+//
+
+#import "FZMWalletHeaderCell.h"
+
+@interface FZMWalletHeaderCell ()
+
+@property (strong, nonatomic) QMUIGridView *gridView;
+
+@end
+
+@implementation FZMWalletHeaderCell{
+    NSArray *_titlesArray;
+    NSArray *_imagesArray;
+}
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
+    if (self) {
+        self.backgroundColor = JJWThemeColor;
+        [self setupUI];
+    }
+    
+    return self;
+}
+
+- (void)setupUI{
+    
+    [self addSubview:self.gridView];
+    
+    [self.gridView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.mas_equalTo(kJJWUIMargin);
+        make.right.mas_equalTo(-kJJWUIMargin);
+        make.bottom.mas_equalTo(0);
+        
+    }];
+    
+}
+
+- (QMUIGridView *)gridView{
+    if (!_gridView) {
+        
+        _titlesArray = @[@"当面付",@"快捷支付",@"二维码"];
+        _imagesArray = @[@"wallet_face_to_face",@"wallet_quick_pay",@"wallet_scan_pay"];
+        
+        _gridView = [[QMUIGridView alloc] initWithColumn:3 rowHeight:SCREEN_WIDTH / 3];
+        _gridView.separatorWidth = 0;
+        
+        for (NSInteger i = 0; i < _titlesArray.count; i++) {
+            QMUIButton *button = [[QMUIButton alloc] initWithImage:UIImageMake(_imagesArray[i]) title:_titlesArray[i]];
+            button.imagePosition = QMUIButtonImagePositionTop;
+            button.spacingBetweenImageAndTitle = kJJWSmallMargin;
+            [button setTitleColor:UIColorWhite forState:UIControlStateNormal];
+            button.titleLabel.font = UIFont_PFSCB_Make(14);
+            button.tag = i+1;
+            [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
+            [_gridView addSubview:button];
+        }
+    }
+    
+    return _gridView;
+}
+
+- (void)clickButton:(QMUIButton *)button{
+    if (_hederBlock) {
+        _hederBlock(button.tag - 1);
+    }
+}
+
+@end

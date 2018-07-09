@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.img1 {
+			width: 100%;
+			margin-top: 5rem;
+		}
+		.sorry {
+			text-align: center;
+			font-size: .8rem;
+			margin-top: 1rem;
+		}
+	</style>
+</head>
+<body>
+	<img class="img1" src="loaderror.png">
+	<p class="sorry">非常抱歉 您要找的页面不见了</p>
+</body>
+</html>

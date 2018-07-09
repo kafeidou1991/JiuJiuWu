@@ -1,0 +1,26 @@
+//
+//  CTShareTool.h
+//  CreditTreasury
+//
+//  Created by 咖啡豆 on 2017/8/11.
+//  Copyright © 2017年 YinSheng Technology Co. Ltd. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "UMSocialCore/UMSocialCore.h"
+
+@interface CTShareTool : NSObject
+
++ (instancetype)shareDefault;
++ (void) setupShare;
+
++ (void) openShareUI:(UIViewController *)viewConroller ShareUrl:(NSString *)url Title:(NSString *)title DetailTitle:(NSString *)desTitle Icon:(NSString *)iconUrl;
+
+- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType VC:(UIViewController *)vc ShareUrl:(NSString *)url Title:(NSString *)title DetailTitle:(NSString *)desTitle Icon:(NSString *)iconUrl;
+
+/**
+ 微信授权
+ */
+- (void)getAuthWithUserInfoFromWechatVC:(UIViewController *)vc UnionId:(void(^)(NSString *))block;
+
+@end

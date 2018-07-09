@@ -1,0 +1,90 @@
+//
+//  API_Parameter.h
+//  YZF
+//
+//  Created by 张竟巍 on 2017/5/3.
+//  Copyright © 2017年 Beijing Yi Cheng Agel Ecommerce Ltd. All rights reserved.
+//
+
+#ifndef API_Parameter_h
+#define API_Parameter_h
+
+#pragma mark ---------------------- 域名 ---------------------------
+#ifdef DEBUG //开发环境
+//0 测试环境  1 正式环境
+#define environment 1
+
+#if environment
+static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
+#else
+static NSString * const baseUrl = @"http://dev.jiujiuwu.cn/api/";
+#endif
+
+#else //发布环境
+static NSString * const baseUrl = @"http://www.jiujiuwu.cn/api/";
+#endif
+
+#pragma mark ---------------------- 参数字段、功能 ----------------------------
+// 检查更新
+#define CheckUpdate [baseUrl appendBaseUrl:@"app/getNewApp"]
+//注册获取短信验证卡
+#define RegistGetCode [baseUrl appendBaseUrl:@"user/sendMobileValidateCode"]
+//验证验证码
+#define CheckRegistCode [baseUrl appendBaseUrl:@"user/checkMobileValidateCode"]
+//注册账户
+#define RegistUser [baseUrl appendBaseUrl:@"user/reg"]
+//获取用户状态
+#define UserStatus [baseUrl appendBaseUrl:@"user/userStatus"]
+//用户登录
+#define UserLogin [baseUrl appendBaseUrl:@"user/login"]
+//修改登录密码
+#define ChangePassword [baseUrl appendBaseUrl:@"user/password"]
+// 登出
+#define Logout [baseUrl appendBaseUrl:@"user/logout"]
+
+//绑定银行卡信息 
+#define UpdateBankInfo [baseUrl appendBaseUrl:@"user/updateUserBankCardInfo"]
+//绑定商户信息
+#define UpdateMerchantInfo [baseUrl appendBaseUrl:@"user/bindUserMerchant"]
+//扫码付款
+#define UnScanCodePay [@"https://api.jiujiuwu.cn/jiujiuwuapi/" appendBaseUrl:@"minshengpay/unScanCodePay"]
+//二维码
+#define ScanPayQrCode [NSString stringWithFormat:@"https://api.jiujiuwu.cn/jiujiuwuapi/scanCode/scanPayQrCode?channel_id=1&token=%@",[JJWLogin sharedMethod].loginData.token]
+//获取升级列表
+#define GetLevelList [baseUrl appendBaseUrl:@"user/getLevelList"]
+//获取信用卡列表
+#define CreditCardList [baseUrl appendBaseUrl:@"merchant/creditList"]
+//获取支持银行卡
+#define BankList [baseUrl appendBaseUrl:@"app/bankList"]
+//获取收款记录列表
+#define CashOrderList [baseUrl appendBaseUrl:@"cash/cashOrder"]
+//快捷支付的
+#define QuickPayUrl [NSString stringWithFormat:@"https://api.jiujiuwu.cn/jiujiuwuapi/quickpay/pay?channel_id=2&token=%@",[JJWLogin sharedMethod].loginData.token]
+//我的分润
+#define CashDistribute [baseUrl appendBaseUrl:@"cash/cashDistribute"]
+//我的商户
+#define MyShopsLeader  [baseUrl appendBaseUrl:@"user/getUserFirstLeader"]
+//我的余额
+#define GetUserMoney  [baseUrl appendBaseUrl:@"user/getUserMoney"]
+//我的信用卡
+#define MyCreditCard  [baseUrl appendBaseUrl:@"user/getUserCreditCard"]
+
+//我的提现记录
+#define GetUserWithdrawal [baseUrl appendBaseUrl:@"user/getUserWithdrawal"]
+//绑定信用卡
+#define BindCreditCard [baseUrl appendBaseUrl:@"user/bindCreditCard"]
+//提现
+#define Withdrawal  [@"https://api.jiujiuwu.cn/jiujiuwuapi/" appendBaseUrl:@"unionpay/withdrawal"]
+//费率列表
+#define CashScale  [baseUrl appendBaseUrl:@"cash/cashScale"]
+//广告列表
+#define GetIndex  [baseUrl appendBaseUrl:@"Index/home"]
+//绑定大学生信息
+#define BindStudent  [baseUrl appendBaseUrl:@"user/bindStudent"]
+//绑定银行卡信息
+#define UpdateUserIDCardInfo [baseUrl appendBaseUrl:@"user/updateUserIDCardInfo"]
+
+
+
+
+#endif /* API_Parameter_h */

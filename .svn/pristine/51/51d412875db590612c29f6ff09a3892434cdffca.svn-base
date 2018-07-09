@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRPayCodeVC">
+            <connections>
+                <outlet property="qrImageView" destination="VJk-NF-BvM" id="LEw-RT-LS2"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y09-pu-Occ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="500.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信、支付宝任你扫" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYX-JJ-4BP">
+                            <rect key="frame" x="11" y="306.5" width="353" height="119"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VJk-NF-BvM">
+                            <rect key="frame" x="47" y="25" width="281" height="281.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="VJk-NF-BvM" secondAttribute="height" multiplier="1:1" id="WGD-zn-0WU"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.1761145294" green="0.73607224230000001" blue="0.38244575260000002" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstItem="VJk-NF-BvM" firstAttribute="centerX" secondItem="y09-pu-Occ" secondAttribute="centerX" id="7xm-KS-HTC"/>
+                        <constraint firstItem="VJk-NF-BvM" firstAttribute="width" secondItem="y09-pu-Occ" secondAttribute="width" multiplier="3:4" id="Vok-z3-IaX"/>
+                        <constraint firstItem="VJk-NF-BvM" firstAttribute="top" secondItem="y09-pu-Occ" secondAttribute="top" constant="25" id="fKl-Tu-c5A"/>
+                        <constraint firstAttribute="trailing" secondItem="AYX-JJ-4BP" secondAttribute="trailing" constant="11" id="gKz-Cq-Mvh"/>
+                        <constraint firstItem="AYX-JJ-4BP" firstAttribute="top" secondItem="VJk-NF-BvM" secondAttribute="bottom" id="iFL-MT-xSh"/>
+                        <constraint firstItem="AYX-JJ-4BP" firstAttribute="leading" secondItem="y09-pu-Occ" secondAttribute="leading" constant="11" id="jhr-Eo-61R"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iv9-HI-mlw">
+                    <rect key="frame" x="11" y="425.5" width="353" height="150"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrpay_card" translatesAutoresizingMaskIntoConstraints="NO" id="hQ9-wb-Zxx">
+                            <rect key="frame" x="270" y="48.5" width="53" height="53"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrpay_wx" translatesAutoresizingMaskIntoConstraints="NO" id="Pqn-Xg-nFh">
+                            <rect key="frame" x="30" y="48.5" width="53" height="53"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="53" id="IsX-Ey-dzv"/>
+                                <constraint firstAttribute="width" constant="53" id="kRV-fH-hAK"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="K5R-Zd-vjk"/>
+                        <constraint firstAttribute="trailing" secondItem="hQ9-wb-Zxx" secondAttribute="trailing" constant="30" id="NVV-20-Bhw"/>
+                        <constraint firstItem="Pqn-Xg-nFh" firstAttribute="centerY" secondItem="iv9-HI-mlw" secondAttribute="centerY" id="XU9-kk-tPJ"/>
+                        <constraint firstItem="Pqn-Xg-nFh" firstAttribute="leading" secondItem="iv9-HI-mlw" secondAttribute="leading" constant="30" id="fB1-bD-NiU"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrpay_alipay" translatesAutoresizingMaskIntoConstraints="NO" id="Qop-rv-Skc">
+                    <rect key="frame" x="161" y="474" width="53" height="53"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="hQ9-wb-Zxx" firstAttribute="top" secondItem="Qop-rv-Skc" secondAttribute="top" id="4VZ-uF-6tH"/>
+                <constraint firstAttribute="trailing" secondItem="y09-pu-Occ" secondAttribute="trailing" id="CfX-Gd-3ak"/>
+                <constraint firstItem="y09-pu-Occ" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="3:4" id="Dde-CC-bvb"/>
+                <constraint firstItem="Qop-rv-Skc" firstAttribute="height" secondItem="Pqn-Xg-nFh" secondAttribute="height" id="Dl3-Cb-BXw"/>
+                <constraint firstItem="iv9-HI-mlw" firstAttribute="top" secondItem="y09-pu-Occ" secondAttribute="bottom" constant="-75" id="GBb-1H-GBh"/>
+                <constraint firstItem="iv9-HI-mlw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="11" id="TPp-R3-zId"/>
+                <constraint firstItem="iv9-HI-mlw" firstAttribute="top" secondItem="AYX-JJ-4BP" secondAttribute="bottom" id="V5e-Ze-qfv"/>
+                <constraint firstItem="Qop-rv-Skc" firstAttribute="top" secondItem="Pqn-Xg-nFh" secondAttribute="top" id="WBk-Wp-hKh"/>
+                <constraint firstAttribute="trailing" secondItem="iv9-HI-mlw" secondAttribute="trailing" constant="11" id="Zzq-gg-Z9f"/>
+                <constraint firstItem="y09-pu-Occ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bfe-6P-U7D"/>
+                <constraint firstItem="Qop-rv-Skc" firstAttribute="centerX" secondItem="iv9-HI-mlw" secondAttribute="centerX" id="hMu-QK-70T"/>
+                <constraint firstItem="y09-pu-Occ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lee-5n-fb5"/>
+                <constraint firstItem="hQ9-wb-Zxx" firstAttribute="width" secondItem="Qop-rv-Skc" secondAttribute="width" id="mdG-9h-2HP"/>
+                <constraint firstItem="hQ9-wb-Zxx" firstAttribute="height" secondItem="Qop-rv-Skc" secondAttribute="height" id="nZ9-zu-XWe"/>
+                <constraint firstItem="Qop-rv-Skc" firstAttribute="width" secondItem="Pqn-Xg-nFh" secondAttribute="width" id="zCk-bC-QEu"/>
+            </constraints>
+            <point key="canvasLocation" x="-283.5" y="2.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="qrpay_alipay" width="52" height="53"/>
+        <image name="qrpay_card" width="52" height="53"/>
+        <image name="qrpay_wx" width="52" height="53"/>
+    </resources>
+</document>

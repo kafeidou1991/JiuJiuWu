@@ -1,0 +1,83 @@
+//
+//  FZMMyAccountWithdrawController.m
+//  JiuJiuWu
+//
+//  Created by 付志敏 on 2018/1/17.
+//  Copyright © 2018年 付志敏. All rights reserved.
+//
+
+#import "FZMMyAccountWithdrawController.h"
+
+#import "FZMMyAccounntWithdrawCell.h"
+#import "FZMMyAccountWithdrawModel.h"
+
+@interface FZMMyAccountWithdrawController ()
+
+@end
+
+@implementation FZMMyAccountWithdrawController
+
+- (void)configNavigation{
+    self.title = @"提现记录";
+}
+
+- (void)afterProFun {
+    
+    [self loadData];
+}
+
+- (void)loadData{
+    [self hudShow:self.view msg:STTR_ater_on];
+    NSDictionary * dict = @{@"token":[JJWLogin sharedMethod].loginData.token};
+    WeakSelf
+    [JJWNetworkingTool PostWithUrl:GetUserWithdrawal params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+        [weakSelf hudclose];
+        weakSelf.dataSources = [NSArray yy_modelArrayWithClass:[FZMMyAccountWithdrawModel class] json:responseObject].mutableCopy;
+        if (weakSelf.dataSources.count > 0) {
+            [self createTableView];
+        }else {
+            [self createEmptyView];
+        }
+    } failed:^(NSError *error, id chaceResponseObject) {
+        [weakSelf hudclose];
+        [JJWBase alertMessage:error.domain cb:nil];
+    }];
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataSources.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    FZMMyAccounntWithdrawCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FZMMyAccounntWithdrawCell class])];
+    if (!cell) {
+        cell = [[NSBundle mainBundle]loadNibNamed:NSStringFromClass([FZMMyAccounntWithdrawCell class]) owner:nil options:nil].firstObject;
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+    if (indexPath.row < self.dataSources.count) {
+        [cell configParameter:self.dataSources[indexPath.row]];
+    }
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [JJWCommonHelper fzm_tableViewHeight:tableView];
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    [tableView qmui_clearsSelection];
+}
+
+#pragma mark ------Action-------
+
+- (void)refreshAction{
+    [self loadData];
+}
+
+@end

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CashKeyBoradVC">
+            <connections>
+                <outlet property="cashBtn" destination="1Gm-fH-3wZ" id="5dF-45-6JX"/>
+                <outlet property="keyBoradView" destination="7Q6-Kb-2y9" id="bPF-a1-cm0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wi4-6b-Mlb">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收款金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8j-F1-dBj">
+                            <rect key="frame" x="10" y="24" width="66" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="48w-sU-fnL"/>
+                                <constraint firstAttribute="width" constant="66" id="Lvk-SR-bSf"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gm-fH-3wZ">
+                            <rect key="frame" x="10" y="60" width="355" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="dPK-es-bNi"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="收款金额￥"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.16470575332641602" green="0.69803917407989502" blue="0.30980390310287476" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="1Gm-fH-3wZ" firstAttribute="top" secondItem="X8j-F1-dBj" secondAttribute="bottom" constant="15" id="5Do-Cr-aAZ"/>
+                        <constraint firstAttribute="height" constant="152" id="GIF-vS-Tms"/>
+                        <constraint firstAttribute="trailing" secondItem="1Gm-fH-3wZ" secondAttribute="trailing" constant="10" id="Gu7-RZ-Pra"/>
+                        <constraint firstItem="X8j-F1-dBj" firstAttribute="leading" secondItem="Wi4-6b-Mlb" secondAttribute="leading" constant="10" id="bPp-Ke-po1"/>
+                        <constraint firstItem="1Gm-fH-3wZ" firstAttribute="leading" secondItem="X8j-F1-dBj" secondAttribute="leading" id="hqQ-lY-oSL"/>
+                        <constraint firstItem="X8j-F1-dBj" firstAttribute="top" secondItem="Wi4-6b-Mlb" secondAttribute="top" constant="24" id="plR-L1-LTI"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Q6-Kb-2y9" customClass="KeyBoradView">
+                    <rect key="frame" x="10" y="112" width="355" height="555"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="7Q6-Kb-2y9" firstAttribute="top" secondItem="Wi4-6b-Mlb" secondAttribute="bottom" constant="-40" id="2Fm-kJ-ZK9"/>
+                <constraint firstItem="Wi4-6b-Mlb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="G2c-Ho-rPe"/>
+                <constraint firstAttribute="trailing" secondItem="7Q6-Kb-2y9" secondAttribute="trailing" constant="10" id="Kbm-7s-LkX"/>
+                <constraint firstAttribute="bottom" secondItem="7Q6-Kb-2y9" secondAttribute="bottom" id="YvF-3M-qBF"/>
+                <constraint firstItem="Wi4-6b-Mlb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aAv-x5-OUd"/>
+                <constraint firstAttribute="trailing" secondItem="Wi4-6b-Mlb" secondAttribute="trailing" id="bZY-uU-lnX"/>
+                <constraint firstItem="7Q6-Kb-2y9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="oab-hU-N2L"/>
+            </constraints>
+            <point key="canvasLocation" x="-466" y="-424"/>
+        </view>
+    </objects>
+</document>

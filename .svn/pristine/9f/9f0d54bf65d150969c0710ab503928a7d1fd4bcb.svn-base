@@ -1,0 +1,33 @@
+//
+//  FZMWalletFunctionCell.h
+//  JiuJiuWu
+//
+//  Created by 付志敏 on 18/1/9.
+//  Copyright © 2018年 张竟巍. All rights reserved.
+//
+
+#import <QMUIKit/QMUIKit.h>
+
+typedef NS_ENUM(NSInteger, JJWSelectType) {
+    JJWSelectType_MyAccount = 0, //我的账户
+    JJWSelectType_MyProfit,       //我的分润
+    JJWSelectType_Share,        //分享
+    JJWSelectType_MyShop,         //我的商户
+    JJWSelectType_MyRate,         //我的费率
+    JJWSelectType_LeveUp,         //我要升级
+    JJWSelectType_Loan,           //贷款
+    JJWSelectType_Money,          //理财
+    JJWSelectType_CreditCard,     //申请信用卡
+    JJWSelectType_More,           //更多
+    JJWSelectType_PayList,        //交易记录
+};
+
+typedef void(^JJWSelectTypeBlock)(JJWSelectType);
+
+@interface FZMWalletFunctionCell : QMUITableViewCell
+
+@property (nonatomic, copy) JJWSelectTypeBlock typeBlock;
+
+- (void)configVersonIsOpen:(BOOL)isOpen;
+
+@end

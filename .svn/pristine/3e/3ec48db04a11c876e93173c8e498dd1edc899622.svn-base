@@ -1,0 +1,199 @@
+//
+//  DateCenter.h
+//  YZF
+//
+//  Created by 张竟巍 on 2017/3/27.
+//  Copyright © 2017年 Beijing Yi Cheng Agel Ecommerce Ltd. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <YYModel/YYModel.h>
+#import <YYCache/YYCache.h>
+@class PageItem;
+@interface DateCenter : NSObject
+@property (nonatomic, strong) PageItem * page;//分页使用
+@end
+
+@interface PageItem : NSObject
+//@property (nonatomic, copy) NSString * pageSize;
+//@property (nonatomic, copy) NSString * pageNo;//页数
+//@property (nonatomic, copy) NSString * lastIndex;
+//@property (nonatomic, copy) NSString * firstIndex;
+//@property (nonatomic, copy) NSString * pageCount;
+//@property (nonatomic, copy) NSString * lastPage;//是否是最后一页
+//@property (nonatomic, copy) NSString * firstPage;
+//@property (nonatomic, copy) NSString * resultCount;
+
+@property (assign, nonatomic) NSInteger page_total;//总页数
+@property (assign, nonatomic) NSInteger page_size;//每页显示个数
+@property (assign, nonatomic) NSInteger data_total;//总数据
+@property (assign, nonatomic) NSInteger page;//当前页数
+@property (assign, nonatomic) BOOL lastPage;
+
+@end
+
+@interface DloginData : DateCenter
+@property (nonatomic, copy) NSString * token;
+@property (nonatomic, copy) NSString * user_id;//用户id
+@property (nonatomic, copy) NSString * union_user_id;//判断是否微信授权字段
+@property (nonatomic, copy) NSString * mobile;//用户注册手机号
+//银行卡相关
+@property (nonatomic, copy) NSString * realname_checked; //审核状态 个人商户  0待审核 1审核中 2审核通过 3审核未通过
+@property (nonatomic, copy) NSString * account; //银行卡账号
+@property (nonatomic, copy) NSString * idcard_number;//身份证号
+@property (nonatomic, copy) NSString * idcard_address;//身份证地址
+@property (nonatomic, copy) NSString * idcard_expired_time;//身份证有效期
+@property (nonatomic, copy) NSString * idcard_img_one;//身份证银行卡正面
+@property (nonatomic, copy) NSString * idcard_img_two;//身份证银行卡反面
+@property (nonatomic, copy) NSString * idcard_img_three;//银行卡正面
+@property (nonatomic, copy) NSString * idcard_bank_img;//手持身份证银行卡正面
+@property (nonatomic, copy) NSString * shop_head_img;//店铺门面照片
+@property (nonatomic, copy) NSString * shop_inner_img;//经营场所照片照片
+@property (nonatomic, copy) NSString * shop_cash_img;//收银台照片
+@property (nonatomic, copy) NSString * contract_img_one;//出租合同1
+@property (nonatomic, copy) NSString * contract_img_two;//出租合同2
+@property (nonatomic, copy) NSString * province;// 省市县 编号
+@property (nonatomic, copy) NSString * provinceName; //本地显示用
+@property (nonatomic, copy) NSString * city;
+@property (nonatomic, copy) NSString * cityName;
+@property (nonatomic, copy) NSString * district;
+@property (nonatomic, copy) NSString * districtName;
+@property (nonatomic, copy) NSString * address_detail; //详细地址
+@property (nonatomic, copy) NSString * account_type;//银行卡 1.对私 2.对公 账号
+@property (nonatomic, copy) NSString * open_branch;//银行行号
+@property (nonatomic, copy) NSString * account_mobile;//预留手机号
+@property (nonatomic, copy) NSString * nickname;//姓名
+@property (nonatomic, copy) NSString * account_name;//银行卡账号名称  身份证姓名
+@property (nonatomic, copy) NSString * bank_name;//银行名称
+@property (nonatomic, copy) NSString * bank_code;//银行code
+
+//商户相关
+@property (nonatomic, copy) NSString * merchant_checked; //企业用户   0待审核 1审核中 2审核通过 3审核未通过
+@property (nonatomic, copy) NSString * merchant_name;//商户名称
+@property (nonatomic, copy) NSString * biz_org;//组织机构代码
+@property (nonatomic, copy) NSString * gszc_name;//工商注册名称
+@property (nonatomic, copy) NSString * biz_tax;//纳税人识别号
+@property (nonatomic, copy) NSString * license_img;//营业执照照片
+@property (nonatomic, copy) NSString * biz_license;//营业执照号
+@property (nonatomic, copy) NSString * license_expired_time;//营业执照期限
+@property (nonatomic, copy) NSString * legal_person;//法人名称
+
+//本地使用
+@property (nonatomic, strong) UIImage * idcard_img_one_img;//身份证银行卡正面
+@property (nonatomic, strong) UIImage * idcard_img_two_img;//身份证银行卡反面
+@property (nonatomic, strong) UIImage * idcard_img_three_img;//银行卡正面
+@property (nonatomic, strong) UIImage * idcard_bank_img_img;//手持身份证银行卡正面
+@property (nonatomic, strong) UIImage * shop_head_img_img;//店铺门面照片
+@property (nonatomic, strong) UIImage * shop_inner_img_img;//经营场所照片照片
+@property (nonatomic, strong) UIImage * shop_cash_img_img;//收银台照片
+@property (nonatomic, strong) UIImage * contract_img_one_img;//出租合同1
+@property (nonatomic, strong) UIImage * contract_img_two_img;//出租合同2
+
+@property (nonatomic, strong) UIImage * license_img_img;//营业执照照片
+//暂定
+@property (nonatomic, copy) NSString * sex;//性别
+@property (nonatomic, copy) NSString * password;// 密码
+@property (nonatomic, copy) NSString * paypwd;//交易密码
+@property (nonatomic, copy) NSString * user_money;//
+
+@end
+
+@interface Version_App : DateCenter
+@property (nonatomic, copy) NSString * version_id; //公告
+@property (nonatomic, copy) NSString * version_code; //公告
+@property (nonatomic, copy) NSString * version_name; //公告
+@property (nonatomic, copy) NSString * is_force; //公告
+@property (nonatomic, copy) NSString * content; //公告
+@property (nonatomic, copy) NSString * dl_url; //请求的地址
+@property (nonatomic, copy) NSString * is_open; //是否开发审核开关
+@end
+
+@interface BankItem : DateCenter
+@property (nonatomic, copy) NSString * bank_code;
+@property (nonatomic, copy) NSString * bank_name;
+@property (nonatomic, copy) NSString * is_close;
+@property (nonatomic, copy) NSString * use_type;
+@property (nonatomic, copy) NSString * id;
+@end
+
+@interface CreditCardsList : DateCenter
+@property (nonatomic, strong) NSArray * credit_list;
+@end
+//扫码收款成功返回
+@interface PaySuccessItem : DateCenter
+@property (nonatomic, copy) NSString * result;
+@property (nonatomic, copy) NSString * amount;
+@property (nonatomic, copy) NSString * channel_flag;
+@property (nonatomic, copy) NSString * reqTime;
+@property (nonatomic, copy) NSString * desc;
+@property (nonatomic, copy) NSString * orderNo;
+@property (nonatomic, copy) NSString * order_no; //收款记录里面的订单编号  字段不统一
+@property (nonatomic, copy) NSString * mer_no; //商户编号
+@property (nonatomic, copy) NSString * add_time; //我的分润
+@property (nonatomic, copy) NSString * member_name; //商户名称
+@end
+
+/**
+ 快捷支付 所需充填信息
+ */
+@interface QuickPayInfoItem : DateCenter<NSCoding>
+
+@property (nonatomic, copy) NSString * acct_type;   // DEBIT-储蓄卡  CREDIT-信用卡
+@property (nonatomic, copy) NSString * account;      // 卡号
+@property (nonatomic, copy) NSString * account_name;   //持卡人姓名
+@property (nonatomic, copy) NSString * account_expire_date;//当卡类型为：CREDIT 必填 有限期
+@property (nonatomic, copy) NSString * account_cvv;        //当卡类型为：CREDIT 必填 安全吗
+@property (nonatomic, copy) NSString * idcard_number;      //证件号码
+@property (nonatomic, copy) NSString * account_mobile;     //银行预留手机号
+@property (nonatomic, copy) NSString * bank_code;//信用卡所属银行代码
+@property (nonatomic, copy) NSString * bank_name;//信用卡开户行完整名称 具体到支行bank_type
+
+@property (nonatomic, copy) NSString * bank_type;//信用卡开户行名称 不具体到支行
+@property (nonatomic, copy) NSString * bankShowName; //用于展示  例如：招商银行（6545）
+
+- (void)saveProdfile;
+
+@end
+
+@interface MyShopItem :DateCenter
+@property (nonatomic, copy) NSString * level;
+@property (nonatomic, copy) NSString * level_name;
+@property (nonatomic, copy) NSString * mobile;
+@property (nonatomic, copy) NSString * nickname;
+@property (nonatomic, copy) NSString * user_id;
+@end
+
+
+@interface MyShareBenefitItem : DateCenter
+
+@property (nonatomic, copy) NSString * cash_order_id;
+@property (nonatomic, copy) NSString * add_time;//订单时间
+@property (nonatomic, copy) NSString * buy_user_id;
+@property (nonatomic, copy) NSString * amount; //金额
+@property (nonatomic, copy) NSString * member_name; //收款商户
+@property (nonatomic, copy) NSString * buy_name; //支付商户
+@property (nonatomic, copy) NSString * order_no; //订单编号
+
+@end
+
+@interface MyLuckyDrawItem : DateCenter
+@property (nonatomic, copy) NSString * id;
+@property (nonatomic, copy) NSString * user_id;
+@property (nonatomic, copy) NSString * draw_id;
+@property (nonatomic, copy) NSString * result_described;
+@property (nonatomic, copy) NSString * is_win;
+@property (nonatomic, copy) NSString * is_sure;
+@property (nonatomic, copy) NSString * add_time;
+@property (nonatomic, copy) NSString * bj_time;
+@property (nonatomic, copy) NSString * order_no;
+@property (nonatomic, copy) NSString * number;
+@end
+
+
+
+
+
+
+
+
+

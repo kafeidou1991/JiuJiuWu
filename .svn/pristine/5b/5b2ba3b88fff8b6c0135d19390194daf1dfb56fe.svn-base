@@ -1,0 +1,322 @@
+//
+//  MeCenterVC.m
+//  JiuJiuWu
+//
+//  Created by 张竟巍 on 2017/9/12.
+//  Copyright © 2017年 张竟巍. All rights reserved.
+//
+
+#import "MeCenterVC.h"
+#import "MeCenterHeadView.h"
+#import "ShareCell.h"
+#import "ManageCardVC.h"
+#import "ManagePasswordVC.h"
+#import "SettingVC.h"
+#import "CompanyInfoVC.h"
+#import "AboutOurVC.h"
+#import "JJWWebViewVC.h"
+#import <SobotKit/SobotKit.h>
+#import "MyCertificationVC.h"
+
+#import "FZMMineOprationController.h"
+
+static CGFloat const headerHeight = 200.f; //顶部视图高度
+static CGFloat const space = 11.f;
+static CGFloat const rowHeight = 50.f;
+
+@interface MeCenterVC ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic, strong) UIScrollView * backView;
+@property (nonatomic, strong) UITableView * firstTableView;
+@property (nonatomic, strong) UITableView * secondTableView;
+@property (nonatomic, strong) NSMutableArray * dataSources;
+@property (nonatomic, strong) MeCenterHeadView * headerView;
+
+@end
+
+@implementation MeCenterVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = nil;
+    //    self.navigationController.delegate = self;
+    self.view.backgroundColor = CommonBackgroudColor;
+    [self reloadDataSources];
+    [self addSubViews];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kLoginSuccess object:nil];
+}
+//登录成功
+- (void)loginSuccess {
+    [self _reloadSceondTableView];
+}
+- (void)addSubViews {
+    //最下面是scrollerView  上面加上 2个tableview（禁止滚动） 跟 headerView 是为了解决 显示头部背景突出的部分
+    [self.view addSubview:self.backView];
+    [self.backView setContentInset:UIEdgeInsetsMake(headerHeight, 0, 0, 0)];
+    [self.backView addSubview:self.headerView];
+    [self.backView addSubview:self.firstTableView];
+    [self.backView addSubview:self.secondTableView];
+    [self.backView setContentSize:CGSizeMake(SCreenWidth, self.secondTableView.bottom + 10)];
+    
+    //刷新登录数据
+    [self.headerView updateHeadInfo];
+    WeakSelf
+    self.headerView.clickHeadIconBlock = ^{
+        if (![JJWLogin sharedMethod].isLogin) {
+            [LoginVC OpenLogin:weakSelf callback:nil];
+        }
+    };
+}
+- (void)exitAction{
+    [self hudShow:self.view msg:STTR_ater_on];
+    NSDictionary * dict = @{@"token":[JJWLogin sharedMethod].loginData.token};
+    WeakSelf
+    [JJWNetworkingTool PostWithUrl:Logout params:dict isReadCache:NO success:^(NSURLSessionDataTask *task, id responseObject) {
+        [weakSelf hudclose];
+    } failed:^(NSError *error, id chaceResponseObject) {
+        [weakSelf hudclose];
+    }];
+    [[JJWLogin sharedMethod]removeLoingData];
+    //更新头部信息
+   [self _reloadSceondTableView];
+    [[ZCLibClient getZCLibClient] removePush:^(NSString *uid, NSData *token, NSError *error) {
+        
+    }];
+    
+}
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return ((NSArray *)self.dataSources[tableView.tag - 100]).count;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return rowHeight;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray * titleArray = (NSArray *)self.dataSources[tableView.tag - 100];
+    NSString * title = [[titleArray objectAtIndex:indexPath.row]objectForKey:@"title"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([title isEqualToString:@"密码管理"]) {
+            dispatch_block_t t = ^(){
+                ManagePasswordVC * VC = [[ManagePasswordVC alloc]init];
+                [self.navigationController pushViewController:VC animated:YES];
+            };
+            if (![JJWLogin sharedMethod].isLogin) {
+                [LoginVC OpenLogin:self callback:^(BOOL compliont) {
+                    if (compliont) {
+                        t();
+                    }
+                }];
+            }else {
+                t();
+            }
+        }else if ([title isEqualToString:@"实名认证"]) {
+            dispatch_block_t t = ^(){
+                [self.navigationController pushViewController:[MyCertificationVC new] animated:YES];
+            };
+            if (![JJWLogin sharedMethod].isLogin) {
+                [LoginVC OpenLogin:self callback:^(BOOL compliont) {
+                    if (compliont) {
+                        t();
+                    }
+                }];
+            }else {
+                t();
+            }
+        }else if ([title isEqualToString:@"结算卡管理"]) {
+            dispatch_block_t t = ^(){
+                ManageCardVC * VC = [[ManageCardVC alloc]init];
+                VC.type = BindChangeCardType;
+                [self.navigationController pushViewController:VC animated:YES];
+            };
+            if (![JJWLogin sharedMethod].isLogin) {
+                [LoginVC OpenLogin:self callback:^(BOOL compliont) {
+                    if (compliont) {
+                        t();
+                    }
+                }];
+            }else {
+                t();
+            }
+        }else if ([title isEqualToString:@"企业商户信息"]) {
+            dispatch_block_t t = ^(){ //企业商户信息
+                CompanyInfoVC * VC = [[CompanyInfoVC alloc]init];
+                [self.navigationController pushViewController:VC animated:YES];
+            };
+            if (![JJWLogin sharedMethod].isLogin) {
+                [LoginVC OpenLogin:self callback:^(BOOL compliont) {
+                    if (compliont) {
+                        t();
+                    }
+                }];
+            }else {
+                t();
+            }
+        }else if ([title isEqualToString:@"用户协议"]) {
+            JJWWebViewVC * VC = [[JJWWebViewVC alloc]init];
+            VC.urlString = AgreementURL;
+            VC.isHiddenBottom = YES;
+            VC.title = title;
+            [self.navigationController pushViewController:VC animated:YES];
+        }else if ([title isEqualToString:@"费率信息"]) {
+            JJWWebViewVC * VC = [[JJWWebViewVC alloc]init];
+            VC.urlString = AgreementURL;
+            VC.isHiddenBottom = YES;
+            VC.title = title;
+            [self.navigationController pushViewController:VC animated:YES];
+        }else if ([title isEqualToString:@"操作手册"]) {
+//            JJWWebViewVC * VC = [[JJWWebViewVC alloc]init];
+//            VC.urlString = ManualURL;
+//            VC.isHiddenBottom = YES;
+//            VC.title = title;
+//            [self.navigationController pushViewController:VC animated:YES];
+            FZMMineOprationController *operatioVC = [[FZMMineOprationController alloc] init];
+            [self.navigationController pushViewController:operatioVC animated:YES];
+        }else if ([title isEqualToString:@"版本号"]) {
+            AboutOurVC * VC = [[AboutOurVC alloc]init];
+            [self.navigationController pushViewController:VC animated:YES];
+        }else if ([title isEqualToString:@"关于我们"]) {
+            JJWWebViewVC * VC = [[JJWWebViewVC alloc]init];
+            VC.urlString = AbountOurURL;
+            VC.isHiddenBottom = YES;
+            VC.title = title;
+            [self.navigationController pushViewController:VC animated:YES];
+        }else if ([title isEqualToString:@"客服热线"]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:TelMobile]];
+        }else if ([title isEqualToString:@"退出登录"]) {
+            [self jxt_showAlertWithTitle:@"温馨提示" message:@"您确定要退出么？" appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
+                alertMaker.addActionDefaultTitle(@"我再想想");
+                alertMaker.addActionDefaultTitle(@"确定");
+            } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
+                if (buttonIndex == 1) {
+                    [self exitAction];
+                }
+            }];
+        }
+    });
+}
+
+-(ShareCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString * cellId = @"cellId";
+    ShareCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!cell) {
+        cell = [[NSBundle mainBundle]loadNibNamed:@"ShareCell" owner:self options:nil].firstObject;
+    }
+    [cell updateMeCenterCell:((NSArray *)self.dataSources[tableView.tag - 100])[indexPath.row]];
+    return cell;
+}
+#pragma mark - scrollerDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGPoint point = scrollView.contentOffset;
+    if (point.y < - headerHeight) {
+        CGRect rect = _headerView.frame;
+        rect.origin.y = point.y;
+        rect.size.height = -point.y;
+        _headerView.frame = rect;
+    }
+}
+#pragma mark - initUI
+-(UIScrollView *)backView {
+    if (!_backView) {
+        UIScrollView * backScrollerView = [[UIScrollView alloc]initWithFrame:CGRectMake(0,0, SCreenWidth, SCreenHegiht - kTabBarHeight)];
+        backScrollerView.delegate = self;
+        backScrollerView.showsVerticalScrollIndicator = NO;
+        backScrollerView.showsHorizontalScrollIndicator = NO;
+        backScrollerView.backgroundColor = CommonBackgroudColor;
+        _backView = backScrollerView;
+    }
+    return _backView;
+}
+-(UITableView *)firstTableView {
+    if (!_firstTableView) {
+        _firstTableView = [[UITableView alloc]initWithFrame:CGRectMake(space, _headerView.bottom - 40, SCreenWidth - 2 * space, rowHeight * ((NSArray *)self.dataSources[0]).count) style:UITableViewStylePlain];
+        _firstTableView.tag = 100;
+        _firstTableView.delegate = self;
+        _firstTableView.dataSource = self;
+        _firstTableView.separatorColor = CellLine_Color;
+        _firstTableView.backgroundColor = [UIColor clearColor];
+        _firstTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _firstTableView.tableFooterView = [UIView new];
+        _firstTableView.layer.cornerRadius = 5.f;
+        _firstTableView.scrollEnabled = NO;
+        if ([_firstTableView respondsToSelector:@selector(setSeparatorInset:)]) {
+            [_firstTableView setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+        }
+        if ([_firstTableView respondsToSelector:@selector(setLayoutMargins:)]) {
+            [_firstTableView setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 10)];
+        }
+    }
+    return _firstTableView;
+}
+-(UITableView *)secondTableView {
+    if (!_secondTableView) {
+        _secondTableView = [[UITableView alloc]initWithFrame:CGRectMake(space, _firstTableView.bottom + space, SCreenWidth - 2 * space, rowHeight * ((NSArray *)self.dataSources[1]).count) style:UITableViewStylePlain];
+        _secondTableView.tag = 101;
+        _secondTableView.delegate = self;
+        _secondTableView.dataSource = self;
+        _secondTableView.separatorColor = CellLine_Color;
+        _secondTableView.backgroundColor = [UIColor clearColor];
+        _secondTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _secondTableView.tableFooterView = [UIView new];
+        _secondTableView.layer.cornerRadius = 5.f;
+        _secondTableView.scrollEnabled = NO;
+        if ([_secondTableView respondsToSelector:@selector(setSeparatorInset:)]) {
+            [_secondTableView setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+        }
+        if ([_secondTableView respondsToSelector:@selector(setLayoutMargins:)]) {
+            [_secondTableView setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 10)];
+        }
+    }
+    return _secondTableView;
+}
+
+-(MeCenterHeadView *)headerView {
+    if (!_headerView) {
+        _headerView = [[NSBundle mainBundle]loadNibNamed:@"MeCenterHeadView" owner:nil options:nil].firstObject;
+        _headerView.frame = CGRectMake(0,-headerHeight, SCreenWidth, headerHeight);
+    }
+    return _headerView;
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
+- (void)reloadDataSources {
+    if ([JJWLogin sharedMethod].version.is_open.integerValue == 1) {
+        self.dataSources = @[@[@{@"image":@"center_icon_0",@"title":@"密码管理"},
+                               @{@"image":@"center_icon_1",@"title":@"实名认证"},
+                               @{@"image":@"center_icon_2",@"title":@"结算卡管理"},
+                               @{@"image":@"center_icon_3",@"title":@"企业商户信息"},
+                               @{@"image":@"center_icon_4",@"title":@"用户协议"},
+                               @{@"image":@"center_icon_5",@"title":@"费率信息"}],
+
+                             @[@{@"image":@"center_icon_6",@"title":@"操作手册"},
+                               @{@"image":@"center_icon_7",@"title":@"版本号"},
+                               @{@"image":@"center_icon_8",@"title":@"关于我们"},
+                               @{@"image":@"center_icon_9",@"title":@"客服热线"}]].mutableCopy;
+    }else {
+        self.dataSources = @[@[@{@"image":@"center_icon_0",@"title":@"密码管理"},
+                               @{@"image":@"center_icon_1",@"title":@"实名认证"},
+                               @{@"image":@"center_icon_2",@"title":@"结算卡管理"},
+                               @{@"image":@"center_icon_3",@"title":@"企业商户信息"}],
+
+                             @[@{@"image":@"center_icon_7",@"title":@"版本号"},
+                               @{@"image":@"center_icon_9",@"title":@"客服热线"}]].mutableCopy;
+    }
+
+    if ([JJWLogin sharedMethod].isLogin) {
+        NSMutableArray * tempArray = [[self.dataSources objectAtIndex:1] mutableCopy];
+        [tempArray addObject:@{@"image":@"center_icon_10",@"title":@"退出登录"}];
+        [self.dataSources replaceObjectAtIndex:1 withObject:tempArray.copy];
+    }
+}
+- (void)_reloadSceondTableView {
+    [self.headerView updateHeadInfo];
+    [self reloadDataSources];
+    self.secondTableView.height = rowHeight * ((NSArray *)self.dataSources[1]).count;
+    [self.secondTableView reloadData];
+}
+
+
+@end

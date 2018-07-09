@@ -1,0 +1,34 @@
+//
+//  MyLucyListCell.m
+//  JiuJiuWu
+//
+//  Created by 张竟巍 on 2018/6/29.
+//  Copyright © 2018年 付志敏. All rights reserved.
+//
+
+#import "MyLucyListCell.h"
+#import "NSDate+Category.h"
+
+@implementation MyLucyListCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+
+-(void)updateCell:(MyLuckyDrawItem *)item {
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:item.add_time.doubleValue];
+    self.timeLabel.text = [NSString stringWithFormat:@"时间：%@",[date toString]];
+    self.orderLabel.text = [NSString stringWithFormat:@"编号：%@",item.order_no];
+    self.typeLabel.text = [NSString stringWithFormat:@"类型：%@",item.result_described];
+    
+}
+
+@end

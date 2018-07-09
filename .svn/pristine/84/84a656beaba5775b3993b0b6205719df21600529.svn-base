@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfitInfoVC">
+            <connections>
+                <outlet property="tableView" destination="etp-iH-ACf" id="C40-Ia-JG9"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="210"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="etp-iH-ACf">
+                    <rect key="frame" x="0.0" y="0.0" width="250" height="210"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="OGw-c5-l0o"/>
+                        <outlet property="delegate" destination="-1" id="CEo-TR-cer"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wb-vB-gSP">
+                    <rect key="frame" x="210" y="0.0" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="35F-k2-fkh"/>
+                        <constraint firstAttribute="height" constant="40" id="pHW-xQ-Mzr"/>
+                    </constraints>
+                    <state key="normal" image="profitinfo_cancel"/>
+                    <connections>
+                        <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="Byk-QH-BHC"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="etp-iH-ACf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0Uy-Je-gth"/>
+                <constraint firstItem="etp-iH-ACf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="14z-QT-bA5"/>
+                <constraint firstAttribute="trailing" secondItem="etp-iH-ACf" secondAttribute="trailing" id="BbB-UH-Pey"/>
+                <constraint firstAttribute="trailing" secondItem="9Wb-vB-gSP" secondAttribute="trailing" id="BsG-3T-73X"/>
+                <constraint firstAttribute="bottom" secondItem="etp-iH-ACf" secondAttribute="bottom" id="cQp-l1-e4X"/>
+                <constraint firstItem="9Wb-vB-gSP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qTF-Bs-Hej"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-63" y="-42"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="profitinfo_cancel" width="16" height="16"/>
+    </resources>
+</document>
