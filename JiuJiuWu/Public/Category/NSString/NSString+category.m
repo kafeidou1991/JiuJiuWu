@@ -32,13 +32,14 @@
 }
 //判断手机号码是否合法
 -(BOOL)checkPhoneNumInput{
+    return self.length ==11;
     
-    NSString *Regex = @"^1[1|2|3|4|5|6|7|8|9]\\d{9}";
-    
-    
-    //NSString *Regex =@"(13[0-9]|14[57]|15[012356789]|18[02356789])\\d{8}";
-    NSPredicate *mobileTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", Regex];
-    return [mobileTest evaluateWithObject:self];
+//    NSString *Regex = @"^1[1|2|3|4|5|6|7|8|9]\\d{9}";
+//
+//
+//    //NSString *Regex =@"(13[0-9]|14[57]|15[012356789]|18[02356789])\\d{8}";
+//    NSPredicate *mobileTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", Regex];
+//    return [mobileTest evaluateWithObject:self];
 }
 //判断密码是否包含非法字符
 - (BOOL)checkPassword {
