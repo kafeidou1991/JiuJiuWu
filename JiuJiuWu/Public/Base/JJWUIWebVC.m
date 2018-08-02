@@ -29,6 +29,7 @@
     [self initBridge];
     [self catchJsLog];
     
+    
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

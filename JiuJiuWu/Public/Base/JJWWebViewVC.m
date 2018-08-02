@@ -32,11 +32,6 @@
         UIBarButtonItem * leftItem = [[UIBarButtonItem alloc]initWithImage:buttonNormal style:UIBarButtonItemStylePlain target:self action:@selector(shareAction)];
         [self.navigationItem setRightBarButtonItem:leftItem animated:YES];
     }
-    if (_isShowShare) {
-        UIImage *buttonNormal = [[UIImage imageNamed:@"share_url"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        UIBarButtonItem * leftItem = [[UIBarButtonItem alloc]initWithImage:buttonNormal style:UIBarButtonItemStylePlain target:self action:@selector(shareAction)];
-        [self.navigationItem setRightBarButtonItem:leftItem animated:YES];
-    }
     [self loadWebView];
     [self initBridge];
     

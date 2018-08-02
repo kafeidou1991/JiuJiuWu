@@ -33,7 +33,7 @@
 //判断手机号码是否合法
 -(BOOL)checkPhoneNumInput{
     
-    NSString *Regex = @"^1[3|4|5|7|8]\\d{9}";
+    NSString *Regex = @"^1[1|2|3|4|5|6|7|8|9]\\d{9}";
     
     
     //NSString *Regex =@"(13[0-9]|14[57]|15[012356789]|18[02356789])\\d{8}";

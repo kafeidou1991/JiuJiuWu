@@ -58,7 +58,11 @@
     [self.view endEditing:YES];
     NSString * account = [self.mobileTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString * seccort = [self.passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if (![account checkPhoneNumInput]) {
+//    if (![account checkPhoneNumInput]) {
+//        [JJWBase alertMessage:@"请输入正确的手机号！" cb:nil];
+//        return;
+//    }
+    if (account.length != 11) {
         [JJWBase alertMessage:@"请输入正确的手机号！" cb:nil];
         return;
     }
